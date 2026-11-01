@@ -219,7 +219,8 @@ elif ss.step == 4:
                     st.text(simp.final_text)
             else:
                 if tr and tr.blocked:
-                    st.warning("The translation changed a number, so it was hidden. Showing English.")
+                    st.warning("The translation could not be checked number by number (a number was changed or "
+                               "written as a word), so it is hidden. Showing English. Please ask your pharmacist.")
                 st.text(simp.final_text)
         explanations.append((name, simp.final_text, tr.text if tr and not tr.blocked else None))
     if s2.skipped:
