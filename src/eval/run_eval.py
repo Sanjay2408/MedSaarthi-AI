@@ -297,7 +297,24 @@ def part_translate(simplify_rows):
             rows.append({"id": r["id"], "drug": r["drug"], "lang": lang, "numbers_ok": tr.numbers_ok,
                          "back_similarity": tr.similarity, "seconds": round(time.perf_counter() - t0, 1),
                          "english": r["final_text"], "translation": tr.text, "back_translation": tr.back_translation})
+    return recheck_translate(rows)
+
+
+def recheck_translate(rows):
+    """Re-apply the current number check to saved translations (no re-translation) and
+    classify failures: 'missing' = digits dropped (usually written as words, unverifiable),
+    'changed' = a digit appears that was not in the English source (potential error)."""
+    from collections import Counter
+
+    from src.translate import numbers
+
+    for x in rows:
+        src, tgt = Counter(numbers(x["english"])), Counter(numbers(x["translation"]))
+        x["numbers_ok"] = src == tgt
+        x["number_issue"] = None if src == tgt else ("changed" if tgt - src else "missing")
     summary = {lang: {"n": len(rs), "numbers_ok_pct": pct(sum(x["numbers_ok"] for x in rs), len(rs)),
+                      "digits_missing": sum(x["number_issue"] == "missing" for x in rs),
+                      "digits_changed": sum(x["number_issue"] == "changed" for x in rs),
                       "median_back_similarity": statistics.median(x["back_similarity"] for x in rs),
                       "median_seconds": statistics.median(x["seconds"] for x in rs)}
                for lang in ("hi", "kn", "ta", "te") for rs in [[x for x in rows if x["lang"] == lang]]}
@@ -352,6 +369,8 @@ def main():
             write_rating_sheet(results["simplify"]["rows"])
         elif part == "translate":
             results["translate"] = part_translate(results["simplify"]["rows"])
+        elif part == "translate_recheck":
+            results["translate"] = recheck_translate(results["translate"]["rows"])
         results_path.write_text(json.dumps(results, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
         print(f"   done in {time.perf_counter() - t0:.0f}s", flush=True)
 

@@ -5,7 +5,8 @@
 3. embed with BGE-M3, retrieve top-2 chunks for "How should I use this medicine?"
 4. summarise with "Extract and summarize dosage" BEFORE adding to the generation prompt
 
-Leaflets here are synthetic and short, so most produce 1-2 chunks; noted in the report.
+Leaflets here are synthetic and short (1.5-2.3k chars), so each is a single chunk and
+retrieval is trivial; the pipeline is kept so real, longer leaflets can be dropped in.
 """
 from dataclasses import dataclass
 from functools import lru_cache
