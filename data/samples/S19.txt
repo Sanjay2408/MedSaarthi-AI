@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Rao, MBBS
+Patient: Test Patient 19    Age: 51
+Date: 2026-10-21
+Rx
+1. Tab.  Metformin  BD  x 30 days  after food
+Signature: ________

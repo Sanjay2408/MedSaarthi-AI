@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Iyer, MBBS
+Patient: Test Patient 15    Age: 42
+Date: 2026-10-10
+Rx
+1. Tab.  Amlodipine  10 mg  OD  x 30 days
+Signature: ________

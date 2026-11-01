@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Shah, MBBS
+Patient: Test Patient 12    Age: 58
+Date: 2026-10-01
+Rx
+1. Cap.  Amoxicillin  250 mg  TDS  x 5 days
+Signature: ________

@@ -1,0 +1,28 @@
+{
+  "id": "S16",
+  "category": "degraded",
+  "patient_alias": "Test Patient 16",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Ibuprofen",
+      "dose": "200 mg",
+      "route": "oral",
+      "frequency": "TDS",
+      "duration": "3 days",
+      "instructions": "after food",
+      "expect_flag": false,
+      "expect_reasons": []
+    },
+    {
+      "name": "Cetirizine",
+      "dose": "10 mg",
+      "route": "oral",
+      "frequency": "HS",
+      "duration": "3 days",
+      "instructions": null,
+      "expect_flag": false,
+      "expect_reasons": []
+    }
+  ]
+}

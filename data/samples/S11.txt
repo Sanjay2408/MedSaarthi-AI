@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Rao, MBBS
+Patient: Test Patient 11    Age: 70
+Date: 2026-10-26
+Rx
+1. Tab.  Paracetamol  650 mg  BD  x 3 days  after food
+Signature: ________

@@ -1,0 +1,8 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Reddy, MBBS
+Patient: Test Patient 10    Age: 59
+Date: 2026-10-09
+Rx
+1. Eye drops  Moxifloxacin  1 drop  QID  x 5 days  in both eyes
+2. Tab.  Cetirizine  10 mg  OD  x 5 days
+Signature: ________

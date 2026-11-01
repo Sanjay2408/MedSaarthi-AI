@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Reddy, MBBS
+Patient: Test Patient 05    Age: 24
+Date: 2026-10-01
+Rx
+1. Tab.  Cetirizine  10 mg  HS  x 5 days
+Signature: ________

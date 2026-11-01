@@ -1,0 +1,20 @@
+{
+  "id": "S20",
+  "category": "ambiguous",
+  "patient_alias": "Test Patient 20",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Amlodipine",
+      "dose": "5 mg",
+      "route": "oral",
+      "frequency": null,
+      "duration": "30 days",
+      "instructions": null,
+      "expect_flag": true,
+      "expect_reasons": [
+        "MISSING_FREQUENCY"
+      ]
+    }
+  ]
+}

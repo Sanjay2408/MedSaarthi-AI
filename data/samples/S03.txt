@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Iyer, MBBS
+Patient: Test Patient 03    Age: 69
+Date: 2026-10-04
+Rx
+1. Tab.  Metformin  500 mg  BD  x 30 days  after meals
+Signature: ________

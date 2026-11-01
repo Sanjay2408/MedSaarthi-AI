@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Rao, MBBS
+Patient: Test Patient 20    Age: 35
+Date: 2026-10-28
+Rx
+1. Tab.  Amlodipine  5 mg  x 30 days
+Signature: ________

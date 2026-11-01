@@ -1,0 +1,11 @@
+# id: simplify_v1
+# version: 1.0
+# technique: Zero-shot baseline (one-line instruction)
+# why: Control condition (V1) for the comparative experiment, mirroring Model 1 in
+#      de Jesus et al. 2025 (standard prompt).
+=== SYSTEM ===
+You are a helpful assistant.
+=== USER ===
+Explain this medicine instruction to a patient in simple words.
+{item}
+Dose times: {times}

@@ -1,0 +1,28 @@
+{
+  "id": "S06",
+  "category": "clean",
+  "patient_alias": "Test Patient 06",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Azithromycin",
+      "dose": "500 mg",
+      "route": "oral",
+      "frequency": "OD",
+      "duration": "3 days",
+      "instructions": "one hour before food",
+      "expect_flag": false,
+      "expect_reasons": []
+    },
+    {
+      "name": "Paracetamol",
+      "dose": "650 mg",
+      "route": "oral",
+      "frequency": "SOS",
+      "duration": "3 days",
+      "instructions": "for fever",
+      "expect_flag": false,
+      "expect_reasons": []
+    }
+  ]
+}

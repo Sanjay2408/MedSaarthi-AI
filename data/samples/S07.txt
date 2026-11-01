@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Nair, MBBS
+Patient: Test Patient 07    Age: 60
+Date: 2026-10-01
+Rx
+1. Tab.  Ibuprofen  400 mg  every 8 hours  x 3 days  after food
+Signature: ________

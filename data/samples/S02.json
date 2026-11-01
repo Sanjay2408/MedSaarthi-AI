@@ -1,0 +1,28 @@
+{
+  "id": "S02",
+  "category": "clean",
+  "patient_alias": "Test Patient 02",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Amoxicillin",
+      "dose": "500 mg",
+      "route": "oral",
+      "frequency": "1-1-1",
+      "duration": "7 days",
+      "instructions": "after food",
+      "expect_flag": false,
+      "expect_reasons": []
+    },
+    {
+      "name": "Pantoprazole",
+      "dose": "40 mg",
+      "route": "oral",
+      "frequency": "OD",
+      "duration": "7 days",
+      "instructions": "before breakfast",
+      "expect_flag": false,
+      "expect_reasons": []
+    }
+  ]
+}

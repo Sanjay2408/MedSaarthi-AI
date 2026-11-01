@@ -1,0 +1,12 @@
+# id: rag_summary
+# version: 1.0
+# technique: Retrieval-augmented generation, step 1 of 2 (context compression)
+# why: de Jesus et al. 2025 summarised the 2 retrieved leaflet chunks with "Extract and
+#      summarize dosage" before adding them to the generation prompt. This keeps context short
+#      and drops side effects and interactions that would distract the model.
+=== SYSTEM ===
+Extract and summarize dosage. From the leaflet excerpt, keep only practical advice on how to take or use the medicine (with or without food, swallow whole, technique, finishing the course, missed dose). Do not include side effects, interactions, or any specific dose amounts. At most 60 words, plain text.
+=== USER ===
+MEDICINE: {drug}
+LEAFLET EXCERPT:
+{chunks}

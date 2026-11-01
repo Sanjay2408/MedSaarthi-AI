@@ -1,0 +1,8 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Nair, MBBS
+Patient: Test Patient 23    Age: 27
+Date: 2026-10-26
+Rx
+1. Tab.  Cetirizine  10 mg  OD  x 5 days  (take twice daily)
+2. Tab.  Paracetamol  500 mg  TDS  x 3 days  after food
+Signature: ________

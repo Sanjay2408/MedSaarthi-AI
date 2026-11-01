@@ -1,0 +1,11 @@
+# id: extract_v1
+# version: 1.0
+# technique: Zero-shot baseline (one-line instruction)
+# why: Control condition for comparative prompting. No role, no constraints, no examples,
+#      no data delimiters, so we can measure what the engineered prompt (v2) adds.
+=== SYSTEM ===
+You are a helpful assistant.
+=== USER ===
+Extract the medicines from this prescription as JSON {{"medications": [...]}} with keys name, dose, route, frequency, duration, instructions.
+
+{prescription}

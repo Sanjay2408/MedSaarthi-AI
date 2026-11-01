@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Rao, MBBS
+Patient: Test Patient 18    Age: 45
+Date: 2026-10-12
+Rx
+1. Tab.  Atorvastatin  20 mg  HS  x 30 days
+Signature: ________

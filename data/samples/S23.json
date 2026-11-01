@@ -1,0 +1,30 @@
+{
+  "id": "S23",
+  "category": "ambiguous",
+  "patient_alias": "Test Patient 23",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Cetirizine",
+      "dose": "10 mg",
+      "route": "oral",
+      "frequency": "OD",
+      "duration": "5 days",
+      "instructions": "take twice daily",
+      "expect_flag": true,
+      "expect_reasons": [
+        "CONFLICTING"
+      ]
+    },
+    {
+      "name": "Paracetamol",
+      "dose": "500 mg",
+      "route": "oral",
+      "frequency": "TDS",
+      "duration": "3 days",
+      "instructions": "after food",
+      "expect_flag": false,
+      "expect_reasons": []
+    }
+  ]
+}

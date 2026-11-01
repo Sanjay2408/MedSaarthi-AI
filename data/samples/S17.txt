@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Nair, MBBS
+Patient: Test Patient 17    Age: 36
+Date: 2026-10-04
+Rx
+1. Tab.  Azithromycin  250 mg  OD  x 5 days
+Signature: ________

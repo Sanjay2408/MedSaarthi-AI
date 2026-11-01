@@ -1,0 +1,18 @@
+{
+  "id": "S18",
+  "category": "degraded",
+  "patient_alias": "Test Patient 18",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Atorvastatin",
+      "dose": "20 mg",
+      "route": "oral",
+      "frequency": "HS",
+      "duration": "30 days",
+      "instructions": null,
+      "expect_flag": false,
+      "expect_reasons": []
+    }
+  ]
+}

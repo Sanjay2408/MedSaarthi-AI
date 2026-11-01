@@ -94,13 +94,18 @@ class ValidationResult:
     errors: list[str] = field(default_factory=list)
 
 
-def validate_output(text: str, item: MedicationItem, allowed_times: list[str] | None = None) -> ValidationResult:
+def validate_output(text: str, item: MedicationItem, allowed_times: list[str] | None = None,
+                    ignore_phrases: list[str] | None = None) -> ValidationResult:
     """Block output whose numbers or units are not in the confirmed item.
 
     allowed_times are the schedule times computed by src.schedule; any other
-    clock time in the text is an error.
+    clock time in the text is an error. ignore_phrases (e.g. the patient's
+    name) are removed before checking.
     """
     errors: list[str] = []
+    for phrase in ignore_phrases or []:
+        if phrase:
+            text = re.sub(re.escape(phrase), " ", text, flags=re.IGNORECASE)
     source_pairs: set[tuple[str, str | None]] = set()
     for name in ALL_FIELDS:
         f = item.field(name)

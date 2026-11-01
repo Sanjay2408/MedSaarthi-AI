@@ -1,0 +1,18 @@
+{
+  "id": "S14",
+  "category": "degraded",
+  "patient_alias": "Test Patient 14",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Pantoprazole",
+      "dose": "40 mg",
+      "route": "oral",
+      "frequency": "OD",
+      "duration": "14 days",
+      "instructions": "before breakfast",
+      "expect_flag": false,
+      "expect_reasons": []
+    }
+  ]
+}

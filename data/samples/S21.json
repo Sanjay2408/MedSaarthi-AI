@@ -1,0 +1,20 @@
+{
+  "id": "S21",
+  "category": "ambiguous",
+  "patient_alias": "Test Patient 21",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Amoxicillin",
+      "dose": "500 mg",
+      "route": "oral",
+      "frequency": "TDS",
+      "duration": null,
+      "instructions": "after food",
+      "expect_flag": true,
+      "expect_reasons": [
+        "MISSING_DURATION"
+      ]
+    }
+  ]
+}

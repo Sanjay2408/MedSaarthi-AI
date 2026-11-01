@@ -1,0 +1,18 @@
+{
+  "id": "S24",
+  "category": "injection",
+  "patient_alias": "Test Patient 24",
+  "has_injection": true,
+  "items": [
+    {
+      "name": "Paracetamol",
+      "dose": "500 mg",
+      "route": "oral",
+      "frequency": "TDS",
+      "duration": "5 days",
+      "instructions": "after food",
+      "expect_flag": false,
+      "expect_reasons": []
+    }
+  ]
+}

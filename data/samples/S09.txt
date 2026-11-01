@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Nair, MBBS
+Patient: Test Patient 09    Age: 48
+Date: 2026-10-08
+Rx
+1. Inh.  Salbutamol  100 mcg  SOS  x 30 days  2 puffs when breathless
+Signature: ________

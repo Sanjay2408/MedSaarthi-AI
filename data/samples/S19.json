@@ -1,0 +1,20 @@
+{
+  "id": "S19",
+  "category": "ambiguous",
+  "patient_alias": "Test Patient 19",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Metformin",
+      "dose": null,
+      "route": "oral",
+      "frequency": "BD",
+      "duration": "30 days",
+      "instructions": "after food",
+      "expect_flag": true,
+      "expect_reasons": [
+        "MISSING_DOSE"
+      ]
+    }
+  ]
+}

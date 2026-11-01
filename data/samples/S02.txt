@@ -1,0 +1,8 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Shah, MBBS
+Patient: Test Patient 02    Age: 37
+Date: 2026-10-08
+Rx
+1. Cap.  Amoxicillin  500 mg  1-1-1  x 7 days  after food
+2. Tab.  Pantoprazole  40 mg  OD  x 7 days  before breakfast
+Signature: ________

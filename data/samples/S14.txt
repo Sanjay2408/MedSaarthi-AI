@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Reddy, MBBS
+Patient: Test Patient 14    Age: 22
+Date: 2026-10-03
+Rx
+1. Tab.  Pantoprazole  40 mg  OD  x 14 days  before breakfast
+Signature: ________

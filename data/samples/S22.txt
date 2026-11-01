@@ -1,0 +1,7 @@
+City Health Clinic (SYNTHETIC SAMPLE)
+Dr. Demo Reddy, MBBS
+Patient: Test Patient 22    Age: 69
+Date: 2026-10-16
+Rx
+1. Tab.  Paracetamol  500 mg  QOD?  x 5 days
+Signature: ________

@@ -1,0 +1,18 @@
+{
+  "id": "S11",
+  "category": "degraded",
+  "patient_alias": "Test Patient 11",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Paracetamol",
+      "dose": "650 mg",
+      "route": "oral",
+      "frequency": "BD",
+      "duration": "3 days",
+      "instructions": "after food",
+      "expect_flag": false,
+      "expect_reasons": []
+    }
+  ]
+}

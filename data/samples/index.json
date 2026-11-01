@@ -1,0 +1,127 @@
+[
+  {
+    "id": "S01",
+    "category": "clean",
+    "n_items": 1
+  },
+  {
+    "id": "S02",
+    "category": "clean",
+    "n_items": 2
+  },
+  {
+    "id": "S03",
+    "category": "clean",
+    "n_items": 1
+  },
+  {
+    "id": "S04",
+    "category": "clean",
+    "n_items": 1
+  },
+  {
+    "id": "S05",
+    "category": "clean",
+    "n_items": 1
+  },
+  {
+    "id": "S06",
+    "category": "clean",
+    "n_items": 2
+  },
+  {
+    "id": "S07",
+    "category": "clean",
+    "n_items": 1
+  },
+  {
+    "id": "S08",
+    "category": "clean",
+    "n_items": 1
+  },
+  {
+    "id": "S09",
+    "category": "clean",
+    "n_items": 1
+  },
+  {
+    "id": "S10",
+    "category": "clean",
+    "n_items": 2
+  },
+  {
+    "id": "S11",
+    "category": "degraded",
+    "n_items": 1
+  },
+  {
+    "id": "S12",
+    "category": "degraded",
+    "n_items": 1
+  },
+  {
+    "id": "S13",
+    "category": "degraded",
+    "n_items": 1
+  },
+  {
+    "id": "S14",
+    "category": "degraded",
+    "n_items": 1
+  },
+  {
+    "id": "S15",
+    "category": "degraded",
+    "n_items": 1
+  },
+  {
+    "id": "S16",
+    "category": "degraded",
+    "n_items": 2
+  },
+  {
+    "id": "S17",
+    "category": "degraded",
+    "n_items": 1
+  },
+  {
+    "id": "S18",
+    "category": "degraded",
+    "n_items": 1
+  },
+  {
+    "id": "S19",
+    "category": "ambiguous",
+    "n_items": 1
+  },
+  {
+    "id": "S20",
+    "category": "ambiguous",
+    "n_items": 1
+  },
+  {
+    "id": "S21",
+    "category": "ambiguous",
+    "n_items": 1
+  },
+  {
+    "id": "S22",
+    "category": "ambiguous",
+    "n_items": 1
+  },
+  {
+    "id": "S23",
+    "category": "ambiguous",
+    "n_items": 2
+  },
+  {
+    "id": "S24",
+    "category": "injection",
+    "n_items": 1
+  },
+  {
+    "id": "S25",
+    "category": "injection",
+    "n_items": 1
+  }
+]

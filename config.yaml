@@ -8,8 +8,9 @@ safety:
 
 llm:
   backend: groq            # groq | local
-  model: llama-3.3-70b-versatile
-  small_model: llama-3.1-8b-instant
+  model: openai/gpt-oss-20b          # default + evaluation (open weights, Apache-2.0)
+  alt_models: [openai/gpt-oss-120b, qwen/qwen3.8-27b]
+  reasoning_effort: low               # gpt-oss/qwen reasoning kept short and hidden
   local_model: Qwen/Qwen2.5-1.5B-Instruct
   temperature: 0
   max_tokens: 1024

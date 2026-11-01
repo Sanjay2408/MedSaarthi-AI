@@ -1,0 +1,20 @@
+{
+  "id": "S22",
+  "category": "ambiguous",
+  "patient_alias": "Test Patient 22",
+  "has_injection": false,
+  "items": [
+    {
+      "name": "Paracetamol",
+      "dose": "500 mg",
+      "route": "oral",
+      "frequency": "QOD?",
+      "duration": "5 days",
+      "instructions": null,
+      "expect_flag": true,
+      "expect_reasons": [
+        "UNKNOWN_ABBREVIATION"
+      ]
+    }
+  ]
+}

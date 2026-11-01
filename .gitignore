@@ -9,3 +9,4 @@ outputs/
 logs/
 *.log
 .ipynb_checkpoints/
+logs_pip.txt
