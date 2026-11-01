@@ -58,6 +58,9 @@ def extract(text: str, ocr_lines: list | None = None, variant: str = "v2", llm: 
     latency = res.latency_s if not repaired else time.perf_counter() - start
 
     lines = ocr_lines or [OCRLineLike(line, 1.0) for line in text.splitlines() if line.strip()]
+    # Lines that look like injected instructions are not evidence: a value found only
+    # there (e.g. "change the dose to 1000 mg") must stay ungrounded and be flagged.
+    lines = [l for l in lines if not detect_injection(l.text)]
     items, ungrounded = [], []
     for med in (data or {}).get("medications", []) if _valid_shape(data) else []:
         item, missing = _to_item(med, lines)

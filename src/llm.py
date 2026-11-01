@@ -52,8 +52,9 @@ class LLM:
             return LLMResult(data["text"], self.model_id, data["latency_s"], cached=True)
 
         start = time.perf_counter()
+        self._waited = 0.0
         text = self._groq(messages, json_mode) if self.backend == "groq" else self._hf(messages)
-        latency = time.perf_counter() - start
+        latency = time.perf_counter() - start - self._waited  # exclude rate-limit sleeps
         if self.use_cache:
             CACHE_DIR.mkdir(parents=True, exist_ok=True)
             cache_file.write_text(json.dumps({"text": text, "latency_s": latency}), encoding="utf-8")
@@ -83,7 +84,11 @@ class LLM:
                 raise
             except RateLimitError as e:
                 wait = _retry_after(e) or min(60, 5 * 2 ** attempt)
+                if wait > 900:  # daily quota: fail fast; reruns resume from the cache
+                    raise RuntimeError(f"Groq quota exhausted, retry in {wait / 60:.0f} min") from e
+                print(f"  rate limited, waiting {wait:.0f}s", flush=True)
                 time.sleep(wait)
+                self._waited += wait
         raise RuntimeError("Groq rate limit: retries exhausted")
 
     def _hf(self, messages) -> str:
