@@ -5,7 +5,8 @@ __pycache__/
 .env
 .cache/
 models/
-outputs/
+outputs/*
+!outputs/eval/
 logs/
 *.log
 .ipynb_checkpoints/
