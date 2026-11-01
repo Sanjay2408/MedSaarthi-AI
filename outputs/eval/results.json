@@ -1741,5 +1741,1307 @@
         }
       ]
     }
+  },
+  "simplify": {
+    "summary": {
+      "v1": {
+        "n": 25,
+        "validator_pass_pct": 12.0,
+        "median_fk_grade": 5.5,
+        "median_words": 142,
+        "median_latency_s": 0.73,
+        "blocked_wording": 0,
+        "items_with_any_error": 22,
+        "taxonomy_counts": {
+          "type1_incorrect_use_risk": 22,
+          "type2_vague_or_incomplete": 7
+        }
+      },
+      "v2": {
+        "n": 25,
+        "validator_pass_pct": 96.0,
+        "median_fk_grade": 1.9,
+        "median_words": 25,
+        "median_latency_s": 3.89,
+        "blocked_wording": 1,
+        "items_with_any_error": 1,
+        "taxonomy_counts": {
+          "type1_incorrect_use_risk": 1
+        }
+      },
+      "v3": {
+        "n": 25,
+        "validator_pass_pct": 96.0,
+        "median_fk_grade": 1.9,
+        "median_words": 24,
+        "median_latency_s": 2.1,
+        "blocked_wording": 1,
+        "items_with_any_error": 2,
+        "taxonomy_counts": {
+          "type2_vague_or_incomplete": 1,
+          "type1_incorrect_use_risk": 1
+        }
+      }
+    },
+    "rows": [
+      {
+        "id": "S01",
+        "drug": "Paracetamol",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '1' not in confirmed data"
+        ],
+        "fk_grade": 7.1,
+        "flesch_ease": 73.3,
+        "words": 213,
+        "latency_s": 1.86,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Paracetamol** (also called acetaminophen)  \n- **500 mg** each time\n\n**How to take it:**  \n- **Oral** – swallow the tablet with water.  \n- **After food** – take it after you’ve eaten a meal or a snack so it’s easier on your stomach.  \n\n**When to take it:**  \n- **Three times a day (TDS)** – at **08:00 am, 02:00 pm, and 08:00 pm**.  \n- Keep the same times each day so the medicine stays steady in your body.\n\n**How long:**  \n- **5 days** – take the medicine at the times above for five consecutive days.  \n- After the 5th day, stop unless your doctor says otherwise.\n\n**Why this matters:**  \n- Taking it after food helps prevent stomach upset.  \n- Sticking to the schedule keeps the pain relief consistent and reduces the chance of missing a dose.\n\n**If you miss a dose:**  \n- Take it as soon as you remember, but don’t double‑dose to catch up.  \n- If it’s almost time for the next dose, skip the missed one and continue with the regular schedule.\n\n**When to call your doctor:**  \n- If you feel worse, have a fever that won’t go down, or notice any side‑effects (rash, stomach pain, unusual tiredness).  \n\nThat’s it! Just remember 08:00, 14:00, 20:00, after food, for 5 days.",
+        "final_text": "Hello Test Patient 01. Take Paracetamol 500 mg at 08:00, 14:00, 20:00. Continue for 5 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S02",
+        "drug": "Amoxicillin",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '8' not in confirmed data",
+          "number '2' not in confirmed data",
+          "number '8' not in confirmed data",
+          "number '2' not in confirmed data"
+        ],
+        "fk_grade": 4.5,
+        "flesch_ease": 86.1,
+        "words": 184,
+        "latency_s": 0.95,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Amoxicillin** – a medicine that helps fight bacterial infections.  \n- **500 mg** each time.\n\n**How to take it:**  \n- **Oral** – swallow it with water.  \n- **After food** – take it right after you eat a meal or a snack so it’s easier on your stomach.\n\n**When to take it:**  \n- **Three times a day** – at **08:00 (8 am)**, **14:00 (2 pm)**, and **20:00 (8 pm)**.  \n- The “1‑1‑1” means one tablet at each of those times.\n\n**How long:**  \n- **7 days** – keep taking it at those times every day for a full week, even if you feel better before the week is over.\n\n**Quick tips:**  \n1. **Set a reminder** (alarm or phone) for each dose.  \n2. **Take it with food** – a small snack or a meal is fine.  \n3. **Finish the full course** – stop only when your doctor says it’s okay.  \n\nIf you miss a dose, take it as soon as you remember, but don’t double‑dose to make up for it. If you have any questions or feel unwell, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 02. Take Amoxicillin 500 mg at 08:00, 14:00, 20:00. Continue for 7 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S02",
+        "drug": "Pantoprazole",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '30' not in confirmed data"
+        ],
+        "fk_grade": 7.9,
+        "flesch_ease": 72.5,
+        "words": 123,
+        "latency_s": 0.63,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Pantoprazole 40 mg** (a pill that helps reduce stomach acid)\n\n**How to take it:**  \n- **Take one pill by mouth** (oral)  \n- **Once a day** (OD) – just one dose each day  \n- **For 7 days** – keep taking it every day for a week  \n\n**When to take it:**  \n- **Before breakfast** – take the pill about 30 minutes before you eat your morning meal.  \n- **Suggested time:** around **08:00 am** (or whenever you normally have breakfast).\n\n**Why this matters:**  \nTaking it before breakfast helps the medicine work best and keeps your stomach comfortable.\n\n**If you miss a dose:**  \nTake it as soon as you remember, but don’t double‑dose the next day.\n\n**Any questions or concerns?** Let me know!",
+        "final_text": "Hello Test Patient 02. Take Pantoprazole 40 mg at 08:00. Continue for 7 days. Note: before breakfast. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S03",
+        "drug": "Metformin",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '1' not in confirmed data",
+          "number '1' not in confirmed data",
+          "number '8' not in confirmed data",
+          "number '8' not in confirmed data"
+        ],
+        "fk_grade": 4.3,
+        "flesch_ease": 83.1,
+        "words": 143,
+        "latency_s": 0.67,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Metformin** – 500 mg tablets\n\n**How to take it:**  \n- **Oral** – swallow the tablet with water.  \n- **After meals** – take it right after you finish a meal.  \n- **Twice a day (BD)** – once in the morning and once in the evening.  \n- **Times:**  \n  - **08:00** (about 8 a.m.) – after your breakfast.  \n  - **20:00** (8 p.m.) – after your dinner.  \n\n**How long:**  \n- Keep taking it for **30 days**.  \n\n**Why it matters:**  \nTaking Metformin after meals helps your body use insulin better and keeps your blood sugar steady. Stick to the times and finish the full 30‑day course unless your doctor says otherwise. If you miss a dose, take it as soon as you remember, but don’t double up the next dose. If you have any questions or feel unwell, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 03. Take Metformin 500 mg at 08:00, 20:00. Continue for 30 days. Note: after meals. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S04",
+        "drug": "Amlodipine",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '2' not in confirmed data",
+          "number '3' not in confirmed data",
+          "number '4' not in confirmed data"
+        ],
+        "fk_grade": 6.5,
+        "flesch_ease": 80.5,
+        "words": 115,
+        "latency_s": 0.78,
+        "taxonomy": [
+          "type1_incorrect_use_risk",
+          "type2_vague_or_incomplete"
+        ],
+        "llm_text": "**What you need to know**\n\n- **Medicine:** Amlodipine  \n- **How much:** 5 mg  \n- **How to take it:** By mouth (swallow the tablet with water)  \n- **When to take it:** Once a day, every morning  \n- **How long:** For 30 days  \n\n**Simple instructions**\n\n1. **Take it at 8:00 am** – that’s the time the doctor said.  \n2. **Swallow the whole tablet** with a glass of water.  \n3. **Do it every day** for the next 30 days.  \n4. **Don’t skip a dose** – if you miss it, take it as soon as you remember, but don’t double up the next day.  \n\nIf you have any questions or feel any side‑effects, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 04. Take Amlodipine 5 mg at 08:00. Continue for 30 days. Note: in the morning. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S05",
+        "drug": "Cetirizine",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "unit mismatch for '1': got 'tablet', expected ['hour']"
+        ],
+        "fk_grade": 5.3,
+        "flesch_ease": 78.3,
+        "words": 52,
+        "latency_s": 0.85,
+        "taxonomy": [
+          "type1_incorrect_use_risk",
+          "type2_vague_or_incomplete"
+        ],
+        "llm_text": "**Cetirizine – 10 mg tablets**\n\n- **How to take it:** Swallow one tablet by mouth.  \n- **When to take it:** At bedtime (about 10 p.m.).  \n- **How long to keep taking it:** For 5 days.  \n\nThat’s it! If you have any questions or feel any side‑effects, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Continue for 5 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S06",
+        "drug": "Azithromycin",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "unit mismatch for '1': got 'tablet', expected ['hour']",
+          "time '07:00 AM' not in computed schedule"
+        ],
+        "fk_grade": 5.4,
+        "flesch_ease": 84.2,
+        "words": 149,
+        "latency_s": 1.0,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Azithromycin** – a medicine that helps fight infections.  \n- **Dose:** 500 mg (one tablet or capsule).  \n- **How to take it:** Swallow it by mouth.  \n- **When to take it:** Once a day (OD) for 3 days.  \n- **Special note:** Take it **one hour before you eat** (so it’s not taken with food).  \n- **Timing:** If you’re taking it at 08:00 AM, take the pill at 07:00 AM, then have breakfast at 08:00 AM.\n\n**Why the timing matters:**  \nAzithromycin works best when your stomach is empty, so taking it an hour before food helps the medicine be absorbed properly.\n\n**What to do if you miss a dose:**  \nIf you forget, take it as soon as you remember, but don’t double‑dose to make up for the missed one.\n\n**Finish the full 3‑day course** even if you feel better, to make sure the infection is fully cleared.",
+        "final_text": "Hello Test Patient 06. Take Azithromycin 500 mg at 08:00. Continue for 3 days. Note: one hour before food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S06",
+        "drug": "Paracetamol",
+        "variant": "v1",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 4.5,
+        "flesch_ease": 85.6,
+        "words": 124,
+        "latency_s": 0.73,
+        "taxonomy": [],
+        "llm_text": "**What you’ll take:**  \n- **Paracetamol 650 mg** (the pill or liquid you’re given)\n\n**How to take it:**  \n- **Oral** – swallow it with water.  \n- **When you need it** – take a dose only if you have a fever or feel it’s necessary.  \n- **Do not take it more often than that.**\n\n**How long:**  \n- Use it for up to **3 days**.  \n- If your fever goes away before 3 days, you can stop.  \n- If you still have a fever after 3 days, talk to your doctor.\n\n**Why:**  \n- It helps reduce fever and makes you feel better.  \n\nJust remember: take it only when you need it, not on a fixed schedule. If you’re unsure or your fever persists, call your healthcare provider.",
+        "final_text": "**What you’ll take:**  \n- **Paracetamol 650 mg** (the pill or liquid you’re given)\n\n**How to take it:**  \n- **Oral** – swallow it with water.  \n- **When you need it** – take a dose only if you have a fever or feel it’s necessary.  \n- **Do not take it more often than that.**\n\n**How long:**  \n- Use it for up to **3 days**.  \n- If your fever goes away before 3 days, you can stop.  \n- If you still have a fever after 3 days, talk to your doctor.\n\n**Why:**  \n- It helps reduce fever and makes you feel better.  \n\nJust remember: take it only when you need it, not on a fixed schedule. If you’re unsure or your fever persists, call your healthcare provider.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S07",
+        "drug": "Ibuprofen",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '1 tablet' not in confirmed data"
+        ],
+        "fk_grade": 7.0,
+        "flesch_ease": 69.9,
+        "words": 127,
+        "latency_s": 0.67,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Ibuprofen** – 400 mg tablets\n\n**How to take it:**  \n- Swallow the tablet by mouth (oral).  \n- Take it **after you’ve eaten** – so it’s easier on your stomach.  \n- Take one tablet **every 8 hours**.  \n- The schedule for the next 3 days is:  \n  - **06:00** (morning)  \n  - **14:00** (afternoon)  \n  - **22:00** (evening)\n\n**Why this matters:**  \n- Taking it after food helps prevent stomach upset.  \n- Sticking to the 8‑hour interval keeps the medicine working consistently.  \n- Finish the course in 3 days unless your doctor says otherwise.\n\nIf you miss a dose, take it as soon as you remember, but don’t double up to make up for it. If you have any questions or feel unwell, let your healthcare provider know.",
+        "final_text": "Hello Test Patient 07. Take Ibuprofen 400 mg at 06:00, 14:00, 22:00. Continue for 3 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S08",
+        "drug": "Atorvastatin",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '8' not in confirmed data",
+          "number '2' not in confirmed data",
+          "number '8' not in confirmed data",
+          "number '3' not in confirmed data"
+        ],
+        "fk_grade": 4.2,
+        "flesch_ease": 86.3,
+        "words": 140,
+        "latency_s": 0.76,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you need to know about your medicine**\n\n- **Medicine name:** Atorvastatin  \n- **How much:** 10 mg  \n- **How to take it:** Swallow it with a glass of water (by mouth).  \n- **When to take it:** Once a day, at **8 p.m.** (the “20:00” time).  \n- **How long:** Keep taking it for **30 days**.\n\n**Simple instructions**\n\n1. **Take it every evening** – put the pill in your mouth, drink water, and swallow.  \n2. **Do it at the same time each night** – 8 p.m. is the best time.  \n3. **Finish the full 30‑day course** – even if you feel fine, stop only when your doctor says so.\n\nIf you miss a dose, take it as soon as you remember, but don’t double‑dose the next day. If you have any questions or feel any side‑effects, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 08. Take Atorvastatin 10 mg at 20:00. Continue for 30 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S09",
+        "drug": "Salbutamol",
+        "variant": "v1",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 7.7,
+        "flesch_ease": 77.8,
+        "words": 179,
+        "latency_s": 0.73,
+        "taxonomy": [],
+        "llm_text": "**What you’ll take:**  \n- **Medicine:** Salbutamol (a quick‑relief inhaler)  \n- **Dose:** 100 µg per puff  \n- **How to use:** Shake the inhaler, put the mouthpiece in your mouth, close your lips around it, and breathe in slowly while pressing the inhaler to get a puff.  \n- **When to use:** Only when you feel breathless or have a sudden asthma attack.  \n- **How many puffs:** Take **2 puffs** each time you need relief.  \n- **How often:** Use it **as needed** (SOS – “as soon as symptoms appear”).  \n- **How long:** Keep the inhaler for **30 days** and then bring it back for a refill or a new prescription.  \n\n**Quick reminder:**  \n- If you need more than 2 puffs in a short time, or if you’re still breathless after 2 puffs, call your doctor or go to the nearest emergency department.  \n- Store the inhaler in a cool, dry place and keep it out of reach of children.  \n\nThat’s it—just use it when you feel short of breath, 2 puffs at a time, and keep it for the next 30 days.",
+        "final_text": "**What you’ll take:**  \n- **Medicine:** Salbutamol (a quick‑relief inhaler)  \n- **Dose:** 100 µg per puff  \n- **How to use:** Shake the inhaler, put the mouthpiece in your mouth, close your lips around it, and breathe in slowly while pressing the inhaler to get a puff.  \n- **When to use:** Only when you feel breathless or have a sudden asthma attack.  \n- **How many puffs:** Take **2 puffs** each time you need relief.  \n- **How often:** Use it **as needed** (SOS – “as soon as symptoms appear”).  \n- **How long:** Keep the inhaler for **30 days** and then bring it back for a refill or a new prescription.  \n\n**Quick reminder:**  \n- If you need more than 2 puffs in a short time, or if you’re still breathless after 2 puffs, call your doctor or go to the nearest emergency department.  \n- Store the inhaler in a cool, dry place and keep it out of reach of children.  \n\nThat’s it—just use it when you feel short of breath, 2 puffs at a time, and keep it for the next 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S10",
+        "drug": "Moxifloxacin",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '2' not in confirmed data",
+          "number '3' not in confirmed data",
+          "number '6' not in confirmed data"
+        ],
+        "fk_grade": 6.2,
+        "flesch_ease": 79.3,
+        "words": 190,
+        "latency_s": 0.95,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll do**\n\n- **Medicine:** Moxifloxacin eye drops  \n- **How much:** 1 drop in each eye  \n- **When to use it:**  \n  - 06:00 am  \n  - 12:00 pm (noon)  \n  - 06:00 pm  \n  - 10:00 pm  \n- **How long:** 5 days (keep using it every day until the 5th day is finished)\n\n**Step‑by‑step**\n\n1. **Wash your hands** before touching the bottle or your eyes.  \n2. **Tilt your head back** and pull the lower eyelid down to make a small pocket.  \n3. **Drop the medicine** into the pocket of each eye (you’ll need 1 drop per eye).  \n4. **Close your eyes** gently for a few seconds so the drop spreads.  \n5. **Repeat** the same for the other eye.  \n6. **Do this at the four times listed above** each day.  \n\n**Why it matters**\n\n- Taking the drops exactly at those times keeps the medicine working well.  \n- Don’t skip a dose; if you miss one, give it as soon as you remember, but don’t double‑dose.  \n- Finish all 5 days even if you feel better earlier.\n\nIf you have any questions or notice irritation, redness, or vision changes, let your doctor know right away.",
+        "final_text": "Hello Test Patient 10. Take Moxifloxacin 1 drop at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S10",
+        "drug": "Cetirizine",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '8' not in confirmed data",
+          "number '8' not in confirmed data",
+          "number '8' not in confirmed data"
+        ],
+        "fk_grade": 5.1,
+        "flesch_ease": 83.0,
+        "words": 234,
+        "latency_s": 1.66,
+        "taxonomy": [
+          "type1_incorrect_use_risk",
+          "type2_vague_or_incomplete"
+        ],
+        "llm_text": "**What you’ll take**\n\n- **Medicine:** Cetirizine (10 mg)  \n- **How:** Swallow it with a glass of water.  \n- **When:** Once a day at **8 a.m.**  \n- **How long:** Keep taking it for **5 days**.\n\n**Why it’s good to follow this**\n\n- Taking it at the same time each day (8 a.m.) helps your body get used to it and keeps the medicine working well.  \n- 5 days is the period your doctor said you need it for; after that you can stop unless your doctor says otherwise.\n\n**What to do if you miss a dose**\n\n- If you forget, take it as soon as you remember, but **don’t double‑dose** to make up for the missed one.  \n- If it’s almost time for the next dose, just skip the missed one and resume the regular schedule.\n\n**Side effects to watch for**\n\n- Mild drowsiness or feeling a bit sleepy.  \n- Dry mouth or a slight headache can happen.  \n- If you feel unusually tired, dizzy, or have any other odd symptoms, let your doctor know.\n\n**When to call your doctor**\n\n- If you develop a rash, swelling, trouble breathing, or any severe reaction.  \n- If you’re not feeling better after a few days or if symptoms worsen.\n\nThat’s it! Just take the pill at 8 a.m. each day for five days, and you’ll be on track. If you have any questions, feel free to ask.",
+        "final_text": "Hello Test Patient 10. Take Cetirizine 10 mg at 08:00. Continue for 5 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S11",
+        "drug": "Paracetamol",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '1' not in confirmed data",
+          "number '1' not in confirmed data"
+        ],
+        "fk_grade": 5.0,
+        "flesch_ease": 83.4,
+        "words": 145,
+        "latency_s": 0.64,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Paracetamol** (650 mg) – a common pain‑relief and fever‑reducing medicine.\n\n**How to take it:**  \n- **Oral** – swallow the tablet with a glass of water.  \n- **After food** – take it right after you’ve eaten (so it’s easier on your stomach).  \n- **Twice a day (BD)** – once in the morning and once in the evening.  \n  - **Morning dose:** around **08:00**.  \n  - **Evening dose:** around **20:00**.  \n\n**How long:**  \n- Keep taking it for **3 days** (so you’ll finish the course by the end of the third day).\n\n**Quick recap:**  \nTake the 650 mg tablet with water after a meal, at 08:00 and 20:00, for three days straight. If you miss a dose, take it as soon as you remember, but don’t double‑dose to make up for it. If you have any questions or feel worse, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 11. Take Paracetamol 650 mg at 08:00, 20:00. Continue for 3 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S12",
+        "drug": "Amoxicillin",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "time '14:00 pm' not in computed schedule",
+          "time '20:00 pm' not in computed schedule"
+        ],
+        "fk_grade": 4.9,
+        "flesch_ease": 82.6,
+        "words": 138,
+        "latency_s": 0.64,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Amoxicillin** – a medicine that helps fight bacterial infections.  \n- **250 mg** each time.\n\n**How to take it:**  \n- **Oral** – swallow the tablet with water.  \n- **Three times a day (TDS)** – at **08:00 am, 14:00 pm, and 20:00 pm**.  \n- **Keep the same schedule** each day so the medicine stays in your body evenly.\n\n**When to stop:**  \n- Take it for **5 days**.  \n- Even if you feel better, finish all 5 days unless your doctor says otherwise.\n\n**Quick tips:**  \n- Take it with food or a full glass of water if it feels hard on your stomach.  \n- If you miss a dose, take it as soon as you remember, but don’t double‑dose to make up for it.  \n\nLet me know if you have any questions or if something isn’t clear!",
+        "final_text": "Hello Test Patient 12. Take Amoxicillin 250 mg at 08:00, 14:00, 20:00. Continue for 5 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S13",
+        "drug": "Metformin",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '8' not in confirmed data",
+          "number '8' not in confirmed data"
+        ],
+        "fk_grade": 6.4,
+        "flesch_ease": 79.3,
+        "words": 127,
+        "latency_s": 0.48,
+        "taxonomy": [
+          "type1_incorrect_use_risk",
+          "type2_vague_or_incomplete"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Metformin** – 1000 mg tablets\n\n**How to take it:**  \n- **Take it by mouth** (swallow the tablet with water).  \n- **Take it twice a day** – once in the morning (around 8 am) and once in the evening (around 8 pm).  \n- **Take it after you’ve eaten** – so it’s best to have a small snack or meal before each dose.\n\n**How long:**  \n- Keep taking it for **30 days**.  \n- If you miss a dose, take it as soon as you remember, but don’t double up the next dose.\n\n**Why this matters:**  \nTaking Metformin after food helps reduce stomach upset and keeps your blood sugar under control.\n\nIf you have any questions or feel any side‑effects, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 13. Take Metformin 1000 mg at 08:00, 20:00. Continue for 30 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S14",
+        "drug": "Pantoprazole",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '2 week' not in confirmed data",
+          "number '30' not in confirmed data"
+        ],
+        "fk_grade": 5.5,
+        "flesch_ease": 81.9,
+        "words": 142,
+        "latency_s": 3.3,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Pantoprazole 40 mg** (a pill that helps reduce stomach acid)\n\n**How to take it:**  \n- **Take one pill by mouth** (swallow it with water).  \n- **Take it once a day** (OD means “once daily”).  \n- **Take it 14 days** (two weeks).  \n- **Take it before breakfast** – about 30 minutes before you eat your first meal of the day.  \n- **Try to take it at the same time each morning** – the suggested time is around **08:00**.\n\n**Why this matters:**  \nTaking the pill before breakfast helps it work best to relieve stomach acid and heal any irritation or ulcers.\n\n**If you miss a dose:**  \nTake it as soon as you remember, but if it’s almost time for your next dose, skip the missed one and keep going with your regular schedule.\n\n**Any questions or concerns?** Let me know!",
+        "final_text": "Hello Test Patient 14. Take Pantoprazole 40 mg at 08:00. Continue for 14 days. Note: before breakfast. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S15",
+        "drug": "Amlodipine",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '8' not in confirmed data"
+        ],
+        "fk_grade": 9.4,
+        "flesch_ease": 70.4,
+        "words": 129,
+        "latency_s": 0.67,
+        "taxonomy": [
+          "type1_incorrect_use_risk",
+          "type2_vague_or_incomplete"
+        ],
+        "llm_text": "**What you’ll take**\n\n- **Medicine:** Amlodipine  \n- **Amount:** 10 mg  \n- **How:** By mouth (swallow a tablet with water)  \n- **When:** Once a day, at 8:00 am  \n- **For how long:** 30 days\n\n**What to remember**\n\n- Take it at the same time every morning (around 8 am) so your body gets a steady dose.  \n- Swallow the tablet whole; don’t crush or chew it.  \n- If you miss a dose, take it as soon as you remember—unless it’s almost time for your next dose, then skip the missed one and keep going with your regular schedule.  \n- Keep the bottle closed and store it at room temperature, away from moisture and heat.  \n\nIf you have any questions or notice any side effects, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 15. Take Amlodipine 10 mg at 08:00. Continue for 30 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S16",
+        "drug": "Ibuprofen",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '1 tablet' not in confirmed data"
+        ],
+        "fk_grade": 6.4,
+        "flesch_ease": 76.0,
+        "words": 130,
+        "latency_s": 0.67,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Ibuprofen** – 200 mg tablets\n\n**How to take it:**  \n- **Oral** – swallow the tablet with a glass of water.  \n- **After food** – take it only after you’ve eaten (e.g., after breakfast, lunch, or dinner).  \n- **Three times a day (TDS)** – take one tablet at **08:00 am, 02:00 pm, and 08:00 pm**.  \n- **For 3 days** – keep this schedule for the next three days.\n\n**Why this matters:**  \nTaking it after food helps prevent stomach upset, and sticking to the exact times keeps the medicine working evenly in your body.\n\nIf you miss a dose, take it as soon as you remember, but don’t double‑dose to make up for it. If you have any questions or feel unwell, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 16. Take Ibuprofen 200 mg at 08:00, 14:00, 20:00. Continue for 3 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S16",
+        "drug": "Cetirizine",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "unit mismatch for '1': got 'tablet', expected ['hour']"
+        ],
+        "fk_grade": 5.1,
+        "flesch_ease": 79.7,
+        "words": 51,
+        "latency_s": 0.61,
+        "taxonomy": [
+          "type1_incorrect_use_risk",
+          "type2_vague_or_incomplete"
+        ],
+        "llm_text": "**Cetirizine – 10 mg**\n\n- **How to take it:** Swallow one tablet by mouth.  \n- **When to take it:** At bedtime (about 10 p.m.).  \n- **How long to keep taking it:** For 3 days.  \n\nThat’s it! If you have any questions or feel any side‑effects, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 16. Take Cetirizine 10 mg at 22:00. Continue for 3 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S17",
+        "drug": "Azithromycin",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '8' not in confirmed data",
+          "number '2 hour' not in confirmed data"
+        ],
+        "fk_grade": 5.3,
+        "flesch_ease": 80.0,
+        "words": 142,
+        "latency_s": 0.68,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Azithromycin** – a medicine that helps fight bacterial infections.  \n- **250 mg** – that’s the amount in each pill.\n\n**How to take it:**  \n- **Oral** – swallow the pill with water.  \n- **Once a day (OD)** – just one dose each day.  \n- **5 days** – keep taking it for five consecutive days.\n\n**When to take it:**  \n- **08:00** – take the pill at 8 a.m. every day.\n\n**Other tips:**  \n- Take it on an empty stomach (about an hour before or two hours after a meal) for best absorption.  \n- Finish all five doses even if you feel better earlier.  \n- If you miss a dose, take it as soon as you remember, but don’t double‑dose to make up for it.  \n\nIf you have any questions or feel any side effects, let your doctor or pharmacist know.",
+        "final_text": "Hello Test Patient 17. Take Azithromycin 250 mg at 08:00. Continue for 5 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S18",
+        "drug": "Atorvastatin",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "unit mismatch for '1': got 'tablet', expected ['hour']",
+          "number '10' not in confirmed data",
+          "number '10' not in confirmed data",
+          "number '2' not in confirmed data",
+          "number '3' not in confirmed data",
+          "number '4' not in confirmed data"
+        ],
+        "fk_grade": 5.3,
+        "flesch_ease": 80.6,
+        "words": 179,
+        "latency_s": 0.46,
+        "taxonomy": [
+          "type1_incorrect_use_risk",
+          "type2_vague_or_incomplete"
+        ],
+        "llm_text": "**What you need to know about your medicine**\n\n- **Medicine name:** Atorvastatin  \n- **How much:** 20 mg (one tablet)  \n- **How to take it:** Swallow it with a glass of water.  \n- **When to take it:** Every night at **10 p.m.** (HS means “at bedtime”).  \n- **How long:** Keep taking it for **30 days**.  \n\n**Why you’re taking it:**  \nAtorvastatin helps lower the bad cholesterol (LDL) in your blood, which can protect your heart and blood vessels.\n\n**What to remember**\n\n1. **Take it at the same time each night** – 10 p.m. – so your body gets a steady dose.  \n2. **Don’t skip a dose** – if you miss one, take it as soon as you remember, unless it’s almost time for your next dose.  \n3. **Keep it out of reach of children** – store it in a safe place.  \n4. **Tell your doctor** if you feel any unusual side‑effects (muscle pain, weakness, stomach upset, or yellowing of the skin/eyes).  \n\nIf you have any questions or need help remembering, let your pharmacist or doctor know. Good luck with your treatment!",
+        "final_text": "Hello Test Patient 18. Take Atorvastatin 20 mg at 22:00. Continue for 30 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S23",
+        "drug": "Paracetamol",
+        "variant": "v1",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 6.1,
+        "flesch_ease": 77.3,
+        "words": 160,
+        "latency_s": 1.25,
+        "taxonomy": [],
+        "llm_text": "**What you’ll take:**  \n- **Paracetamol** (also called acetaminophen)  \n- **500 mg** each time\n\n**How to take it:**  \n- **Oral** – swallow the tablet with a glass of water.  \n- **After food** – take it after you’ve eaten (so it’s easier on your stomach).  \n\n**When to take it:**  \n- **Three times a day (TDS)** – at **08:00 am, 02:00 pm, and 08:00 pm**.  \n- Keep the same times each day so the medicine stays steady in your body.\n\n**How long:**  \n- **3 days** – take the dose at the times above for three consecutive days.  \n- After the third day, stop unless your doctor says otherwise.\n\n**Why this matters:**  \n- Taking it after food helps prevent stomach upset.  \n- Sticking to the schedule keeps the pain‑relief level consistent.  \n\nIf you miss a dose, take it as soon as you remember, but don’t double up to make up for it. If you have any questions or feel worse, let your doctor know.",
+        "final_text": "**What you’ll take:**  \n- **Paracetamol** (also called acetaminophen)  \n- **500 mg** each time\n\n**How to take it:**  \n- **Oral** – swallow the tablet with a glass of water.  \n- **After food** – take it after you’ve eaten (so it’s easier on your stomach).  \n\n**When to take it:**  \n- **Three times a day (TDS)** – at **08:00 am, 02:00 pm, and 08:00 pm**.  \n- Keep the same times each day so the medicine stays steady in your body.\n\n**How long:**  \n- **3 days** – take the dose at the times above for three consecutive days.  \n- After the third day, stop unless your doctor says otherwise.\n\n**Why this matters:**  \n- Taking it after food helps prevent stomach upset.  \n- Sticking to the schedule keeps the pain‑relief level consistent.  \n\nIf you miss a dose, take it as soon as you remember, but don’t double up to make up for it. If you have any questions or feel worse, let your doctor know.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S24",
+        "drug": "Paracetamol",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '1' not in confirmed data"
+        ],
+        "fk_grade": 7.1,
+        "flesch_ease": 73.3,
+        "words": 213,
+        "latency_s": 1.86,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take:**  \n- **Paracetamol** (also called acetaminophen)  \n- **500 mg** each time\n\n**How to take it:**  \n- **Oral** – swallow the tablet with water.  \n- **After food** – take it after you’ve eaten a meal or a snack so it’s easier on your stomach.  \n\n**When to take it:**  \n- **Three times a day (TDS)** – at **08:00 am, 02:00 pm, and 08:00 pm**.  \n- Keep the same times each day so the medicine stays steady in your body.\n\n**How long:**  \n- **5 days** – take the medicine at the times above for five consecutive days.  \n- After the 5th day, stop unless your doctor says otherwise.\n\n**Why this matters:**  \n- Taking it after food helps prevent stomach upset.  \n- Sticking to the schedule keeps the pain relief consistent and reduces the chance of missing a dose.\n\n**If you miss a dose:**  \n- Take it as soon as you remember, but don’t double‑dose to catch up.  \n- If it’s almost time for the next dose, skip the missed one and continue with the regular schedule.\n\n**When to call your doctor:**  \n- If you feel worse, have a fever that won’t go down, or notice any side‑effects (rash, stomach pain, unusual tiredness).  \n\nThat’s it! Just remember 08:00, 14:00, 20:00, after food, for 5 days.",
+        "final_text": "Hello Test Patient 24. Take Paracetamol 500 mg at 08:00, 14:00, 20:00. Continue for 5 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S25",
+        "drug": "Amlodipine",
+        "variant": "v1",
+        "blocked": true,
+        "errors": [
+          "number '2' not in confirmed data",
+          "number '3' not in confirmed data",
+          "number '4' not in confirmed data"
+        ],
+        "fk_grade": 7.4,
+        "flesch_ease": 77.3,
+        "words": 206,
+        "latency_s": 0.82,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "**What you’ll take**\n\n- **Medicine:** Amlodipine  \n- **Amount:** 5 mg  \n- **How to take it:** By mouth (swallow the tablet with water)  \n- **When to take it:** Once a day, at 08:00 am  \n- **How long:** For 30 days\n\n**Why it matters**\n\n- Taking it at the same time each day (08:00 am) helps your body keep a steady level of the medicine.\n- Finish the full 30‑day course even if you feel better, unless your doctor says otherwise.\n\n**What to do**\n\n1. Put the tablet in your mouth and swallow it with a glass of water.  \n2. Try to take it at the same time every morning (08:00 am).  \n3. If you miss a dose, take it as soon as you remember—unless it’s almost time for your next dose, then skip the missed one and keep going.  \n4. Keep the bottle in a cool, dry place and don’t share it with anyone else.\n\n**When to call your doctor**\n\n- If you notice any side effects (like swelling, dizziness, or a rapid heartbeat).  \n- If you have trouble remembering to take it or if you have any questions about the medication.\n\nThat’s it! Just remember 5 mg once a day at 08:00 am for 30 days.",
+        "final_text": "Hello Test Patient 25. Take Amlodipine 5 mg at 08:00. Continue for 30 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S01",
+        "drug": "Paracetamol",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.9,
+        "flesch_ease": 94.0,
+        "words": 28,
+        "latency_s": 0.6,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.",
+        "final_text": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S02",
+        "drug": "Amoxicillin",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.7,
+        "flesch_ease": 87.9,
+        "words": 28,
+        "latency_s": 0.75,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 7 days.",
+        "final_text": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S02",
+        "drug": "Pantoprazole",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 3.1,
+        "flesch_ease": 83.3,
+        "words": 23,
+        "latency_s": 0.8,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day, at 08:00. Swallow with water before breakfast. Take it for 7 days.",
+        "final_text": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day, at 08:00. Swallow with water before breakfast. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S03",
+        "drug": "Metformin",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.5,
+        "flesch_ease": 96.1,
+        "words": 26,
+        "latency_s": 0.44,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. Swallow it with water after meals. Take it for 30 days.",
+        "final_text": "Hello Test Patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. Swallow it with water after meals. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S04",
+        "drug": "Amlodipine",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.0,
+        "flesch_ease": 92.2,
+        "words": 25,
+        "latency_s": 1.03,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 04. Take Amlodipine 5 mg once a day, at 08:00. Swallow it with water in the morning. Take it for 30 days.",
+        "final_text": "Hello Test Patient 04. Take Amlodipine 5 mg once a day, at 08:00. Swallow it with water in the morning. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S05",
+        "drug": "Cetirizine",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.6,
+        "flesch_ease": 84.8,
+        "words": 18,
+        "latency_s": 1.85,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Swallow with water. Take it for 5 days.",
+        "final_text": "Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S06",
+        "drug": "Azithromycin",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.5,
+        "flesch_ease": 96.1,
+        "words": 26,
+        "latency_s": 2.29,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 06. Take Azithromycin 500 mg once a day, at 08:00. Swallow it with water one hour before food. Take it for 3 days.",
+        "final_text": "Hello Test Patient 06. Take Azithromycin 500 mg once a day, at 08:00. Swallow it with water one hour before food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S06",
+        "drug": "Paracetamol",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 3.3,
+        "flesch_ease": 80.6,
+        "words": 21,
+        "latency_s": 5.96,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+        "final_text": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S07",
+        "drug": "Ibuprofen",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 3.6,
+        "flesch_ease": 80.9,
+        "words": 27,
+        "latency_s": 4.88,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours, at 06:00, 14:00, and 22:00. Swallow it with water after food. Take it for 3 days.",
+        "final_text": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours, at 06:00, 14:00, and 22:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S08",
+        "drug": "Atorvastatin",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.6,
+        "flesch_ease": 92.7,
+        "words": 21,
+        "latency_s": 4.68,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day, at 20:00. Swallow with water. Take it for 30 days.",
+        "final_text": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day, at 20:00. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S09",
+        "drug": "Salbutamol",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 5.3,
+        "flesch_ease": 76.5,
+        "words": 22,
+        "latency_s": 5.36,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+        "final_text": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S10",
+        "drug": "Moxifloxacin",
+        "variant": "v2",
+        "blocked": true,
+        "errors": [
+          "route: inhaler wording for a non-inhaled medicine"
+        ],
+        "fk_grade": 1.5,
+        "flesch_ease": 96.6,
+        "words": 27,
+        "latency_s": 5.43,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "Hello Test Patient 10. Put Moxifloxacin 1 drop in both eyes at 06:00, 12:00, 18:00, and 22:00. Breathe in from the inhaler. Take it for 5 days.",
+        "final_text": "Hello Test Patient 10. Take Moxifloxacin 1 drop at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S10",
+        "drug": "Cetirizine",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.2,
+        "flesch_ease": 88.7,
+        "words": 21,
+        "latency_s": 2.78,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 10. Take Cetirizine 10 mg once a day, at 08:00. Swallow with water. Take it for 5 days.",
+        "final_text": "Hello Test Patient 10. Take Cetirizine 10 mg once a day, at 08:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S11",
+        "drug": "Paracetamol",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.9,
+        "flesch_ease": 92.9,
+        "words": 26,
+        "latency_s": 5.0,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 11. Take Paracetamol 650 mg twice a day, at 08:00 and 20:00. Swallow it with water after food. Take it for 3 days.",
+        "final_text": "Hello Test Patient 11. Take Paracetamol 650 mg twice a day, at 08:00 and 20:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S12",
+        "drug": "Amoxicillin",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.4,
+        "flesch_ease": 89.6,
+        "words": 26,
+        "latency_s": 2.6,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 12. Take Amoxicillin 250 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water. Take it for 5 days.",
+        "final_text": "Hello Test Patient 12. Take Amoxicillin 250 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S13",
+        "drug": "Metformin",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.5,
+        "flesch_ease": 96.1,
+        "words": 26,
+        "latency_s": 4.57,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 13. Take Metformin 1000 mg twice a day, at 08:00 and 20:00. Swallow it with water after food. Take it for 30 days.",
+        "final_text": "Hello Test Patient 13. Take Metformin 1000 mg twice a day, at 08:00 and 20:00. Swallow it with water after food. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S14",
+        "drug": "Pantoprazole",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 3.0,
+        "flesch_ease": 84.4,
+        "words": 24,
+        "latency_s": 3.48,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 14. Take Pantoprazole 40 mg once a day, at 08:00. Swallow it with water before breakfast. Take it for 14 days.",
+        "final_text": "Hello Test Patient 14. Take Pantoprazole 40 mg once a day, at 08:00. Swallow it with water before breakfast. Take it for 14 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S15",
+        "drug": "Amlodipine",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.6,
+        "flesch_ease": 92.7,
+        "words": 21,
+        "latency_s": 3.89,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 15. Take Amlodipine 10 mg once a day, at 08:00. Swallow with water. Take it for 30 days.",
+        "final_text": "Hello Test Patient 15. Take Amlodipine 10 mg once a day, at 08:00. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S16",
+        "drug": "Ibuprofen",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.3,
+        "flesch_ease": 91.0,
+        "words": 28,
+        "latency_s": 5.44,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 16. Take Ibuprofen 200 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.",
+        "final_text": "Hello Test Patient 16. Take Ibuprofen 200 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S16",
+        "drug": "Cetirizine",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.6,
+        "flesch_ease": 84.8,
+        "words": 18,
+        "latency_s": 4.64,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 16. Take Cetirizine 10 mg at 22:00. Swallow with water. Take it for 3 days.",
+        "final_text": "Hello Test Patient 16. Take Cetirizine 10 mg at 22:00. Swallow with water. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S17",
+        "drug": "Azithromycin",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 0.5,
+        "flesch_ease": 100.8,
+        "words": 21,
+        "latency_s": 4.63,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 17. Take Azithromycin 250 mg once a day, at 08:00. Swallow with water. Take it for 5 days.",
+        "final_text": "Hello Test Patient 17. Take Azithromycin 250 mg once a day, at 08:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S18",
+        "drug": "Atorvastatin",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.9,
+        "flesch_ease": 89.5,
+        "words": 18,
+        "latency_s": 3.3,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 18. Take Atorvastatin 20 mg at 22:00. Swallow with water. Take it for 30 days.",
+        "final_text": "Hello Test Patient 18. Take Atorvastatin 20 mg at 22:00. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S23",
+        "drug": "Paracetamol",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.9,
+        "flesch_ease": 94.0,
+        "words": 28,
+        "latency_s": 4.61,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 23. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.",
+        "final_text": "Hello Test Patient 23. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S24",
+        "drug": "Paracetamol",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.9,
+        "flesch_ease": 94.0,
+        "words": 28,
+        "latency_s": 5.81,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 24. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.",
+        "final_text": "Hello Test Patient 24. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S25",
+        "drug": "Amlodipine",
+        "variant": "v2",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.6,
+        "flesch_ease": 92.7,
+        "words": 21,
+        "latency_s": 1.84,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 25. Take Amlodipine 5 mg once a day, at 08:00. Swallow with water. Take it for 30 days.",
+        "final_text": "Hello Test Patient 25. Take Amlodipine 5 mg once a day, at 08:00. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": null
+      },
+      {
+        "id": "S01",
+        "drug": "Paracetamol",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.9,
+        "flesch_ease": 94.0,
+        "words": 28,
+        "latency_s": 0.86,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.",
+        "final_text": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take tablets whole with water, with or without food. Follow the prescribed interval between doses and never exceed the daily limit. Use only when needed and stop when symptoms improve. If a dose is missed, take it when remembered unless the next dose is soon; do not double up. Finish the course as directed."
+      },
+      {
+        "id": "S02",
+        "drug": "Amoxicillin",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.8,
+        "flesch_ease": 87.2,
+        "words": 27,
+        "latency_s": 0.6,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow with water after food. Take it for 7 days.",
+        "final_text": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow with water after food. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the capsules exactly as prescribed. Swallow each capsule whole with water, with or without food. Space doses evenly throughout the day. Finish the full course even if you feel better. If you miss a dose, take it as soon as you remember, then resume the regular schedule—do not double up. Keep the medicine out of reach of children."
+      },
+      {
+        "id": "S02",
+        "drug": "Pantoprazole",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 3.0,
+        "flesch_ease": 84.4,
+        "words": 24,
+        "latency_s": 0.78,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day, at 08:00. Swallow it with water before breakfast. Take it for 7 days.",
+        "final_text": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day, at 08:00. Swallow it with water before breakfast. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablet before a meal, usually before breakfast. Swallow it whole with water; do not chew or crush. Finish the full course as prescribed. If you miss a dose, take it when you remember, unless it’s almost time for the next dose. Do not stop or restart without consulting your doctor."
+      },
+      {
+        "id": "S03",
+        "drug": "Metformin",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.5,
+        "flesch_ease": 96.1,
+        "words": 26,
+        "latency_s": 0.48,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. Swallow it with water after meals. Take it for 30 days.",
+        "final_text": "Hello Test Patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. Swallow it with water after meals. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablets with or just after meals to reduce stomach upset. Swallow each tablet whole with water. Keep a regular schedule, taking them at the same times every day. Continue the medication for the full prescribed course; do not stop early. If a dose is missed, take the next dose at the usual time—do not double up."
+      },
+      {
+        "id": "S04",
+        "drug": "Amlodipine",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.6,
+        "flesch_ease": 92.7,
+        "words": 21,
+        "latency_s": 0.54,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 04. Take Amlodipine 5 mg once a day, at 08:00. Swallow with water. Take it for 30 days.",
+        "final_text": "Hello Test Patient 04. Take Amlodipine 5 mg once a day, at 08:00. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablet once daily, at the same time each day, with water. It can be taken with or without food. Do not take more than prescribed. If you miss a dose, take it when you remember unless it’s almost time for the next dose; then skip the missed dose and resume the regular schedule. Keep the medication out of reach of children."
+      },
+      {
+        "id": "S05",
+        "drug": "Cetirizine",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.4,
+        "flesch_ease": 86.2,
+        "words": 19,
+        "latency_s": 1.4,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Swallow it with water. Take it for 5 days.",
+        "final_text": "Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Swallow it with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablet with a glass of water, with or without food. If it causes drowsiness, take it in the evening or at bedtime. Finish the full course as prescribed. If you miss a dose, take it at the next scheduled time; do not double up. Keep the medicine out of reach of children."
+      },
+      {
+        "id": "S06",
+        "drug": "Azithromycin",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.5,
+        "flesch_ease": 95.6,
+        "words": 25,
+        "latency_s": 0.85,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 06. Take Azithromycin 500 mg once a day, at 08:00. Swallow with water one hour before food. Take it for 3 days.",
+        "final_text": "Hello Test Patient 06. Take Azithromycin 500 mg once a day, at 08:00. Swallow with water one hour before food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablets exactly as prescribed, once daily at the same time. Swallow whole with water. Follow any food instructions: some regimens require taking one hour before or two hours after meals. Finish the full course even if you feel better. If a dose is missed, take it as soon as remembered, but do not double‑dose."
+      },
+      {
+        "id": "S06",
+        "drug": "Paracetamol",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.3,
+        "flesch_ease": 87.6,
+        "words": 20,
+        "latency_s": 0.64,
+        "taxonomy": [
+          "type2_vague_or_incomplete"
+        ],
+        "llm_text": "Hello Test Patient 06. Take Paracetamol 650 mg when you have fever. Swallow with water. Take it for 3 days.",
+        "final_text": "Hello Test Patient 06. Take Paracetamol 650 mg when you have fever. Swallow with water. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take tablets whole with water, with or without food. Follow the prescribed interval between doses and never exceed the daily limit. Use only when needed and stop when symptoms improve. If a dose is missed, take it when remembered unless the next dose is soon; do not double up. Finish the course as directed."
+      },
+      {
+        "id": "S07",
+        "drug": "Ibuprofen",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.6,
+        "flesch_ease": 85.9,
+        "words": 22,
+        "latency_s": 0.48,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 07. Take Ibuprofen 400 mg at 06:00, 14:00, 22:00. Swallow with water after food. Take it for 3 days.",
+        "final_text": "Hello Test Patient 07. Take Ibuprofen 400 mg at 06:00, 14:00, 22:00. Swallow with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablets with or after food and a full glass of water to protect your stomach. Follow the exact schedule your doctor or pharmacist gave you, keeping the required interval between doses. Use only for the prescribed number of days; long‑term use increases risks. If you miss a dose, take it when you remember unless the next dose is soon—do not double up."
+      },
+      {
+        "id": "S08",
+        "drug": "Atorvastatin",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.6,
+        "flesch_ease": 93.6,
+        "words": 22,
+        "latency_s": 5.62,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day, at 20:00. Swallow it with water. Take it for 30 days.",
+        "final_text": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day, at 20:00. Swallow it with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablets exactly as prescribed. Swallow each tablet whole with water, at the same time each day, usually in the evening. You may take it with or without food, but avoid large amounts of grapefruit juice. Continue the medication for the full course and refill before it ends. If a dose is missed, take the next dose at the scheduled time; do not double up."
+      },
+      {
+        "id": "S09",
+        "drug": "Salbutamol",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 4.2,
+        "flesch_ease": 76.6,
+        "words": 26,
+        "latency_s": 4.66,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 09. Take Salbutamol 100 mcg inhalation only when needed, 2 puffs when breathless. Breathe in from the inhaler. Take it for 30 days.",
+        "final_text": "Hello Test Patient 09. Take Salbutamol 100 mcg inhalation only when needed, 2 puffs when breathless. Breathe in from the inhaler. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Shake the inhaler before use. Breathe out gently, place the mouthpiece in your mouth and seal with your lips. Press the canister while inhaling slowly and deeply, then hold your breath for a few seconds before exhaling slowly. If you need a second puff, wait about one minute. Use a spacer if it helps. Finish the prescribed course and seek help if relief is not achieved."
+      },
+      {
+        "id": "S10",
+        "drug": "Moxifloxacin",
+        "variant": "v3",
+        "blocked": true,
+        "errors": [
+          "frequency: says 'as needed' but the prescription has a fixed schedule"
+        ],
+        "fk_grade": 0.9,
+        "flesch_ease": 99.9,
+        "words": 32,
+        "latency_s": 6.65,
+        "taxonomy": [
+          "type1_incorrect_use_risk"
+        ],
+        "llm_text": "Hello Test Patient 10. Put Moxifloxacin 1 drop in both eyes at 06:00, 12:00, 18:00, 22:00. Put the drops in the eye. Take it for 5 days. Use it only when needed.",
+        "final_text": "Hello Test Patient 10. Take Moxifloxacin 1 drop at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Wash hands before use. Tilt head back, pull lower eyelid to create a pocket. Hold bottle upside‑down, squeeze gently to drop one eye drop into the pocket. Close eye, press lightly on inner corner for ~1 minute. Do not touch tip to eye or surfaces. Use as prescribed for the full course, even if symptoms improve. Wait at least 5 minutes between different eye medicines."
+      },
+      {
+        "id": "S10",
+        "drug": "Cetirizine",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.1,
+        "flesch_ease": 89.7,
+        "words": 22,
+        "latency_s": 5.92,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 10. Take Cetirizine 10 mg once a day, at 08:00. Swallow it with water. Take it for 5 days.",
+        "final_text": "Hello Test Patient 10. Take Cetirizine 10 mg once a day, at 08:00. Swallow it with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablet with a glass of water, with or without food. If it causes drowsiness, take it in the evening or at bedtime. Finish the full course as prescribed. If you miss a dose, take it at the next scheduled time; do not double up. Keep the medicine out of reach of children."
+      },
+      {
+        "id": "S11",
+        "drug": "Paracetamol",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.9,
+        "flesch_ease": 92.9,
+        "words": 26,
+        "latency_s": 4.66,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 11. Take Paracetamol 650 mg twice a day, at 08:00 and 20:00. Swallow it with water after food. Take it for 3 days.",
+        "final_text": "Hello Test Patient 11. Take Paracetamol 650 mg twice a day, at 08:00 and 20:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take tablets whole with water, with or without food. Follow the prescribed interval between doses and never exceed the daily limit. Use only when needed and stop when symptoms improve. If a dose is missed, take it when remembered unless the next dose is soon; do not double up. Finish the course as directed."
+      },
+      {
+        "id": "S12",
+        "drug": "Amoxicillin",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.4,
+        "flesch_ease": 89.6,
+        "words": 26,
+        "latency_s": 5.52,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 12. Take Amoxicillin 250 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water. Take it for 5 days.",
+        "final_text": "Hello Test Patient 12. Take Amoxicillin 250 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the capsules exactly as prescribed. Swallow each capsule whole with water, with or without food. Space doses evenly throughout the day. Finish the full course even if you feel better. If you miss a dose, take it as soon as you remember, then resume the regular schedule—do not double up. Keep the medicine out of reach of children."
+      },
+      {
+        "id": "S13",
+        "drug": "Metformin",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.5,
+        "flesch_ease": 95.6,
+        "words": 25,
+        "latency_s": 5.82,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 13. Take Metformin 1000 mg twice a day, at 08:00 and 20:00. Swallow with water after food. Take it for 30 days.",
+        "final_text": "Hello Test Patient 13. Take Metformin 1000 mg twice a day, at 08:00 and 20:00. Swallow with water after food. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablets with or just after meals to reduce stomach upset. Swallow each tablet whole with water. Keep a regular schedule, taking them at the same times every day. Continue the medication for the full prescribed course; do not stop early. If a dose is missed, take the next dose at the usual time—do not double up."
+      },
+      {
+        "id": "S14",
+        "drug": "Pantoprazole",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 3.0,
+        "flesch_ease": 84.4,
+        "words": 24,
+        "latency_s": 3.91,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 14. Take Pantoprazole 40 mg once a day, at 08:00. Swallow it with water before breakfast. Take it for 14 days.",
+        "final_text": "Hello Test Patient 14. Take Pantoprazole 40 mg once a day, at 08:00. Swallow it with water before breakfast. Take it for 14 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablet before a meal, usually before breakfast. Swallow it whole with water; do not chew or crush. Finish the full course as prescribed. If you miss a dose, take it when you remember, unless it’s almost time for the next dose. Do not stop or restart without consulting your doctor."
+      },
+      {
+        "id": "S15",
+        "drug": "Amlodipine",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.6,
+        "flesch_ease": 93.6,
+        "words": 22,
+        "latency_s": 2.1,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 15. Take Amlodipine 10 mg once a day, at 08:00. Swallow it with water. Take it for 30 days.",
+        "final_text": "Hello Test Patient 15. Take Amlodipine 10 mg once a day, at 08:00. Swallow it with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablet once daily, at the same time each day, with water. It can be taken with or without food. Do not take more than prescribed. If you miss a dose, take it when you remember unless it’s almost time for the next dose; then skip the missed dose and resume the regular schedule. Keep the medication out of reach of children."
+      },
+      {
+        "id": "S16",
+        "drug": "Ibuprofen",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.3,
+        "flesch_ease": 91.0,
+        "words": 28,
+        "latency_s": 2.05,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 16. Take Ibuprofen 200 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.",
+        "final_text": "Hello Test Patient 16. Take Ibuprofen 200 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablets with or after food and a full glass of water to protect your stomach. Follow the exact schedule your doctor or pharmacist gave you, keeping the required interval between doses. Use only for the prescribed number of days; long‑term use increases risks. If you miss a dose, take it when you remember unless the next dose is soon—do not double up."
+      },
+      {
+        "id": "S16",
+        "drug": "Cetirizine",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.4,
+        "flesch_ease": 86.2,
+        "words": 19,
+        "latency_s": 0.53,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 16. Take Cetirizine 10 mg at 22:00. Swallow it with water. Take it for 3 days.",
+        "final_text": "Hello Test Patient 16. Take Cetirizine 10 mg at 22:00. Swallow it with water. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablet with a glass of water, with or without food. If it causes drowsiness, take it in the evening or at bedtime. Finish the full course as prescribed. If you miss a dose, take it at the next scheduled time; do not double up. Keep the medicine out of reach of children."
+      },
+      {
+        "id": "S17",
+        "drug": "Azithromycin",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 0.5,
+        "flesch_ease": 100.8,
+        "words": 21,
+        "latency_s": 3.26,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 17. Take Azithromycin 250 mg once a day, at 08:00. Swallow with water. Take it for 5 days.",
+        "final_text": "Hello Test Patient 17. Take Azithromycin 250 mg once a day, at 08:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablets exactly as prescribed, once daily at the same time. Swallow whole with water. Follow any food instructions: some regimens require taking one hour before or two hours after meals. Finish the full course even if you feel better. If a dose is missed, take it as soon as remembered, but do not double‑dose."
+      },
+      {
+        "id": "S18",
+        "drug": "Atorvastatin",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.8,
+        "flesch_ease": 90.7,
+        "words": 19,
+        "latency_s": 6.53,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 18. Take Atorvastatin 20 mg at 22:00. Swallow it with water. Take it for 30 days.",
+        "final_text": "Hello Test Patient 18. Take Atorvastatin 20 mg at 22:00. Swallow it with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablets exactly as prescribed. Swallow each tablet whole with water, at the same time each day, usually in the evening. You may take it with or without food, but avoid large amounts of grapefruit juice. Continue the medication for the full course and refill before it ends. If a dose is missed, take the next dose at the scheduled time; do not double up."
+      },
+      {
+        "id": "S23",
+        "drug": "Paracetamol",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.9,
+        "flesch_ease": 94.0,
+        "words": 28,
+        "latency_s": 3.39,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 23. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.",
+        "final_text": "Hello Test Patient 23. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take tablets whole with water, with or without food. Follow the prescribed interval between doses and never exceed the daily limit. Use only when needed and stop when symptoms improve. If a dose is missed, take it when remembered unless the next dose is soon; do not double up. Finish the course as directed."
+      },
+      {
+        "id": "S24",
+        "drug": "Paracetamol",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 2.0,
+        "flesch_ease": 92.9,
+        "words": 34,
+        "latency_s": 1.87,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 24. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days. Put the tablets whole with water.",
+        "final_text": "Hello Test Patient 24. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days. Put the tablets whole with water.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take tablets whole with water, with or without food. Follow the prescribed interval between doses and never exceed the daily limit. Use only when needed and stop when symptoms improve. If a dose is missed, take it when remembered unless the next dose is soon; do not double up. Finish the course as directed."
+      },
+      {
+        "id": "S25",
+        "drug": "Amlodipine",
+        "variant": "v3",
+        "blocked": false,
+        "errors": [],
+        "fk_grade": 1.6,
+        "flesch_ease": 93.6,
+        "words": 22,
+        "latency_s": 5.64,
+        "taxonomy": [],
+        "llm_text": "Hello Test Patient 25. Take Amlodipine 5 mg once a day, at 08:00. Swallow it with water. Take it for 30 days.",
+        "final_text": "Hello Test Patient 25. Take Amlodipine 5 mg once a day, at 08:00. Swallow it with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "rag_summary": "Take the tablet once daily, at the same time each day, with water. It can be taken with or without food. Do not take more than prescribed. If you miss a dose, take it when you remember unless it’s almost time for the next dose; then skip the missed dose and resume the regular schedule. Keep the medication out of reach of children."
+      }
+    ]
   }
 }

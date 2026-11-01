@@ -26,6 +26,7 @@ image/text -> OCR (EasyOCR / TrOCR) -> extraction (LLM, RGC + few-shot) -> sourc
 | Missing field or confidence < 0.80 sets status `NEEDS_CONFIRMATION`; such items are never simplified or scheduled | `src/validator.py::gate_item`, `src/schedule.py::build_schedule`, `src/simplify.py` |
 | A value not found in the source text (hallucination) gets low confidence and is flagged | `src/extract.py::_to_item` |
 | Every number, unit and time in the output must match the confirmed data, or the output is blocked | `src/validator.py::validate_output` |
+| Route wording (e.g. no "inhaler" for eye drops) and "as needed" wording must match the prescription | `src/validator.py::check_semantics` |
 | Dose times come from Python, not the LLM | `src/schedule.py` |
 | Prescription text is untrusted data: wrapped in delimiters, injection patterns detected, injected lines never count as evidence | `src/validator.py`, `src/extract.py` |
 | Disclaimer, storage line and refill line are appended by code | `src/simplify.py::append_fixed_lines` |

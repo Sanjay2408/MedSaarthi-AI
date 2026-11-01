@@ -150,6 +150,8 @@ def test_refill_line_for_long_course():
 
 def test_number_check_normalises_native_digits():
     assert numbers("५०० mg ०८:००") == numbers("500 mg 08:00")
+    assert numbers("सुबह 8 बजे 500 मिलीग्राम") == numbers("500 mg at 8:00 AM")
+    assert numbers("1000 मिलीग्राम") != numbers("500 mg")
 
 
 def test_render_pdf_and_html_modes():

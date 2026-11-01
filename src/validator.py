@@ -148,7 +148,33 @@ def validate_output(text: str, item: MedicationItem, allowed_times: list[str] | 
         output_nums = {n for n, _ in extract_quantities(text)}
         if dose_nums and not dose_nums & output_nums:
             errors.append("dose missing from output")
+    errors += check_semantics(text, item)
     return ValidationResult(passed=not errors, errors=errors)
+
+
+_AS_NEEDED_RE = re.compile(r"\b(only\s+)?(when|as|if)\s+(you\s+)?(need|needed|required)\b|\bas[- ]needed\b", re.IGNORECASE)
+
+
+def check_semantics(text: str, item: MedicationItem) -> list[str]:
+    """Wording checks that need no numbers: route words and 'as needed' consistency.
+
+    Added after the evaluation showed outputs that passed the number check but told
+    the patient to use an inhaler for eye drops, or to use a QID drug 'only when needed'.
+    """
+    low = text.lower()
+    route = (item.route.value or "").lower()
+    instr = (item.instructions.value or "").lower()
+    errs = []
+    if route != "inhalation" and re.search(r"\binhaler\b|\bbreathe in\b", low):
+        errs.append("route: inhaler wording for a non-inhaled medicine")
+    if route in ("eye", "inhalation") and re.search(r"\bswallow", low):
+        errs.append("route: 'swallow' wording for a non-oral medicine")
+    if route != "eye" and re.search(r"\b(in|into)\s+(the|both|your|each)\s+eyes?\b", low) and "eye" not in instr:
+        errs.append("route: eye wording for a non-eye medicine")
+    spec = parse_frequency(item.frequency.value)
+    if spec and not spec.as_needed and _AS_NEEDED_RE.search(low) and not _AS_NEEDED_RE.search(instr):
+        errs.append("frequency: says 'as needed' but the prescription has a fixed schedule")
+    return errs
 
 
 def _canon_time(t: str) -> str:

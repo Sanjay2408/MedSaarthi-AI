@@ -280,6 +280,7 @@ def part_simplify(samples, llm):
                       "median_fk_grade": statistics.median(r["fk_grade"] for r in vs),
                       "median_words": statistics.median(r["words"] for r in vs),
                       "median_latency_s": statistics.median(r["latency_s"] for r in vs),
+                      "blocked_wording": sum(any(e.startswith(("route:", "frequency:")) for e in r["errors"]) for r in vs),
                       "items_with_any_error": sum(bool(r["taxonomy"]) for r in vs), "taxonomy_counts": tax}
     return {"summary": summary, "rows": rows}
 

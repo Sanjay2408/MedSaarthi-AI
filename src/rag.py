@@ -50,7 +50,8 @@ def chunk(text: str) -> list[str]:
 def _embedder():
     from sentence_transformers import SentenceTransformer
 
-    return SentenceTransformer(load_config()["rag"]["embedding_model"], device="cpu")
+    return SentenceTransformer(load_config()["rag"]["embedding_model"], device="cpu",
+                               model_kwargs={"use_safetensors": False})
 
 
 def retrieve(chunks: list[str], query: str, k: int) -> tuple[list[str], list[float]]:

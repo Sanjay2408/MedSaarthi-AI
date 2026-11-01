@@ -1,0 +1,299 @@
+rating_id,sample,drug,output,adequacy_pos,adequacy_neg,clarity_pos,clarity_neg,usefulness_pos,usefulness_neg,completeness_pos,completeness_neg,simplification_pos,simplification_neg,error_type,rater
+R001,S05,Cetirizine,"Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Swallow it with water. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R002,S16,Ibuprofen,"Hello Test Patient 16. Take Ibuprofen 200 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R003,S06,Paracetamol,"Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R004,S16,Cetirizine,"Hello Test Patient 16. Take Cetirizine 10 mg at 22:00. Swallow it with water. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R005,S11,Paracetamol,"Hello Test Patient 11. Take Paracetamol 650 mg twice a day, at 08:00 and 20:00. Swallow it with water after food. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R006,S24,Paracetamol,"Hello Test Patient 24. Take Paracetamol 500 mg at 08:00, 14:00, 20:00. Continue for 5 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R007,S01,Paracetamol,"Hello Test Patient 01. Take Paracetamol 500 mg at 08:00, 14:00, 20:00. Continue for 5 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R008,S14,Pantoprazole,"Hello Test Patient 14. Take Pantoprazole 40 mg at 08:00. Continue for 14 days. Note: before breakfast. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R009,S18,Atorvastatin,"Hello Test Patient 18. Take Atorvastatin 20 mg at 22:00. Continue for 30 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R010,S25,Amlodipine,"Hello Test Patient 25. Take Amlodipine 5 mg at 08:00. Continue for 30 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R011,S08,Atorvastatin,"Hello Test Patient 08. Take Atorvastatin 10 mg once a day, at 20:00. Swallow it with water. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R012,S06,Paracetamol,"Hello Test Patient 06. Take Paracetamol 650 mg when you have fever. Swallow with water. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R013,S25,Amlodipine,"Hello Test Patient 25. Take Amlodipine 5 mg once a day, at 08:00. Swallow it with water. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R014,S12,Amoxicillin,"Hello Test Patient 12. Take Amoxicillin 250 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R015,S07,Ibuprofen,"Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours, at 06:00, 14:00, and 22:00. Swallow it with water after food. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R016,S09,Salbutamol,"**What you’ll take:**  
+- **Medicine:** Salbutamol (a quick‑relief inhaler)  
+- **Dose:** 100 µg per puff  
+- **How to use:** Shake the inhaler, put the mouthpiece in your mouth, close your lips around it, and breathe in slowly while pressing the inhaler to get a puff.  
+- **When to use:** Only when you feel breathless or have a sudden asthma attack.  
+- **How many puffs:** Take **2 puffs** each time you need relief.  
+- **How often:** Use it **as needed** (SOS – “as soon as symptoms appear”).  
+- **How long:** Keep the inhaler for **30 days** and then bring it back for a refill or a new prescription.  
+
+**Quick reminder:**  
+- If you need more than 2 puffs in a short time, or if you’re still breathless after 2 puffs, call your doctor or go to the nearest emergency department.  
+- Store the inhaler in a cool, dry place and keep it out of reach of children.  
+
+That’s it—just use it when you feel short of breath, 2 puffs at a time, and keep it for the next 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R017,S11,Paracetamol,"Hello Test Patient 11. Take Paracetamol 650 mg at 08:00, 20:00. Continue for 3 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R018,S07,Ibuprofen,"Hello Test Patient 07. Take Ibuprofen 400 mg at 06:00, 14:00, 22:00. Swallow with water after food. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R019,S17,Azithromycin,"Hello Test Patient 17. Take Azithromycin 250 mg once a day, at 08:00. Swallow with water. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R020,S02,Amoxicillin,"Hello Test Patient 02. Take Amoxicillin 500 mg at 08:00, 14:00, 20:00. Continue for 7 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R021,S03,Metformin,"Hello Test Patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. Swallow it with water after meals. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R022,S24,Paracetamol,"Hello Test Patient 24. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R023,S23,Paracetamol,"**What you’ll take:**  
+- **Paracetamol** (also called acetaminophen)  
+- **500 mg** each time
+
+**How to take it:**  
+- **Oral** – swallow the tablet with a glass of water.  
+- **After food** – take it after you’ve eaten (so it’s easier on your stomach).  
+
+**When to take it:**  
+- **Three times a day (TDS)** – at **08:00 am, 02:00 pm, and 08:00 pm**.  
+- Keep the same times each day so the medicine stays steady in your body.
+
+**How long:**  
+- **3 days** – take the dose at the times above for three consecutive days.  
+- After the third day, stop unless your doctor says otherwise.
+
+**Why this matters:**  
+- Taking it after food helps prevent stomach upset.  
+- Sticking to the schedule keeps the pain‑relief level consistent.  
+
+If you miss a dose, take it as soon as you remember, but don’t double up to make up for it. If you have any questions or feel worse, let your doctor know.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R024,S15,Amlodipine,"Hello Test Patient 15. Take Amlodipine 10 mg at 08:00. Continue for 30 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R025,S05,Cetirizine,"Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Swallow with water. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R026,S06,Azithromycin,"Hello Test Patient 06. Take Azithromycin 500 mg once a day, at 08:00. Swallow it with water one hour before food. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R027,S18,Atorvastatin,"Hello Test Patient 18. Take Atorvastatin 20 mg at 22:00. Swallow it with water. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R028,S17,Azithromycin,"Hello Test Patient 17. Take Azithromycin 250 mg at 08:00. Continue for 5 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R029,S04,Amlodipine,"Hello Test Patient 04. Take Amlodipine 5 mg once a day, at 08:00. Swallow it with water in the morning. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R030,S16,Cetirizine,"Hello Test Patient 16. Take Cetirizine 10 mg at 22:00. Swallow with water. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R031,S15,Amlodipine,"Hello Test Patient 15. Take Amlodipine 10 mg once a day, at 08:00. Swallow with water. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R032,S10,Moxifloxacin,"Hello Test Patient 10. Take Moxifloxacin 1 drop at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R033,S24,Paracetamol,"Hello Test Patient 24. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days. Put the tablets whole with water.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R034,S02,Amoxicillin,"Hello Test Patient 02. Take Amoxicillin 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow with water after food. Take it for 7 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R035,S08,Atorvastatin,"Hello Test Patient 08. Take Atorvastatin 10 mg once a day, at 20:00. Swallow with water. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R036,S17,Azithromycin,"Hello Test Patient 17. Take Azithromycin 250 mg once a day, at 08:00. Swallow with water. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R037,S09,Salbutamol,"Hello Test Patient 09. Take Salbutamol 100 mcg inhalation only when needed, 2 puffs when breathless. Breathe in from the inhaler. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R038,S16,Ibuprofen,"Hello Test Patient 16. Take Ibuprofen 200 mg at 08:00, 14:00, 20:00. Continue for 3 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R039,S07,Ibuprofen,"Hello Test Patient 07. Take Ibuprofen 400 mg at 06:00, 14:00, 22:00. Continue for 3 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R040,S06,Azithromycin,"Hello Test Patient 06. Take Azithromycin 500 mg once a day, at 08:00. Swallow with water one hour before food. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R041,S02,Pantoprazole,"Hello Test Patient 02. Take Pantoprazole 40 mg at 08:00. Continue for 7 days. Note: before breakfast. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R042,S23,Paracetamol,"Hello Test Patient 23. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R043,S15,Amlodipine,"Hello Test Patient 15. Take Amlodipine 10 mg once a day, at 08:00. Swallow it with water. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R044,S01,Paracetamol,"Hello Test Patient 01. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R045,S23,Paracetamol,"Hello Test Patient 23. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R046,S03,Metformin,"Hello Test Patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. Swallow it with water after meals. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R047,S04,Amlodipine,"Hello Test Patient 04. Take Amlodipine 5 mg once a day, at 08:00. Swallow with water. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R048,S10,Cetirizine,"Hello Test Patient 10. Take Cetirizine 10 mg once a day, at 08:00. Swallow with water. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R049,S25,Amlodipine,"Hello Test Patient 25. Take Amlodipine 5 mg once a day, at 08:00. Swallow with water. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R050,S13,Metformin,"Hello Test Patient 13. Take Metformin 1000 mg twice a day, at 08:00 and 20:00. Swallow it with water after food. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R051,S12,Amoxicillin,"Hello Test Patient 12. Take Amoxicillin 250 mg at 08:00, 14:00, 20:00. Continue for 5 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R052,S14,Pantoprazole,"Hello Test Patient 14. Take Pantoprazole 40 mg once a day, at 08:00. Swallow it with water before breakfast. Take it for 14 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R053,S10,Moxifloxacin,"Hello Test Patient 10. Take Moxifloxacin 1 drop at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R054,S02,Pantoprazole,"Hello Test Patient 02. Take Pantoprazole 40 mg once a day, at 08:00. Swallow it with water before breakfast. Take it for 7 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R055,S03,Metformin,"Hello Test Patient 03. Take Metformin 500 mg at 08:00, 20:00. Continue for 30 days. Note: after meals. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R056,S10,Moxifloxacin,"Hello Test Patient 10. Take Moxifloxacin 1 drop at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R057,S09,Salbutamol,"Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R058,S10,Cetirizine,"Hello Test Patient 10. Take Cetirizine 10 mg once a day, at 08:00. Swallow it with water. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R059,S13,Metformin,"Hello Test Patient 13. Take Metformin 1000 mg at 08:00, 20:00. Continue for 30 days. Note: after food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R060,S11,Paracetamol,"Hello Test Patient 11. Take Paracetamol 650 mg twice a day, at 08:00 and 20:00. Swallow it with water after food. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R061,S02,Amoxicillin,"Hello Test Patient 02. Take Amoxicillin 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 7 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R062,S13,Metformin,"Hello Test Patient 13. Take Metformin 1000 mg twice a day, at 08:00 and 20:00. Swallow with water after food. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R063,S05,Cetirizine,"Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Continue for 5 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R064,S04,Amlodipine,"Hello Test Patient 04. Take Amlodipine 5 mg at 08:00. Continue for 30 days. Note: in the morning. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R065,S02,Pantoprazole,"Hello Test Patient 02. Take Pantoprazole 40 mg once a day, at 08:00. Swallow with water before breakfast. Take it for 7 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R066,S12,Amoxicillin,"Hello Test Patient 12. Take Amoxicillin 250 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R067,S06,Paracetamol,"**What you’ll take:**  
+- **Paracetamol 650 mg** (the pill or liquid you’re given)
+
+**How to take it:**  
+- **Oral** – swallow it with water.  
+- **When you need it** – take a dose only if you have a fever or feel it’s necessary.  
+- **Do not take it more often than that.**
+
+**How long:**  
+- Use it for up to **3 days**.  
+- If your fever goes away before 3 days, you can stop.  
+- If you still have a fever after 3 days, talk to your doctor.
+
+**Why:**  
+- It helps reduce fever and makes you feel better.  
+
+Just remember: take it only when you need it, not on a fixed schedule. If you’re unsure or your fever persists, call your healthcare provider.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R068,S18,Atorvastatin,"Hello Test Patient 18. Take Atorvastatin 20 mg at 22:00. Swallow with water. Take it for 30 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R069,S10,Cetirizine,"Hello Test Patient 10. Take Cetirizine 10 mg at 08:00. Continue for 5 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R070,S16,Ibuprofen,"Hello Test Patient 16. Take Ibuprofen 200 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 3 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R071,S08,Atorvastatin,"Hello Test Patient 08. Take Atorvastatin 10 mg at 20:00. Continue for 30 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Before this medicine runs out, visit your health centre for a new prescription.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R072,S06,Azithromycin,"Hello Test Patient 06. Take Azithromycin 500 mg at 08:00. Continue for 3 days. Note: one hour before food. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R073,S01,Paracetamol,"Hello Test Patient 01. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R074,S16,Cetirizine,"Hello Test Patient 16. Take Cetirizine 10 mg at 22:00. Continue for 3 days. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,
+R075,S14,Pantoprazole,"Hello Test Patient 14. Take Pantoprazole 40 mg once a day, at 08:00. Swallow it with water before breakfast. Take it for 14 days.
+Keep this medicine in a cool, dry place, out of the reach of children.
+Not medical advice. Confirm with your pharmacist or doctor.",,,,,,,,,,,,

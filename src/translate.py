@@ -37,7 +37,7 @@ def _model():
     from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
     name = load_config()["translation"]["model"]
-    return AutoTokenizer.from_pretrained(name), AutoModelForSeq2SeqLM.from_pretrained(name).eval()
+    return AutoTokenizer.from_pretrained(name), AutoModelForSeq2SeqLM.from_pretrained(name, use_safetensors=False).eval()
 
 
 def _codes() -> dict:
@@ -61,12 +61,18 @@ def translate_sentences(sentences: list[str], src: str, tgt: str) -> list[str]:
     batch = tok(sentences, return_tensors="pt", padding=True, truncation=True, max_length=256)
     with torch.no_grad():
         out = model.generate(**batch, forced_bos_token_id=tok.convert_tokens_to_ids(_codes()[tgt]),
-                             max_new_tokens=256, num_beams=4)
+                             max_new_tokens=256, max_length=None, num_beams=4)
     return tok.batch_decode(out, skip_special_tokens=True)
 
 
 def numbers(text: str) -> list[str]:
-    return sorted(_NUM_RE.findall(text.translate(_DIGIT_MAP)))
+    """Digits in the text, with native digits mapped to ASCII and whole-hour times
+    reduced to the hour ("08:00" -> "8"), since translations often write "8 o'clock"."""
+    out = []
+    for n in _NUM_RE.findall(text.translate(_DIGIT_MAP)):
+        n = re.sub(r":00$", "", n)
+        out.append(n.lstrip("0") or "0" if n.isdigit() else n)
+    return sorted(out)
 
 
 def translate(text: str, lang: str) -> TranslationResult:
