@@ -1,0 +1,45 @@
+# MedSaarthi AI configuration. Model choices and reasons: docs/MODEL_CHOICES.md
+
+safety:
+  confidence_threshold: 0.80
+  disclaimer: "Not medical advice. Confirm with your pharmacist or doctor."
+  data_delimiter_open: "<<<PRESCRIPTION_DATA>>>"
+  data_delimiter_close: "<<<END_PRESCRIPTION_DATA>>>"
+
+llm:
+  backend: groq            # groq | local
+  model: llama-3.3-70b-versatile
+  small_model: llama-3.1-8b-instant
+  local_model: Qwen/Qwen2.5-1.5B-Instruct
+  temperature: 0
+  max_tokens: 1024
+
+ocr:
+  printed: easyocr
+  handwriting: microsoft/trocr-base-handwritten
+  languages: [en]
+
+translation:
+  model: facebook/nllb-200-distilled-600M
+  alt_model: ai4bharat/indictrans2-en-indic-1B
+  languages:
+    en: eng_Latn
+    hi: hin_Deva
+    kn: kan_Knda
+    ta: tam_Taml
+    te: tel_Telu
+
+rag:
+  embedding_model: BAAI/bge-m3
+  chunk_size: 2900
+  chunk_overlap: 2100
+  top_k: 2
+  query: "How should I use this medicine?"
+
+schedule:
+  wake_time: "06:00"
+  sleep_time: "22:00"
+  time_format: 24h        # 24h | 12h
+
+audit:
+  path: logs/audit.jsonl
