@@ -170,3 +170,14 @@ def test_value_only_in_injected_line_is_flagged():
                                                "frequency": "TDS", "duration": "5 days", "instructions": "after food"}]}))
     res = extract(src, llm=llm)
     assert res.prescription.items[0].status == ItemStatus.NEEDS_CONFIRMATION and res.injection_hits
+
+
+def test_sentence_end_is_not_a_time():
+    assert numbers("मरीज 05. 22:00 बजे") == numbers("Patient 05. at 22:00")
+
+
+def test_dose_without_amount_is_flagged():
+    from src.validator import gate_item
+    it = item(dose="drop")
+    it.status = ItemStatus.NEEDS_CONFIRMATION
+    assert ReasonCode.MISSING_DOSE in gate_item(it).reasons

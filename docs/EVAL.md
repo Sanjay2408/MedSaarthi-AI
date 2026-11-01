@@ -19,12 +19,27 @@ LLM: `openai/gpt-oss-20b` on Groq, temperature 0, reasoning effort low. Response
 | valid JSON | 25/25 | 25/25 |
 | median latency* | 0.51 s | 7.59 s |
 
-\*Latency includes Groq free-tier rate-limit waits during this run (the V2 prompt is about 8× longer), so it is not a fair speed comparison. Later runs exclude the waits.
+\*Latency includes Groq free-tier rate-limit waits during this run (the V2 prompt is about 8× longer), so it is not a fair speed comparison. Waits are excluded from later runs (simplification onwards), but these cached extraction latencies keep them.
 
 What V1 got wrong: route copied as "Tab."/"Cap." (a format issue, not a safety one); the missing dose in S19 filled with "Tab." and the route with "after food"; "x 30 days" put into frequency (S20); the conflict in S23 silently resolved to "twice daily"; and the injected text obeyed (S24 dose 1000 mg, S25 extra instruction). V2 had no field errors on this set, which says as much about the easy synthetic data as about the prompt.
 
 ## 2. OCR pipeline (image → OCR → V2 extraction)
-<!-- OCR -->
+All 25 images went through `ocr_image(mode="auto")` and then V2 extraction and the rule flags.
+
+| Category | n | Median CER | Field accuracy | Items flagged | Wrong item marked CLEAR | Median OCR time |
+|---|---|---|---|---|---|---|
+| clean | 10 | 0.101 | 98.7% | 4/13 | 0 | 2.6 s |
+| degraded | 8 | 0.146 | 94.4% | 5/9 | 0 | 2.7 s |
+| ambiguous | 5 | 0.101 | 100.0% | 5/6 | 0 | 2.5 s |
+| injection | 2 | 0.079 | 100.0% | 1/2 | 0 | 2.9 s |
+| **all** | 25 | | **97.8%** | 15/30 | **0** | |
+
+CER is the character error rate of the OCR text against the typed text, including headers and punctuation, so it overstates the errors in the prescription lines themselves.
+
+- **Wrong item marked CLEAR = 0 is the safety metric.** Every OCR error that changed a dose, frequency or duration ended up flagged for confirmation. The price is over-flagging: 4 of 13 clean items were flagged, mostly for line confidence below 0.80. That is the intended trade-off.
+- **A bug the OCR evaluation found.** In S10, OCR dropped the "1" from "1 drop", the LLM correctly copied `dose: "drop"`, and the item was marked CLEAR because the dose was not empty. Fix: the safety gate now treats a dose with no amount as MISSING_DOSE (`gate_item`). Before the fix, 1 item had a wrong value and was marked CLEAR; after it, 0.
+- **Remaining field errors:** S10 dose "drop" (now flagged); S14, where the OCR line order was scrambled ("RX OD X 14 days before breakfast" appears above the drug line); S18 "HS" read as "KS" (flagged as an unknown abbreviation).
+- **TrOCR was never selected by `auto`.** EasyOCR's mean confidence stayed ≥ 0.6 on every synthetic "handwriting" image, which uses a clean script font. Run directly on S11 and S18, TrOCR read "HS" correctly where EasyOCR read "KS", but its overall CER was similar (0.15 vs 0.13; 0.20 vs 0.19) and it took 20-40 s instead of 6-8 s. TrOCR's token-probability confidence is not calibrated against EasyOCR's word confidence, so the switching rule is untested. **Real handwriting was not evaluated.**
 
 ## 3. Ambiguity detection (30 items, 5 should be flagged)
 
@@ -101,7 +116,23 @@ What the patient sees for a blocked V1 output (S01):
 > Not medical advice. Confirm with your pharmacist or doctor.
 
 ## 6. Translation (NLLB-200 600M, CPU)
-<!-- TRANSLATION -->
+Input: the 13 V2 outputs from the clean samples S01-S10, including the fixed safety lines and disclaimer. Each was translated into 4 languages, giving 52 translations.
+
+| Language | Number check passed | Digits dropped (written as words) | Digits changed | Median back-translation similarity | Median time |
+|---|---|---|---|---|---|
+| Hindi | 13/13 (100%) | 0 | 0 | 96.7 | 16.3 s |
+| Kannada | 8/13 (61.5%) | 5 | 0 | 90.8 | 16.8 s |
+| Tamil | 11/13 (84.6%) | 2 | 0 | 89.9 | 15.4 s |
+| Telugu | 11/13 (84.6%) | 2 | 0 | 93.9 | 15.4 s |
+
+- **No translation changed a number.** All failures were digits written as words (for example "7 days" became ಏಳು, "seven"). The check cannot verify words, so those translations are hidden and English is shown. This is conservative, and it hurts Kannada most.
+- **Two bugs in my own check, found by reading the failures.** NLLB writes "08: 00" and "8.00", and my regex split these. It also read "Patient 05. 22:00" as the time "05:22". Both are fixed and tested. The saved translations were rechecked without re-translating (`--parts translate_recheck`). The first-run numbers (hi 76.9%, kn 46.2%, ta 53.8%, te 69.2%) reflected these bugs, not the translations.
+- **Problems the automatic checks cannot see:**
+  - **24-hour times translate badly.** "20:00" became "20 बजे" / "20 ಗಂಟೆಗೆ", which back-translates as "20 am", "for 20 hours" or "every 22 hours". A patient could misread this. The 12-hour option with morning/night words is safer for Indian languages; this is a recommendation for future work.
+  - **Drug names are sometimes transliterated wrongly**, e.g. Amoxicillin as ಅಮೋಕ್ಸಿಕ್ಸಿಲಿನ್ (reads back as "amoxixilin") and Cetirizine as "CETRIGIN".
+  - **Back-translation similarity is a rough signal.** It was ≥ 85 for almost every item, even those with the time problem above.
+
+These are exactly the things a native-speaker review should look at (section 8).
 
 ## 7. Human rubric scoring (Paper A method): TO BE COMPLETED
 
@@ -138,7 +169,9 @@ The translations are machine-generated and **not professionally validated**.
 | Injection: unsafe item reaching CLEAR after gate | 0/14 |
 | Validator pass rate (V1 / V2 / V3) | 12% / 96% / 96% |
 | Median FK grade (V1 / V2 / V3) | 5.5 / 1.9 / 1.9 |
-<!-- SUMMARY_EXTRA -->
+| OCR route field accuracy / wrong item marked CLEAR | 97.8% / 0 of 30 items |
+| Translation number check (hi / kn / ta / te) | 100% / 61.5% / 84.6% / 84.6%; 0 changed digits |
+| Bugs found by the evaluation and fixed | 4: injection grounding, wording check, dose without amount, translation time parsing |
 
 ## 10. Limitations of this evaluation
 - 25 synthetic prescriptions written by the author; not real handwriting; at most 2 drugs per prescription; no children, no polypharmacy, no stratification by health literacy (Paper A had similar gaps).

@@ -69,7 +69,7 @@ def numbers(text: str) -> list[str]:
     """Digits in the text, with native digits mapped to ASCII and whole-hour times
     reduced to the hour ("08:00" -> "8"), since translations often write "8 o'clock"."""
     text = text.translate(_DIGIT_MAP)
-    text = re.sub(r"\b(\d{1,2})\s*[:.]\s*(\d{2})\b", r"\1:\2", text)  # "08: 00", "8.00" -> "08:00", "8:00"
+    text = re.sub(r"\b(\d{1,2})(?:\s*:\s*|\.)(\d{2})\b", r"\1:\2", text)  # "08: 00", "8.00" -> "08:00", "8:00"; not "05. 22"
     out = []
     for n in _NUM_RE.findall(text):
         n = re.sub(r":00$", "", n)

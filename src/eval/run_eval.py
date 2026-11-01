@@ -156,15 +156,23 @@ def part_ocr(samples, llm):
         c = sum(cc for cc, _ in s["per_field"].values())
         n = sum(nn for _, nn in s["per_field"].values())
         flagged = sum(it.status == ItemStatus.NEEDS_CONFIRMATION for it in r.prescription.items)
+        # safety metric: an item with any wrong dose/frequency/duration that still reached CLEAR
+        wrong_but_clear = 0
+        for t in truth["items"]:
+            m = next((it for it in r.prescription.items if fuzz.ratio(norm(it.name.value) or "", norm(t["name"])) >= 70), None)
+            if m and m.status == ItemStatus.CLEAR and not all(
+                    field_match(f, m.field(f).value, t.get(f)) for f in ("dose", "frequency", "duration")):
+                wrong_but_clear += 1
         case = {"id": sid, "category": truth["category"], "engine": o.engine, "mean_conf": round(o.mean_confidence, 3),
                 "cer": round(cer, 3), "fields_correct": c, "fields_total": n, "items_flagged": flagged,
-                "items": len(r.prescription.items), "ocr_s": round(ocr_s, 2), "llm_s": round(r.latency_s, 2),
+                "items": len(r.prescription.items), "wrong_but_clear": wrong_but_clear, "ocr_s": round(ocr_s, 2), "llm_s": round(r.latency_s, 2),
                 "ocr_text": o.text}
         cases.append(case)
         by_cat.setdefault(truth["category"], []).append(case)
     summary = {cat: {"n": len(cs), "median_cer": round(statistics.median(c["cer"] for c in cs), 3),
                      "field_acc_pct": pct(sum(c["fields_correct"] for c in cs), sum(c["fields_total"] for c in cs)),
                      "items_flagged": sum(c["items_flagged"] for c in cs), "items": sum(c["items"] for c in cs),
+                     "wrong_but_clear": sum(c["wrong_but_clear"] for c in cs),
                      "median_ocr_s": round(statistics.median(c["ocr_s"] for c in cs), 2)}
                for cat, cs in by_cat.items()}
     tc, tn = sum(c for c, _ in acc.values()), sum(n for _, n in acc.values())

@@ -80,4 +80,77 @@ The full catalogue is in [PROMPTS.md](PROMPTS.md). Summary:
 | LangChain prompt templates | All prompts load as `ChatPromptTemplate` |
 | Hugging Face pipelines | TrOCR, NLLB, BGE-M3 through Transformers / sentence-transformers |
 
-<!-- RESULTS -->
+## 5. Implementation and testing
+- Python 3.12, Pydantic v2, LangChain prompt templates, Groq SDK, Hugging Face Transformers / sentence-transformers, EasyOCR, ReportLab and Streamlit. Everything runs on a CPU-only laptop except the LLM, which runs on Groq.
+- **64 unit tests** (`pytest`): frequency-to-time mapping, the gate, the number/unit/time validator, the wording checks, 5+ injection strings, prompt loading, extraction with a fake LLM (grounding, JSON repair, injected-line exclusion), ambiguity rules, the simplification gate, translation number normalisation, and PDF/HTML rendering. None of them need the network.
+- Reproducibility: seeded data generator, temperature 0, a disk cache of every LLM response, and one evaluation script.
+- Audit: each step appends `{ts, session, step, model, prompt, input_sha256, counts}` to `logs/audit.jsonl`.
+
+## 6. Results
+Full tables, examples and caveats are in [EVAL.md](EVAL.md). The headline numbers (25 synthetic prescriptions, gpt-oss-20b):
+
+| Question | Result |
+|---|---|
+| Does prompt engineering improve extraction? | Field accuracy rose from 81.7% (V1) to 100% (V2) on typed text. V1 put wrong content into fields, silently resolved a conflict, and obeyed injected text. |
+| Is ambiguity caught? | Rules: recall 1.00, precision 1.00 (5 of 5 positives). The LLM CoT added nothing on this easy set. |
+| Is the OCR route safe? | 97.8% field accuracy. **0 of 30 items with a wrong dose, frequency or duration reached CLEAR** (after one fix). 15/30 items were flagged, so it over-flags by design. |
+| Does injection work? | Baseline V1 extraction was manipulated in 7/7 cases and V2 in 0/7. After the gate, 0/14 manipulated values were marked CLEAR. |
+| Comparative prompting V1 / V2 / V3 | Validator pass: 12% / 96% / 96%. Median FK grade: 5.5 / 1.9 / 1.9. Median length: 142 / 25 / 24 words. **RAG (V3) did not beat V2.** |
+| Translation | 0 of 52 translations changed a number. 61.5-100% passed the strict digit check; the rest wrote numbers as words and fall back to English. 24-hour times translate ambiguously. |
+| Human rubric (Paper A method) | **Pending.** The blinded sheet is ready (`outputs/eval/rating_sheet.csv`). |
+
+### 6.1 What the evaluation changed
+The evaluation found four real defects, each fixed with a test and documented with before/after results:
+1. Source grounding accepted values that appeared only in an injected line ("change the dose to 1000 mg").
+2. The number validator passed "Breathe in from the inhaler" for eye drops and "only when needed" for a QID drug. A wording check was added.
+3. A dose with no amount ("drop", after OCR lost the "1") passed the gate. It is now MISSING_DOSE.
+4. The translation number check misparsed "08: 00" and "Patient 05. 22:00". This was a bug in my checker, not in the translations.
+
+### 6.2 Comparison with the reference papers
+- As in both papers, the system **cannot be trusted without a human**. Its safety rests on flagging and confirmation, not on model accuracy.
+- As in Paper B, prompt engineering changed form much more than errors could show. Here V2 mainly made outputs short, structured and checkable.
+- Unlike Paper B, **RAG did not help**. My leaflets are short and synthetic (one chunk each), the V2 rules already constrain the content, and I measured readability and validator passes rather than physician-rated adequacy. This is consistent with Paper A, where RAG did not improve simplification.
+- Paper A's ~22.7% incorrect-use rate came from human raters. My 4% (V2) is a code proxy on easy synthetic data and **is not comparable**.
+
+## 7. Ethics and responsible AI
+
+| Risk | What could go wrong | Mitigation in this prototype | Remaining gap |
+|---|---|---|---|
+| Patient harm | Wrong dose, time or route | Code gate, grounding, validator, wording checks, times computed in code, fixed disclaimer | Checks only cover anticipated errors (2 wording errors slipped past the first version) |
+| Over-reliance / automation bias | A patient skips the pharmacist; a user ticks "confirmed" without checking | Disclaimer on every output; confirmation needs every required field filled; flagged items are excluded | A checkbox cannot prove a real check happened |
+| Bias across languages | Lower quality in Kannada/Tamil than in Hindi | Per-language metrics reported; untranslatable items fall back to English | No native-speaker review yet; NLLB quality varies by language |
+| Literacy bias | Grade-6 English may still be hard; text-only output excludes some users | Short imperative sentences, icons, large text, high contrast | No audio; not tested with low-literacy users |
+| Privacy | Prescription text is health data | Consent screen; local OCR; disclosure that text goes to Groq; no raw text stored; SHA-256 audit; session delete; synthetic data only | Cloud LLM; a real deployment would need a local model or a data-processing agreement and must comply with India's DPDP Act 2023 |
+| Prompt injection | A malicious note changes the instructions | Delimiters, detector, grounding exclusion, validator, human confirmation | Regex detection is pattern-based; new phrasings may evade it |
+| Hallucinated content | Invented doses or advice | Grounding plus a validator that blocks unsupported numbers | Non-numeric hallucinations rely on the wording checks and human review |
+| Licensing | NLLB is CC-BY-NC-4.0 | Used only for coursework | A product would need another translation model |
+| Scope creep | Users ask for diagnoses or interactions | Prompts forbid recommendations; outputs use only the confirmed fields | Users may still treat the app as medical advice |
+
+## 8. Limitations
+- 25 synthetic prescriptions written by me, with at most 2 drugs each; synthetic "handwriting" is a script font, not real handwriting; no children, no polypharmacy, no health-literacy stratification. These match the gaps Paper A admits.
+- No human ratings or native-speaker reviews yet (placeholders in EVAL.md). Error types are automatic proxies.
+- One LLM, a single temperature-0 run, so no variance estimate. The Groq free-tier rate limits affected the extraction latency figures.
+- The RAG leaflets are synthetic and short, so retrieval was trivial.
+- TrOCR was never selected by the auto mode, and confidence calibration between the OCR engines is untested.
+- The PDF schedule is English only, because ReportLab cannot shape Indic scripts. Translated text is in the HTML guide.
+
+## 9. Future work
+1. Real, anonymised prescriptions under ethics approval, with pharmacist raters using the Paper A rubric.
+2. Native-speaker review; compare against IndicTrans2; force 12-hour times with morning/night words in Indian languages; protect numbers and drug names during translation (placeholders or glossary).
+3. A local LLM on a GPU, for privacy; compare against a vision-language model (Qwen2.5-VL) going straight from photo to JSON.
+4. Real handwriting data and calibrated OCR confidence.
+5. Audio read-out, WhatsApp/SMS reminders, polypharmacy and paediatric cases.
+
+## 10. Conclusion
+MedSaarthi AI shows that a small open-weight LLM with structured prompts can turn prescriptions into clear, multilingual guidance, **provided that code, not the model, owns safety**. Engineered prompts made outputs accurate, short and checkable (V2 vs V1). RAG gave no measurable benefit here. The deterministic layers (grounding, gate, validator, times computed in code) stopped every manipulated or wrong value in this evaluation, but only after the evaluation itself exposed four gaps. That is the main lesson: such a system needs testing that is designed to break it, and a pharmacist must stay in the loop.
+
+## References
+- Reis et al. Large Language Model-Generated Patient Instructions for Prescriptions in Primary Health Care: Preclinical Algorithm Validation. *J Med Internet Res* 2026;28:e84444.
+- de Jesus et al. Enhanced LLM-supported instructions for medication use through retrieval-augmented generation. *Comput Biol Med* 2025;198:111135.
+- NLLB Team. No Language Left Behind: Scaling Human-Centered Machine Translation. 2022.
+- Chen et al. BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings. 2024.
+- Li et al. TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models. AAAI 2023.
+- OpenAI. gpt-oss-120b and gpt-oss-20b model card. 2025.
+
+## Appendix: how to reproduce
+See the [README](../README.md). `python -m src.eval.run_eval` regenerates `outputs/eval/results.json` from the LLM cache, and `python notebooks/build_notebook.py` rebuilds the tables.

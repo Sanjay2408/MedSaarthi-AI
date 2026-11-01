@@ -30,6 +30,10 @@ def gate_item(item: MedicationItem, threshold: float | None = None) -> Medicatio
     for name in REQUIRED_FIELDS:
         if item.field(name).missing and _MISSING_CODE[name] not in reasons:
             reasons.append(_MISSING_CODE[name])
+    # A dose with no amount ("drop", "tab") is as unusable as a missing dose. Found when
+    # OCR dropped the "1" from "1 drop" and the item was otherwise CLEAR.
+    if not item.dose.missing and not extract_quantities(str(item.dose.value)) and ReasonCode.MISSING_DOSE not in reasons:
+        reasons.append(ReasonCode.MISSING_DOSE)
     for name in ALL_FIELDS:
         f = item.field(name)
         if not f.missing and f.confidence < threshold and ReasonCode.LOW_OCR_CONFIDENCE not in reasons:

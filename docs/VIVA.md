@@ -36,7 +36,7 @@ Four examples cover a clean case, noisy OCR, a missing dose and an embedded requ
 In ambiguity detection. The model reasons inside `<reasoning>` tags and code keeps only the JSON verdict. Patients never see the reasoning, and the reason codes can be tested. The LLM can only add flags to the rule flags, never remove them.
 
 **7. What did comparative prompting show?**
-V1 vs V2 extraction: see EVAL section 1. V1 vs V2 vs V3 simplification: see EVAL section 5. Report it honestly even where V3 did not beat V2.
+Extraction: V1 81.7% vs V2 100% field accuracy. Simplification: validator pass 12% / 96% / 96% and median length 142 / 25 / 24 words for V1 / V2 / V3. RAG (V3) did **not** beat V2, which matches Paper A's simplification result. My leaflets are short, and V2's rules already constrain the content.
 
 **8. How is your RAG built?**
 It follows Paper B: load the drug's leaflet, chunk it (2900/2100), embed with BGE-M3, retrieve the top-2 chunks for "How should I use this medicine?", summarise with "Extract and summarize dosage", and add the summary to the V2 prompt with a rule not to take numbers from it. Limitation: my leaflets are synthetic and short (under 2,300 characters), so each is one chunk and retrieval is trivial. The pipeline is ready for real, longer leaflets.
@@ -50,11 +50,14 @@ Grounding matched values against every line, including the injected line, so "ch
 **10b. Did the number validator catch everything?**
 No. Reading the 50 V2/V3 outputs, I found two that passed it but were wrong: eye drops with "Breathe in from the inhaler" (V2), and a QID eye drop "use it only when needed" (V3). Both have correct numbers. I added `check_semantics` (route words and as-needed consistency); after that, V2 and V3 each pass 24/25. Lesson: deterministic checks only cover what you anticipate, so human confirmation still matters.
 
+**10c. Any other bugs found by evaluation?**
+Yes, two more. OCR dropped the '1' from '1 drop', so the dose became 'drop' and the item was marked CLEAR. A dose without an amount is now MISSING_DOSE. And my translation number check misparsed '08: 00' and 'Patient 05. 22:00'. Four bugs in total, each with a test and saved before/after results.
+
 **11. Why gpt-oss-20b and not Llama?**
 Groq no longer offered Llama 3.x on my account (checked on 2026-11-01). gpt-oss-20b is open-weight (Apache-2.0) and on Hugging Face. I have no GPU, so a local 3-7B model would be too slow to evaluate.
 
 **12. How do you measure translation quality?**
-Automatically: a digit check (the numbers must survive translation) and back-translation similarity. Both are rough. A native-speaker review of at least 5 outputs per language is a placeholder in EVAL.md. I do not claim the translations are validated.
+Automatically: a digit check (the numbers must survive translation) and back-translation similarity. Both are rough. Results: 0 of 52 translations changed a number; 100% (hi), 61.5% (kn), 84.6% (ta, te) passed, and the rest wrote numbers as words, so they fall back to English. Reading the outputs showed what the checks miss: '20:00' becomes '20 o'clock', which reads back as '20 am', and drug names are sometimes transliterated wrongly. A native-speaker review of at least 5 outputs per language is a placeholder in EVAL.md. I do not claim the translations are validated.
 
 **13. Why NLLB and not IndicTrans2?**
 IndicTrans2 is likely better for Indic languages, but it is gated, larger and hard to install on Windows. NLLB-600M runs on CPU. Note: NLLB is licensed CC-BY-NC, so it is fine for coursework but not for a product.
