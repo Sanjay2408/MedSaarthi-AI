@@ -11,3 +11,9 @@ logs/
 *.log
 .ipynb_checkpoints/
 logs_pip.txt
+web/node_modules/
+web/dist/
+.taste-skill/
+.claude/skills/
+.agents/
+skills-lock.json

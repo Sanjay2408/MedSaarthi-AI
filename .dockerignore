@@ -1,0 +1,17 @@
+.env
+.env.*
+.git
+.venv
+.cache
+.claude
+.agents
+.taste-skill
+logs
+outputs
+docs
+notebooks
+tests
+scripts
+web/node_modules
+web/dist
+**/__pycache__

@@ -171,3 +171,13 @@ def test_semantic_check_route_and_as_needed():
     assert not validate_output(ok + " Use it only when needed.", eye, times).passed
     prn = make_item(frequency="SOS", instructions="for fever")
     assert validate_output("Take Paracetamol 500 mg only when needed, for 5 days.", prn).passed
+
+
+@pytest.mark.parametrize("freq,words", [
+    ("OD", "Once a day"), ("BD", "Twice a day"), ("TDS", "3 times a day"), ("HS", "At bedtime"),
+    ("1-0-1", "Morning and night"), ("1-1-1", "Morning, afternoon and night"),
+    ("q8h", "Every 8 hours"), ("SOS", "Only when needed"), ("QOD?", None),
+])
+def test_plain_frequency(freq, words):
+    from src.schedule import plain_frequency
+    assert plain_frequency(freq) == words

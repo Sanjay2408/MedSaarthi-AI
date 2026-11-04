@@ -5,6 +5,11 @@
    is blocked and the English text is shown.
 2. Back-translation to English and a similarity score (rapidfuzz token_set_ratio)
    as a rough spot check. This is NOT a substitute for a native-speaker review.
+
+Clock times never go through the translator. NLLB turned "8:00 AM, 8:00 PM" into
+"8 o'clock, 8 o'clock", which a patient cannot tell apart, and "20:00" into "20 o'clock".
+strip_times removes them from the English and when_line writes them in code, each with
+its morning / afternoon / evening / night word in the target language.
 """
 import re
 from dataclasses import dataclass
@@ -14,11 +19,42 @@ from rapidfuzz import fuzz
 
 from src.audit import log_step
 from src.config import load_config
+from src.schedule import PERIODS, format_time, period
 
 NOTE = "Machine translation. Needs review by a qualified translator before real use."
 _DIGIT_MAP = str.maketrans("०१२३४५६७८९೦೧೨೩೪೫೬೭೮೯௦௧௨௩௪௫௬௭௮௯౦౧౨౩౪౫౬౭౮౯",
                            "0123456789" * 4)
 _NUM_RE = re.compile(r"\d+(?:[.:]\d+)?")
+
+# Standard words, written by hand; part of the native-speaker review in docs/EVAL.md.
+WHEN_LABEL = {
+    "hi": "दवा लेने का समय",
+    "kn": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ",
+    "ta": "மருந்து எடுக்கும் நேரம்",
+    "te": "మందు తీసుకునే సమయం",
+}
+PERIOD_WORDS = {
+    "hi": dict(zip(PERIODS, ("सुबह", "दोपहर", "शाम", "रात"))),
+    "kn": dict(zip(PERIODS, ("ಬೆಳಿಗ್ಗೆ", "ಮಧ್ಯಾಹ್ನ", "ಸಂಜೆ", "ರಾತ್ರಿ"))),
+    "ta": dict(zip(PERIODS, ("காலை", "மதியம்", "மாலை", "இரவு"))),
+    "te": dict(zip(PERIODS, ("ఉదయం", "మధ్యాహ్నం", "సాయంత్రం", "రాత్రి"))),
+}
+_T = r"\d{1,2}:\d{2}(?:\s?[ap]\.?m\b)?"  # not the sentence's full stop after "PM."
+_TIME_RE = re.compile(_T, re.IGNORECASE)
+_TIME_LIST_RE = re.compile(rf",?\s*\bat\s+{_T}(?:(?:\s*,\s*(?:and\s+)?|\s+and\s+){_T})*", re.IGNORECASE)
+
+
+def strip_times(text: str) -> str:
+    """Remove clock times from English text: 'Take X at 08:00 and 20:00.' -> 'Take X.'"""
+    text = _TIME_RE.sub("", _TIME_LIST_RE.sub("", text))
+    return re.sub(r" +([.,])", r"\1", text).strip()
+
+
+def when_line(times: list[str], lang: str, time_format: str = "12h") -> str:
+    """Code-built dose times, e.g. 'दवा लेने का समय: सुबह 8:00, रात 8:00'."""
+    words = PERIOD_WORDS[lang]
+    shown = [f"{words[period(t)]} {format_time(t, time_format).split(' ')[0]}" for t in times]
+    return f"{WHEN_LABEL[lang]}: {', '.join(shown)}"
 
 
 @dataclass
@@ -30,6 +66,9 @@ class TranslationResult:
     numbers_ok: bool
     blocked: bool
     model_id: str
+    english_body: str = ""  # the English that was translated (no clock times)
+    body: str = ""          # its translation, the part the number check covers
+    when: str = ""          # code-built times line
 
 
 @lru_cache(maxsize=1)
@@ -77,15 +116,21 @@ def numbers(text: str) -> list[str]:
     return sorted(out)
 
 
-def translate(text: str, lang: str) -> TranslationResult:
+def translate(text: str, lang: str, times: list[str] | None = None, time_format: str = "12h") -> TranslationResult:
     model_id = f"hf:{load_config()['translation']['model']}"
     if lang == "en":
-        return TranslationResult("en", text, text, 100.0, True, False, model_id)
-    sents = split_sentences(text)
-    target = translate_sentences(sents, "en", lang)
-    back = translate_sentences(target, lang, "en")
-    tgt_text, back_text = " ".join(target), " ".join(back)
-    nums_ok = numbers(tgt_text) == numbers(text)
-    sim = fuzz.token_set_ratio(text.lower(), back_text.lower())
-    log_step("translate", model_id, text, lang=lang, numbers_ok=nums_ok, back_similarity=round(sim, 1))
-    return TranslationResult(lang, tgt_text, back_text, round(sim, 1), nums_ok, not nums_ok, model_id)
+        return TranslationResult("en", text, text, 100.0, True, False, model_id, text, text)
+    lines = [strip_times(line) for line in text.splitlines() if line.strip()]
+    english = "\n".join(lines)
+    out_lines, back_all = [], []
+    for line in lines:
+        target = translate_sentences(split_sentences(line), "en", lang)
+        back_all += translate_sentences(target, lang, "en")
+        out_lines.append(" ".join(target))
+    body, back_text = "\n".join(out_lines), " ".join(back_all)
+    when = when_line(times, lang, time_format) if times else ""
+    shown = "\n".join(out_lines[:1] + ([when] if when else []) + out_lines[1:])
+    nums_ok = numbers(body) == numbers(english)
+    sim = fuzz.token_set_ratio(english.lower(), back_text.lower())
+    log_step("translate", model_id, english, lang=lang, numbers_ok=nums_ok, back_similarity=round(sim, 1))
+    return TranslationResult(lang, shown, back_text, round(sim, 1), nums_ok, not nums_ok, model_id, english, body, when)

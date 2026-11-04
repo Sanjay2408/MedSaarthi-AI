@@ -26,6 +26,21 @@ _ABBREV_PER_DAY = {
 _WORD_PER_DAY = {"once": 1, "twice": 2, "thrice": 3, "one": 1, "two": 2, "three": 3, "four": 4}
 
 
+PERIODS = ("Morning", "Afternoon", "Evening", "Night")
+
+
+def period(t: str) -> str:
+    """Part of the day for a clock time. 20:00 is night, matching the default night slot."""
+    h = int(t.split(":")[0])
+    if 4 <= h < 12:
+        return "Morning"
+    if 12 <= h < 16:
+        return "Afternoon"
+    if 16 <= h < 19:
+        return "Evening"
+    return "Night"
+
+
 @dataclass
 class FrequencySpec:
     per_day: int | None = None
@@ -70,6 +85,24 @@ def parse_frequency(text: str | None) -> FrequencySpec | None:
         word = re.search(r"\b(once|twice|thrice)\b", t)
         return FrequencySpec(per_day=_WORD_PER_DAY[word.group(1)] if word else 1)
     return None
+
+
+def plain_frequency(text: str | None) -> str | None:
+    """What a code like TDS or 1-0-1 means, in words. None if it cannot be parsed."""
+    spec = parse_frequency(text)
+    if spec is None:
+        return None
+    if spec.as_needed:
+        return "Only when needed"
+    if spec.slots:
+        names = [s for s in ("morning", "afternoon", "night") if s in spec.slots]
+        joined = " and ".join(names) if len(names) < 3 else "morning, afternoon and night"
+        return joined.capitalize()
+    if spec.interval_hours:
+        return f"Every {spec.interval_hours} hours"
+    if spec.bedtime:
+        return "At bedtime"
+    return {1: "Once a day", 2: "Twice a day"}.get(spec.per_day, f"{spec.per_day} times a day")
 
 
 def default_times(spec: FrequencySpec, wake: str = "06:00") -> list[str]:

@@ -49,6 +49,6 @@ def explain(items, variant: str = "v2", lang: str = "en", time_format: str = "24
     usable = [i for i in items if i.is_usable and i not in skipped]
     for item, entry in zip(usable, entries):
         s = simplify(item, entry.times, variant=variant, patient=patient, time_format=time_format, llm=llm)
-        tr = translate(s.final_text, lang) if lang != "en" else None
+        tr = translate(s.final_text, lang, entry.times, time_format) if lang != "en" else None
         out.explanations.append((item.name.value, s, tr))
     return out

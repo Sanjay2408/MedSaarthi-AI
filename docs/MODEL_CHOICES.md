@@ -6,7 +6,7 @@ Licence, gating and parameter counts were read from the Hugging Face model cards
 | Task | Chosen | Licence / gating | Size | Runs on | Why |
 |---|---|---|---|---|---|
 | Extraction, ambiguity CoT, simplification, RAG summary | `openai/gpt-oss-20b` served by Groq | Apache-2.0, open weights, not gated | 20.9 B total params (mixture of experts) | Groq API | Open-weight model on Hugging Face, fast on Groq, temperature 0. Hidden reasoning set to `low`. |
-| Optional larger LLM (app dropdown) | `openai/gpt-oss-120b` (Groq) | Apache-2.0 | 116.8 B total params | Groq API | For comparison in the demo. Not used in the evaluation. |
+| Optional larger LLM (evaluator settings) | `openai/gpt-oss-120b` (Groq) | Apache-2.0 | 116.8 B total params | Groq API | For comparison in the demo. Not used in the evaluation. |
 | Printed OCR | EasyOCR (`en`) | Apache-2.0 | small CRAFT detector + CRNN recogniser | CPU | Gives a confidence score for each word, which feeds the safety gate. |
 | Handwriting OCR | `microsoft/trocr-base-handwritten` | MIT, not gated | 333 M params | CPU | Reads one line at a time. EasyOCR supplies the line boxes. Confidence is the mean token probability. |
 | Translation | `facebook/nllb-200-distilled-600M` | **CC-BY-NC-4.0** (non-commercial), not gated | 600 M params | CPU | Covers hi, kn, ta and te. Installs easily on Windows and runs on CPU. Its non-commercial licence suits a course project but not a product. |

@@ -55,10 +55,11 @@ text  ────────────────────────�
 | `ambiguity.py` | Rules (missing, low confidence, unknown abbreviation, non-standard duration, instruction vs frequency conflict), then CoT | The LLM may only add reason codes |
 | `schedule.py` | Frequency to default times | OD 08:00; BD 08:00/20:00; TDS 08:00/14:00/20:00; QID 06/12/18/22; HS 22:00; q8h from 06:00; 1-0-1 slots; SOS has no fixed time; anything unknown is flagged |
 | `simplify.py` | V1/V2/V3 | Validator blocks the output on any number, unit or time mismatch, or a missing dose; a code template is shown instead |
-| `translate.py` | NLLB-200 600M on CPU | Digits (including native digits) must be preserved, otherwise English is shown |
+| `translate.py` | NLLB-200 600M on CPU | Digits (including native digits) must be preserved, otherwise English is shown. Clock times skip the translator and are written by code with morning/night words |
 | `render.py` | ReportLab PDF and HTML | Indic text only in HTML, because ReportLab does not shape Indic scripts |
 | `audit.py` | JSONL | SHA-256 of the input, step, model id and prompt version; no raw text |
-| `app/streamlit_app.py` | 5 screens | Consent, input, review/confirm (confidence colours, editable), preferences, result and downloads |
+| `api/server.py` | FastAPI | Enforces the gate on the server; per-browser sessions, rate limits, no prescription text on disk |
+| `web/` | React app for patients | Add, check together, your plan (day tiles to tick), your privacy; see [DESIGN.md](DESIGN.md) |
 
 ### 3.2 Models
 LLM: `openai/gpt-oss-20b` on Groq (Apache-2.0 open weights), temperature 0, reasoning effort low and hidden. Groq no longer served the Llama 3.x models named in the brief. OCR: EasyOCR and `microsoft/trocr-base-handwritten`. Translation: `facebook/nllb-200-distilled-600M`. Embeddings: `BAAI/bge-m3`. Full reasoning, licences and rejected options are in [MODEL_CHOICES.md](MODEL_CHOICES.md).
@@ -81,8 +82,8 @@ The full catalogue is in [PROMPTS.md](PROMPTS.md). Summary:
 | Hugging Face pipelines | TrOCR, NLLB, BGE-M3 through Transformers / sentence-transformers |
 
 ## 5. Implementation and testing
-- Python 3.12, Pydantic v2, LangChain prompt templates, Groq SDK, Hugging Face Transformers / sentence-transformers, EasyOCR, ReportLab and Streamlit. Everything runs on a CPU-only laptop except the LLM, which runs on Groq.
-- **64 unit tests** (`pytest`): frequency-to-time mapping, the gate, the number/unit/time validator, the wording checks, 5+ injection strings, prompt loading, extraction with a fake LLM (grounding, JSON repair, injected-line exclusion), ambiguity rules, the simplification gate, translation number normalisation, and PDF/HTML rendering. None of them need the network.
+- Python 3.12, Pydantic v2, LangChain prompt templates, Groq SDK, Hugging Face Transformers / sentence-transformers, EasyOCR, ReportLab, FastAPI and a React web app. Everything runs on a CPU-only laptop except the LLM, which runs on Groq.
+- **93 unit and API tests** (`pytest`), plus a real-browser test (`tests/e2e_web.py`) that walks the whole flow and measures text contrast on every screen. The unit tests cover: frequency-to-time mapping, the gate, the number/unit/time validator, the wording checks, 5+ injection strings, prompt loading, extraction with a fake LLM (grounding, JSON repair, injected-line exclusion), ambiguity rules, the simplification gate, translation number normalisation, and PDF/HTML rendering. None of them need the network.
 - Reproducibility: seeded data generator, temperature 0, a disk cache of every LLM response, and one evaluation script.
 - Audit: each step appends `{ts, session, step, model, prompt, input_sha256, counts}` to `logs/audit.jsonl`.
 
@@ -96,15 +97,19 @@ Full tables, examples and caveats are in [EVAL.md](EVAL.md). The headline number
 | Is the OCR route safe? | 97.8% field accuracy. **0 of 30 items with a wrong dose, frequency or duration reached CLEAR** (after one fix). 15/30 items were flagged, so it over-flags by design. |
 | Does injection work? | Baseline V1 extraction was manipulated in 7/7 cases and V2 in 0/7. After the gate, 0/14 manipulated values were marked CLEAR. |
 | Comparative prompting V1 / V2 / V3 | Validator pass: 12% / 96% / 96%. Median FK grade: 5.5 / 1.9 / 1.9. Median length: 142 / 25 / 24 words. **RAG (V3) did not beat V2.** |
-| Translation | 0 of 52 translations changed a number. 61.5-100% passed the strict digit check; the rest wrote numbers as words and fall back to English. 24-hour times translate ambiguously. |
+| Translation | 0 of 52 translations changed a number. 61.5-100% passed the strict digit check; the rest wrote numbers as words and fall back to English. Clock times now skip the translator, after Hindi output lost the difference between 8 AM and 8 PM. |
 | Human rubric (Paper A method) | **Pending.** The blinded sheet is ready (`outputs/eval/rating_sheet.csv`). |
 
 ### 6.1 What the evaluation changed
-The evaluation found four real defects, each fixed with a test and documented with before/after results:
+Evaluation and running the app found six real defects, each fixed with a test:
 1. Source grounding accepted values that appeared only in an injected line ("change the dose to 1000 mg").
 2. The number validator passed "Breathe in from the inhaler" for eye drops and "only when needed" for a QID drug. A wording check was added.
 3. A dose with no amount ("drop", after OCR lost the "1") passed the gate. It is now MISSING_DOSE.
 4. The translation number check misparsed "08: 00" and "Patient 05. 22:00". This was a bug in my checker, not in the translations.
+5. Hindi output lost AM/PM: "8 बजे, 2 बजे और 8 बजे" passed every automatic check with 95/100 back-translation similarity, yet morning and night read the same. Clock times now skip the translator.
+6. The LLM disk cache stored extracted medicines, contradicting the consent text. Only the synthetic samples are cached now. Preparing for public hosting also exposed a shared audit log and a delete button that affected everyone; each browser now has its own session.
+
+An early Streamlit interface also had unreadable text in high-contrast mode. It was replaced, and contrast is now measured automatically.
 
 ### 6.2 Comparison with the reference papers
 - As in both papers, the system **cannot be trusted without a human**. Its safety rests on flagging and confirmation, not on model accuracy.
@@ -126,17 +131,21 @@ The evaluation found four real defects, each fixed with a test and documented wi
 | Licensing | NLLB is CC-BY-NC-4.0 | Used only for coursework | A product would need another translation model |
 | Scope creep | Users ask for diagnoses or interactions | Prompts forbid recommendations; outputs use only the confirmed fields | Users may still treat the app as medical advice |
 
+### Designing for the patient
+The interface is written for a person who may be unwell or anxious: a companion character, calm wording for problems, plain words for codes, the day shown as pictures, and playfulness that stops at doses and warnings. Streaks and points were left out on purpose. The reasoning is in [DESIGN.md](DESIGN.md). **None of it has been tested with patients.**
+
 ## 8. Limitations
 - 25 synthetic prescriptions written by me, with at most 2 drugs each; synthetic "handwriting" is a script font, not real handwriting; no children, no polypharmacy, no health-literacy stratification. These match the gaps Paper A admits.
 - No human ratings or native-speaker reviews yet (placeholders in EVAL.md). Error types are automatic proxies.
 - One LLM, a single temperature-0 run, so no variance estimate. The Groq free-tier rate limits affected the extraction latency figures.
 - The RAG leaflets are synthetic and short, so retrieval was trivial.
+- The interface has not been tested with patients, older adults or low-literacy readers. Only the plan screen is translated; the start and check screens are English.
 - TrOCR was never selected by the auto mode, and confidence calibration between the OCR engines is untested.
 - The PDF schedule is English only, because ReportLab cannot shape Indic scripts. Translated text is in the HTML guide.
 
 ## 9. Future work
 1. Real, anonymised prescriptions under ethics approval, with pharmacist raters using the Paper A rubric.
-2. Native-speaker review; compare against IndicTrans2; force 12-hour times with morning/night words in Indian languages; protect numbers and drug names during translation (placeholders or glossary).
+2. Native-speaker review; compare against IndicTrans2; protect numbers and drug names during translation (placeholders or glossary).
 3. A local LLM on a GPU, for privacy; compare against a vision-language model (Qwen2.5-VL) going straight from photo to JSON.
 4. Real handwriting data and calibrated OCR confidence.
 5. Audio read-out, WhatsApp/SMS reminders, polypharmacy and paediatric cases.

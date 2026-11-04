@@ -181,3 +181,30 @@ def test_dose_without_amount_is_flagged():
     it = item(dose="drop")
     it.status = ItemStatus.NEEDS_CONFIRMATION
     assert ReasonCode.MISSING_DOSE in gate_item(it).reasons
+
+
+def test_strip_times_removes_all_clock_times():
+    from src.translate import strip_times
+    assert strip_times("Take X 500 mg at 8:00 AM, 2:00 PM, 8:00 PM. Swallow it.") == "Take X 500 mg. Swallow it."
+    assert strip_times("Take X three times a day, at 08:00, 14:00, and 20:00. Eat.") == "Take X three times a day. Eat."
+    assert strip_times("Take X at 08:00 and 20:00.") == "Take X."
+
+
+def test_when_line_tells_morning_from_night():
+    from src.translate import when_line
+    assert when_line(["08:00", "20:00"], "hi", "12h") == "दवा लेने का समय: सुबह 8:00, रात 8:00"
+    assert when_line(["14:00"], "ta", "24h") == "மருந்து எடுக்கும் நேரம்: மதியம் 14:00"
+
+
+def test_translate_never_sends_times_to_the_model(monkeypatch):
+    import src.translate as tr
+    seen = []
+
+    def fake(sentences, src, tgt):
+        seen.extend(sentences)
+        return sentences
+    monkeypatch.setattr(tr, "translate_sentences", fake)
+    res = tr.translate("Take X 500 mg at 8:00 AM and 8:00 PM. Take it for 5 days.\nKeep it dry.", "hi", ["08:00", "20:00"], "12h")
+    assert not any(":" in s for s in seen)
+    assert "सुबह 8:00" in res.text and "रात 8:00" in res.text
+    assert res.numbers_ok and res.text.index(res.when) < res.text.index("Keep it dry")

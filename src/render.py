@@ -16,7 +16,7 @@ from reportlab.lib.units import mm
 from reportlab.pdfgen import canvas
 
 from src.config import load_config
-from src.schedule import ScheduleEntry, format_time
+from src.schedule import ScheduleEntry, format_time, period
 
 
 @dataclass
@@ -24,17 +24,6 @@ class Prefs:
     time_format: str = "24h"
     large_text: bool = False
     high_contrast: bool = False
-
-
-def period(t: str) -> str:
-    h = int(t.split(":")[0])
-    if 4 <= h < 11:
-        return "Morning"
-    if 11 <= h < 16:
-        return "Afternoon"
-    if 16 <= h < 21:
-        return "Evening"
-    return "Night"
 
 
 _ICON_COLOUR = {"Morning": "#F2A900", "Afternoon": "#E86A17", "Evening": "#7A5BC7", "Night": "#1F3A93"}
@@ -63,6 +52,7 @@ def render_pdf(entries: list[ScheduleEntry], prefs: Prefs, patient: str = "",
     base = 16 if prefs.large_text else 11
     buf = io.BytesIO()
     pdf = canvas.Canvas(buf, pagesize=A4)
+    pdf.setTitle("My medicine schedule")
     width, height = A4
     font, bold = "Helvetica", "Helvetica-Bold"
 
@@ -71,6 +61,7 @@ def render_pdf(entries: list[ScheduleEntry], prefs: Prefs, patient: str = "",
         pdf.rect(0, 0, width, height, stroke=0, fill=1)
 
     page_bg()
+    pdf.setStrokeColor(colors.HexColor(c_["fg"]))
     y = height - 20 * mm
     pdf.setFillColor(colors.HexColor(c_["accent"]))
     pdf.setFont(bold, base + 8)
@@ -87,18 +78,20 @@ def render_pdf(entries: list[ScheduleEntry], prefs: Prefs, patient: str = "",
         if y - space < 25 * mm:
             pdf.showPage()
             page_bg()
+            pdf.setFillColor(colors.HexColor(c_["fg"]))
             y = height - 20 * mm
 
     for t, items in timeline(entries):
         need(base * 2.2 * (len(items) + 1))
         p = period(t)
         pdf.setFillColor(colors.HexColor(c_["accent"] if prefs.high_contrast else _ICON_COLOUR[p]))
-        _icon(pdf, p, 24 * mm, y + base * 0.35, base * 0.8)
+        _icon(pdf, p, 24 * mm, y + base * 0.35, base * 0.8, c_["bg"])
         pdf.setFillColor(colors.HexColor(c_["fg"]))
         pdf.setFont(bold, base + 4)
         pdf.drawString(32 * mm, y, f"{format_time(t, prefs.time_format)}   {p}")
         y -= (base + 4) * 1.5
         pdf.setFont(font, base + 2)
+        pdf.setStrokeColor(colors.HexColor(c_["fg"]))  # the rule colour above would hide tick boxes
         for e in items:
             pdf.rect(32 * mm, y - 1, base, base, stroke=1, fill=0)  # tick box
             pdf.drawString(32 * mm + base * 1.6, y, f"{e.medication}  {e.dose}")
@@ -109,6 +102,7 @@ def render_pdf(entries: list[ScheduleEntry], prefs: Prefs, patient: str = "",
 
     if as_needed:
         need(base * 2.2 * (len(as_needed) + 1))
+        pdf.setFillColor(colors.HexColor(c_["fg"]))
         pdf.setFont(bold, base + 2)
         pdf.drawString(20 * mm, y, "Only when needed")
         y -= (base + 2) * 1.6
@@ -119,6 +113,7 @@ def render_pdf(entries: list[ScheduleEntry], prefs: Prefs, patient: str = "",
 
     need(base * 4)
     y -= base
+    pdf.setFillColor(colors.HexColor(c_["fg"]))
     pdf.setFont(bold, base)
     pdf.drawString(20 * mm, y, load_config()["safety"]["disclaimer"])
     y -= base * 1.4
@@ -129,7 +124,7 @@ def render_pdf(entries: list[ScheduleEntry], prefs: Prefs, patient: str = "",
     return buf.getvalue()
 
 
-def _icon(pdf, kind: str, x: float, y: float, r: float):
+def _icon(pdf, kind: str, x: float, y: float, r: float, ground: str = "#FFFFFF"):
     if kind in ("Morning", "Afternoon"):
         pdf.circle(x, y, r * (0.55 if kind == "Morning" else 0.7), stroke=0, fill=1)
         if kind == "Morning":
@@ -140,7 +135,7 @@ def _icon(pdf, kind: str, x: float, y: float, r: float):
     else:  # crescent moon: ring with offset gap
         pdf.circle(x, y, r * 0.65, stroke=0, fill=1)
         pdf.saveState()
-        pdf.setFillColor(colors.white)
+        pdf.setFillColor(colors.HexColor(ground))
         pdf.circle(x + r * 0.35, y + r * 0.2, r * 0.55, stroke=0, fill=1)
         pdf.restoreState()
 

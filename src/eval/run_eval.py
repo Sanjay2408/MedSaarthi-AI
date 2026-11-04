@@ -271,7 +271,7 @@ def part_simplify(samples, llm):
             times = default_times(spec) if spec else []
             r = simplify(it, times, variant=variant, patient=alias, llm=llm)
             rows.append({
-                "id": sid, "drug": t["name"], "variant": variant, "blocked": r.blocked, "errors": r.errors,
+                "id": sid, "drug": t["name"], "variant": variant, "times": times, "blocked": r.blocked, "errors": r.errors,
                 "fk_grade": round(textstat.flesch_kincaid_grade(r.llm_text), 1),
                 "flesch_ease": round(textstat.flesch_reading_ease(r.llm_text), 1),
                 "words": len(r.llm_text.split()), "latency_s": round(r.latency_s, 2),
@@ -301,10 +301,11 @@ def part_translate(simplify_rows):
     for lang in ("hi", "kn", "ta", "te"):
         for r in src:
             t0 = time.perf_counter()
-            tr = translate(r["final_text"], lang)
+            tr = translate(r["final_text"], lang, r["times"], "12h")
             rows.append({"id": r["id"], "drug": r["drug"], "lang": lang, "numbers_ok": tr.numbers_ok,
                          "back_similarity": tr.similarity, "seconds": round(time.perf_counter() - t0, 1),
-                         "english": r["final_text"], "translation": tr.text, "back_translation": tr.back_translation})
+                         "english": tr.english_body, "translation": tr.body, "when": tr.when,
+                         "shown": tr.text, "back_translation": tr.back_translation})
     return recheck_translate(rows)
 
 

@@ -21,13 +21,13 @@ Every engineered prompt has the same parts: a system part (role or persona, goal
 | Voice | Imperative verbs; "Do not begin with 'Start taking'" (a failure reported in Paper B) |
 | Length | "At most 70 words"; word count measured |
 | Content | "Use ONLY the facts in CONFIRMED DATA and SCHEDULE"; enforced afterwards by `validate_output` |
-| Language | Generated in English, translated by NLLB-200; numbers checked after translation |
+| Language | Generated in English, translated by NLLB-200; numbers checked after translation; clock times skip the translator |
 | Safety lines | Never generated; appended by `append_fixed_lines` |
 
 ## Prompt-injection defence (defence in depth)
 1. The prompt puts the text between `<<<PRESCRIPTION_DATA>>>` delimiters and says it is untrusted data (V2 rule 11).
 2. `wrap_untrusted` removes forged delimiters from the input before wrapping it.
-3. `detect_injection` matches 12 regex patterns and shows a warning in the app.
+3. `detect_injection` matches 12 regex patterns and tells the patient in the app.
 4. Lines that look like injected instructions are not accepted as evidence for a value (source grounding), so a value the attacker wrote ends up flagged.
 5. The validator blocks any number not in the confirmed data. Confirmation is a human step.
 

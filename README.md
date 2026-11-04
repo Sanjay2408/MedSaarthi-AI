@@ -31,8 +31,13 @@ image/text -> OCR (EasyOCR / TrOCR) -> extraction (LLM, RGC + few-shot) -> sourc
 | Prescription text is untrusted data: wrapped in delimiters, injection patterns detected, injected lines never count as evidence | `src/validator.py`, `src/extract.py` |
 | Disclaimer, storage line and refill line are appended by code | `src/simplify.py::append_fixed_lines` |
 | The audit log stores a SHA-256 of each input, never raw text | `src/audit.py` |
+| Clock times never pass through the translator; code writes them with morning/night words | `src/translate.py::when_line` |
+| Each browser sees only its own cases and log; typed prescriptions never reach the disk cache; requests are rate limited | `api/server.py` |
 
-## Setup (Windows, Python 3.12, CPU only)
+## See it
+A recording of the whole flow is in [docs/demo.mp4](docs/demo.mp4), with stills in [docs/screenshots/](docs/screenshots/). Run the app and open http://127.0.0.1:8000.
+
+## Setup (Windows, Python 3.12, Node 22+, CPU only)
 ```bash
 python -m venv .venv
 .venv/Scripts/python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
@@ -42,7 +47,7 @@ Create a `.env` file in the project root (it is git-ignored) containing:
 ```
 GROQ_API_KEY=<your key from console.groq.com>
 ```
-The first run downloads about 6 GB of models (EasyOCR, TrOCR, NLLB-200, BGE-M3).
+Node 22 or newer is needed to build the web app. The first run downloads about 6 GB of models (EasyOCR, TrOCR, NLLB-200, BGE-M3).
 
 ## Run
 ```bash
@@ -52,7 +57,13 @@ The first run downloads about 6 GB of models (EasyOCR, TrOCR, NLLB-200, BGE-M3).
 .venv/Scripts/python -m pytest -q
 ```
 ```bash
-.venv/Scripts/python -m streamlit run app/streamlit_app.py
+npm --prefix web install
+```
+```bash
+npm --prefix web run build
+```
+```bash
+.venv/Scripts/python -m uvicorn api.server:app --host 127.0.0.1 --port 8000
 ```
 ```bash
 .venv/Scripts/python -m src.eval.run_eval
@@ -72,7 +83,11 @@ The first run downloads about 6 GB of models (EasyOCR, TrOCR, NLLB-200, BGE-M3).
 | `src/translate.py` | NLLB-200 translation with number check and back-translation |
 | `src/render.py` | PDF and HTML schedule |
 | `src/prompts/*.prompt` | Versioned prompts; each header names the technique and the reason for it |
-| `app/streamlit_app.py` | 5-screen UI: consent, input, review/confirm, preferences, result |
+| `api/server.py` | FastAPI: read, confirm, guide, downloads, audit. Safety rules are enforced here, not in the browser |
+| `web/` | React + TypeScript web app for patients: add, check together, your plan, your privacy |
+| `Dockerfile`, `scripts/deploy_space.py` | Hosting on Hugging Face Spaces |
+| `tests/e2e_web.py` | Real-browser test of the full flow, measuring text contrast on every screen in both modes |
+| `scripts/record_demo.py` | Records `docs/demo.mp4` and `docs/screenshots/` from a real Chrome window |
 | `src/eval/run_eval.py` | Evaluation; writes `outputs/eval/` |
 | `notebooks/eval.ipynb` | Results tables built from `outputs/eval/results.json` |
 | `data/` | Synthetic sample generator, 25 samples, 11 synthetic leaflets |
@@ -82,5 +97,6 @@ The first run downloads about 6 GB of models (EasyOCR, TrOCR, NLLB-200, BGE-M3).
 - [docs/REPORT.md](docs/REPORT.md): full project report
 - [docs/EVAL.md](docs/EVAL.md): evaluation results and human-rating placeholders
 - [docs/PROMPTS.md](docs/PROMPTS.md): prompt catalogue with example outputs
+- [docs/DESIGN.md](docs/DESIGN.md): designing for an anxious patient, and what was left out on purpose
 - [docs/MODEL_CHOICES.md](docs/MODEL_CHOICES.md): models, licences, hardware fit
 - [docs/VIVA.md](docs/VIVA.md): likely viva questions and a 5-minute demo script

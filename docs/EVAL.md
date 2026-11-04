@@ -116,23 +116,23 @@ What the patient sees for a blocked V1 output (S01):
 > Not medical advice. Confirm with your pharmacist or doctor.
 
 ## 6. Translation (NLLB-200 600M, CPU)
-Input: the 13 V2 outputs from the clean samples S01-S10, including the fixed safety lines and disclaimer. Each was translated into 4 languages, giving 52 translations.
+Input: the 13 V2 outputs from the clean samples S01-S10, including the fixed safety lines and disclaimer. Each was translated into 4 languages, giving 52 translations. Clock times are removed before translation and written by code afterwards (see below), so these checks cover everything except the times line.
 
 | Language | Number check passed | Digits dropped (written as words) | Digits changed | Median back-translation similarity | Median time |
 |---|---|---|---|---|---|
-| Hindi | 13/13 (100%) | 0 | 0 | 96.7 | 16.3 s |
-| Kannada | 8/13 (61.5%) | 5 | 0 | 90.8 | 16.8 s |
-| Tamil | 11/13 (84.6%) | 2 | 0 | 89.9 | 15.4 s |
-| Telugu | 11/13 (84.6%) | 2 | 0 | 93.9 | 15.4 s |
+| Hindi | 13/13 (100%) | 0 | 0 | 96.8 | 21.6 s |
+| Kannada | 8/13 (61.5%) | 5 | 0 | 92.1 | 23.3 s |
+| Tamil | 11/13 (84.6%) | 2 | 0 | 90.6 | 29.0 s |
+| Telugu | 11/13 (84.6%) | 2 | 0 | 94.5 | 30.9 s |
 
 - **No translation changed a number.** All failures were digits written as words (for example "7 days" became ಏಳು, "seven"). The check cannot verify words, so those translations are hidden and English is shown. This is conservative, and it hurts Kannada most.
-- **Two bugs in my own check, found by reading the failures.** NLLB writes "08: 00" and "8.00", and my regex split these. It also read "Patient 05. 22:00" as the time "05:22". Both are fixed and tested. The saved translations were rechecked without re-translating (`--parts translate_recheck`). The first-run numbers (hi 76.9%, kn 46.2%, ta 53.8%, te 69.2%) reflected these bugs, not the translations.
-- **Problems the automatic checks cannot see:**
-  - **24-hour times translate badly.** "20:00" became "20 बजे" / "20 ಗಂಟೆಗೆ", which back-translates as "20 am", "for 20 hours" or "every 22 hours". A patient could misread this. The 12-hour option with morning/night words is safer for Indian languages; this is a recommendation for future work.
+- **Two bugs in my own check, found by reading the failures.** NLLB writes "08: 00" and "8.00", and my regex split these. It also read "Patient 05. 22:00" as the time "05:22". Both are fixed and tested.
+- **A safety bug found by running the app: morning and night became identical.** The English "8:00 AM, 2:00 PM, 8:00 PM" came out in Hindi as "8 बजे, 2 बजे और 8 बजे" (8 o'clock, 2 o'clock and 8 o'clock), and "20:00" as "20 बजे", which read back as "20 am" or "every 22 hours". This passed the number check with a 95/100 back-translation score. **Fix:** clock times no longer go through the translator. `strip_times` removes them and `when_line` writes them in code with a hand-written word for the part of the day: "दवा लेने का समय: सुबह 8:00, दोपहर 2:00, रात 8:00". A test asserts that the model never receives a clock time.
+- **Problems the automatic checks still cannot see:**
   - **Drug names are sometimes transliterated wrongly**, e.g. Amoxicillin as ಅಮೋಕ್ಸಿಕ್ಸಿಲಿನ್ (reads back as "amoxixilin") and Cetirizine as "CETRIGIN".
-  - **Back-translation similarity is a rough signal.** It was ≥ 85 for almost every item, even those with the time problem above.
+  - **Back-translation similarity is a rough signal.** It scored 95/100 on the AM/PM bug above, which is why reading real outputs mattered.
 
-These are exactly the things a native-speaker review should look at (section 8).
+These are exactly the things a native-speaker review should look at (section 8). That review should also cover the hand-written time words and plan labels in `src/translate.py` and `web/src/i18n.ts`.
 
 ## 7. Human rubric scoring (Paper A method): TO BE COMPLETED
 
@@ -170,8 +170,8 @@ The translations are machine-generated and **not professionally validated**.
 | Validator pass rate (V1 / V2 / V3) | 12% / 96% / 96% |
 | Median FK grade (V1 / V2 / V3) | 5.5 / 1.9 / 1.9 |
 | OCR route field accuracy / wrong item marked CLEAR | 97.8% / 0 of 30 items |
-| Translation number check (hi / kn / ta / te) | 100% / 61.5% / 84.6% / 84.6%; 0 changed digits |
-| Bugs found by the evaluation and fixed | 4: injection grounding, wording check, dose without amount, translation time parsing |
+| Translation number check (hi / kn / ta / te) | 100% / 61.5% / 84.6% / 84.6%; 0 of 52 changed a digit |
+| Defects found by evaluation and by running the app, all fixed | 6: injection grounding, wording check, dose without amount, translation time parsing, AM/PM lost in translation, prescription data in the disk cache |
 
 ## 10. Limitations of this evaluation
 - 25 synthetic prescriptions written by the author; not real handwriting; at most 2 drugs per prescription; no children, no polypharmacy, no stratification by health literacy (Paper A had similar gaps).

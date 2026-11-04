@@ -6,11 +6,22 @@ import hashlib
 import json
 import time
 import uuid
+from contextvars import ContextVar
 from pathlib import Path
 
 from src.config import ROOT, load_config
 
-SESSION_ID = uuid.uuid4().hex[:12]
+SESSION_ID = uuid.uuid4().hex[:12]  # one per process (evaluation, scripts)
+_current: ContextVar[str | None] = ContextVar("audit_session", default=None)
+
+
+def use_session(session_id: str) -> None:
+    """The web server calls this per request, so each browser has its own log."""
+    _current.set(session_id)
+
+
+def current_session() -> str:
+    return _current.get() or SESSION_ID
 
 
 def sha256(text: str) -> str:
@@ -21,7 +32,7 @@ def log_step(step: str, model_id: str | None, input_text: str, **meta) -> dict:
     """meta must not contain raw prescription text; only counts, flags, codes."""
     record = {
         "ts": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "session": SESSION_ID,
+        "session": current_session(),
         "step": step,
         "model": model_id,
         "input_sha256": sha256(input_text),
@@ -38,6 +49,6 @@ def read_session(session_id: str | None = None) -> list[dict]:
     path = ROOT / load_config()["audit"]["path"]
     if not path.exists():
         return []
-    sid = session_id or SESSION_ID
+    sid = session_id or current_session()
     with open(path, encoding="utf-8") as f:
         return [r for r in map(json.loads, f) if r.get("session") == sid]

@@ -1,0 +1,17 @@
+# What the hosted app needs at run time. torch is installed separately (CPU build).
+pydantic>=2.6
+pyyaml>=6.0
+python-dotenv>=1.0
+langchain-core>=0.3
+langchain-text-splitters>=0.3
+groq>=0.11
+easyocr>=1.7
+transformers>=4.44
+sentencepiece>=0.2
+sentence-transformers>=3.0
+reportlab>=4.2
+pillow>=10.0
+rapidfuzz>=3.9
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9

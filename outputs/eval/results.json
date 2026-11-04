@@ -1788,6 +1788,11 @@
         "id": "S01",
         "drug": "Paracetamol",
         "variant": "v1",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": true,
         "errors": [
           "number '1' not in confirmed data"
@@ -1807,6 +1812,11 @@
         "id": "S02",
         "drug": "Amoxicillin",
         "variant": "v1",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": true,
         "errors": [
           "number '8' not in confirmed data",
@@ -1829,6 +1839,9 @@
         "id": "S02",
         "drug": "Pantoprazole",
         "variant": "v1",
+        "times": [
+          "08:00"
+        ],
         "blocked": true,
         "errors": [
           "number '30' not in confirmed data"
@@ -1848,6 +1861,10 @@
         "id": "S03",
         "drug": "Metformin",
         "variant": "v1",
+        "times": [
+          "08:00",
+          "20:00"
+        ],
         "blocked": true,
         "errors": [
           "number '1' not in confirmed data",
@@ -1870,6 +1887,9 @@
         "id": "S04",
         "drug": "Amlodipine",
         "variant": "v1",
+        "times": [
+          "08:00"
+        ],
         "blocked": true,
         "errors": [
           "number '2' not in confirmed data",
@@ -1892,6 +1912,9 @@
         "id": "S05",
         "drug": "Cetirizine",
         "variant": "v1",
+        "times": [
+          "22:00"
+        ],
         "blocked": true,
         "errors": [
           "unit mismatch for '1': got 'tablet', expected ['hour']"
@@ -1912,6 +1935,9 @@
         "id": "S06",
         "drug": "Azithromycin",
         "variant": "v1",
+        "times": [
+          "08:00"
+        ],
         "blocked": true,
         "errors": [
           "unit mismatch for '1': got 'tablet', expected ['hour']",
@@ -1932,6 +1958,7 @@
         "id": "S06",
         "drug": "Paracetamol",
         "variant": "v1",
+        "times": [],
         "blocked": false,
         "errors": [],
         "fk_grade": 4.5,
@@ -1947,6 +1974,11 @@
         "id": "S07",
         "drug": "Ibuprofen",
         "variant": "v1",
+        "times": [
+          "06:00",
+          "14:00",
+          "22:00"
+        ],
         "blocked": true,
         "errors": [
           "number '1 tablet' not in confirmed data"
@@ -1966,6 +1998,9 @@
         "id": "S08",
         "drug": "Atorvastatin",
         "variant": "v1",
+        "times": [
+          "20:00"
+        ],
         "blocked": true,
         "errors": [
           "number '8' not in confirmed data",
@@ -1988,6 +2023,7 @@
         "id": "S09",
         "drug": "Salbutamol",
         "variant": "v1",
+        "times": [],
         "blocked": false,
         "errors": [],
         "fk_grade": 7.7,
@@ -2003,6 +2039,12 @@
         "id": "S10",
         "drug": "Moxifloxacin",
         "variant": "v1",
+        "times": [
+          "06:00",
+          "12:00",
+          "18:00",
+          "22:00"
+        ],
         "blocked": true,
         "errors": [
           "number '2' not in confirmed data",
@@ -2024,6 +2066,9 @@
         "id": "S10",
         "drug": "Cetirizine",
         "variant": "v1",
+        "times": [
+          "08:00"
+        ],
         "blocked": true,
         "errors": [
           "number '8' not in confirmed data",
@@ -2046,6 +2091,10 @@
         "id": "S11",
         "drug": "Paracetamol",
         "variant": "v1",
+        "times": [
+          "08:00",
+          "20:00"
+        ],
         "blocked": true,
         "errors": [
           "number '1' not in confirmed data",
@@ -2066,6 +2115,11 @@
         "id": "S12",
         "drug": "Amoxicillin",
         "variant": "v1",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": true,
         "errors": [
           "time '14:00 pm' not in computed schedule",
@@ -2086,6 +2140,10 @@
         "id": "S13",
         "drug": "Metformin",
         "variant": "v1",
+        "times": [
+          "08:00",
+          "20:00"
+        ],
         "blocked": true,
         "errors": [
           "number '8' not in confirmed data",
@@ -2107,6 +2165,9 @@
         "id": "S14",
         "drug": "Pantoprazole",
         "variant": "v1",
+        "times": [
+          "08:00"
+        ],
         "blocked": true,
         "errors": [
           "number '2 week' not in confirmed data",
@@ -2127,6 +2188,9 @@
         "id": "S15",
         "drug": "Amlodipine",
         "variant": "v1",
+        "times": [
+          "08:00"
+        ],
         "blocked": true,
         "errors": [
           "number '8' not in confirmed data"
@@ -2147,6 +2211,11 @@
         "id": "S16",
         "drug": "Ibuprofen",
         "variant": "v1",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": true,
         "errors": [
           "number '1 tablet' not in confirmed data"
@@ -2166,6 +2235,9 @@
         "id": "S16",
         "drug": "Cetirizine",
         "variant": "v1",
+        "times": [
+          "22:00"
+        ],
         "blocked": true,
         "errors": [
           "unit mismatch for '1': got 'tablet', expected ['hour']"
@@ -2186,6 +2258,9 @@
         "id": "S17",
         "drug": "Azithromycin",
         "variant": "v1",
+        "times": [
+          "08:00"
+        ],
         "blocked": true,
         "errors": [
           "number '8' not in confirmed data",
@@ -2206,6 +2281,9 @@
         "id": "S18",
         "drug": "Atorvastatin",
         "variant": "v1",
+        "times": [
+          "22:00"
+        ],
         "blocked": true,
         "errors": [
           "unit mismatch for '1': got 'tablet', expected ['hour']",
@@ -2231,6 +2309,11 @@
         "id": "S23",
         "drug": "Paracetamol",
         "variant": "v1",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 6.1,
@@ -2246,6 +2329,11 @@
         "id": "S24",
         "drug": "Paracetamol",
         "variant": "v1",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": true,
         "errors": [
           "number '1' not in confirmed data"
@@ -2265,6 +2353,9 @@
         "id": "S25",
         "drug": "Amlodipine",
         "variant": "v1",
+        "times": [
+          "08:00"
+        ],
         "blocked": true,
         "errors": [
           "number '2' not in confirmed data",
@@ -2286,6 +2377,11 @@
         "id": "S01",
         "drug": "Paracetamol",
         "variant": "v2",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.9,
@@ -2301,6 +2397,11 @@
         "id": "S02",
         "drug": "Amoxicillin",
         "variant": "v2",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.7,
@@ -2316,6 +2417,9 @@
         "id": "S02",
         "drug": "Pantoprazole",
         "variant": "v2",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 3.1,
@@ -2331,6 +2435,10 @@
         "id": "S03",
         "drug": "Metformin",
         "variant": "v2",
+        "times": [
+          "08:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.5,
@@ -2346,6 +2454,9 @@
         "id": "S04",
         "drug": "Amlodipine",
         "variant": "v2",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.0,
@@ -2361,6 +2472,9 @@
         "id": "S05",
         "drug": "Cetirizine",
         "variant": "v2",
+        "times": [
+          "22:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.6,
@@ -2376,6 +2490,9 @@
         "id": "S06",
         "drug": "Azithromycin",
         "variant": "v2",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.5,
@@ -2391,6 +2508,7 @@
         "id": "S06",
         "drug": "Paracetamol",
         "variant": "v2",
+        "times": [],
         "blocked": false,
         "errors": [],
         "fk_grade": 3.3,
@@ -2406,6 +2524,11 @@
         "id": "S07",
         "drug": "Ibuprofen",
         "variant": "v2",
+        "times": [
+          "06:00",
+          "14:00",
+          "22:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 3.6,
@@ -2421,6 +2544,9 @@
         "id": "S08",
         "drug": "Atorvastatin",
         "variant": "v2",
+        "times": [
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.6,
@@ -2436,6 +2562,7 @@
         "id": "S09",
         "drug": "Salbutamol",
         "variant": "v2",
+        "times": [],
         "blocked": false,
         "errors": [],
         "fk_grade": 5.3,
@@ -2451,6 +2578,12 @@
         "id": "S10",
         "drug": "Moxifloxacin",
         "variant": "v2",
+        "times": [
+          "06:00",
+          "12:00",
+          "18:00",
+          "22:00"
+        ],
         "blocked": true,
         "errors": [
           "route: inhaler wording for a non-inhaled medicine"
@@ -2470,6 +2603,9 @@
         "id": "S10",
         "drug": "Cetirizine",
         "variant": "v2",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.2,
@@ -2485,6 +2621,10 @@
         "id": "S11",
         "drug": "Paracetamol",
         "variant": "v2",
+        "times": [
+          "08:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.9,
@@ -2500,6 +2640,11 @@
         "id": "S12",
         "drug": "Amoxicillin",
         "variant": "v2",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.4,
@@ -2515,6 +2660,10 @@
         "id": "S13",
         "drug": "Metformin",
         "variant": "v2",
+        "times": [
+          "08:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.5,
@@ -2530,6 +2679,9 @@
         "id": "S14",
         "drug": "Pantoprazole",
         "variant": "v2",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 3.0,
@@ -2545,6 +2697,9 @@
         "id": "S15",
         "drug": "Amlodipine",
         "variant": "v2",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.6,
@@ -2560,6 +2715,11 @@
         "id": "S16",
         "drug": "Ibuprofen",
         "variant": "v2",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.3,
@@ -2575,6 +2735,9 @@
         "id": "S16",
         "drug": "Cetirizine",
         "variant": "v2",
+        "times": [
+          "22:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.6,
@@ -2590,6 +2753,9 @@
         "id": "S17",
         "drug": "Azithromycin",
         "variant": "v2",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 0.5,
@@ -2605,6 +2771,9 @@
         "id": "S18",
         "drug": "Atorvastatin",
         "variant": "v2",
+        "times": [
+          "22:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.9,
@@ -2620,6 +2789,11 @@
         "id": "S23",
         "drug": "Paracetamol",
         "variant": "v2",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.9,
@@ -2635,6 +2809,11 @@
         "id": "S24",
         "drug": "Paracetamol",
         "variant": "v2",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.9,
@@ -2650,6 +2829,9 @@
         "id": "S25",
         "drug": "Amlodipine",
         "variant": "v2",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.6,
@@ -2665,6 +2847,11 @@
         "id": "S01",
         "drug": "Paracetamol",
         "variant": "v3",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.9,
@@ -2680,6 +2867,11 @@
         "id": "S02",
         "drug": "Amoxicillin",
         "variant": "v3",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.8,
@@ -2695,6 +2887,9 @@
         "id": "S02",
         "drug": "Pantoprazole",
         "variant": "v3",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 3.0,
@@ -2710,6 +2905,10 @@
         "id": "S03",
         "drug": "Metformin",
         "variant": "v3",
+        "times": [
+          "08:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.5,
@@ -2725,6 +2924,9 @@
         "id": "S04",
         "drug": "Amlodipine",
         "variant": "v3",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.6,
@@ -2740,6 +2942,9 @@
         "id": "S05",
         "drug": "Cetirizine",
         "variant": "v3",
+        "times": [
+          "22:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.4,
@@ -2755,6 +2960,9 @@
         "id": "S06",
         "drug": "Azithromycin",
         "variant": "v3",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.5,
@@ -2770,6 +2978,7 @@
         "id": "S06",
         "drug": "Paracetamol",
         "variant": "v3",
+        "times": [],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.3,
@@ -2787,6 +2996,11 @@
         "id": "S07",
         "drug": "Ibuprofen",
         "variant": "v3",
+        "times": [
+          "06:00",
+          "14:00",
+          "22:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.6,
@@ -2802,6 +3016,9 @@
         "id": "S08",
         "drug": "Atorvastatin",
         "variant": "v3",
+        "times": [
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.6,
@@ -2817,6 +3034,7 @@
         "id": "S09",
         "drug": "Salbutamol",
         "variant": "v3",
+        "times": [],
         "blocked": false,
         "errors": [],
         "fk_grade": 4.2,
@@ -2832,6 +3050,12 @@
         "id": "S10",
         "drug": "Moxifloxacin",
         "variant": "v3",
+        "times": [
+          "06:00",
+          "12:00",
+          "18:00",
+          "22:00"
+        ],
         "blocked": true,
         "errors": [
           "frequency: says 'as needed' but the prescription has a fixed schedule"
@@ -2851,6 +3075,9 @@
         "id": "S10",
         "drug": "Cetirizine",
         "variant": "v3",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.1,
@@ -2866,6 +3093,10 @@
         "id": "S11",
         "drug": "Paracetamol",
         "variant": "v3",
+        "times": [
+          "08:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.9,
@@ -2881,6 +3112,11 @@
         "id": "S12",
         "drug": "Amoxicillin",
         "variant": "v3",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.4,
@@ -2896,6 +3132,10 @@
         "id": "S13",
         "drug": "Metformin",
         "variant": "v3",
+        "times": [
+          "08:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.5,
@@ -2911,6 +3151,9 @@
         "id": "S14",
         "drug": "Pantoprazole",
         "variant": "v3",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 3.0,
@@ -2926,6 +3169,9 @@
         "id": "S15",
         "drug": "Amlodipine",
         "variant": "v3",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.6,
@@ -2941,6 +3187,11 @@
         "id": "S16",
         "drug": "Ibuprofen",
         "variant": "v3",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.3,
@@ -2956,6 +3207,9 @@
         "id": "S16",
         "drug": "Cetirizine",
         "variant": "v3",
+        "times": [
+          "22:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.4,
@@ -2971,6 +3225,9 @@
         "id": "S17",
         "drug": "Azithromycin",
         "variant": "v3",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 0.5,
@@ -2986,6 +3243,9 @@
         "id": "S18",
         "drug": "Atorvastatin",
         "variant": "v3",
+        "times": [
+          "22:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.8,
@@ -3001,6 +3261,11 @@
         "id": "S23",
         "drug": "Paracetamol",
         "variant": "v3",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.9,
@@ -3016,6 +3281,11 @@
         "id": "S24",
         "drug": "Paracetamol",
         "variant": "v3",
+        "times": [
+          "08:00",
+          "14:00",
+          "20:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 2.0,
@@ -3031,6 +3301,9 @@
         "id": "S25",
         "drug": "Amlodipine",
         "variant": "v3",
+        "times": [
+          "08:00"
+        ],
         "blocked": false,
         "errors": [],
         "fk_grade": 1.6,
@@ -3051,32 +3324,32 @@
         "numbers_ok_pct": 100.0,
         "digits_missing": 0,
         "digits_changed": 0,
-        "median_back_similarity": 96.7,
-        "median_seconds": 16.3
+        "median_back_similarity": 96.8,
+        "median_seconds": 21.6
       },
       "kn": {
         "n": 13,
         "numbers_ok_pct": 61.5,
         "digits_missing": 5,
         "digits_changed": 0,
-        "median_back_similarity": 90.8,
-        "median_seconds": 16.8
+        "median_back_similarity": 92.1,
+        "median_seconds": 23.3
       },
       "ta": {
         "n": 13,
         "numbers_ok_pct": 84.6,
         "digits_missing": 2,
         "digits_changed": 0,
-        "median_back_similarity": 89.9,
-        "median_seconds": 15.4
+        "median_back_similarity": 90.6,
+        "median_seconds": 29.0
       },
       "te": {
         "n": 13,
         "numbers_ok_pct": 84.6,
         "digits_missing": 2,
         "digits_changed": 0,
-        "median_back_similarity": 93.9,
-        "median_seconds": 15.4
+        "median_back_similarity": 94.5,
+        "median_seconds": 30.9
       }
     },
     "rows": [
@@ -3085,11 +3358,13 @@
         "drug": "Paracetamol",
         "lang": "hi",
         "numbers_ok": true,
-        "back_similarity": 95.4,
-        "seconds": 28.3,
-        "english": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "नमस्कार परीक्षण रोगी 01. पैरासिटामोल 500 मिलीग्राम दिन में तीन बार 8:00, 14:00 और 20:00 बजे लें। भोजन के बाद इसे पानी से निगल लें। इसे 5 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 01. Take paracetamol 500 mg three times a day at 8:00, 14:00 and 20:00. After eating, swallow it with water. Take it for 5 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 96.8,
+        "seconds": 29.6,
+        "english": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "नमस्कार परीक्षण रोगी 01. पैरासिटामोल 500 मिलीग्राम दिन में तीन बार लें। भोजन के बाद इसे पानी से निगल लें। इसे 5 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: सुबह 8:00, दोपहर 2:00, रात 8:00",
+        "shown": "नमस्कार परीक्षण रोगी 01. पैरासिटामोल 500 मिलीग्राम दिन में तीन बार लें। भोजन के बाद इसे पानी से निगल लें। इसे 5 दिनों के लिए ले लो।\nदवा लेने का समय: सुबह 8:00, दोपहर 2:00, रात 8:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 01. Take 500 mg of paracetamol three times a day. After eating, swallow it with water. Take it for 5 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3097,11 +3372,13 @@
         "drug": "Amoxicillin",
         "lang": "hi",
         "numbers_ok": true,
-        "back_similarity": 96.7,
-        "seconds": 25.5,
-        "english": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "नमस्कार परीक्षण रोगी 02. रोजाना तीन बार, 08:00, 14:00 और 20:00 बजे एमोक्सिसिलिन 500 मिलीग्राम लें। भोजन के बाद इसे पानी से निगल लें। इसे 7 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 02. Take 500 mg of amoxicillin three times a day at 08:00, 14:00 and 20:00. After eating, swallow it with water. Take it for 7 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 96.8,
+        "seconds": 21.4,
+        "english": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "नमस्कार परीक्षण रोगी 02. Amoxicillin 500 मिलीग्राम दिन में तीन बार लें। भोजन के बाद इसे पानी से निगल लें। इसे 7 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: सुबह 8:00, दोपहर 2:00, रात 8:00",
+        "shown": "नमस्कार परीक्षण रोगी 02. Amoxicillin 500 मिलीग्राम दिन में तीन बार लें। भोजन के बाद इसे पानी से निगल लें। इसे 7 दिनों के लिए ले लो।\nदवा लेने का समय: सुबह 8:00, दोपहर 2:00, रात 8:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 02. Take Amoxicillin 500 mg three times a day. After eating, swallow it with water. Take it for 7 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3109,11 +3386,13 @@
         "drug": "Pantoprazole",
         "lang": "hi",
         "numbers_ok": true,
-        "back_similarity": 97.9,
-        "seconds": 16.3,
-        "english": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day, at 08:00. Swallow with water before breakfast. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "नमस्कार परीक्षण रोगी 02. 8 बजे एक दिन में एक बार 40 मिलीग्राम पैनटोप्राज़ोल लें। नाश्ता करने से पहले पानी से निगल लें। इसे 7 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 02. Take 40 mg of pantoprazole once a day at 8 am. Swallow with water before breakfast. Take it for 7 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 99.6,
+        "seconds": 21.6,
+        "english": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "नमस्कार परीक्षण रोगी 02. दिन में एक बार 40 मिलीग्राम पैनटोप्राज़ोल लें। नाश्ता करने से पहले पानी से निगल लें। इसे 7 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: सुबह 8:00",
+        "shown": "नमस्कार परीक्षण रोगी 02. दिन में एक बार 40 मिलीग्राम पैनटोप्राज़ोल लें। नाश्ता करने से पहले पानी से निगल लें। इसे 7 दिनों के लिए ले लो।\nदवा लेने का समय: सुबह 8:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 02. Take 40 mg of pantoprazole once a day. Swallow with water before breakfast. Take it for 7 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3121,11 +3400,13 @@
         "drug": "Metformin",
         "lang": "hi",
         "numbers_ok": true,
-        "back_similarity": 94.7,
-        "seconds": 16.3,
-        "english": "Hello Test Patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. Swallow it with water after meals. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "नमस्कार परीक्षण रोगी 03. दिन में दो बार, 08: 00 और 20: 00 बजे मेटफॉर्मिन 500 मिलीग्राम लें। भोजन के बाद इसे पानी से निगल लें। इसे 30 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। इससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 03. Take 500 mg of metformin twice a day, at 08: 00 and 20: 00. After eating, swallow it with water. Take it for 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine runs out, go to your health centre for a new prescription. Not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 96.5,
+        "seconds": 24.8,
+        "english": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "नमस्कार परीक्षण रोगी 03. दिन में दो बार 500 मिलीग्राम मेटफॉर्मिन लें। भोजन के बाद इसे पानी से निगल लें। इसे 30 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nइससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: सुबह 8:00, रात 8:00",
+        "shown": "नमस्कार परीक्षण रोगी 03. दिन में दो बार 500 मिलीग्राम मेटफॉर्मिन लें। भोजन के बाद इसे पानी से निगल लें। इसे 30 दिनों के लिए ले लो।\nदवा लेने का समय: सुबह 8:00, रात 8:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nइससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 03. Take 500 mg of metformin twice a day. After eating, swallow it with water. Take it for 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine runs out, go to your health centre for a new prescription. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3133,11 +3414,13 @@
         "drug": "Amlodipine",
         "lang": "hi",
         "numbers_ok": true,
-        "back_similarity": 96.8,
-        "seconds": 15.6,
-        "english": "Hello Test Patient 04. Take Amlodipine 5 mg once a day, at 08:00. Swallow it with water in the morning. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "नमस्कार परीक्षण रोगी 04. Amlodipine 5 मिलीग्राम दिन में एक बार सुबह 8 बजे लें। इसे सुबह पानी से निगल लें। इसे 30 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। इससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 04. Take Amlodipine 5 mg once a day at 8 am. Swallow it with water in the morning. Take it for 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine runs out, go to your health centre for a new prescription. Not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 98.2,
+        "seconds": 24.3,
+        "english": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "नमस्कार परीक्षण रोगी 04. दिन में एक बार Amlodipine 5 मिलीग्राम लें। इसे सुबह पानी से निगल लें। इसे 30 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nइससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: सुबह 8:00",
+        "shown": "नमस्कार परीक्षण रोगी 04. दिन में एक बार Amlodipine 5 मिलीग्राम लें। इसे सुबह पानी से निगल लें। इसे 30 दिनों के लिए ले लो।\nदवा लेने का समय: सुबह 8:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nइससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 04. Take 5 mg of Amlodipine once a day. Swallow it with water in the morning. Take it for 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine runs out, go to your health centre for a new prescription. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3145,11 +3428,13 @@
         "drug": "Cetirizine",
         "lang": "hi",
         "numbers_ok": true,
-        "back_similarity": 99.5,
-        "seconds": 12.8,
-        "english": "Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "हैलो टेस्ट मरीज 05. 22:00 बजे Cetirizine 10 मिलीग्राम लें। पानी से निगल लें। इसे 5 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 05. Take 10 mg of Cetirizine at 22:00. swallow with water. Take it for 5 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 99.0,
+        "seconds": 17.8,
+        "english": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "हैलो टेस्ट मरीज 05. Cetirizine 10 मिलीग्राम लें। पानी से निगल लें। इसे 5 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: रात 10:00",
+        "shown": "हैलो टेस्ट मरीज 05. Cetirizine 10 मिलीग्राम लें। पानी से निगल लें। इसे 5 दिनों के लिए ले लो।\nदवा लेने का समय: रात 10:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 05. Take 10 mg of cetirizine. swallow with water. Take it for 5 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3157,11 +3442,13 @@
         "drug": "Azithromycin",
         "lang": "hi",
         "numbers_ok": true,
-        "back_similarity": 94.7,
-        "seconds": 19.1,
-        "english": "Hello Test Patient 06. Take Azithromycin 500 mg once a day, at 08:00. Swallow it with water one hour before food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "हैलो टेस्ट मरीज 06. रोजाना एक बार 08: 00 बजे Azithromycin 500 mg ले लें। भोजन से एक घंटे पहले इसे पानी से निगल लें। इसे 3 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 06. Take 500 mg of Azithromycin once a day at 08: 00. Swallow it with water an hour before meals. Take it for 3 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 96.5,
+        "seconds": 19.6,
+        "english": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "हैलो टेस्ट मरीज 06. Azithromycin 500 मिलीग्राम दिन में एक बार लें। भोजन से एक घंटे पहले इसे पानी से निगल लें। इसे 3 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: सुबह 8:00",
+        "shown": "हैलो टेस्ट मरीज 06. Azithromycin 500 मिलीग्राम दिन में एक बार लें। भोजन से एक घंटे पहले इसे पानी से निगल लें। इसे 3 दिनों के लिए ले लो।\nदवा लेने का समय: सुबह 8:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 06. Take Azithromycin 500 mg once a day. Swallow it with water an hour before meals. Take it for 3 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3170,9 +3457,11 @@
         "lang": "hi",
         "numbers_ok": true,
         "back_similarity": 97.6,
-        "seconds": 16.9,
+        "seconds": 20.1,
         "english": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "हैलो टेस्ट मरीज 06. पैरासिटामोल 650 मिलीग्राम केवल जरूरत पड़ने पर ही लें। बुखार के लिए पानी से निगल लें। इसे 3 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "translation": "हैलो टेस्ट मरीज 06. पैरासिटामोल 650 मिलीग्राम केवल जरूरत पड़ने पर ही लें। बुखार के लिए पानी से निगल लें। इसे 3 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "",
+        "shown": "हैलो टेस्ट मरीज 06. पैरासिटामोल 650 मिलीग्राम केवल जरूरत पड़ने पर ही लें। बुखार के लिए पानी से निगल लें। इसे 3 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
         "back_translation": "Hello test patient 06. Take 650 mg of paracetamol only when necessary. swallow with water for fever. Take it for 3 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
@@ -3182,10 +3471,12 @@
         "lang": "hi",
         "numbers_ok": true,
         "back_similarity": 96.7,
-        "seconds": 16.3,
-        "english": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours, at 06:00, 14:00, and 22:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "नमस्कार परीक्षण रोगी 07. हर 8 घंटे में 06:00, 14:00 और 22:00 बजे 400 मिलीग्राम इबुप्रोफेन लें। भोजन के बाद इसे पानी से निगल लें। इसे 3 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 07. Take 400 mg of ibuprofen every 8 hours at 06:00, 14:00 and 22:00. After eating, swallow it with water. Take it for 3 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
+        "seconds": 19.9,
+        "english": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "नमस्कार परीक्षण रोगी 07. हर 8 घंटे में 400 मिलीग्राम इबुप्रोफेन लें। भोजन के बाद इसे पानी से निगल लें। इसे 3 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: सुबह 6:00, दोपहर 2:00, रात 10:00",
+        "shown": "नमस्कार परीक्षण रोगी 07. हर 8 घंटे में 400 मिलीग्राम इबुप्रोफेन लें। भोजन के बाद इसे पानी से निगल लें। इसे 3 दिनों के लिए ले लो।\nदवा लेने का समय: सुबह 6:00, दोपहर 2:00, रात 10:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 07. Take 400 mg of ibuprofen every 8 hours. After eating, swallow it with water. Take it for 3 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3193,11 +3484,13 @@
         "drug": "Atorvastatin",
         "lang": "hi",
         "numbers_ok": true,
-        "back_similarity": 97.0,
-        "seconds": 16.2,
-        "english": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day, at 20:00. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "नमस्कार परीक्षण रोगी 08. 20 बजे एक दिन में एक बार 10 मिलीग्राम एटोरवास्टैटिन लें। पानी से निगल लें। इसे 30 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। इससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 08. Take 10 mg atorvastatin once a day at 20 am. swallow with water. Take it for 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine runs out, go to your health centre for a new prescription. Not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 98.1,
+        "seconds": 27.7,
+        "english": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "नमस्कार परीक्षण रोगी 08. Atorvastatin 10 मिलीग्राम दिन में एक बार लें। पानी से निगल लें। इसे 30 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nइससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: रात 8:00",
+        "shown": "नमस्कार परीक्षण रोगी 08. Atorvastatin 10 मिलीग्राम दिन में एक बार लें। पानी से निगल लें। इसे 30 दिनों के लिए ले लो।\nदवा लेने का समय: रात 8:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nइससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 08. Take Atorvastatin 10 mg once a day. swallow with water. Take it for 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine runs out, go to your health centre for a new prescription. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3206,9 +3499,11 @@
         "lang": "hi",
         "numbers_ok": true,
         "back_similarity": 91.9,
-        "seconds": 31.1,
+        "seconds": 32.4,
         "english": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "नमस्कार परीक्षण रोगी 09. सल्बुटामोल 100 एमसीजी लें, इनहेलर से श्वास लें, सांस न लेने पर 2 सांसें लें, केवल जरूरत पड़ने पर, 30 दिनों तक। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। इससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "translation": "नमस्कार परीक्षण रोगी 09. सल्बुटामोल 100 एमसीजी लें, इनहेलर से श्वास लें, सांस न लेने पर 2 सांसें लें, केवल जरूरत पड़ने पर, 30 दिनों तक।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nइससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "",
+        "shown": "नमस्कार परीक्षण रोगी 09. सल्बुटामोल 100 एमसीजी लें, इनहेलर से श्वास लें, सांस न लेने पर 2 सांसें लें, केवल जरूरत पड़ने पर, 30 दिनों तक।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nइससे पहले कि यह दवा समाप्त हो जाए, नए नुस्खे के लिए अपने स्वास्थ्य केंद्र में जाएं।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
         "back_translation": "Hello test patient 09. Take 100 mcg of sulbutamol, inhale by inhaler, take 2 breaths when not breathing, only when necessary, for 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine runs out, go to your health centre for a new prescription. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
@@ -3217,11 +3512,13 @@
         "drug": "Moxifloxacin",
         "lang": "hi",
         "numbers_ok": true,
-        "back_similarity": 96.3,
-        "seconds": 19.6,
-        "english": "Hello Test Patient 10. Take Moxifloxacin 1 drop at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "नमस्कार परीक्षण रोगी 10। 06:00, 12:00, 18:00, 22:00 बजे Moxifloxacin 1 ड्रॉप लें। 5 दिनों तक जारी रखें। नोटः दोनों आंखों में। (एआई की व्याख्या सुरक्षा जांच से पास नहीं हुई, इसलिए पुष्टि किए गए नुस्खा लिखित रूप में दिखाए गए हैं। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 10. Take 1 drop of Moxifloxacin at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: In both eyes. (The interpretation of AI did not pass the safety check, so the confirmed prescriptions are shown in writing. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 95.6,
+        "seconds": 27.1,
+        "english": "Hello Test Patient 10. Take Moxifloxacin 1 drop. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "नमस्कार परीक्षण रोगी 10। Moxifloxacin 1 बूंद लें। 5 दिनों तक जारी रखें। नोटः दोनों आंखों में। (एआई की व्याख्या सुरक्षा जांच से पास नहीं हुई, इसलिए पुष्टि किए गए नुस्खा लिखित रूप में दिखाए गए हैं।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: सुबह 6:00, दोपहर 12:00, शाम 6:00, रात 10:00",
+        "shown": "नमस्कार परीक्षण रोगी 10। Moxifloxacin 1 बूंद लें। 5 दिनों तक जारी रखें। नोटः दोनों आंखों में। (एआई की व्याख्या सुरक्षा जांच से पास नहीं हुई, इसलिए पुष्टि किए गए नुस्खा लिखित रूप में दिखाए गए हैं।\nदवा लेने का समय: सुबह 6:00, दोपहर 12:00, शाम 6:00, रात 10:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 10. Take 1 drop of Moxifloxacin. Continue for 5 days. Note: In both eyes. (The interpretation of AI did not pass the safety check, so the confirmed prescriptions are shown in writing. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3229,11 +3526,13 @@
         "drug": "Cetirizine",
         "lang": "hi",
         "numbers_ok": true,
-        "back_similarity": 98.0,
-        "seconds": 12.8,
-        "english": "Hello Test Patient 10. Take Cetirizine 10 mg once a day, at 08:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "नमस्कार परीक्षण रोगी 10। 8.00 बजे दिन में एक बार 10 मिलीग्राम Cetirizine लें। पानी से निगल लें। इसे 5 दिनों के लिए ले लो। इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें। चिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
-        "back_translation": "Hello test patient 10. Take 10 mg of Cetirizine once a day at 8.00 am. swallow with water. Take it for 5 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 99.5,
+        "seconds": 19.0,
+        "english": "Hello Test Patient 10. Take Cetirizine 10 mg once a day. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "नमस्कार परीक्षण रोगी 10। दिन में एक बार 10 मिलीग्राम Cetirizine लें। पानी से निगल लें। इसे 5 दिनों के लिए ले लो।\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "when": "दवा लेने का समय: सुबह 8:00",
+        "shown": "नमस्कार परीक्षण रोगी 10। दिन में एक बार 10 मिलीग्राम Cetirizine लें। पानी से निगल लें। इसे 5 दिनों के लिए ले लो।\nदवा लेने का समय: सुबह 8:00\nइस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुंच से बाहर रखें।\nचिकित्सा सलाह नहीं। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+        "back_translation": "Hello test patient 10. Take 10 mg of Cetirizine once a day. swallow with water. Take it for 5 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3241,11 +3540,13 @@
         "drug": "Paracetamol",
         "lang": "kn",
         "numbers_ok": false,
-        "back_similarity": 93.8,
-        "seconds": 17.2,
-        "english": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 01. ಪ್ಯಾರಾಸೆಟಮೋಲ್ 500 ಮಿಗ್ರಾಂ ಅನ್ನು ದಿನಕ್ಕೆ ಮೂರು ಬಾರಿ ತೆಗೆದುಕೊಳ್ಳಿ, 08:00, 14:00, ಮತ್ತು 20:00. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಐದು ದಿನಗಳ ಕಾಲ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient 01. Take 500 mg of paracetamol three times a day, at 08:00, 14:00, and 20:00. After eating, swallow it with water. Take it for five days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 92.3,
+        "seconds": 21.8,
+        "english": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 01. ದಿನಕ್ಕೆ ಮೂರು ಬಾರಿ ಪ್ಯಾರಾಸೆಟಮೋಲ್ 500 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಐದು ದಿನಗಳ ಕಾಲ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00, ಮಧ್ಯಾಹ್ನ 2:00, ರಾತ್ರಿ 8:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 01. ದಿನಕ್ಕೆ ಮೂರು ಬಾರಿ ಪ್ಯಾರಾಸೆಟಮೋಲ್ 500 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಐದು ದಿನಗಳ ಕಾಲ ತೆಗೆದುಕೊಳ್ಳಿ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00, ಮಧ್ಯಾಹ್ನ 2:00, ರಾತ್ರಿ 8:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient 01. Take 500 mg of paracetamol three times a day. After eating, swallow it with water. Take it for five days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": "missing"
       },
       {
@@ -3253,11 +3554,13 @@
         "drug": "Amoxicillin",
         "lang": "kn",
         "numbers_ok": false,
-        "back_similarity": 93.4,
-        "seconds": 18.0,
-        "english": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 02. ದಿನಕ್ಕೆ ಮೂರು ಬಾರಿ, 08:00, 14:00, ಮತ್ತು 20:00 ಗಂಟೆಗಳಲ್ಲಿ ಅಮೋಕ್ಸಿಕ್ಸಿಲಿನ್ 500 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಏಳು ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient 02. Take 500 mg of amoxicillin three times a day at 08:00, 14:00, and 20:00. After eating, swallow it with water. Take it for seven days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 92.1,
+        "seconds": 22.0,
+        "english": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 02. Amoxicillin 500 mg ಅನ್ನು ದಿನಕ್ಕೆ ಮೂರು ಬಾರಿ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಏಳು ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00, ಮಧ್ಯಾಹ್ನ 2:00, ರಾತ್ರಿ 8:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 02. Amoxicillin 500 mg ಅನ್ನು ದಿನಕ್ಕೆ ಮೂರು ಬಾರಿ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಏಳು ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00, ಮಧ್ಯಾಹ್ನ 2:00, ರಾತ್ರಿ 8:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient 02. Take Amoxicillin 500 mg three times a day. After eating, swallow it with water. Take it for seven days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": "missing"
       },
       {
@@ -3265,11 +3568,13 @@
         "drug": "Pantoprazole",
         "lang": "kn",
         "numbers_ok": false,
-        "back_similarity": 91.2,
-        "seconds": 15.8,
-        "english": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day, at 08:00. Swallow with water before breakfast. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 02. ದಿನಕ್ಕೆ ಒಮ್ಮೆ ಬೆಳಿಗ್ಗೆ 08:00 ಗಂಟೆಗೆ 40 ಮಿಗ್ರಾಂ ಪ್ಯಾಂಟೊಪ್ರಾಸೋಲ್ ತೆಗೆದುಕೊಳ್ಳಿ. ಉಪಹಾರಕ್ಕೆ ಮುಂಚಿತವಾಗಿ ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಏಳು ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient 02. Take 40 mg of pantoprasol once a day at 08:00 in the morning. Before breakfast, swallow with water. Take it for seven days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 93.3,
+        "seconds": 21.7,
+        "english": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 02. ದಿನಕ್ಕೆ ಒಮ್ಮೆ ಪ್ಯಾಂಟೊಪ್ರಾಸೋಲ್ 40 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಉಪಹಾರಕ್ಕೆ ಮುಂಚಿತವಾಗಿ ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಏಳು ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 02. ದಿನಕ್ಕೆ ಒಮ್ಮೆ ಪ್ಯಾಂಟೊಪ್ರಾಸೋಲ್ 40 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಉಪಹಾರಕ್ಕೆ ಮುಂಚಿತವಾಗಿ ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಏಳು ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient 02. Take 40 mg of pantoprasole once a day. Before breakfast, swallow with water. Take it for seven days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": "missing"
       },
       {
@@ -3277,11 +3582,13 @@
         "drug": "Metformin",
         "lang": "kn",
         "numbers_ok": true,
-        "back_similarity": 87.0,
-        "seconds": 16.8,
-        "english": "Hello Test Patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. Swallow it with water after meals. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 03. ಮೆಟ್ಫಾರ್ಮಿನ್ 500 ಮಿಗ್ರಾಂ ಅನ್ನು ದಿನಕ್ಕೆ ಎರಡು ಬಾರಿ 08:00 ಮತ್ತು 20:00 ಕ್ಕೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 30 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient 03. Take Metformin 500 mg twice a day at 08:00 and 20:00. After eating, swallow it with water. Take it for 30 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. Before you run out of medication, visit your health center to get a new medication. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 85.7,
+        "seconds": 27.0,
+        "english": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 03. ದಿನಕ್ಕೆ ಎರಡು ಬಾರಿ ಮೆಟ್ಫಾರ್ಮಿನ್ 500 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 30 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00, ರಾತ್ರಿ 8:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 03. ದಿನಕ್ಕೆ ಎರಡು ಬಾರಿ ಮೆಟ್ಫಾರ್ಮಿನ್ 500 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 30 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00, ರಾತ್ರಿ 8:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient 03. Take 500 mg of Metformin twice a day. After eating, swallow it with water. Take it for 30 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. Before you run out of medication, visit your health center to get a new medication. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3289,11 +3596,13 @@
         "drug": "Amlodipine",
         "lang": "kn",
         "numbers_ok": true,
-        "back_similarity": 85.9,
-        "seconds": 16.2,
-        "english": "Hello Test Patient 04. Take Amlodipine 5 mg once a day, at 08:00. Swallow it with water in the morning. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 04. Amlodipine 5 mg ಅನ್ನು ದಿನಕ್ಕೆ ಒಂದು ಬಾರಿ 08: 00 ಕ್ಕೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಬೆಳಿಗ್ಗೆ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 30 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient 04. Take Amlodipine 5 mg once a day at 08:00. In the morning, swallow it with water. Take it for 30 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. Before you run out of medication, visit your health center to get a new medication. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 85.6,
+        "seconds": 28.1,
+        "english": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 04. ದಿನಕ್ಕೆ ಒಮ್ಮೆ Amlodipine 5 mg ತೆಗೆದುಕೊಳ್ಳಿ. ಬೆಳಿಗ್ಗೆ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 30 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 04. ದಿನಕ್ಕೆ ಒಮ್ಮೆ Amlodipine 5 mg ತೆಗೆದುಕೊಳ್ಳಿ. ಬೆಳಿಗ್ಗೆ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 30 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient 04. Take 5 mg of Amlodipine once a day. In the morning, swallow it with water. Take it for 30 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. Before you run out of medication, visit your health center to get a new medication. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3301,11 +3610,13 @@
         "drug": "Cetirizine",
         "lang": "kn",
         "numbers_ok": false,
-        "back_similarity": 89.1,
-        "seconds": 15.9,
-        "english": "Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 05. 22 ಗಂಟೆಗೆ 10 ಮಿಗ್ರಾಂ ಸೆಟಿರೈಜಿನ್ ತೆಗೆದುಕೊಳ್ಳಿ. ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಐದು ದಿನಗಳ ಕಾಲ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient 05. Take 10 mg of CETRIGIN every 22 hours. swallow with water. Take it for five days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 92.8,
+        "seconds": 21.7,
+        "english": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 05. Cetirizine 10 mg ತೆಗೆದುಕೊಳ್ಳಿ. ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಐದು ದಿನಗಳ ಕಾಲ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ರಾತ್ರಿ 10:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 05. Cetirizine 10 mg ತೆಗೆದುಕೊಳ್ಳಿ. ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಐದು ದಿನಗಳ ಕಾಲ ತೆಗೆದುಕೊಳ್ಳಿ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ರಾತ್ರಿ 10:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient 05. Take 10 mg of Cetirizine. swallow with water. Take it for five days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": "missing"
       },
       {
@@ -3313,11 +3624,13 @@
         "drug": "Azithromycin",
         "lang": "kn",
         "numbers_ok": true,
-        "back_similarity": 92.4,
-        "seconds": 15.9,
-        "english": "Hello Test Patient 06. Take Azithromycin 500 mg once a day, at 08:00. Swallow it with water one hour before food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 06. ದಿನಕ್ಕೆ ಒಂದು ಬಾರಿ 08: 00 ಕ್ಕೆ 500 ಮಿಗ್ರಾಂ ಅಜಿಥ್ರೊಮೈಸಿನ್ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟಕ್ಕೆ ಒಂದು ಗಂಟೆ ಮೊದಲು ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 3 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient 06. Take 500 mg of azithromycin once a day at 08:00. Swallow it with water an hour before meals. Take it for 3 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 92.3,
+        "seconds": 21.7,
+        "english": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 06. Azithromycin 500 mg ಅನ್ನು ದಿನಕ್ಕೆ ಒಮ್ಮೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟಕ್ಕೆ ಒಂದು ಗಂಟೆ ಮೊದಲು ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 3 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 06. Azithromycin 500 mg ಅನ್ನು ದಿನಕ್ಕೆ ಒಮ್ಮೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟಕ್ಕೆ ಒಂದು ಗಂಟೆ ಮೊದಲು ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 3 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient 06. Take Azithromycin 500 mg once a day. Swallow it with water an hour before meals. Take it for 3 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3326,9 +3639,11 @@
         "lang": "kn",
         "numbers_ok": true,
         "back_similarity": 91.9,
-        "seconds": 15.3,
+        "seconds": 20.6,
         "english": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 06. ಅಗತ್ಯವಿದ್ದಾಗ ಮಾತ್ರ ಪ್ಯಾರಾಸೆಟಮೋಲ್ 650 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಜ್ವರವನ್ನು ತಡೆಯಲು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 3 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 06. ಅಗತ್ಯವಿದ್ದಾಗ ಮಾತ್ರ ಪ್ಯಾರಾಸೆಟಮೋಲ್ 650 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಜ್ವರವನ್ನು ತಡೆಯಲು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 3 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 06. ಅಗತ್ಯವಿದ್ದಾಗ ಮಾತ್ರ ಪ್ಯಾರಾಸೆಟಮೋಲ್ 650 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಜ್ವರವನ್ನು ತಡೆಯಲು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 3 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
         "back_translation": "Hello test patient 06. Take 650 mg of paracetamol only when necessary. Swallow with water to prevent a fever. Take it for 3 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
@@ -3337,11 +3652,13 @@
         "drug": "Ibuprofen",
         "lang": "kn",
         "numbers_ok": true,
-        "back_similarity": 94.2,
-        "seconds": 17.4,
-        "english": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours, at 06:00, 14:00, and 22:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 07. ಪ್ರತಿ 8 ಗಂಟೆಗಳಿಗೊಮ್ಮೆ, 06:00, 14:00, ಮತ್ತು 22:00 ಕ್ಕೆ ಇಬುಪ್ರೊಫೆನ್ 400 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 3 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient 07. Take 400 mg of ibuprofen every 8 hours, at 06:00, 14:00, and 22:00. After eating, swallow it with water. Take it for 3 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 92.7,
+        "seconds": 28.4,
+        "english": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 07. ಪ್ರತಿ 8 ಗಂಟೆಗಳಿಗೊಮ್ಮೆ 400 ಮಿಗ್ರಾಂ ಇಬುಪ್ರೊಫೆನ್ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 3 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 6:00, ಮಧ್ಯಾಹ್ನ 2:00, ರಾತ್ರಿ 10:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 07. ಪ್ರತಿ 8 ಗಂಟೆಗಳಿಗೊಮ್ಮೆ 400 ಮಿಗ್ರಾಂ ಇಬುಪ್ರೊಫೆನ್ ತೆಗೆದುಕೊಳ್ಳಿ. ಊಟದ ನಂತರ ಅದನ್ನು ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 3 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 6:00, ಮಧ್ಯಾಹ್ನ 2:00, ರಾತ್ರಿ 10:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient 07. Take 400 mg of ibuprofen every 8 hours. After eating, swallow it with water. Take it for 3 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3349,11 +3666,13 @@
         "drug": "Atorvastatin",
         "lang": "kn",
         "numbers_ok": true,
-        "back_similarity": 85.1,
-        "seconds": 17.3,
-        "english": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day, at 20:00. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 08. 20 ಗಂಟೆಗೆ ದಿನಕ್ಕೆ ಒಮ್ಮೆ 10 ಮಿಗ್ರಾಂ ಅಟೋರ್ವಾಸ್ಟಾಟಿನ್ ತೆಗೆದುಕೊಳ್ಳಿ. ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 30 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient 08. Take 10 mg of atorvastatin once a day for 20 hours. swallow with water. Take it for 30 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. Before you run out of medication, visit your health center to get a new medication. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 87.0,
+        "seconds": 35.1,
+        "english": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 08. ದಿನಕ್ಕೆ ಒಮ್ಮೆ 10 ಮಿಗ್ರಾಂ Atorvastatin ತೆಗೆದುಕೊಳ್ಳಿ. ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 30 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ರಾತ್ರಿ 8:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 08. ದಿನಕ್ಕೆ ಒಮ್ಮೆ 10 ಮಿಗ್ರಾಂ Atorvastatin ತೆಗೆದುಕೊಳ್ಳಿ. ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು 30 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ರಾತ್ರಿ 8:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient 08. Take 10 mg of Atorvastatin once a day. swallow with water. Take it for 30 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. Before you run out of medication, visit your health center to get a new medication. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3362,9 +3681,11 @@
         "lang": "kn",
         "numbers_ok": true,
         "back_similarity": 80.0,
-        "seconds": 25.4,
+        "seconds": 38.9,
         "english": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 09. ಸಾಲ್ಬುಟಾಮೋಲ್ 100 mcg ತೆಗೆದುಕೊಳ್ಳಿ, ಇನ್ಹಲೇಟರ್ನಿಂದ ಉಸಿರಾಡಿ, ಉಸಿರಾಡುವಾಗ 2 ಉಸಿರಾಡು, ಅಗತ್ಯವಿದ್ದಾಗ ಮಾತ್ರ, 30 ದಿನಗಳವರೆಗೆ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 09. ಸಾಲ್ಬುಟಾಮೋಲ್ 100 mcg ತೆಗೆದುಕೊಳ್ಳಿ, ಇನ್ಹಲೇಟರ್ನಿಂದ ಉಸಿರಾಡಿ, ಉಸಿರಾಡುವಾಗ 2 ಉಸಿರಾಡು, ಅಗತ್ಯವಿದ್ದಾಗ ಮಾತ್ರ, 30 ದಿನಗಳವರೆಗೆ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 09. ಸಾಲ್ಬುಟಾಮೋಲ್ 100 mcg ತೆಗೆದುಕೊಳ್ಳಿ, ಇನ್ಹಲೇಟರ್ನಿಂದ ಉಸಿರಾಡಿ, ಉಸಿರಾಡುವಾಗ 2 ಉಸಿರಾಡು, ಅಗತ್ಯವಿದ್ದಾಗ ಮಾತ್ರ, 30 ದಿನಗಳವರೆಗೆ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಔಷಧಿ ಪಡೆಯಲು ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
         "back_translation": "Hello test patient 09. Take 100 mcg of salbutamol, inhaled by inhaler, 2 breaths when inhaled, only when necessary, for 30 days. Keep these medicines in a cool, dry place and keep them out of the hands of children. Before you run out of medication, visit your health center to get a new medication. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
@@ -3373,11 +3694,13 @@
         "drug": "Moxifloxacin",
         "lang": "kn",
         "numbers_ok": true,
-        "back_similarity": 89.6,
-        "seconds": 19.5,
-        "english": "Hello Test Patient 10. Take Moxifloxacin 1 drop at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 10. 06:00, 12:00, 18:00, 22:00 ನಲ್ಲಿ ಮೊಕ್ಸಿಫ್ಲೋಕ್ಸಾಸಿನ್ 1 ಡ್ರಾಪ್ ತೆಗೆದುಕೊಳ್ಳಿ. 5 ದಿನಗಳ ಕಾಲ ಮುಂದುವರಿಸಿ. ಗಮನಿಸಿಃ ಎರಡೂ ಕಣ್ಣುಗಳಲ್ಲಿ. (ಎಐ ವಿವರಣೆಯು ಸುರಕ್ಷತಾ ಪರಿಶೀಲನೆಯನ್ನು ಅಂಗೀಕರಿಸಲಿಲ್ಲ, ಆದ್ದರಿಂದ ದೃಢಪಡಿಸಿದ ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ಬರೆಯಲ್ಪಟ್ಟಂತೆ ತೋರಿಸಲಾಗಿದೆ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient is 10. Take 1 drop of moxifloxacin at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: In both eyes. (The AI specification did not pass safety verification, so the approved prescription is shown as written. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 87.3,
+        "seconds": 33.4,
+        "english": "Hello Test Patient 10. Take Moxifloxacin 1 drop. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 10. ಮೊಕ್ಸಿಫ್ಲೋಕ್ಸಾಸಿನ್ 1 ಡ್ರಾಪ್ ತೆಗೆದುಕೊಳ್ಳಿ. 5 ದಿನಗಳ ಕಾಲ ಮುಂದುವರಿಸಿ. ಗಮನಿಸಿಃ ಎರಡೂ ಕಣ್ಣುಗಳಲ್ಲಿ. (ಎಐ ವಿವರಣೆಯು ಸುರಕ್ಷತಾ ಪರಿಶೀಲನೆಯನ್ನು ಅಂಗೀಕರಿಸಲಿಲ್ಲ, ಆದ್ದರಿಂದ ದೃಢಪಡಿಸಿದ ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ಬರೆಯಲ್ಪಟ್ಟಂತೆ ತೋರಿಸಲಾಗಿದೆ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 6:00, ಮಧ್ಯಾಹ್ನ 12:00, ಸಂಜೆ 6:00, ರಾತ್ರಿ 10:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 10. ಮೊಕ್ಸಿಫ್ಲೋಕ್ಸಾಸಿನ್ 1 ಡ್ರಾಪ್ ತೆಗೆದುಕೊಳ್ಳಿ. 5 ದಿನಗಳ ಕಾಲ ಮುಂದುವರಿಸಿ. ಗಮನಿಸಿಃ ಎರಡೂ ಕಣ್ಣುಗಳಲ್ಲಿ. (ಎಐ ವಿವರಣೆಯು ಸುರಕ್ಷತಾ ಪರಿಶೀಲನೆಯನ್ನು ಅಂಗೀಕರಿಸಲಿಲ್ಲ, ಆದ್ದರಿಂದ ದೃಢಪಡಿಸಿದ ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ಬರೆಯಲ್ಪಟ್ಟಂತೆ ತೋರಿಸಲಾಗಿದೆ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 6:00, ಮಧ್ಯಾಹ್ನ 12:00, ಸಂಜೆ 6:00, ರಾತ್ರಿ 10:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient is 10. Take one drop of moxifloxacin. Continue for 5 days. Note: In both eyes. (The AI specification did not pass safety verification, so the approved prescription is shown as written. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3385,11 +3708,13 @@
         "drug": "Cetirizine",
         "lang": "kn",
         "numbers_ok": false,
-        "back_similarity": 90.8,
-        "seconds": 15.4,
-        "english": "Hello Test Patient 10. Take Cetirizine 10 mg once a day, at 08:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 10. ಬೆಳಿಗ್ಗೆ 8 ಗಂಟೆಗೆ ದಿನಕ್ಕೆ ಒಮ್ಮೆ ಸೆಟಿರೈಜಿನ್ 10 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಐದು ದಿನಗಳ ಕಾಲ ತೆಗೆದುಕೊಳ್ಳಿ. ಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ. ವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
-        "back_translation": "Hello test patient is 10. Take 10 mg of cetirazine once a day at 8 a.m. swallow with water. Take it for five days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 92.9,
+        "seconds": 23.3,
+        "english": "Hello Test Patient 10. Take Cetirizine 10 mg once a day. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 10. ದಿನಕ್ಕೆ ಒಮ್ಮೆ ಸೆಟಿರಿಸೈನ್ 10 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಐದು ದಿನಗಳ ಕಾಲ ತೆಗೆದುಕೊಳ್ಳಿ.\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00",
+        "shown": "ಹಲೋ ಟೆಸ್ಟ್ ರೋಗಿ 10. ದಿನಕ್ಕೆ ಒಮ್ಮೆ ಸೆಟಿರಿಸೈನ್ 10 ಮಿಗ್ರಾಂ ತೆಗೆದುಕೊಳ್ಳಿ. ನೀರಿನಿಂದ ನುಂಗಿಬಿಡಿ. ಅದನ್ನು ಐದು ದಿನಗಳ ಕಾಲ ತೆಗೆದುಕೊಳ್ಳಿ.\nಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ: ಬೆಳಿಗ್ಗೆ 8:00\nಈ ಔಷಧಿಗಳನ್ನು ತಂಪಾದ, ಶುಷ್ಕ ಸ್ಥಳದಲ್ಲಿ ಇರಿಸಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇರಿಸಿ.\nವೈದ್ಯಕೀಯ ಸಲಹೆಯಿಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ.",
+        "back_translation": "Hello test patient is 10. Take 10 mg of cetirizine once a day. swallow with water. Take it for five days. Keep these medicines in a cool, dry place and keep them out of the hands of children. No medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": "missing"
       },
       {
@@ -3397,11 +3722,13 @@
         "drug": "Paracetamol",
         "lang": "ta",
         "numbers_ok": true,
-        "back_similarity": 88.5,
-        "seconds": 15.6,
-        "english": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 01. ஒரு நாளைக்கு மூன்று முறை, 08:00, 14:00 மற்றும் 20:00 மணிக்கு 500 மிலி Paracetamol எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீரில் விழுங்கவும். அதை 5 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello exam patient 01. Take 500 ml of Paracetamol three times a day at 08:00, 14:00 and 20:00. After eating, swallow it in water. Take it for five days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 90.6,
+        "seconds": 28.0,
+        "english": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் சோதனை நோயாளி 01. ஒரு நாளைக்கு மூன்று முறை 500 mg Paracetamol எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீரில் விழுங்கவும். அதை 5 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: காலை 8:00, மதியம் 2:00, இரவு 8:00",
+        "shown": "வணக்கம் சோதனை நோயாளி 01. ஒரு நாளைக்கு மூன்று முறை 500 mg Paracetamol எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீரில் விழுங்கவும். அதை 5 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nமருந்து எடுக்கும் நேரம்: காலை 8:00, மதியம் 2:00, இரவு 8:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello exam patient 01. Take 500 mg of Paracetamol three times a day. After eating, swallow it in water. Take it for five days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3409,11 +3736,13 @@
         "drug": "Amoxicillin",
         "lang": "ta",
         "numbers_ok": false,
-        "back_similarity": 91.0,
-        "seconds": 15.2,
-        "english": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 02. Amoxicillin 500 mg ஐ ஒரு நாளைக்கு மூன்று முறை, 08:00, 14:00, மற்றும் 20:00 மணிக்கு எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீரில் விழுங்கவும். ஏழு நாட்களுக்கு எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello test patient 02. Take Amoxicillin 500 mg three times a day at 08:00, 14:00, and 20:00. After eating, swallow it in water. Take it for seven days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 91.8,
+        "seconds": 30.7,
+        "english": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் சோதனை நோயாளி 02. Amoxicillin 500 mg ஐ ஒரு நாளைக்கு மூன்று முறை எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீரில் விழுங்கவும். ஏழு நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: காலை 8:00, மதியம் 2:00, இரவு 8:00",
+        "shown": "வணக்கம் சோதனை நோயாளி 02. Amoxicillin 500 mg ஐ ஒரு நாளைக்கு மூன்று முறை எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீரில் விழுங்கவும். ஏழு நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nமருந்து எடுக்கும் நேரம்: காலை 8:00, மதியம் 2:00, இரவு 8:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello test patient 02. Take 500 mg of Amoxicillin three times a day. After eating, swallow it in water. Take it for seven days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": "missing"
       },
       {
@@ -3422,10 +3751,12 @@
         "lang": "ta",
         "numbers_ok": false,
         "back_similarity": 91.2,
-        "seconds": 13.5,
-        "english": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day, at 08:00. Swallow with water before breakfast. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 02. ஒரு நாளைக்கு ஒரு முறை, 08: 00 மணிக்கு, Pantoprazole 40 mg ஐ எடுத்துக் கொள்ளுங்கள். காலை உணவுக்கு முன் தண்ணீரில் விழுங்கவும். ஏழு நாட்களுக்கு எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello test patient 02. Once a day, at 08:00, take 40 mg of Pantoprazole. Before breakfast, swallow in water. Take it for seven days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "seconds": 25.8,
+        "english": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் சோதனை நோயாளி 02. Pantoprazole 40 mg ஐ ஒரு நாளைக்கு ஒரு முறை எடுத்துக் கொள்ளுங்கள். காலை உணவுக்கு முன் தண்ணீரில் விழுங்கவும். ஏழு நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: காலை 8:00",
+        "shown": "வணக்கம் சோதனை நோயாளி 02. Pantoprazole 40 mg ஐ ஒரு நாளைக்கு ஒரு முறை எடுத்துக் கொள்ளுங்கள். காலை உணவுக்கு முன் தண்ணீரில் விழுங்கவும். ஏழு நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nமருந்து எடுக்கும் நேரம்: காலை 8:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello test patient 02. Take Pantoprazole 40 mg once a day. Before breakfast, swallow in water. Take it for seven days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": "missing"
       },
       {
@@ -3433,11 +3764,13 @@
         "drug": "Metformin",
         "lang": "ta",
         "numbers_ok": true,
-        "back_similarity": 89.3,
-        "seconds": 16.7,
-        "english": "Hello Test Patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. Swallow it with water after meals. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 03. ஒரு நாளைக்கு இரண்டு முறை, 08: 00 மற்றும் 20: 00 மணிக்கு Metformin 500 mg எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீருடன் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். இந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello test patient 03. Take 500 mg of Metformin twice a day, at 08:00 and 20:00. After eating, swallow it with water. Take it for 30 days. Keep this medicine in a cool, dry place that is inaccessible to children. Before this medication expires, please visit your health centre to prescribe a new medication. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 88.5,
+        "seconds": 31.8,
+        "english": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் சோதனை நோயாளி 03. ஒரு நாளைக்கு இரண்டு முறை Metformin 500 mg எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீருடன் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nஇந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: காலை 8:00, இரவு 8:00",
+        "shown": "வணக்கம் சோதனை நோயாளி 03. ஒரு நாளைக்கு இரண்டு முறை Metformin 500 mg எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீருடன் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nமருந்து எடுக்கும் நேரம்: காலை 8:00, இரவு 8:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nஇந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello test patient 03. Take 500 mg of Metformin twice a day. After eating, swallow it with water. Take it for 30 days. Keep this medicine in a cool, dry place that is inaccessible to children. Before this medication expires, please visit your health centre to prescribe a new medication. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3445,11 +3778,13 @@
         "drug": "Amlodipine",
         "lang": "ta",
         "numbers_ok": true,
-        "back_similarity": 87.4,
-        "seconds": 16.4,
-        "english": "Hello Test Patient 04. Take Amlodipine 5 mg once a day, at 08:00. Swallow it with water in the morning. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 04. Amlodipine 5 mg ஐ ஒரு நாளைக்கு ஒரு முறை 08: 00 மணிக்கு எடுத்துக் கொள்ளுங்கள். காலையில் அதை தண்ணீரில் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். இந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello test patient 04. Take Amlodipine 5 mg once a day at 08:00. In the morning, swallow it in water. Take it for 30 days. Keep this medicine in a cool, dry place that is inaccessible to children. Before this medication expires, please visit your health centre to prescribe a new medication. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 88.0,
+        "seconds": 41.7,
+        "english": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் சோதனை நோயாளி 04. Amlodipine 5 mg ஐ ஒரு நாளைக்கு ஒரு முறை எடுத்துக் கொள்ளுங்கள். காலையில் அதை தண்ணீரில் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nஇந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: காலை 8:00",
+        "shown": "வணக்கம் சோதனை நோயாளி 04. Amlodipine 5 mg ஐ ஒரு நாளைக்கு ஒரு முறை எடுத்துக் கொள்ளுங்கள். காலையில் அதை தண்ணீரில் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nமருந்து எடுக்கும் நேரம்: காலை 8:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nஇந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello test patient 04. Take Amlodipine 5 mg once a day. In the morning, swallow it in water. Take it for 30 days. Keep this medicine in a cool, dry place that is inaccessible to children. Before this medication expires, please visit your health centre to prescribe a new medication. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3457,11 +3792,13 @@
         "drug": "Cetirizine",
         "lang": "ta",
         "numbers_ok": true,
-        "back_similarity": 94.0,
-        "seconds": 13.5,
-        "english": "Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் பரிசோதனை நோயாளி 05. 22:00 மணிக்கு Cetirizine 10 mg எடுத்துக் கொள்ளுங்கள். தண்ணீரில் விழுங்கவும். அதை 5 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello examination patient 05. Take 10 mg of Cetirizine at 22:00. Swallow in the water. Take it for five days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 89.4,
+        "seconds": 38.7,
+        "english": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் பரிசோதனை நோயாளி 05. Cetirizine 10 mg ஐ எடுத்துக் கொள்ளுங்கள். தண்ணீரில் விழுங்கவும். அதை 5 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: இரவு 10:00",
+        "shown": "வணக்கம் பரிசோதனை நோயாளி 05. Cetirizine 10 mg ஐ எடுத்துக் கொள்ளுங்கள். தண்ணீரில் விழுங்கவும். அதை 5 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nமருந்து எடுக்கும் நேரம்: இரவு 10:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello examination patient 05. Take 10 mg of Cetirizine. Swallow in the water. Take it for five days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3469,11 +3806,13 @@
         "drug": "Azithromycin",
         "lang": "ta",
         "numbers_ok": true,
-        "back_similarity": 89.9,
-        "seconds": 13.4,
-        "english": "Hello Test Patient 06. Take Azithromycin 500 mg once a day, at 08:00. Swallow it with water one hour before food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 06. Azithromycin 500 mg ஐ ஒரு நாளைக்கு ஒரு முறை 08: 00 மணிக்கு எடுத்துக் கொள்ளுங்கள். உணவுக்கு ஒரு மணி நேரத்திற்கு முன்பு அதை தண்ணீரில் விழுங்கவும். 3 நாட்கள் எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello test patient 06. Take Azithromycin 500 mg once a day at 08:00. Swallow it in water an hour before meals. Take three days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 90.7,
+        "seconds": 23.5,
+        "english": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் சோதனை நோயாளி 06. Azithromycin ஐ 500 mg ஒரு நாளைக்கு ஒரு முறை எடுத்துக் கொள்ளுங்கள். உணவுக்கு ஒரு மணி நேரத்திற்கு முன்பு அதை தண்ணீரில் விழுங்கவும். 3 நாட்கள் எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: காலை 8:00",
+        "shown": "வணக்கம் சோதனை நோயாளி 06. Azithromycin ஐ 500 mg ஒரு நாளைக்கு ஒரு முறை எடுத்துக் கொள்ளுங்கள். உணவுக்கு ஒரு மணி நேரத்திற்கு முன்பு அதை தண்ணீரில் விழுங்கவும். 3 நாட்கள் எடுத்துக் கொள்ளுங்கள்.\nமருந்து எடுக்கும் நேரம்: காலை 8:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello test patient 06. Take Azithromycin at least 500 mg once a day. Swallow it in water an hour before meals. Take three days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3482,9 +3821,11 @@
         "lang": "ta",
         "numbers_ok": true,
         "back_similarity": 91.9,
-        "seconds": 13.7,
+        "seconds": 22.4,
         "english": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 06. தேவைப்படும் போது மட்டுமே Paracetamol 650 mg எடுத்துக்கொள்ளுங்கள். காய்ச்சலுக்கு தண்ணீரில் விழுங்கவும். 3 நாட்கள் எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "translation": "வணக்கம் சோதனை நோயாளி 06. தேவைப்படும் போது மட்டுமே Paracetamol 650 mg எடுத்துக்கொள்ளுங்கள். காய்ச்சலுக்கு தண்ணீரில் விழுங்கவும். 3 நாட்கள் எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "",
+        "shown": "வணக்கம் சோதனை நோயாளி 06. தேவைப்படும் போது மட்டுமே Paracetamol 650 mg எடுத்துக்கொள்ளுங்கள். காய்ச்சலுக்கு தண்ணீரில் விழுங்கவும். 3 நாட்கள் எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
         "back_translation": "Hello test patient 06. Take 650 mg of Paracetamol only when necessary. Swallow in water for a fever. Take three days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
@@ -3493,11 +3834,13 @@
         "drug": "Ibuprofen",
         "lang": "ta",
         "numbers_ok": true,
-        "back_similarity": 89.6,
-        "seconds": 15.4,
-        "english": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours, at 06:00, 14:00, and 22:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 07. 06:00, 14:00 மற்றும் 22:00 மணிக்கு ஒவ்வொரு 8 மணி நேரத்திற்கும் 400 mg இபுப்ரோபென் எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீரில் விழுங்கவும். 3 நாட்கள் எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello test patient 07. Take 400 mg of ibuprofen every 8 hours at 06:00, 14:00 and 22:00. After eating, swallow it in water. Take three days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 90.6,
+        "seconds": 28.8,
+        "english": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் சோதனை நோயாளி 07. ஒவ்வொரு 8 மணி நேரத்திற்கும் 400 mg Ibuprofen எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீரில் விழுங்கவும். 3 நாட்கள் எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: காலை 6:00, மதியம் 2:00, இரவு 10:00",
+        "shown": "வணக்கம் சோதனை நோயாளி 07. ஒவ்வொரு 8 மணி நேரத்திற்கும் 400 mg Ibuprofen எடுத்துக் கொள்ளுங்கள். உணவுக்குப் பிறகு அதை தண்ணீரில் விழுங்கவும். 3 நாட்கள் எடுத்துக் கொள்ளுங்கள்.\nமருந்து எடுக்கும் நேரம்: காலை 6:00, மதியம் 2:00, இரவு 10:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello test patient 07. Take 400 mg of Ibuprofen every 8 hours. After eating, swallow it in water. Take three days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3505,11 +3848,13 @@
         "drug": "Atorvastatin",
         "lang": "ta",
         "numbers_ok": true,
-        "back_similarity": 90.4,
-        "seconds": 16.7,
-        "english": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day, at 20:00. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 08. Atorvastatin 10 mg ஐ ஒரு நாளைக்கு ஒரு முறை, 20:00 மணிக்கு எடுத்துக் கொள்ளுங்கள். தண்ணீரில் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். இந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello test patient 08. Take Atorvastatin 10 mg once a day at 20:00. Swallow in the water. Take it for 30 days. Keep this medicine in a cool, dry place that is inaccessible to children. Before this medication expires, please visit your health centre to prescribe a new medication. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 91.1,
+        "seconds": 39.3,
+        "english": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் சோதனை நோயாளி 08. Atorvastatin 10 mg ஐ ஒரு நாளைக்கு ஒரு முறை எடுத்துக் கொள்ளுங்கள். தண்ணீரில் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nஇந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: இரவு 8:00",
+        "shown": "வணக்கம் சோதனை நோயாளி 08. Atorvastatin 10 mg ஐ ஒரு நாளைக்கு ஒரு முறை எடுத்துக் கொள்ளுங்கள். தண்ணீரில் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nமருந்து எடுக்கும் நேரம்: இரவு 8:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nஇந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello test patient 08. Take Atorvastatin 10 mg once a day. Swallow in the water. Take it for 30 days. Keep this medicine in a cool, dry place that is inaccessible to children. Before this medication expires, please visit your health centre to prescribe a new medication. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3518,9 +3863,11 @@
         "lang": "ta",
         "numbers_ok": true,
         "back_similarity": 84.8,
-        "seconds": 24.0,
+        "seconds": 36.3,
         "english": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 09. Salbutamol 100 mcg எடுத்து, இன்ஹேலரில் இருந்து சுவாசிக்கவும், மூச்சுத் திணறும்போது 2 சுவாசங்கள், தேவைப்படும்போது மட்டுமே, 30 நாட்களுக்கு. இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். இந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "translation": "வணக்கம் சோதனை நோயாளி 09. Salbutamol 100 mcg எடுத்து, இன்ஹேலரில் இருந்து சுவாசிக்கவும், மூச்சுத் திணறும்போது 2 சுவாசங்கள், தேவைப்படும்போது மட்டுமே, 30 நாட்களுக்கு.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nஇந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "",
+        "shown": "வணக்கம் சோதனை நோயாளி 09. Salbutamol 100 mcg எடுத்து, இன்ஹேலரில் இருந்து சுவாசிக்கவும், மூச்சுத் திணறும்போது 2 சுவாசங்கள், தேவைப்படும்போது மட்டுமே, 30 நாட்களுக்கு.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nஇந்த மருந்து காலாவதியாகும் முன், ஒரு புதிய மருந்து பரிந்துரைக்க உங்கள் சுகாதார மையத்தைப் பார்வையிடவும்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
         "back_translation": "Hello test patient 09. Take 100 mcg of salbutamol, breathe through the inhaler, and take 2 breaths when inhaled, only when needed, for 30 days. Keep this medicine in a cool, dry place that is inaccessible to children. Before this medication expires, please visit your health centre to prescribe a new medication. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
@@ -3529,11 +3876,13 @@
         "drug": "Moxifloxacin",
         "lang": "ta",
         "numbers_ok": true,
-        "back_similarity": 88.0,
-        "seconds": 18.2,
-        "english": "Hello Test Patient 10. Take Moxifloxacin 1 drop at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 10. 06:00, 12:00, 18:00, 22:00 மணிக்கு மோக்ஸிஃப்ளோக்சாசின் 1 துளி எடுத்துக் கொள்ளுங்கள். 5 நாட்களுக்கு தொடரவும். குறிப்புஃ இரு கண்களிலும். (AI விளக்கம் பாதுகாப்பு சோதனையில் தேர்ச்சி பெறவில்லை, எனவே உறுதிப்படுத்தப்பட்ட மருந்து குறிப்பு எழுதப்பட்டபடி காட்டப்பட்டுள்ளது.) இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello test patient 10. Take one drop of moxifloxacin at 06:00, 12:00, 18:00, 22:00. Continue for five days. Note: Both eyes. (The AI description has not passed the safety test, so the approved prescription is shown in writing.) Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 86.1,
+        "seconds": 29.0,
+        "english": "Hello Test Patient 10. Take Moxifloxacin 1 drop. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் சோதனை நோயாளி 10. Moxifloxacin 1 துளி எடுத்துக் கொள்ளுங்கள். 5 நாட்களுக்கு தொடரவும். குறிப்புஃ இரு கண்களிலும். (AI விளக்கம் பாதுகாப்பு சோதனையில் தேர்ச்சி பெறவில்லை, எனவே உறுதிப்படுத்தப்பட்ட மருந்து குறிப்பு எழுதப்பட்டபடி காட்டப்பட்டுள்ளது.)\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: காலை 6:00, மதியம் 12:00, மாலை 6:00, இரவு 10:00",
+        "shown": "வணக்கம் சோதனை நோயாளி 10. Moxifloxacin 1 துளி எடுத்துக் கொள்ளுங்கள். 5 நாட்களுக்கு தொடரவும். குறிப்புஃ இரு கண்களிலும். (AI விளக்கம் பாதுகாப்பு சோதனையில் தேர்ச்சி பெறவில்லை, எனவே உறுதிப்படுத்தப்பட்ட மருந்து குறிப்பு எழுதப்பட்டபடி காட்டப்பட்டுள்ளது.)\nமருந்து எடுக்கும் நேரம்: காலை 6:00, மதியம் 12:00, மாலை 6:00, இரவு 10:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello test patient 10. Take one drop of Moxifloxacin. Continue for five days. Note: Both eyes. (The AI description has not passed the safety test, so the approved prescription is shown in writing.) Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3541,11 +3890,13 @@
         "drug": "Cetirizine",
         "lang": "ta",
         "numbers_ok": true,
-        "back_similarity": 93.5,
-        "seconds": 13.4,
-        "english": "Hello Test Patient 10. Take Cetirizine 10 mg once a day, at 08:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "வணக்கம் சோதனை நோயாளி 10. Cetirizine 10 mg ஐ ஒரு நாளைக்கு ஒரு முறை 08: 00 மணிக்கு எடுத்துக் கொள்ளுங்கள். தண்ணீரில் விழுங்கவும். அதை 5 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள். இந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள். மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
-        "back_translation": "Hello test patient 10. Take Cetirizine 10 mg once a day at 08:00. Swallow in the water. Take it for five days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
+        "back_similarity": 94.5,
+        "seconds": 25.3,
+        "english": "Hello Test Patient 10. Take Cetirizine 10 mg once a day. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "வணக்கம் சோதனை நோயாளி 10. Cetirizine 10 mg ஐ ஒரு நாளைக்கு ஒரு முறை எடுத்துக் கொள்ளுங்கள். தண்ணீரில் விழுங்கவும். அதை 5 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "when": "மருந்து எடுக்கும் நேரம்: காலை 8:00",
+        "shown": "வணக்கம் சோதனை நோயாளி 10. Cetirizine 10 mg ஐ ஒரு நாளைக்கு ஒரு முறை எடுத்துக் கொள்ளுங்கள். தண்ணீரில் விழுங்கவும். அதை 5 நாட்களுக்கு எடுத்துக் கொள்ளுங்கள்.\nமருந்து எடுக்கும் நேரம்: காலை 8:00\nஇந்த மருந்தை குளிர்ச்சியான, உலர்ந்த இடத்தில், குழந்தைகளால் அணுக முடியாத இடத்தில் வைத்திருங்கள்.\nமருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+        "back_translation": "Hello test patient 10. Take Cetirizine 10 mg once a day. Swallow in the water. Take it for five days. Keep this medicine in a cool, dry place that is inaccessible to children. It's not medical advice. Confirm with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3553,11 +3904,13 @@
         "drug": "Paracetamol",
         "lang": "te",
         "numbers_ok": true,
-        "back_similarity": 93.8,
-        "seconds": 14.5,
-        "english": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ రోగి 01. పారాసెటమోల్ 500 mg ను రోజుకు మూడు సార్లు తీసుకోండి, 08:00, 14:00, మరియు 20:00. భోజనం తర్వాత దాన్ని నీటితో మింగండి. 5 రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 01. Take 500 mg of paracetamol three times a day, at 08:00, 14:00, and 20:00. After eating, swallow it with water. Take five days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 93.1,
+        "seconds": 24.1,
+        "english": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ రోగి 01. రోజుకు మూడుసార్లు 500 mg పారాసెటమోల్ తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. 5 రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: ఉదయం 8:00, మధ్యాహ్నం 2:00, రాత్రి 8:00",
+        "shown": "హలో టెస్ట్ రోగి 01. రోజుకు మూడుసార్లు 500 mg పారాసెటమోల్ తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. 5 రోజులు తీసుకోండి.\nమందు తీసుకునే సమయం: ఉదయం 8:00, మధ్యాహ్నం 2:00, రాత్రి 8:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 01. Take 500 mg of paracetamol three times a day. After eating, swallow it with water. Take five days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3565,11 +3918,13 @@
         "drug": "Amoxicillin",
         "lang": "te",
         "numbers_ok": false,
-        "back_similarity": 93.1,
-        "seconds": 16.4,
-        "english": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day, at 08:00, 14:00, and 20:00. Swallow it with water after food. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ పేషెంట్ 02. రోజుకు మూడుసార్లు, 08:00, 14:00 మరియు 20:00 గంటలకు అమోక్సిసిలిన్ 500 mg తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. ఏడు రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 02. Take 500 mg of amoxicillin three times a day, at 08:00, 14:00 and 20:00. After eating, swallow it with water. Take seven days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 92.6,
+        "seconds": 22.3,
+        "english": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ పేషెంట్ 02. రోజుకు మూడుసార్లు అమోక్సిసిలిన్ 500 mg తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. ఏడు రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: ఉదయం 8:00, మధ్యాహ్నం 2:00, రాత్రి 8:00",
+        "shown": "హలో టెస్ట్ పేషెంట్ 02. రోజుకు మూడుసార్లు అమోక్సిసిలిన్ 500 mg తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. ఏడు రోజులు తీసుకోండి.\nమందు తీసుకునే సమయం: ఉదయం 8:00, మధ్యాహ్నం 2:00, రాత్రి 8:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 02. Take 500 mg of amoxicillin three times a day. After eating, swallow it with water. Take seven days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": "missing"
       },
       {
@@ -3577,11 +3932,13 @@
         "drug": "Pantoprazole",
         "lang": "te",
         "numbers_ok": false,
-        "back_similarity": 96.0,
-        "seconds": 14.2,
-        "english": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day, at 08:00. Swallow with water before breakfast. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ పేషెంట్ 02. రోజుకు ఒకసారి, 08: 00 గంటలకు 40 mg పాంటోప్రాజోల్ తీసుకోండి. అల్పాహారం ముందు నీటితో మింగండి. ఏడు రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 02. Once a day, take 40 mg of pantoprazole at 08:00. Swallow with water before breakfast. Take seven days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 95.9,
+        "seconds": 22.7,
+        "english": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ పేషెంట్ 02. రోజుకు ఒకసారి పాంటోప్రాజోల్ 40 mg తీసుకోండి. అల్పాహారం ముందు నీటితో మింగండి. ఏడు రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: ఉదయం 8:00",
+        "shown": "హలో టెస్ట్ పేషెంట్ 02. రోజుకు ఒకసారి పాంటోప్రాజోల్ 40 mg తీసుకోండి. అల్పాహారం ముందు నీటితో మింగండి. ఏడు రోజులు తీసుకోండి.\nమందు తీసుకునే సమయం: ఉదయం 8:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 02. Take 40 mg of pantoprazole once a day. Swallow with water before breakfast. Take seven days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": "missing"
       },
       {
@@ -3589,11 +3946,13 @@
         "drug": "Metformin",
         "lang": "te",
         "numbers_ok": true,
-        "back_similarity": 94.8,
-        "seconds": 15.6,
-        "english": "Hello Test Patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. Swallow it with water after meals. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ రోగి 03. రోజుకు రెండుసార్లు, 08:00 మరియు 20:00 గంటలకు మెట్ఫోర్మిన్ 500 mg తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. 30 రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. ఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 03. Take Metformin 500 mg twice a day, at 08:00 and 20:00. After eating, swallow it with water. Take 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine expires, visit your health centre for a new prescription. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 94.5,
+        "seconds": 29.0,
+        "english": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ రోగి 03. రోజుకు రెండుసార్లు మెట్ఫోర్మిన్ 500 mg తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. 30 రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: ఉదయం 8:00, రాత్రి 8:00",
+        "shown": "హలో టెస్ట్ రోగి 03. రోజుకు రెండుసార్లు మెట్ఫోర్మిన్ 500 mg తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. 30 రోజులు తీసుకోండి.\nమందు తీసుకునే సమయం: ఉదయం 8:00, రాత్రి 8:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 03. Take 500 mg of metformin twice a day. After eating, swallow it with water. Take 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine expires, visit your health centre for a new prescription. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3601,11 +3960,13 @@
         "drug": "Amlodipine",
         "lang": "te",
         "numbers_ok": true,
-        "back_similarity": 94.5,
-        "seconds": 15.7,
-        "english": "Hello Test Patient 04. Take Amlodipine 5 mg once a day, at 08:00. Swallow it with water in the morning. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ పేషెంట్ 04. Amlodipine 5 mg ను రోజుకు ఒకసారి 08: 00 గంటలకు తీసుకోండి. ఉదయం దాన్ని నీటితో మింగండి. 30 రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. ఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 04. Take Amlodipine 5 mg once a day at 08:00. In the morning, swallow it with water. Take 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine expires, visit your health centre for a new prescription. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 94.2,
+        "seconds": 60.7,
+        "english": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ పేషెంట్ 04. రోజుకు ఒకసారి Amlodipine 5 mg తీసుకోండి. ఉదయం దాన్ని నీటితో మింగండి. 30 రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: ఉదయం 8:00",
+        "shown": "హలో టెస్ట్ పేషెంట్ 04. రోజుకు ఒకసారి Amlodipine 5 mg తీసుకోండి. ఉదయం దాన్ని నీటితో మింగండి. 30 రోజులు తీసుకోండి.\nమందు తీసుకునే సమయం: ఉదయం 8:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 04. Take 5 mg of Amlodipine once a day. In the morning, swallow it with water. Take 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine expires, visit your health centre for a new prescription. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3613,11 +3974,13 @@
         "drug": "Cetirizine",
         "lang": "te",
         "numbers_ok": true,
-        "back_similarity": 93.9,
-        "seconds": 13.8,
-        "english": "Hello Test Patient 05. Take Cetirizine 10 mg at 22:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ పేషెంట్ 05. ఉదయం 22:00 గంటలకు Cetirizine 10 mg తీసుకోండి. నీటితో మింగండి. 5 రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 05. Take Cetirizine 10 mg at 22:00 in the morning. Swallow with water. Take five days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 94.5,
+        "seconds": 42.6,
+        "english": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ పేషెంట్ 05. Cetirizine 10 mg తీసుకోండి. నీటితో మింగండి. 5 రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: రాత్రి 10:00",
+        "shown": "హలో టెస్ట్ పేషెంట్ 05. Cetirizine 10 mg తీసుకోండి. నీటితో మింగండి. 5 రోజులు తీసుకోండి.\nమందు తీసుకునే సమయం: రాత్రి 10:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 05. Take 10 mg of Cetirizine. Swallow with water. Take five days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3625,11 +3988,13 @@
         "drug": "Azithromycin",
         "lang": "te",
         "numbers_ok": true,
-        "back_similarity": 95.2,
-        "seconds": 14.2,
-        "english": "Hello Test Patient 06. Take Azithromycin 500 mg once a day, at 08:00. Swallow it with water one hour before food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ రోగి 06. రోజుకు ఒకసారి, 08: 00 గంటలకు 500 mg Azithromycin తీసుకోండి. భోజనానికి ఒక గంట ముందు దానిని నీటితో మింగండి. 3 రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 06. Once a day, take 500 mg of Azithromycin at 08:00. Swallow it with water an hour before meals. Take 3 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 95.0,
+        "seconds": 30.9,
+        "english": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ రోగి 06. Azithromycin 500 mg ను రోజుకు ఒకసారి తీసుకోండి. భోజనానికి ఒక గంట ముందు దానిని నీటితో మింగండి. 3 రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: ఉదయం 8:00",
+        "shown": "హలో టెస్ట్ రోగి 06. Azithromycin 500 mg ను రోజుకు ఒకసారి తీసుకోండి. భోజనానికి ఒక గంట ముందు దానిని నీటితో మింగండి. 3 రోజులు తీసుకోండి.\nమందు తీసుకునే సమయం: ఉదయం 8:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 06. Take Azithromycin 500 mg once a day. Swallow it with water an hour before meals. Take 3 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3638,9 +4003,11 @@
         "lang": "te",
         "numbers_ok": true,
         "back_similarity": 94.7,
-        "seconds": 13.9,
+        "seconds": 44.4,
         "english": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ రోగి 06. అవసరమైనప్పుడు మాత్రమే పారాసెటమోల్ 650 mg తీసుకోండి. జ్వరం కోసం నీటితో మింగండి. 3 రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "translation": "హలో టెస్ట్ రోగి 06. అవసరమైనప్పుడు మాత్రమే పారాసెటమోల్ 650 mg తీసుకోండి. జ్వరం కోసం నీటితో మింగండి. 3 రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "",
+        "shown": "హలో టెస్ట్ రోగి 06. అవసరమైనప్పుడు మాత్రమే పారాసెటమోల్ 650 mg తీసుకోండి. జ్వరం కోసం నీటితో మింగండి. 3 రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
         "back_translation": "Hello test patient 06. Take 650 mg of paracetamol only when necessary. Swallow with water for fever. Take 3 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       },
@@ -3649,11 +4016,13 @@
         "drug": "Ibuprofen",
         "lang": "te",
         "numbers_ok": true,
-        "back_similarity": 94.1,
-        "seconds": 15.4,
-        "english": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours, at 06:00, 14:00, and 22:00. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ రోగి 07. ప్రతి 8 గంటలకు, 06:00, 14:00 మరియు 22:00 గంటలకు ఇబుప్రోఫెన్ 400 mg తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. 3 రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 07. Take ibuprofen 400 mg every 8 hours, at 06:00, 14:00 and 22:00. After eating, swallow it with water. Take 3 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 93.6,
+        "seconds": 24.3,
+        "english": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ రోగి 07. ప్రతి 8 గంటలకు 400 mg ఇబుప్రోఫెన్ తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. 3 రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: ఉదయం 6:00, మధ్యాహ్నం 2:00, రాత్రి 10:00",
+        "shown": "హలో టెస్ట్ రోగి 07. ప్రతి 8 గంటలకు 400 mg ఇబుప్రోఫెన్ తీసుకోండి. భోజనం తర్వాత దాన్ని నీటితో మింగండి. 3 రోజులు తీసుకోండి.\nమందు తీసుకునే సమయం: ఉదయం 6:00, మధ్యాహ్నం 2:00, రాత్రి 10:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 07. Take 400 mg of ibuprofen every 8 hours. After eating, swallow it with water. Take 3 days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3661,11 +4030,13 @@
         "drug": "Atorvastatin",
         "lang": "te",
         "numbers_ok": true,
-        "back_similarity": 93.7,
-        "seconds": 15.5,
-        "english": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day, at 20:00. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ పేషెంట్ 08. 20 గంటలకు రోజుకు ఒకసారి 10 mg Atorvastatin తీసుకోండి. నీటితో మింగండి. 30 రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. ఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 08. Take 10 mg of Atorvastatin once a day for 20 hours. Swallow with water. Take 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine expires, visit your health centre for a new prescription. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 95.9,
+        "seconds": 34.1,
+        "english": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ పేషెంట్ 08. రోజుకు ఒకసారి 10 mg Atorvastatin తీసుకోండి. నీటితో మింగండి. 30 రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: రాత్రి 8:00",
+        "shown": "హలో టెస్ట్ పేషెంట్ 08. రోజుకు ఒకసారి 10 mg Atorvastatin తీసుకోండి. నీటితో మింగండి. 30 రోజులు తీసుకోండి.\nమందు తీసుకునే సమయం: రాత్రి 8:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 08. Take 10 mg of Atorvastatin once a day. Swallow with water. Take 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine expires, visit your health centre for a new prescription. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3674,9 +4045,11 @@
         "lang": "te",
         "numbers_ok": true,
         "back_similarity": 87.9,
-        "seconds": 27.2,
+        "seconds": 41.6,
         "english": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nBefore this medicine runs out, visit your health centre for a new prescription.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ పేషెంట్ 09. సాల్బుటమోల్ 100 mcg తీసుకోండి, ఇన్హేలర్ ద్వారా శ్వాస తీసుకోండి, శ్వాసకోశంగా ఉన్నప్పుడు 2 శ్వాసలు, అవసరమైతే మాత్రమే, 30 రోజులు. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. ఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "translation": "హలో టెస్ట్ పేషెంట్ 09. సాల్బుటమోల్ 100 mcg తీసుకోండి, ఇన్హేలర్ ద్వారా శ్వాస తీసుకోండి, శ్వాసకోశంగా ఉన్నప్పుడు 2 శ్వాసలు, అవసరమైతే మాత్రమే, 30 రోజులు.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "",
+        "shown": "హలో టెస్ట్ పేషెంట్ 09. సాల్బుటమోల్ 100 mcg తీసుకోండి, ఇన్హేలర్ ద్వారా శ్వాస తీసుకోండి, శ్వాసకోశంగా ఉన్నప్పుడు 2 శ్వాసలు, అవసరమైతే మాత్రమే, 30 రోజులు.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nఈ ఔషధం గడువు ముగిసే ముందు, మీ ఆరోగ్య కేంద్రంలో కొత్త ప్రిస్క్రిప్షన్ కోసం సందర్శించండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
         "back_translation": "Hello test patient 09. Take 100 mcg of salbutamol, breathe through an inhaler, 2 breaths when inhaled, only if necessary, for 30 days. Keep this medicine in a cold, dry place, out of the reach of children. Before this medicine expires, visit your health centre for a new prescription. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       },
@@ -3685,11 +4058,13 @@
         "drug": "Moxifloxacin",
         "lang": "te",
         "numbers_ok": true,
-        "back_similarity": 87.1,
-        "seconds": 21.6,
-        "english": "Hello Test Patient 10. Take Moxifloxacin 1 drop at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ పేషెంట్ 10. 06:00, 12:00, 18:00, 22:00 వద్ద మోక్సిఫ్లోక్సాసిన్ 1 డ్రాప్ తీసుకోండి. 5 రోజుల పాటు కొనసాగండి. గమనికః రెండు కళ్ళలో. (AI వివరణ భద్రతా తనిఖీలో ఉత్తీర్ణత సాధించలేదు, కాబట్టి ధృవీకరించబడిన ప్రిస్క్రిప్షన్ వ్రాసిన విధంగా ప్రదర్శించబడుతుంది. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 10. Take 1 drop of moxifloxacin at 06:00, 12:00, 18:00, 22:00. Continue for 5 days. Note: In both eyes. (AI specification has not passed a security check, so the certified prescription will be presented in writing. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 84.6,
+        "seconds": 32.6,
+        "english": "Hello Test Patient 10. Take Moxifloxacin 1 drop. Continue for 5 days. Note: in both eyes. (The AI explanation did not pass the safety check, so the confirmed prescription is shown as written.)\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ పేషెంట్ 10. మోక్సిఫ్లోక్సాసిన్ 1 డ్రాప్ తీసుకోండి. 5 రోజుల పాటు కొనసాగండి. గమనికః రెండు కళ్ళలో. (AI వివరణ భద్రతా తనిఖీలో ఉత్తీర్ణత సాధించలేదు, కాబట్టి ధృవీకరించబడిన ప్రిస్క్రిప్షన్ వ్రాసిన విధంగా ప్రదర్శించబడుతుంది.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: ఉదయం 6:00, మధ్యాహ్నం 12:00, సాయంత్రం 6:00, రాత్రి 10:00",
+        "shown": "హలో టెస్ట్ పేషెంట్ 10. మోక్సిఫ్లోక్సాసిన్ 1 డ్రాప్ తీసుకోండి. 5 రోజుల పాటు కొనసాగండి. గమనికః రెండు కళ్ళలో. (AI వివరణ భద్రతా తనిఖీలో ఉత్తీర్ణత సాధించలేదు, కాబట్టి ధృవీకరించబడిన ప్రిస్క్రిప్షన్ వ్రాసిన విధంగా ప్రదర్శించబడుతుంది.\nమందు తీసుకునే సమయం: ఉదయం 6:00, మధ్యాహ్నం 12:00, సాయంత్రం 6:00, రాత్రి 10:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 10. Take one drop of moxifloxacin. Continue for 5 days. Note: In both eyes. (AI specification has not passed a security check, so the certified prescription will be presented in writing. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       },
       {
@@ -3697,11 +4072,13 @@
         "drug": "Cetirizine",
         "lang": "te",
         "numbers_ok": true,
-        "back_similarity": 93.6,
-        "seconds": 13.9,
-        "english": "Hello Test Patient 10. Take Cetirizine 10 mg once a day, at 08:00. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
-        "translation": "హలో టెస్ట్ పేషెంట్ 10. ఉదయం 8 గంటలకు రోజుకు ఒకసారి 10 mg Cetirizine తీసుకోండి. నీటితో మింగండి. 5 రోజులు తీసుకోండి. ఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి. వైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
-        "back_translation": "Hello test patient 10. Take 10 mg Cetirizine once a day at 8 am. Swallow with water. Take five days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
+        "back_similarity": 95.7,
+        "seconds": 21.2,
+        "english": "Hello Test Patient 10. Take Cetirizine 10 mg once a day. Swallow with water. Take it for 5 days.\nKeep this medicine in a cool, dry place, out of the reach of children.\nNot medical advice. Confirm with your pharmacist or doctor.",
+        "translation": "హలో టెస్ట్ పేషెంట్ 10. రోజుకు ఒకసారి 10 mg Cetirizine తీసుకోండి. నీటితో మింగండి. 5 రోజులు తీసుకోండి.\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "when": "మందు తీసుకునే సమయం: ఉదయం 8:00",
+        "shown": "హలో టెస్ట్ పేషెంట్ 10. రోజుకు ఒకసారి 10 mg Cetirizine తీసుకోండి. నీటితో మింగండి. 5 రోజులు తీసుకోండి.\nమందు తీసుకునే సమయం: ఉదయం 8:00\nఈ ఔషధాన్ని చల్లని, పొడి ప్రదేశంలో, పిల్లలకు చేరుకోకుండా ఉంచండి.\nవైద్య సలహా కాదు. మీ ఔషధ విక్రేత లేదా వైద్యుడితో నిర్ధారించుకోండి.",
+        "back_translation": "Hello test patient 10. Take 10 mg of Cetirizine once a day. Swallow with water. Take five days. Keep this medicine in a cold, dry place, out of the reach of children. Not medical advice. Check with your pharmacist or doctor.",
         "number_issue": null
       }
     ]
