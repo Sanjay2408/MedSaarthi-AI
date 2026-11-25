@@ -24,11 +24,19 @@ export type Config = {
   models: string[];
   variants: { id: string; label: string }[];
   ocr_modes: string[];
-  languages: { code: string; name: string; native: string }[];
+  languages: { code: string; name: string; native: string; reviewed: boolean }[];
   threshold: number;
   disclaimer: string;
 };
 export type Sample = { id: string; category: string; label: string; n_items: number };
+export type Card = {
+  lang: string;
+  reviewed: boolean;
+  greeting: string;
+  rows: { key: string; label: string; text: string }[];
+  footer: string[];
+  untranslated: string | null;
+};
 export type Dose = { at: string; label: string; period: string };
 export type Guide = {
   case_id: string;
@@ -41,15 +49,18 @@ export type Guide = {
     blocked: boolean;
     model: string;
     prompt: string;
-    translation: null | {
+    card: Card | null;
+    translation: null | (Partial<Card> & {
       lang: string;
+      tier: "template" | "mt";
+      reviewed: boolean;
       text: string | null;
       blocked: boolean;
       numbers_ok: boolean;
-      similarity: number;
       note: string;
       when: string;
-    };
+      provider: string;
+    });
   }[];
   left_out: { name: string; reason: string }[];
   disclaimer: string;

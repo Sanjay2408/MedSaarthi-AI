@@ -12,16 +12,17 @@ from dataclasses import dataclass, field
 
 from src.audit import log_step
 from src.config import load_config
+from src.lang.pack import load_pack
 from src.llm import LLM
 from src.prompts import load_prompt
 from src.rag import leaflet_context
-from src.schedule import format_time, parse_frequency
+from src.schedule import format_time, needs_refill, parse_frequency
 from src.schema import ALL_FIELDS, MedicationItem
 from src.validator import validate_output
 
-STORAGE_LINE = "Keep this medicine in a cool, dry place, out of the reach of children."
-REFILL_LINE = "Before this medicine runs out, visit your health centre for a new prescription."
-_LONG_TERM = re.compile(r"continue|ongoing|long[- ]term|till review|until review|lifelong", re.IGNORECASE)
+# One source of truth for the fixed lines: the English language pack.
+STORAGE_LINE = load_pack("en").footer["storage"]
+REFILL_LINE = load_pack("en").footer["refill"]
 
 V3_RULE = ("12. LEAFLET NOTES may give one practical how-to-take tip (for example swallow whole). "
            "Never take numbers, doses or times from LEAFLET NOTES.")
@@ -92,10 +93,7 @@ def safe_template(item: MedicationItem, times: list[str], patient: str = "") -> 
 
 def append_fixed_lines(text: str, item: MedicationItem) -> str:
     lines = [text, STORAGE_LINE]
-    dur = item.duration.value or ""
-    m = re.match(r"\s*(\d+)\s*(day|week|month)", dur, re.IGNORECASE)
-    long_course = m and ((m.group(2).lower() == "day" and int(m.group(1)) >= 30) or m.group(2).lower() == "month")
-    if _LONG_TERM.search(dur) or long_course:
+    if needs_refill(item.duration.value):
         lines.append(REFILL_LINE)
     lines.append(load_config()["safety"]["disclaimer"])
     return "\n".join(lines)

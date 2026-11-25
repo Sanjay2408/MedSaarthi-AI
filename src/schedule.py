@@ -26,6 +26,17 @@ _ABBREV_PER_DAY = {
 _WORD_PER_DAY = {"once": 1, "twice": 2, "thrice": 3, "one": 1, "two": 2, "three": 3, "four": 4}
 
 
+_LONG_TERM = re.compile(r"continue|ongoing|long[- ]term|till review|until review|lifelong", re.IGNORECASE)
+
+
+def needs_refill(duration: str | None) -> bool:
+    """True for open-ended or month-plus courses, which get a "visit for a new prescription" line."""
+    dur = duration or ""
+    m = re.match(r"\s*(\d+)\s*(day|week|month)", dur, re.IGNORECASE)
+    long_course = m and ((m.group(2).lower() == "day" and int(m.group(1)) >= 30) or m.group(2).lower() == "month")
+    return bool(_LONG_TERM.search(dur) or long_course)
+
+
 PERIODS = ("Morning", "Afternoon", "Evening", "Night")
 
 

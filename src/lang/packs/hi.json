@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "code": "hi",
+  "name": "Hindi",
+  "native": "हिन्दी",
+  "bcp47": "hi-IN",
+  "script": "Devanagari",
+  "mt": {"nllb": "hin_Deva", "sarvam": "hi-IN"},
+  "review": {"status": "draft", "by": null, "on": null, "drafted_by": "AI model (Claude), 2026-11-26"},
+  "period_words": true,
+  "joiner": ", ",
+  "labels": {
+    "medicine": "दवा",
+    "how_often": "कितनी बार",
+    "when": "दवा लेने का समय",
+    "how_long": "कितने दिन",
+    "how_to_take": "कैसे लें",
+    "note": "ध्यान दें"
+  },
+  "greeting": {"named": "नमस्कार {patient}।", "plain": "नमस्कार।"},
+  "periods": {"Morning": "सुबह", "Afternoon": "दोपहर", "Evening": "शाम", "Night": "रात"},
+  "freq": {
+    "once": "दिन में एक बार",
+    "twice": "दिन में दो बार",
+    "thrice": "दिन में तीन बार",
+    "n_times": "दिन में {n} बार",
+    "every_hours": {"one": "हर घंटे", "other": "हर {n} घंटे में"},
+    "bedtime": "सोने से पहले",
+    "as_needed": "सिर्फ़ ज़रूरत पड़ने पर",
+    "slots": {"morning": "सुबह", "afternoon": "दोपहर", "night": "रात"},
+    "and": "और",
+    "ask_pharmacist": "हर बार कितनी लेनी है, यह अपने फ़ार्मासिस्ट से पूछें"
+  },
+  "route": {
+    "oral": "पानी के साथ निगल लें",
+    "eye": "आँख में डालें",
+    "inhalation": "इनहेलर से साँस के साथ अंदर लें",
+    "topical": "त्वचा पर लगाएँ"
+  },
+  "notes": {
+    "after_food": "खाने के बाद",
+    "before_food": "खाने से पहले",
+    "with_food": "खाने के साथ",
+    "before_breakfast": "नाश्ते से पहले",
+    "hour_before_food": "खाने से एक घंटा पहले",
+    "in_morning": "सुबह",
+    "both_eyes": "दोनों आँखों में डालें",
+    "left_eye": "बाईं आँख में डालें",
+    "right_eye": "दाईं आँख में डालें",
+    "for_fever": "बुखार होने पर",
+    "for_pain": "दर्द होने पर",
+    "with_milk": "दूध के साथ",
+    "with_water": "पानी के साथ",
+    "puffs": "हर बार {n} पफ़",
+    "puffs_breathless": "साँस फूलने पर {n} पफ़"
+  },
+  "units": {"tablet": "गोली", "capsule": "कैप्सूल", "drop": "बूँद", "puff": "पफ़"},
+  "duration": {
+    "day": {"one": "{n} दिन", "other": "{n} दिन"},
+    "week": {"one": "{n} हफ़्ता", "other": "{n} हफ़्ते"},
+    "month": {"one": "{n} महीना", "other": "{n} महीने"}
+  },
+  "footer": {
+    "storage": "इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुँच से दूर रखें।",
+    "refill": "यह दवा खत्म होने से पहले, नए पर्चे के लिए अपने स्वास्थ्य केंद्र जाएँ।",
+    "disclaimer": "यह चिकित्सा सलाह नहीं है। अपने फ़ार्मासिस्ट या डॉक्टर से पुष्टि करें।"
+  }
+}

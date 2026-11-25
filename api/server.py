@@ -29,6 +29,7 @@ from pydantic import BaseModel
 
 from src import audit
 from src.config import ROOT, load_config
+from src.lang import available as lang_available
 from src.llm import LLM
 from src.pipeline import Stage1, Stage2, explain, read_and_extract
 from src.render import Prefs, render_html, render_pdf
@@ -46,8 +47,6 @@ MAX_CASES = 200
 PUBLIC = os.getenv("MEDSAARTHI_PUBLIC") == "1"
 LIMITS = {"read": int(os.getenv("READS_PER_HOUR", "30")), "guide": int(os.getenv("GUIDES_PER_HOUR", "60"))}
 COOKIE = "ms_session"
-LANGUAGES = [("en", "English", "English"), ("hi", "Hindi", "हिन्दी"), ("kn", "Kannada", "ಕನ್ನಡ"),
-             ("ta", "Tamil", "தமிழ்"), ("te", "Telugu", "తెలుగు")]
 CATEGORY_LABELS = {"clean": "Clean print", "degraded": "Degraded scan", "ambiguous": "Unclear or missing",
                    "injection": "Injected text"}
 REASON_TEXT = {
@@ -187,7 +186,7 @@ def config():
         "variants": [{"id": "v2", "label": "Engineered prompt"}, {"id": "v3", "label": "Engineered + leaflet RAG"},
                      {"id": "v1", "label": "Baseline prompt (for comparison)"}],
         "ocr_modes": ["auto", "printed", "handwriting"],
-        "languages": [{"code": c, "name": n, "native": t} for c, n, t in LANGUAGES],
+        "languages": [{k: p[k] for k in ("code", "name", "native", "reviewed")} for p in lang_available()],
         "threshold": CFG["safety"]["confidence_threshold"],
         "disclaimer": CFG["safety"]["disclaimer"],
     }
@@ -327,10 +326,44 @@ def _dose_slots(entries, time_format: str) -> list[dict]:
             for e in entries]
 
 
+DRAFT_NOTE = "Wording written from a fixed template. A native speaker has not reviewed this language yet."
+
+
+def _template_note(r) -> str:
+    if r.reviewed:
+        return "Wording written from a fixed template that a native speaker has reviewed."
+    return DRAFT_NOTE
+
+
+def _medicine_payload(ex) -> dict:
+    """One medicine as the app shows it. `translation.tier` says how the words were produced:
+    "template" (language pack, numbers written by code) or "mt" (machine translation, checked)."""
+    payload = {
+        "name": ex.name,
+        "english": ex.simplify.final_text,
+        "blocked": ex.simplify.blocked,
+        "model": ex.simplify.model_id,
+        "prompt": ex.simplify.prompt_id,
+        "card": ex.card_en.as_dict() if ex.card_en else None,
+        "translation": None,
+    }
+    if ex.local:
+        payload["translation"] = {**ex.local.as_dict(), "tier": "template", "blocked": False, "numbers_ok": True,
+                                  "text": ex.local.text, "when": ex.local.when, "note": _template_note(ex.local),
+                                  "provider": "template"}
+    elif ex.mt:
+        mt = ex.mt
+        payload["translation"] = {"lang": mt.lang, "tier": "mt", "reviewed": False, "blocked": mt.blocked,
+                                  "numbers_ok": mt.numbers_ok, "text": None if mt.blocked else mt.text,
+                                  "when": mt.when, "note": NOTE, "provider": mt.provider, "rows": [], "footer": [],
+                                  "greeting": "", "untranslated": None}
+    return payload
+
+
 @app.post("/api/cases/{case_id}/guide")
 def guide(case_id: str, body: GuideRequest, request: Request):
     case = _case(case_id, request)
-    if body.lang not in {c for c, _, _ in LANGUAGES}:
+    if body.lang not in {p["code"] for p in lang_available()}:
         raise HTTPException(422, "Unknown language.")
     if body.time_format not in ("12h", "24h"):
         raise HTTPException(422, "Unknown time format.")
@@ -358,16 +391,7 @@ def guide(case_id: str, body: GuideRequest, request: Request):
             "patient": case.patient,
             "prefs": body.model_dump(),
             "schedule": _dose_slots(stage2.schedule, body.time_format),
-            "medicines": [{
-                "name": name,
-                "english": s.final_text,
-                "blocked": s.blocked,
-                "model": s.model_id,
-                "prompt": s.prompt_id,
-                "translation": None if tr is None else {
-                    "lang": tr.lang, "text": None if tr.blocked else tr.text, "blocked": tr.blocked,
-                    "numbers_ok": tr.numbers_ok, "similarity": tr.similarity, "note": NOTE, "when": tr.when},
-            } for name, s, tr in stage2.explanations],
+            "medicines": [_medicine_payload(ex) for ex in stage2.explanations],
             "left_out": [{
                 "name": i.name.value or "Unknown medicine",
                 "reason": " ".join(REASON_TEXT[r] for r in i.reasons) or
@@ -405,9 +429,14 @@ def guide_html(case_id: str, request: Request, large: bool = False, contrast: bo
     if case.last_guide is None:
         raise HTTPException(409, "Write the guide first.")
     timed, prn = _split(case.last_guide.schedule)
-    medicines = [(n, s.final_text, tr.text if tr and not tr.blocked else None) for n, s, tr in case.last_guide.explanations]
-    translated = any(t for _, _, t in medicines)
-    page = render_html(timed, _render_prefs(case, large, contrast), case.patient, medicines, prn, NOTE if translated else None)
+    exps = case.last_guide.explanations
+    medicines = [(ex.name, ex.simplify.final_text, ex.translated_text) for ex in exps]
+    note = None
+    if any(ex.mt and not ex.mt.blocked for ex in exps):
+        note = NOTE
+    elif any(ex.local for ex in exps):
+        note = " ".join(sorted({_template_note(ex.local) for ex in exps if ex.local}))
+    page = render_html(timed, _render_prefs(case, large, contrast), case.patient, medicines, prn, note)
     headers = {"Content-Disposition": 'attachment; filename="medicine-guide.html"'} if download else {}
     return HTMLResponse(page, headers=headers)
 

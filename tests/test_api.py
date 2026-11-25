@@ -165,3 +165,33 @@ def test_item_explains_frequency_codes_in_words(client):
     case = read(client)
     assert case["items"][0]["frequency_plain"] == "Twice a day"
     assert case["items"][1]["frequency_plain"] == "3 times a day"
+
+
+def test_hindi_guide_comes_from_the_language_pack_not_a_translator(client, monkeypatch):
+    import src.mt as mt
+
+    def forbidden(*a, **k):
+        raise AssertionError("machine translation must not run when a language pack exists")
+    monkeypatch.setattr(mt, "translate_chain", forbidden)
+    case = read(client)
+    guide = client.post(f"/api/cases/{case['id']}/guide", json={"lang": "hi", "time_format": "12h"}).json()
+    med = guide["medicines"][0]
+    tr = med["translation"]
+    assert tr["tier"] == "template" and tr["reviewed"] is False and tr["blocked"] is False
+    assert [r["key"] for r in tr["rows"]][:3] == ["medicine", "how_often", "when"]
+    assert "सुबह 8:00, दोपहर 2:00, रात 8:00" in tr["text"]
+    assert "not reviewed" in tr["note"] or "has not reviewed" in tr["note"]
+    assert med["card"]["lang"] == "en" and med["card"]["rows"][2]["text"] == "8:00 AM, 2:00 PM, 8:00 PM"
+
+
+def test_config_lists_every_pack_with_its_review_state(client):
+    langs = {l["code"]: l for l in client.get("/api/config").json()["languages"]}
+    assert set(langs) >= {"en", "hi", "kn", "ta", "te"}
+    assert langs["en"]["reviewed"] is True and langs["kn"]["reviewed"] is False
+
+
+def test_html_guide_names_the_wording_status(client):
+    case = read(client)
+    client.post(f"/api/cases/{case['id']}/guide", json={"lang": "kn"})
+    html = client.get(f"/api/cases/{case['id']}/guide.html").text
+    assert "native speaker has not reviewed" in html and "ಬೆಳಿಗ್ಗೆ 8:00" in html

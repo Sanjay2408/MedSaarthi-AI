@@ -198,13 +198,15 @@ def test_when_line_tells_morning_from_night():
 
 def test_translate_never_sends_times_to_the_model(monkeypatch):
     import src.translate as tr
+    from src.mt import MTResult
     seen = []
 
-    def fake(sentences, src, tgt):
-        seen.extend(sentences)
-        return sentences
-    monkeypatch.setattr(tr, "translate_sentences", fake)
+    def fake_chain(texts, lang, keep=(), order=None):
+        seen.extend(texts)
+        return MTResult([f"<{lang}> {t}" for t in texts], "fake", 0.0)
+    monkeypatch.setattr(tr, "translate_chain", fake_chain)
     res = tr.translate("Take X 500 mg at 8:00 AM and 8:00 PM. Take it for 5 days.\nKeep it dry.", "hi", ["08:00", "20:00"], "12h")
     assert not any(":" in s for s in seen)
     assert "सुबह 8:00" in res.text and "रात 8:00" in res.text
-    assert res.numbers_ok and res.text.index(res.when) < res.text.index("Keep it dry")
+    assert res.numbers_ok and res.provider == "fake"
+    assert res.text.index(res.when) < res.text.index("Keep it dry")

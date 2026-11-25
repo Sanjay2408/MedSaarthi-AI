@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "code": "en",
+  "name": "English",
+  "native": "English",
+  "bcp47": "en-IN",
+  "script": "Latin",
+  "mt": {"nllb": "eng_Latn", "sarvam": "en-IN"},
+  "review": {"status": "reviewed", "by": "Project team (source language)", "on": "2026-11-26"},
+  "period_words": false,
+  "capitalise": true,
+  "joiner": ", ",
+  "labels": {
+    "medicine": "Medicine",
+    "how_often": "How often",
+    "when": "When to take it",
+    "how_long": "For how long",
+    "how_to_take": "How to take it",
+    "note": "Note"
+  },
+  "greeting": {"named": "Hello {patient}.", "plain": "Hello."},
+  "periods": {"Morning": "Morning", "Afternoon": "Afternoon", "Evening": "Evening", "Night": "Night"},
+  "freq": {
+    "once": "Once a day",
+    "twice": "Twice a day",
+    "thrice": "Three times a day",
+    "n_times": "{n} times a day",
+    "every_hours": {"one": "Every hour", "other": "Every {n} hours"},
+    "bedtime": "At bedtime",
+    "as_needed": "Only when needed",
+    "slots": {"morning": "morning", "afternoon": "afternoon", "night": "night"},
+    "and": "and",
+    "ask_pharmacist": "Ask your pharmacist how many to take each time"
+  },
+  "route": {
+    "oral": "Swallow with water",
+    "eye": "Put the drops in the eye",
+    "inhalation": "Breathe in from the inhaler",
+    "topical": "Apply on the skin"
+  },
+  "notes": {
+    "after_food": "After food",
+    "before_food": "Before food",
+    "with_food": "With food",
+    "before_breakfast": "Before breakfast",
+    "hour_before_food": "One hour before food",
+    "in_morning": "In the morning",
+    "both_eyes": "Put the drops in both eyes",
+    "left_eye": "Put the drops in the left eye",
+    "right_eye": "Put the drops in the right eye",
+    "for_fever": "When you have a fever",
+    "for_pain": "When you have pain",
+    "with_milk": "With milk",
+    "with_water": "With water",
+    "puffs": "{n} puffs each time",
+    "puffs_breathless": "{n} puffs when you are breathless"
+  },
+  "units": {},
+  "duration": {
+    "day": {"one": "{n} day", "other": "{n} days"},
+    "week": {"one": "{n} week", "other": "{n} weeks"},
+    "month": {"one": "{n} month", "other": "{n} months"}
+  },
+  "footer": {
+    "storage": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "refill": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "disclaimer": "Not medical advice. Confirm with your pharmacist or doctor."
+  }
+}

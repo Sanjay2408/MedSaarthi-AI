@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "code": "te",
+  "name": "Telugu",
+  "native": "తెలుగు",
+  "bcp47": "te-IN",
+  "script": "Telugu",
+  "mt": {"nllb": "tel_Telu", "sarvam": "te-IN"},
+  "review": {"status": "draft", "by": null, "on": null, "drafted_by": "AI model (Claude), 2026-11-26"},
+  "period_words": true,
+  "joiner": ", ",
+  "labels": {
+    "medicine": "మందు",
+    "how_often": "ఎన్ని సార్లు",
+    "when": "మందు తీసుకునే సమయం",
+    "how_long": "ఎన్ని రోజులు",
+    "how_to_take": "ఎలా తీసుకోవాలి",
+    "note": "గమనిక"
+  },
+  "greeting": {"named": "నమస్కారం {patient}.", "plain": "నమస్కారం."},
+  "periods": {"Morning": "ఉదయం", "Afternoon": "మధ్యాహ్నం", "Evening": "సాయంత్రం", "Night": "రాత్రి"},
+  "freq": {
+    "once": "రోజుకు ఒకసారి",
+    "twice": "రోజుకు రెండుసార్లు",
+    "thrice": "రోజుకు మూడుసార్లు",
+    "n_times": "రోజుకు {n} సార్లు",
+    "every_hours": {"one": "ప్రతి గంటకు", "other": "ప్రతి {n} గంటలకు"},
+    "bedtime": "నిద్రపోయే ముందు",
+    "as_needed": "అవసరమైనప్పుడు మాత్రమే",
+    "slots": {"morning": "ఉదయం", "afternoon": "మధ్యాహ్నం", "night": "రాత్రి"},
+    "and": "మరియు",
+    "ask_pharmacist": "ప్రతిసారీ ఎన్ని తీసుకోవాలో మీ ఫార్మసిస్ట్‌ను అడగండి"
+  },
+  "route": {
+    "oral": "నీటితో మింగండి",
+    "eye": "కంట్లో వేయండి",
+    "inhalation": "ఇన్హేలర్ ద్వారా శ్వాసతో లోపలికి పీల్చండి",
+    "topical": "చర్మంపై రాయండి"
+  },
+  "notes": {
+    "after_food": "భోజనం తర్వాత",
+    "before_food": "భోజనానికి ముందు",
+    "with_food": "భోజనంతో పాటు",
+    "before_breakfast": "అల్పాహారానికి ముందు",
+    "hour_before_food": "భోజనానికి ఒక గంట ముందు",
+    "in_morning": "ఉదయం",
+    "both_eyes": "రెండు కళ్ళలో వేయండి",
+    "left_eye": "ఎడమ కంట్లో వేయండి",
+    "right_eye": "కుడి కంట్లో వేయండి",
+    "for_fever": "జ్వరం ఉన్నప్పుడు",
+    "for_pain": "నొప్పి ఉన్నప్పుడు",
+    "with_milk": "పాలతో",
+    "with_water": "నీటితో",
+    "puffs": "ప్రతిసారీ {n} పఫ్‌లు",
+    "puffs_breathless": "ఊపిరి ఆడనప్పుడు {n} పఫ్‌లు"
+  },
+  "units": {"tablet": "మాత్ర", "capsule": "క్యాప్సూల్", "drop": "చుక్క", "puff": "పఫ్"},
+  "duration": {
+    "day": {"one": "{n} రోజు", "other": "{n} రోజులు"},
+    "week": {"one": "{n} వారం", "other": "{n} వారాలు"},
+    "month": {"one": "{n} నెల", "other": "{n} నెలలు"}
+  },
+  "footer": {
+    "storage": "ఈ మందును చల్లని, పొడి ప్రదేశంలో, పిల్లలకు అందకుండా ఉంచండి.",
+    "refill": "ఈ మందు అయిపోయే ముందు, కొత్త ప్రిస్క్రిప్షన్ కోసం మీ ఆరోగ్య కేంద్రాన్ని సందర్శించండి.",
+    "disclaimer": "ఇది వైద్య సలహా కాదు. మీ ఫార్మసిస్ట్ లేదా వైద్యుడితో నిర్ధారించుకోండి."
+  }
+}

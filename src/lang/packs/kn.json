@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "code": "kn",
+  "name": "Kannada",
+  "native": "ಕನ್ನಡ",
+  "bcp47": "kn-IN",
+  "script": "Kannada",
+  "mt": {"nllb": "kan_Knda", "sarvam": "kn-IN"},
+  "review": {"status": "draft", "by": null, "on": null, "drafted_by": "AI model (Claude), 2026-11-26"},
+  "period_words": true,
+  "joiner": ", ",
+  "labels": {
+    "medicine": "ಔಷಧಿ",
+    "how_often": "ಎಷ್ಟು ಬಾರಿ",
+    "when": "ಔಷಧಿ ತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯ",
+    "how_long": "ಎಷ್ಟು ದಿನ",
+    "how_to_take": "ಹೇಗೆ ತೆಗೆದುಕೊಳ್ಳಬೇಕು",
+    "note": "ಗಮನಿಸಿ"
+  },
+  "greeting": {"named": "ನಮಸ್ಕಾರ {patient}.", "plain": "ನಮಸ್ಕಾರ."},
+  "periods": {"Morning": "ಬೆಳಿಗ್ಗೆ", "Afternoon": "ಮಧ್ಯಾಹ್ನ", "Evening": "ಸಂಜೆ", "Night": "ರಾತ್ರಿ"},
+  "freq": {
+    "once": "ದಿನಕ್ಕೆ ಒಂದು ಬಾರಿ",
+    "twice": "ದಿನಕ್ಕೆ ಎರಡು ಬಾರಿ",
+    "thrice": "ದಿನಕ್ಕೆ ಮೂರು ಬಾರಿ",
+    "n_times": "ದಿನಕ್ಕೆ {n} ಬಾರಿ",
+    "every_hours": {"one": "ಪ್ರತಿ ಗಂಟೆಗೆ", "other": "ಪ್ರತಿ {n} ಗಂಟೆಗೆ"},
+    "bedtime": "ಮಲಗುವ ಮೊದಲು",
+    "as_needed": "ಅಗತ್ಯವಿದ್ದಾಗ ಮಾತ್ರ",
+    "slots": {"morning": "ಬೆಳಿಗ್ಗೆ", "afternoon": "ಮಧ್ಯಾಹ್ನ", "night": "ರಾತ್ರಿ"},
+    "and": "ಮತ್ತು",
+    "ask_pharmacist": "ಪ್ರತಿ ಬಾರಿ ಎಷ್ಟು ತೆಗೆದುಕೊಳ್ಳಬೇಕು ಎಂದು ನಿಮ್ಮ ಔಷಧಿಕಾರರನ್ನು ಕೇಳಿ"
+  },
+  "route": {
+    "oral": "ನೀರಿನೊಂದಿಗೆ ನುಂಗಿ",
+    "eye": "ಕಣ್ಣಿಗೆ ಹಾಕಿ",
+    "inhalation": "ಇನ್ಹೇಲರ್ ಮೂಲಕ ಉಸಿರಿನೊಂದಿಗೆ ಒಳಗೆ ಎಳೆದುಕೊಳ್ಳಿ",
+    "topical": "ಚರ್ಮದ ಮೇಲೆ ಹಚ್ಚಿ"
+  },
+  "notes": {
+    "after_food": "ಊಟದ ನಂತರ",
+    "before_food": "ಊಟಕ್ಕೆ ಮೊದಲು",
+    "with_food": "ಊಟದೊಂದಿಗೆ",
+    "before_breakfast": "ಉಪಾಹಾರಕ್ಕೆ ಮೊದಲು",
+    "hour_before_food": "ಊಟಕ್ಕೆ ಒಂದು ಗಂಟೆ ಮೊದಲು",
+    "in_morning": "ಬೆಳಿಗ್ಗೆ",
+    "both_eyes": "ಎರಡೂ ಕಣ್ಣುಗಳಿಗೆ ಹಾಕಿ",
+    "left_eye": "ಎಡ ಕಣ್ಣಿಗೆ ಹಾಕಿ",
+    "right_eye": "ಬಲ ಕಣ್ಣಿಗೆ ಹಾಕಿ",
+    "for_fever": "ಜ್ವರ ಇದ್ದಾಗ",
+    "for_pain": "ನೋವು ಇದ್ದಾಗ",
+    "with_milk": "ಹಾಲಿನೊಂದಿಗೆ",
+    "with_water": "ನೀರಿನೊಂದಿಗೆ",
+    "puffs": "ಪ್ರತಿ ಬಾರಿ {n} ಪಫ್",
+    "puffs_breathless": "ಉಸಿರಾಟ ಕಷ್ಟವಾದಾಗ {n} ಪಫ್"
+  },
+  "units": {"tablet": "ಮಾತ್ರೆ", "capsule": "ಕ್ಯಾಪ್ಸೂಲ್", "drop": "ಹನಿ", "puff": "ಪಫ್"},
+  "duration": {
+    "day": {"one": "{n} ದಿನ", "other": "{n} ದಿನಗಳು"},
+    "week": {"one": "{n} ವಾರ", "other": "{n} ವಾರಗಳು"},
+    "month": {"one": "{n} ತಿಂಗಳು", "other": "{n} ತಿಂಗಳುಗಳು"}
+  },
+  "footer": {
+    "storage": "ಈ ಔಷಧಿಯನ್ನು ತಂಪಾದ, ಒಣ ಸ್ಥಳದಲ್ಲಿ, ಮಕ್ಕಳ ಕೈಗೆ ಸಿಗದಂತೆ ಇಡಿ.",
+    "refill": "ಈ ಔಷಧಿ ಮುಗಿಯುವ ಮೊದಲು, ಹೊಸ ಚೀಟಿಗಾಗಿ ನಿಮ್ಮ ಆರೋಗ್ಯ ಕೇಂದ್ರಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.",
+    "disclaimer": "ಇದು ವೈದ್ಯಕೀಯ ಸಲಹೆ ಅಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿಕಾರ ಅಥವಾ ವೈದ್ಯರೊಂದಿಗೆ ದೃಢೀಕರಿಸಿ."
+  }
+}
