@@ -1,0 +1,802 @@
+{
+ "n_train": 100000,
+ "train_names": 232,
+ "held_out_names": 64,
+ "hmm_fit_seconds": 5.8,
+ "lstm_params": 162007,
+ "history": [
+  {
+   "epoch": 1,
+   "train_loss": 0.6545,
+   "val_micro_f1": 0.998,
+   "seconds": 390.5
+  },
+  {
+   "epoch": 2,
+   "train_loss": 0.0047,
+   "val_micro_f1": 0.9998,
+   "seconds": 380.8
+  },
+  {
+   "epoch": 3,
+   "train_loss": 0.0029,
+   "val_micro_f1": 0.9997,
+   "seconds": 467.0
+  }
+ ],
+ "tests": {
+  "seen_clean": {
+   "hmm": {
+    "name": {
+     "precision": 0.9958,
+     "recall": 0.9958,
+     "f1": 0.9958
+    },
+    "dose": {
+     "precision": 0.9775,
+     "recall": 0.984,
+     "f1": 0.9807
+    },
+    "frequency": {
+     "precision": 0.833,
+     "recall": 0.8372,
+     "f1": 0.8351
+    },
+    "duration": {
+     "precision": 0.8594,
+     "recall": 0.8359,
+     "f1": 0.8475
+    },
+    "instructions": {
+     "precision": 0.9856,
+     "recall": 0.9805,
+     "f1": 0.983
+    },
+    "micro_f1": 0.9243,
+    "line_exact": 0.7204,
+    "n_lines": 5000
+   },
+   "bilstm": {
+    "name": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "dose": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "frequency": {
+     "precision": 0.9992,
+     "recall": 0.9994,
+     "f1": 0.9993
+    },
+    "duration": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "instructions": {
+     "precision": 0.9976,
+     "recall": 0.9984,
+     "f1": 0.998
+    },
+    "micro_f1": 0.9996,
+    "line_exact": 0.9988,
+    "n_lines": 5000
+   },
+   "ms_per_line": {
+    "hmm": 0.153,
+    "bilstm_batched": 0.302
+   },
+   "bilstm_errors_sample": [
+    {
+     "line": "T. Famotidine 1 g 10/7 at bedtime",
+     "gold": {
+      "name": "Famotidine",
+      "dose": "1 g",
+      "duration": "10/7",
+      "frequency": "at bedtime"
+     },
+     "bilstm": {
+      "name": "Famotidine",
+      "dose": "1 g",
+      "duration": "10/7",
+      "instructions": "at bedtime"
+     }
+    },
+    {
+     "line": "Cephalexin 50 mg 5/7  at bedtime",
+     "gold": {
+      "name": "Cephalexin",
+      "dose": "50 mg",
+      "duration": "5/7",
+      "instructions": "at bedtime"
+     },
+     "bilstm": {
+      "name": "Cephalexin",
+      "dose": "50 mg",
+      "duration": "5/7",
+      "instructions": "at be",
+      "frequency": "dt"
+     }
+    },
+    {
+     "line": "Tab Bisoprolol 150mg 3 days at bedtime",
+     "gold": {
+      "name": "Bisoprolol",
+      "dose": "150mg",
+      "duration": "3 days",
+      "frequency": "at bedtime"
+     },
+     "bilstm": {
+      "name": "Bisoprolol",
+      "dose": "150mg",
+      "duration": "3 days",
+      "instructions": "at bedtime"
+     }
+    },
+    {
+     "line": "1) Oint. Limcee if needed",
+     "gold": {
+      "name": "Limcee",
+      "instructions": "if needed"
+     },
+     "bilstm": {
+      "name": "Limcee",
+      "instructions": "if neede",
+      "frequency": "d"
+     }
+    },
+    {
+     "line": "Syp. Cefadroxil  15 ml X 5 d at bedtime",
+     "gold": {
+      "name": "Cefadroxil",
+      "dose": "15 ml",
+      "duration": "5 d",
+      "instructions": "at bedtime"
+     },
+     "bilstm": {
+      "name": "Cefadroxil",
+      "dose": "15 ml",
+      "duration": "5 d",
+      "instructions": "at be",
+      "frequency": "d"
+     }
+    },
+    {
+     "line": "Eye drops NIFEDIPINE 2 drops do not crush twice daily",
+     "gold": {
+      "name": "NIFEDIPINE",
+      "dose": "2 drops",
+      "instructions": "do not crush",
+      "frequency": "twice daily"
+     },
+     "bilstm": {
+      "name": "NIFEDIPINE",
+      "dose": "2 drops",
+      "instructions": "do not crush t",
+      "frequency": "wice daily"
+     }
+    }
+   ]
+  },
+  "unseen_clean": {
+   "hmm": {
+    "name": {
+     "precision": 0.9914,
+     "recall": 0.9902,
+     "f1": 0.9908
+    },
+    "dose": {
+     "precision": 0.9646,
+     "recall": 0.9729,
+     "f1": 0.9687
+    },
+    "frequency": {
+     "precision": 0.8244,
+     "recall": 0.8293,
+     "f1": 0.8268
+    },
+    "duration": {
+     "precision": 0.8709,
+     "recall": 0.8472,
+     "f1": 0.8589
+    },
+    "instructions": {
+     "precision": 0.9862,
+     "recall": 0.9802,
+     "f1": 0.9832
+    },
+    "micro_f1": 0.921,
+    "line_exact": 0.723,
+    "n_lines": 5000
+   },
+   "bilstm": {
+    "name": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "dose": {
+     "precision": 0.9975,
+     "recall": 0.9975,
+     "f1": 0.9975
+    },
+    "frequency": {
+     "precision": 0.9998,
+     "recall": 1.0,
+     "f1": 0.9999
+    },
+    "duration": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "instructions": {
+     "precision": 0.9992,
+     "recall": 0.9992,
+     "f1": 0.9992
+    },
+    "micro_f1": 0.9993,
+    "line_exact": 0.9972,
+    "n_lines": 5000
+   },
+   "ms_per_line": {
+    "hmm": 0.144,
+    "bilstm_batched": 0.308
+   },
+   "bilstm_errors_sample": [
+    {
+     "line": "Cap AMOXICILLIN, 875 mg q8h x 1/52 gargle after use",
+     "gold": {
+      "name": "AMOXICILLIN",
+      "dose": "875 mg",
+      "frequency": "q8h",
+      "duration": "1/52",
+      "instructions": "gargle after use"
+     },
+     "bilstm": {
+      "name": "AMOXICILLIN",
+      "dose": "75 mg",
+      "frequency": "q8h",
+      "duration": "1/52",
+      "instructions": "gargle after use"
+     }
+    },
+    {
+     "line": "Chlorpheniramine - SOS 20 mg  at bedtime",
+     "gold": {
+      "name": "Chlorpheniramine",
+      "frequency": "SOS",
+      "dose": "20 mg",
+      "instructions": "at bedtime"
+     },
+     "bilstm": {
+      "name": "Chlorpheniramine",
+      "frequency": "SOS",
+      "dose": "20 mg",
+      "instructions": "bedtime"
+     }
+    },
+    {
+     "line": "Inj. Amoxicillin 875 mg OD X 10 d",
+     "gold": {
+      "name": "Amoxicillin",
+      "dose": "875 mg",
+      "frequency": "OD",
+      "duration": "10 d"
+     },
+     "bilstm": {
+      "name": "Amoxicillin",
+      "dose": "75 mg",
+      "frequency": "OD",
+      "duration": "10 d"
+     }
+    },
+    {
+     "line": "Amoxicillin 875 mg  1-1-1 3 days",
+     "gold": {
+      "name": "Amoxicillin",
+      "dose": "875 mg",
+      "frequency": "1-1-1",
+      "duration": "3 days"
+     },
+     "bilstm": {
+      "name": "Amoxicillin",
+      "dose": "75 mg",
+      "frequency": "1-1-1",
+      "duration": "3 days"
+     }
+    },
+    {
+     "line": "Amoxicillin 875 mg QD, 7 d  in the left eye",
+     "gold": {
+      "name": "Amoxicillin",
+      "dose": "875 mg",
+      "frequency": "QD",
+      "duration": "7 d",
+      "instructions": "in the left eye"
+     },
+     "bilstm": {
+      "name": "Amoxicillin",
+      "dose": "75 mg",
+      "frequency": "QD",
+      "duration": "7 d",
+      "instructions": "in the left eye"
+     }
+    },
+    {
+     "line": "Cap. Amoxicillin 875 mg at bedtime x 1 month avoid driving",
+     "gold": {
+      "name": "Amoxicillin",
+      "dose": "875 mg",
+      "frequency": "at bedtime",
+      "duration": "1 month",
+      "instructions": "avoid driving"
+     },
+     "bilstm": {
+      "name": "Amoxicillin",
+      "dose": "75 mg",
+      "frequency": "at bedtime",
+      "duration": "1 month",
+      "instructions": "avoid driving"
+     }
+    },
+    {
+     "line": "3) AMOXICILLIN 875 mg x2/52 QID",
+     "gold": {
+      "name": "AMOXICILLIN",
+      "dose": "875 mg",
+      "duration": "2/52",
+      "frequency": "QID"
+     },
+     "bilstm": {
+      "name": "AMOXICILLIN",
+      "dose": "75 mg",
+      "duration": "2/52",
+      "frequency": "QID"
+     }
+    },
+    {
+     "line": "4. T. AMOXICILLIN 875 mg TID x 14 days",
+     "gold": {
+      "name": "AMOXICILLIN",
+      "dose": "875 mg",
+      "frequency": "TID",
+      "duration": "14 days"
+     },
+     "bilstm": {
+      "name": "AMOXICILLIN",
+      "dose": "75 mg",
+      "frequency": "TID",
+      "duration": "14 days"
+     }
+    },
+    {
+     "line": "2) Cap. AMOXICILLIN  once daily, 875 mg, X 30 days swallow whole",
+     "gold": {
+      "name": "AMOXICILLIN",
+      "frequency": "once daily",
+      "dose": "875 mg",
+      "duration": "30 days",
+      "instructions": "swallow whole"
+     },
+     "bilstm": {
+      "name": "AMOXICILLIN",
+      "frequency": "once daily",
+      "dose": "75 mg",
+      "duration": "30 days",
+      "instructions": "swallow whole"
+     }
+    },
+    {
+     "line": "3. Oint. Amoxicillin 875 mg  1-1-1 x2 months",
+     "gold": {
+      "name": "Amoxicillin",
+      "dose": "875 mg",
+      "frequency": "1-1-1",
+      "duration": "2 months"
+     },
+     "bilstm": {
+      "name": "Amoxicillin",
+      "dose": "75 mg",
+      "frequency": "1-1-1",
+      "duration": "2 months"
+     }
+    },
+    {
+     "line": "1. Cap. Amoxicillin 875 mg OD  for3 weeks, with water",
+     "gold": {
+      "name": "Amoxicillin",
+      "dose": "875 mg",
+      "frequency": "OD",
+      "duration": "3 weeks",
+      "instructions": "with water"
+     },
+     "bilstm": {
+      "name": "Amoxicillin",
+      "dose": "75 mg",
+      "frequency": "OD",
+      "duration": "3 weeks",
+      "instructions": "with water"
+     }
+    },
+    {
+     "line": "1) Amoxicillin Oint. 875 mg twice daily 30 days  do not crush",
+     "gold": {
+      "name": "Amoxicillin",
+      "dose": "875 mg",
+      "frequency": "twice daily",
+      "duration": "30 days",
+      "instructions": "do not crush"
+     },
+     "bilstm": {
+      "name": "Amoxicillin",
+      "dose": "75 mg",
+      "frequency": "twice daily",
+      "duration": "30 days",
+      "instructions": "do not crush"
+     }
+    }
+   ]
+  },
+  "unseen_noisy": {
+   "hmm": {
+    "name": {
+     "precision": 0.9794,
+     "recall": 0.9782,
+     "f1": 0.9788
+    },
+    "dose": {
+     "precision": 0.9519,
+     "recall": 0.9581,
+     "f1": 0.955
+    },
+    "frequency": {
+     "precision": 0.8155,
+     "recall": 0.8163,
+     "f1": 0.8159
+    },
+    "duration": {
+     "precision": 0.8643,
+     "recall": 0.8443,
+     "f1": 0.8542
+    },
+    "instructions": {
+     "precision": 0.9776,
+     "recall": 0.9706,
+     "f1": 0.9741
+    },
+    "micro_f1": 0.9109,
+    "line_exact": 0.69,
+    "n_lines": 5000
+   },
+   "bilstm": {
+    "name": {
+     "precision": 0.9994,
+     "recall": 0.9994,
+     "f1": 0.9994
+    },
+    "dose": {
+     "precision": 0.9979,
+     "recall": 0.9979,
+     "f1": 0.9979
+    },
+    "frequency": {
+     "precision": 0.9987,
+     "recall": 0.9989,
+     "f1": 0.9988
+    },
+    "duration": {
+     "precision": 0.9991,
+     "recall": 0.9993,
+     "f1": 0.9992
+    },
+    "instructions": {
+     "precision": 0.9992,
+     "recall": 0.9984,
+     "f1": 0.9988
+    },
+    "micro_f1": 0.9988,
+    "line_exact": 0.9958,
+    "n_lines": 5000
+   },
+   "ms_per_line": {
+    "hmm": 0.147,
+    "bilstm_batched": 0.33
+   },
+   "bilstm_errors_sample": [
+    {
+     "line": "4) Eye drops METHYLPREDNI5OLONE x 10 d 2drops when beatless",
+     "gold": {
+      "name": "METHYLPREDNI5OLONE",
+      "duration": "10 d",
+      "dose": "2drops",
+      "instructions": "when beatless"
+     },
+     "bilstm": {
+      "name": "METHYLPREDNI5OLONE",
+      "duration": "10",
+      "dose": "d 2drops",
+      "instructions": "when beatless"
+     }
+    },
+    {
+     "line": "3. Oint Pan 10 mg OD  7 d gargle after use",
+     "gold": {
+      "name": "Pan",
+      "dose": "10 mg",
+      "frequency": "OD",
+      "duration": "7 d",
+      "instructions": "gargle after use"
+     },
+     "bilstm": {
+      "name": "Oint Pan",
+      "dose": "10 mg",
+      "frequency": "OD",
+      "duration": "7 d",
+      "instructions": "gargle after use"
+     }
+    },
+    {
+     "line": "Amoxicillin Capsule, 875 mg at bedtime for 1/52  before food",
+     "gold": {
+      "name": "Amoxicillin",
+      "dose": "875 mg",
+      "frequency": "at bedtime",
+      "duration": "1/52",
+      "instructions": "before food"
+     },
+     "bilstm": {
+      "name": "Amoxicillin",
+      "dose": "75 mg",
+      "frequency": "at bedtime",
+      "duration": "1/52",
+      "instructions": "before food"
+     }
+    },
+    {
+     "line": "4. Tab. Guaifenesin - 20 mg  at bedtime X 3 months",
+     "gold": {
+      "name": "Guaifenesin",
+      "dose": "20 mg",
+      "instructions": "at bedtime",
+      "duration": "3 months"
+     },
+     "bilstm": {
+      "name": "Guaifenesin",
+      "dose": "20 mg",
+      "frequency": "at bedtime",
+      "duration": "3 months"
+     }
+    },
+    {
+     "line": "1. Oint. quetiapine  x1/52 500 mg at bedime",
+     "gold": {
+      "name": "quetiapine",
+      "duration": "1/52",
+      "dose": "500 mg",
+      "instructions": "at bedime"
+     },
+     "bilstm": {
+      "name": "quetiapine",
+      "duration": "1/52",
+      "dose": "500 mg",
+      "frequency": "at bedime"
+     }
+    },
+    {
+     "line": "ap. Amoxicillin 875 g TDS x 5 days",
+     "gold": {
+      "name": "Amoxicillin",
+      "dose": "875 g",
+      "frequency": "TDS",
+      "duration": "5 days"
+     },
+     "bilstm": {
+      "name": "Amoxicillin",
+      "dose": "75 g",
+      "frequency": "TDS",
+      "duration": "5 days"
+     }
+    },
+    {
+     "line": "Syp Storvvas 1-0-l, 5m1 2 weeks  before breakfast",
+     "gold": {
+      "name": "Storvvas",
+      "frequency": "1-0-l",
+      "dose": "5m1",
+      "duration": "2 weeks",
+      "instructions": "before breakfast"
+     },
+     "bilstm": {
+      "name": "Storvvas",
+      "frequency": "1-0-l",
+      "dose": "5m",
+      "duration": "1 2 weeks",
+      "instructions": "before breakfast"
+     }
+    },
+    {
+     "line": "1. Inh. Tacrolimus 10 mcg, for2 months at bedtme",
+     "gold": {
+      "name": "Tacrolimus",
+      "dose": "10 mcg",
+      "duration": "2 months",
+      "frequency": "at bedtme"
+     },
+     "bilstm": {
+      "name": "Tacrolimus",
+      "dose": "10 mcg",
+      "duration": "2 months",
+      "instructions": "at bedtme"
+     }
+    },
+    {
+     "line": "3) 5yp. Pa 5 ml wth water OD",
+     "gold": {
+      "name": "Pa",
+      "dose": "5 ml",
+      "instructions": "wth water",
+      "frequency": "OD"
+     },
+     "bilstm": {
+      "name": "Pa",
+      "dose": "5 ml",
+      "frequency": "wth water OD"
+     }
+    },
+    {
+     "line": "Ciprofloxacin, 25 mgg mornn",
+     "gold": {
+      "name": "Ciprofloxacin",
+      "dose": "25 mgg",
+      "frequency": "mornn"
+     },
+     "bilstm": {
+      "name": "Ciprofloxacin",
+      "dose": "25 mgg",
+      "duration": "mo",
+      "frequency": "rnn"
+     }
+    },
+    {
+     "line": "Tablct Pan 10 mg OOD  half an hour bbefore foo  90 days",
+     "gold": {
+      "name": "Pan",
+      "dose": "10 mg",
+      "frequency": "OOD",
+      "instructions": "half an hour bbefore foo",
+      "duration": "90 days"
+     },
+     "bilstm": {
+      "name": "lct Pan",
+      "dose": "10 mg",
+      "frequency": "OOD",
+      "instructions": "half an hour bbefore foo",
+      "duration": "90 days"
+     }
+    },
+    {
+     "line": "4. Metoprolol B 40 mg x 1 month for fever",
+     "gold": {
+      "name": "Metoprolol",
+      "frequency": "B",
+      "dose": "40 mg",
+      "duration": "1 month",
+      "instructions": "for fever"
+     },
+     "bilstm": {
+      "name": "Metoprolol",
+      "dose": "40 mg",
+      "duration": "1 month",
+      "instructions": "for fever"
+     }
+    }
+   ]
+  },
+  "reference_25": {
+   "hmm": {
+    "name": {
+     "precision": 0.9333,
+     "recall": 0.9333,
+     "f1": 0.9333
+    },
+    "dose": {
+     "precision": 0.931,
+     "recall": 0.931,
+     "f1": 0.931
+    },
+    "frequency": {
+     "precision": 0.9655,
+     "recall": 0.9655,
+     "f1": 0.9655
+    },
+    "duration": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "instructions": {
+     "precision": 0.9444,
+     "recall": 0.8947,
+     "f1": 0.9189
+    },
+    "micro_f1": 0.952,
+    "line_exact": 0.8667,
+    "n_lines": 30
+   },
+   "bilstm": {
+    "name": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "dose": {
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0
+    },
+    "frequency": {
+     "precision": 0.9655,
+     "recall": 0.9655,
+     "f1": 0.9655
+    },
+    "duration": {
+     "precision": 0.9655,
+     "recall": 0.9655,
+     "f1": 0.9655
+    },
+    "instructions": {
+     "precision": 0.9444,
+     "recall": 0.8947,
+     "f1": 0.9189
+    },
+    "micro_f1": 0.9742,
+    "line_exact": 0.9333,
+    "n_lines": 30
+   },
+   "ms_per_line": {
+    "hmm": 0.302,
+    "bilstm_batched": 0.95
+   },
+   "bilstm_errors_sample": [
+    {
+     "line": "1. Inh.  Salbutamol  100 mcg  SOS  x 30 days  2 puffs when breathless",
+     "gold": {
+      "name": "Salbutamol",
+      "dose": "100 mcg",
+      "frequency": "SOS",
+      "duration": "30 days",
+      "instructions": "2 puffs when breathless"
+     },
+     "bilstm": {
+      "name": "Salbutamol",
+      "dose": "100 mcg",
+      "frequency": "SOS",
+      "duration": "30 days  2 puffs",
+      "instructions": "when breathless"
+     }
+    },
+    {
+     "line": "1. Tab.  Cetirizine  10 mg  OD  x 5 days  (take twice daily)",
+     "gold": {
+      "name": "Cetirizine",
+      "dose": "10 mg",
+      "frequency": "OD",
+      "duration": "5 days",
+      "instructions": "take twice daily"
+     },
+     "bilstm": {
+      "name": "Cetirizine",
+      "dose": "10 mg",
+      "frequency": "(take twice daily)",
+      "duration": "5 days"
+     }
+    }
+   ]
+  }
+ }
+}

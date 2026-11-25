@@ -23,3 +23,6 @@ data/*.db
 data/*.db-*
 data/.dev_data_key
 outputs/lang_bench.log
+data/synth/
+labs/data/
+labs/out/*.json

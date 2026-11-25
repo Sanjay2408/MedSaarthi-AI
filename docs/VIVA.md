@@ -88,3 +88,99 @@ Timestamp, session id, step, model id, prompt version, SHA-256 of the input, and
 
 **20. What would you do next?**
 Real anonymised prescriptions with ethics approval, a pharmacist-in-the-loop study, native-speaker review, IndicTrans2 comparison, a fully local LLM on a GPU, a vision-language model (Qwen2.5-VL), audio read-out for low literacy, and polypharmacy and children cases.
+
+---
+
+# Part 2: the upgraded system (accounts, language packs, trained taggers)
+
+## Two-screen demo (6 minutes): patient on a phone, pharmacist on the laptop
+
+| Time | Screen | Do | Say |
+|---|---|---|---|
+| 0:00 | Phone | Open the app, **Create account**, choose "For me", Senior age group | "One interface, three registers. Senior gets bigger text, slower motion and read-aloud first. The facts and controls are the same." |
+| 1:00 | Phone | Read example **Something is missing**; tick "Share with a pharmacist"; **Save** | "The dose is blank. I never fill it. It stays out of the plan and goes to a named pharmacist's queue. My photo is not stored." |
+| 2:00 | Laptop | Sign in as the pharmacist (invite code), open the queue | "Pharmacist accounts need an invite code, and nobody can review their own prescription." |
+| 2:45 | Laptop | Try **Verify and sign** with the dose blank, then enter it and sign | "The signature, name and time are stored with the item." |
+| 3:30 | Phone | My plans, open it | "Now it says Verified by pharmacist, with the name. The plan shows 8:00 AM, 2:00 PM, 8:00 PM." Tap a lid on the 3D pill organizer, tick a dose. |
+| 4:30 | Phone | Switch the language to Hindi, then Kannada | "Doses, times and days are written by code from a language pack, so they cannot be mistranslated. A native speaker has not reviewed the surrounding words yet, and the page says so." |
+| 5:15 | Phone | Add reminders to calendar, show Share | "A calendar file with alarms, and a FHIR bundle for hospital software." |
+
+Fallbacks: turn 3D off in Settings if the phone struggles; run `python scripts/seed_demo.py` to have the demo accounts ready; show `outputs/eval/*.json` and `docs/EVAL.md` if the network fails.
+
+## Part 2 questions
+
+**21. What is "structured first, language last"?**
+The model's job is to understand the prescription. The wording a patient reads is built from verified fields: a language pack gives the sentence frames and a template realiser writes doses, times and days itself, then a digit check proves every number in the output also exists in the input. Machine translation is used only for free-text notes or a language with no pack.
+
+**22. Why not just translate with a large model?**
+I measured it. Models were slow (about 2 s for Hindi and Kannada, 6 to 7 s for Tamil and Telugu with gpt-oss-120b), and in an earlier version a translation turned "8 AM and 8 PM" into the same word. A rule-based realiser takes under 0.1 ms, and its output is the same every time.
+
+**23. How would you add a new language?**
+Write one JSON pack (sentence frames, period words, unit words). The loader rejects digits and unknown placeholders in the strings, and a pack marked reviewed must name the reviewer. A pack starts as a draft, and the app labels it "draft wording" until a native speaker signs it.
+
+**24. Who can see my data?**
+Passwords are hashed with Argon2id. Plans are encrypted at rest (Fernet, key outside the database, rotation supported). Photos are never stored. A pharmacist sees only an item the patient chose to share. Deleting the account removes everything. All of it is for synthetic data; real use would need compliance work under India's Digital Personal Data Protection Act 2023.
+
+**25. What stops a pharmacist account being created by anyone?**
+The server needs an invite code from its owner. Self-review is refused by the API. Both are covered by tests.
+
+**26. Why a 3D scene, and what if it fails?**
+The pill organizer is a picture people of every age already know. It is a second view of data the page already shows as text. It is lazy-loaded, turns off on weak devices and when the person asks for calm motion, and an error boundary falls back to the flat tiles. The end-to-end test checks both modes.
+
+## Syllabus coverage, module by module (each answer tied to MedSaarthi)
+
+### Module 1: Foundations
+**M1-1. Discriminative vs generative models, and where each appears here.**
+A discriminative model learns P(label | input): my BiLSTM tagger decides which characters are a drug name, dose or frequency. A generative model learns to produce data: the LLM rewrites a plan in plain words. I use each where it is strong, and code where an answer must be exact.
+
+**M1-2. What is temperature, and why 0?**
+It scales the logits before softmax. At 0 the model picks the most likely token, so the same input gives the same output, which I need for evaluation and caching.
+
+**M1-3. Why is probability central?**
+Language models give a probability for each next token. Confidence in my pipeline comes from OCR word scores, source grounding and a threshold, not from the LLM saying it is sure.
+
+### Module 2: Classical and deep generative models
+**M2-1. Where did you use a Hidden Markov Model?**
+`src/tagger/models.py`, `HmmTagger`: states are labels (name, dose, frequency, duration, instruction), emissions are words (or their shape for unseen words), and Viterbi finds the best state path. It is the classical baseline for the same task as the BiLSTM, scored on the same test sets (EVAL.md, section 8).
+
+**M2-2. How would an autoencoder or VAE help?**
+A VAE trained on handwritten medicine-name images could generate more handwriting samples, since real handwriting is the scarce part of my data. I did not build it. I planned to fine-tune on 5,578 real word images (RxHandBD) instead.
+
+**M2-3. Why did you not use a GAN?**
+GANs can make realistic handwriting but are unstable (mode collapse), are hard to evaluate, and an artefact in a generated "dose" digit could teach the OCR something wrong. Template-based synthetic text with controlled noise gives exact labels, which is what I needed.
+
+### Module 3: Transformers and large language models
+**M3-1. Why a BiLSTM over characters?**
+Characters let the model read a medicine name it never saw and survive OCR slips ("Paracetamo1"). Bidirectional means each character sees both left and right context: "500" is a dose because "mg" follows, and a duration because "days" follows.
+
+**M3-2. What problem do LSTMs and GRUs solve?**
+Vanishing gradients in plain RNNs. Gates let the network keep or drop information over long distances. A GRU has two gates and fewer parameters than an LSTM's three; for a line of about 60 characters either works.
+
+**M3-3. Where are attention and Transformers in your system?**
+Everything generative: gpt-oss (decoder-only Transformer), TrOCR (a vision Transformer encoder with a text Transformer decoder), NLLB (an encoder-decoder), and BGE-M3 (an encoder). Self-attention lets each token weigh every other token without the step-by-step limit of an RNN.
+
+**M3-4. Pretraining vs fine-tuning, and what did you actually do?**
+Pretraining learns general language from huge text; fine-tuning adapts to a task. I trained my taggers from scratch on synthetic lines (T1), and prepared a LoRA fine-tune of Qwen2.5-1.5B for prescription to JSON (T2) and a TrOCR fine-tune on handwritten medicine names (T3) as notebooks for a free GPU. LoRA trains small low-rank matrices beside frozen weights, which makes it feasible on a 16 GB T4. T2 and T3 are prepared, not run, until the results appear in EVAL.md.
+
+**M3-5. Multimodal.**
+The photo path is image to text (OCR) to JSON. TrOCR and a vision-language model are multimodal models; I chose OCR plus an LLM because it gives a per-line confidence that the safety gate needs.
+
+### Module 4: Prompt engineering
+**M4-1. Name the techniques you used and where.**
+Persona (pharmacist), RGC (extraction), few-shot (four examples), chain of thought (hidden, ambiguity), delimiters and injection defence, comparative prompting (V1, V2, V3), and code-written fixed text. See PROMPTS.md.
+
+**M4-2. Is there a prompt injection your defences did not stop?**
+None got through in the 7 test cases after the grounding fix, but those are 7 cases I wrote. The honest claim is "the defences stopped the attacks I thought of". New attacks need new tests.
+
+### Module 5: Advanced GenAI systems
+**M5-1. Is MedSaarthi an agent?**
+No. It is a fixed pipeline with one decision point owned by a human. An agent would choose its own steps and tools, which I did not want near a dosing decision. The pharmacist queue is the human-in-the-loop version of agent oversight.
+
+**M5-2. RAG: did it help?**
+Not on my data. V3 (leaflet RAG) matched V2 because my leaflets are short and synthetic. It would matter with long real leaflets. I report that rather than hide it.
+
+**M5-3. Ethics and responsible AI.**
+Consent and synthetic-only data; no real prescriptions; hash-only audit; a pharmacist verification step; honest labelling of draft translations; no streaks or points that push people to double a dose; the limits listed in the report. Embeddings carry bias (Lab 1 shows it) and translation quality is uneven across languages.
+
+**M5-4. Industry use cases.**
+Medication adherence apps, discharge-summary simplification, pharmacy chat assistants, and clinical document extraction into FHIR. MedSaarthi's FHIR export points at the last one.

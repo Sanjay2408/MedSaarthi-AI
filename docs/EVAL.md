@@ -179,3 +179,59 @@ The translations are machine-generated and **not professionally validated**.
 - Error types are automatic proxies until human labels are added.
 - One model (gpt-oss-20b), one run at temperature 0; no repeated runs, so no variance estimate.
 - Leaflets are synthetic and short (1 chunk each at 2900/2100), so retrieval had little to choose from.
+
+## 11. Language realiser and translation providers (added after sections 1 to 10)
+
+**What changed.** Section 6 showed that machine translation can hide a dangerous error (AM and PM written the same). The patient card is now written by a **template realiser**: a JSON language pack per language holds the sentence frames and part-of-day words, and code writes every dose, time and day count. A digit contract compares the digits in the card with the digits in the confirmed fields. The pack loader rejects digits and unknown placeholders in pack strings. The 290-case test file `tests/test_lang.py` covers this. Machine translation (an ordered chain: Sarvam, Groq, NLLB) is only used for free-text notes or a language with no pack.
+
+**Speed.** Rendering a card takes about 0.08 ms (measured in `tests`/`src/eval/lang_bench.py`), and the output is identical every run.
+
+**Provider benchmark** (`python -m src.eval.lang_bench`, raw rows in `outputs/eval/lang_bench.json`). 14 sentences per language sent in batches; each line is checked for line count, script, digit equality and drug-name preservation. A "problem" is any failed check. Latency is per line (batch time divided by lines).
+
+| Provider | Language | Lines with a failed check | Median seconds per line |
+|---|---|---|---|
+| gpt-oss-120b | Hindi | 6 of 14 | 0.41 |
+| gpt-oss-120b | Kannada | 6 of 14 | 0.45 |
+| gpt-oss-120b | Tamil | 6 of 14 | 1.40 |
+| gpt-oss-120b | Telugu | 11 of 14 | 1.21 |
+| gpt-oss-20b | Hindi, Kannada, Tamil, Telugu | 12, 14, 7, 11 of 14 | 0.14 to 0.19 |
+| qwen3.8-27b | Hindi / Tamil | 0 / 4 of 14 | 4.3 / 10.7 |
+| qwen3.8-27b | Kannada, Telugu | 2 of 3 batches errored | 11 to 13 |
+
+- The best fast provider still failed a check on 6 to 11 of 14 lines, which is the reason structured cards are written by code and not by a model.
+- gpt-oss-20b failed all 14 Kannada lines. qwen was accurate on Hindi but too slow for a patient waiting.
+- **NLLB rows are missing** from this file: the Hugging Face cache was cleared before the run. `python scripts/warm_models.py` downloads the models again, after which the benchmark can be rerun.
+- **Sarvam was not benchmarked** (no key). Its provider code is written and tested only against a fake.
+- 56 lines is a small sample, and a failed check is not a quality score. Translation quality needs a native speaker; the packs are drafts until one signs them (section 8).
+
+## 12. T1: HMM and BiLSTM taggers trained on this laptop
+
+Task: label every character of a prescription line as medicine name, dose, frequency, duration, instruction or other, and read the fields from the labels (`src/tagger/`). Code: `python -m src.tagger.train`. Raw results: `outputs/eval/tagger.json`; weights in `src/tagger/weights/` (the BiLSTM has 162,007 parameters; training took about 20 minutes on 4 CPU threads).
+
+**Data.** 100,000 synthetic lines from 232 medicine names (hand-written vocabulary, not copied from any dataset), many abbreviations and layouts, fields missing on purpose, and OCR-style noise. 64 further names were held out of training entirely. The generator is `src/tagger/synth.py`.
+
+**Test sets** (nothing seen in training): new lines with known names; lines with the 64 held-out names; held-out names with heavier noise; and the 30 medication lines of the 25 hand-written reference prescriptions, which were written separately from this generator. Score = exact-match field F1 over name, dose, frequency, duration and instructions.
+
+| Test set | Lines | HMM F1 | BiLSTM F1 | HMM whole-line exact | BiLSTM whole-line exact |
+|---|---|---|---|---|---|
+| New lines, known names | 5,000 | 0.924 | 0.9996 | 72.0% | 99.9% |
+| Held-out medicine names | 5,000 | 0.921 | 0.9993 | 72.3% | 99.7% |
+| Held-out names + more noise | 5,000 | 0.911 | 0.9988 | 69.0% | 99.6% |
+| **25 hand-written prescriptions** | 30 | **0.952** | **0.974** | 86.7% | 93.3% |
+
+**How to read this.**
+- The synthetic scores are close to perfect because the generator is simple and the model has seen its patterns. They show the model learned the task, not that it will read real prescriptions.
+- The 25 hand-written prescriptions are the honest row, and it is only 30 lines. The BiLSTM got 28 of 30 lines fully right and the HMM 26 of 30. With so few lines the difference between them is not statistically solid.
+- The two BiLSTM misses were layouts the generator never produced: an instruction that starts with a number ("2 puffs when breathless", the span was split after "2 puffs") and a note in brackets that contradicts the frequency ("(take twice daily)", taken as the frequency). The second is the "conflicting instruction" case that the ambiguity rules must catch anyway.
+- The HMM is weaker on frequency and duration (0.82 to 0.86 F1 on the synthetic sets) than on names and doses. I did not investigate why. A likely reason is that a first-order HMM sees only the previous label, while patterns such as "1-0-1" and "5 days" are made of several small tokens that look alike. The BiLSTM reads characters with context on both sides.
+- Speed on CPU: the HMM took 0.15 to 0.3 ms per line, and the BiLSTM about 0.3 ms per line when 5,000 lines are batched (about 1 ms per line for the 30-line set). Both run offline, so prescription text need not leave the device.
+- **These models are not yet part of the patient pipeline.** The LLM extractor remains the default; the taggers are a measured offline option and a Module 2 and 3 demonstration.
+
+## 13. T2 and T3: prepared, not yet run
+
+| | What | Status |
+|---|---|---|
+| T2 | LoRA of Qwen2.5-1.5B-Instruct on 20,000 synthetic prescriptions to JSON; 200 held-out-name prescriptions scored before and after (`notebooks/t2_lora_qwen.ipynb`, data from `scripts/make_lora_data.py`) | Notebook written and syntax-checked. **Not run: this laptop has no GPU.** No result is claimed |
+| T3 | TrOCR fine-tune on RxHandBD handwritten medicine names; character error rate before and after (`notebooks/t3_trocr_rxhandbd.ipynb`) | Notebook written and syntax-checked. **Not run.** The dataset's folder layout was not verified, and it has no writer identifiers I could confirm, so the split is by image and does **not** test unseen writers |
+
+When these are run on Kaggle or Colab, paste the printed before and after tables here and change the status.
