@@ -126,6 +126,9 @@ def summarise(records: list[dict] | None = None) -> dict:
                 "checked_pct": round(100 * sum(not x["problems"] for x in lines) / len(lines), 1),
                 "numbers_ok_pct": round(100 * sum(not any("numbers" in p for p in x["problems"]) for x in lines) / len(lines), 1),
                 "script_ok_pct": round(100 * sum(not any("not written" in p for p in x["problems"]) for x in lines) / len(lines), 1),
+                # Policy, not corruption: the app shows the drug name as printed on the box. A model that
+                # transliterates "Paracetamol" into Devanagari fails this but may still be correct.
+                "drug_kept_latin_pct": round(100 * sum(not any("drug name" in p for p in x["problems"]) for x in lines) / len(lines), 1),
                 "median_latency_s": round(statistics.median(lat), 2) if lat else None,
                 "max_latency_s": max(lat) if lat else None,
                 "median_chrf_back": round(statistics.median(scores), 1) if scores else None,

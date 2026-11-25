@@ -34,3 +34,9 @@ nbformat>=5.10
 nbconvert>=7.16
 ipykernel>=6.29
 langchain-text-splitters>=0.3
+
+# Accounts, database, encryption
+sqlalchemy>=2.0
+argon2-cffi>=23.1
+cryptography>=42
+sacrebleu>=2.4

@@ -45,6 +45,28 @@ def log_step(step: str, model_id: str | None, input_text: str, **meta) -> dict:
     return record
 
 
+def read_user(user_id: int) -> list[dict]:
+    path = ROOT / load_config()["audit"]["path"]
+    if not path.exists():
+        return []
+    with open(path, encoding="utf-8") as f:
+        return [r for r in map(json.loads, f) if r.get("user") == user_id]
+
+
+def purge_user(user_id: int) -> int:
+    """Remove every audit entry tagged with this user (used when an account is deleted)."""
+    path = ROOT / load_config()["audit"]["path"]
+    if not path.exists():
+        return 0
+    with open(path, encoding="utf-8") as f:
+        rows = [json.loads(line) for line in f if line.strip()]
+    keep = [r for r in rows if r.get("user") != user_id]
+    with open(path, "w", encoding="utf-8") as f:
+        for r in keep:
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    return len(rows) - len(keep)
+
+
 def read_session(session_id: str | None = None) -> list[dict]:
     path = ROOT / load_config()["audit"]["path"]
     if not path.exists():

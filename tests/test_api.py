@@ -5,6 +5,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 import api.server as server
+from api import state
 from src.llm import LLMResult
 
 EXTRACTED = {"medications": [
@@ -33,8 +34,8 @@ class FakeLLM:
 @pytest.fixture
 def client(monkeypatch):
     monkeypatch.setattr(server, "LLM", FakeLLM)
-    monkeypatch.setattr(server, "CASES", {})
-    server._hits.clear()
+    monkeypatch.setattr(state, "CASES", {})
+    state.hits.clear()
     return TestClient(server.app)
 
 
@@ -151,7 +152,7 @@ def test_typed_prescriptions_never_reach_the_disk_cache(client, monkeypatch):
 
 
 def test_reads_are_rate_limited_per_address(client, monkeypatch):
-    monkeypatch.setitem(server.LIMITS, "read", 2)
+    monkeypatch.setitem(state.LIMITS, "read", 2)
     read(client)
     read(client)
     assert client.post("/api/read", data={"consent": "true", "text": TEXT}).status_code == 429

@@ -4,7 +4,7 @@ Every extracted field carries its own confidence so the safety gate can flag
 individual fields. A missing value is None, never a guessed default.
 """
 from enum import Enum
-from typing import Optional
+from typing import Literal, Optional
 
 from pydantic import BaseModel, Field
 
@@ -38,7 +38,16 @@ class FieldValue(BaseModel):
         return self.value is None or not str(self.value).strip()
 
 
+class Verification(BaseModel):
+    """Who vouched for a confirmed item. `self` is the patient attesting; `pharmacist` is a
+    signed-in pharmacist who edited and signed it. The plan shows the difference."""
+    kind: Literal["self", "pharmacist"]
+    by: Optional[str] = None      # pharmacist's display name
+    at: Optional[str] = None      # ISO 8601 timestamp
+
+
 class MedicationItem(BaseModel):
+    verification: Optional[Verification] = None
     name: FieldValue = Field(default_factory=FieldValue)
     dose: FieldValue = Field(default_factory=FieldValue)
     route: FieldValue = Field(default_factory=FieldValue)

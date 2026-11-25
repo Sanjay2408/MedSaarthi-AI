@@ -17,3 +17,9 @@ web/dist/
 .claude/skills/
 .agents/
 skills-lock.json
+
+# local database and encryption key (never commit)
+data/*.db
+data/*.db-*
+data/.dev_data_key
+outputs/lang_bench.log

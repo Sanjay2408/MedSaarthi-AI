@@ -436,5 +436,1073 @@
     "chrf": 81.6
    }
   ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-120b",
+  "lang": "te",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 6.06,
+  "wall_s": 6.06,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 01. పారాసెటమాల్ 500 mg ను రోజుకు మూడు సార్లు తీసుకోండి. ఆహారానికి తర్వాత నీటితో మింగండి. 5 రోజులు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Paracetamol']"
+    ],
+    "back": "Hello test patient 01. Take Paracetamol 500 mg three times a day. Take with water after food. Take for 5 days.",
+    "chrf": 77.7
+   },
+   {
+    "source": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 02. అమోక్సిసిల్లిన్ 500 mg ను రోజుకు మూడు సార్లు తీసుకోండి. ఆహారానికి తర్వాత నీటితో మింగండి. 7 రోజులు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Amoxicillin']"
+    ],
+    "back": "Hello test patient 02. Take Amoxicillin 500 mg three times a day. Take with water after food. Take for 7 days.",
+    "chrf": 77.7
+   },
+   {
+    "source": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 02. పాంటోప్రాజోల్ 40 mg ను రోజుకు ఒకసారి తీసుకోండి. అల్పాహారానికి ముందు నీటితో మింగండి. 7 రోజులు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Pantoprazole']"
+    ],
+    "back": "Hello test patient 02. Take Pantoprazole 40 mg once a day. Take with water before a light meal. Take for 7 days.",
+    "chrf": 68.5
+   },
+   {
+    "source": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 03. మెట్ఫార్మిన్ 500 mg ను రోజుకు రెండు సార్లు తీసుకోండి. భోజనాల తర్వాత నీటితో మింగండి. 30 రోజులు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Metformin']"
+    ],
+    "back": "Hello test patient 03. Take Metformin 500 mg twice a day. Take with water after meals. Take for 30 days.",
+    "chrf": 76.5
+   },
+   {
+    "source": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "output": "ఈ మందు ముగిసే ముందు, కొత్త ప్రిస్క్రిప్షన్ కోసం మీ ఆరోగ్య కేంద్రాన్ని సందర్శించండి.",
+    "problems": [],
+    "back": "Before this medicine runs out, visit your health center for a new prescription.",
+    "chrf": 93.4
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-120b",
+  "lang": "te",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 5.06,
+  "wall_s": 5.06,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 04. రోజుకు ఒకసారి అమ్లోడిపిన్ 5 mg తీసుకోండి. ఉదయాన్నే నీటితో మింగండి. 30 రోజులకు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Amlodipine']"
+    ],
+    "back": "Hello test patient 04. Take amlodipine 5 mg once daily. Swallow with water in the morning. Take for 30 days.",
+    "chrf": 74.2
+   },
+   {
+    "source": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 05. సెటిరిజిన్ 10 mg తీసుకోండి. నీటితో మింగండి. 5 రోజులకు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Cetirizine']"
+    ],
+    "back": "Hello test patient 05. Take cetirizine 10 mg. Swallow with water. Take for 5 days.",
+    "chrf": 79.0
+   },
+   {
+    "source": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 06. రోజుకు ఒకసారి అజిథ్రోమైసిన్ 500 mg తీసుకోండి. ఆహారానికి ఒక గంట ముందు నీటితో మింగండి. 3 రోజులకు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Azithromycin']"
+    ],
+    "back": "Hello test patient 06. Take azithromycin 500 mg once daily. Swallow with water one hour before food. Take for 3 days.",
+    "chrf": 76.3
+   },
+   {
+    "source": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 06. అవసరమైనప్పుడు మాత్రమే పారాసెటమాల్ 650 mg తీసుకోండి. జ్వరం కోసం నీటితో మింగండి. 3 రోజులకు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Paracetamol']"
+    ],
+    "back": "Hello test patient 06. Take paracetamol 650 mg only when needed. Swallow with water for fever. Take for 3 days.",
+    "chrf": 84.6
+   },
+   {
+    "source": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 07. ప్రతి 8 గంటలకు ఐబుప్రోఫెన్ 400 mg తీసుకోండి. ఆహారానికి తర్వాత నీటితో మింగండి. 3 రోజులకు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Ibuprofen']"
+    ],
+    "back": "Hello test patient 07. Take ibuprofen 400 mg every 8 hours. Swallow with water after food. Take for 3 days.",
+    "chrf": 80.6
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-120b",
+  "lang": "te",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 6.75,
+  "wall_s": 6.75,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 08. అటోర్వాస్టాటిన్ 10 mg రోజుకు ఒకసారి తీసుకోండి. నీటితో మింగండి. 30 రోజులకు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Atorvastatin']"
+    ],
+    "back": "Hello test patient 08. Atorvastatin 10 mg take once daily. Swallow with water. Take for 30 days.",
+    "chrf": 69.9
+   },
+   {
+    "source": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 09. సాల్బ్యూటమోల్ 100 mcg తీసుకోండి, ఇన్హేలర్ నుండి శ్వాస తీసుకోండి, శ్వాస తీసుకునే సమయంలో 2 పఫ్‌లు, అవసరమైనప్పుడు మాత్రమే, 30 రోజులకు.",
+    "problems": [
+     "drug name lost: ['Salbutamol']"
+    ],
+    "back": "Hello test patient 09. Salbutamol 100 mcg take, inhale from inhaler, 2 puffs during inhalation, only as needed, for 30 days.",
+    "chrf": 57.5
+   },
+   {
+    "source": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "output": "ఈ ఔషధాన్ని చల్లని, ఎండని స్థలంలో, పిల్లల చేరుకోలేని చోట ఉంచండి.",
+    "problems": [],
+    "back": "Store this medication in a cool, dry place, out of reach of children.",
+    "chrf": 73.4
+   },
+   {
+    "source": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "output": "ఇది వైద్య సలహా కాదు. మీ ఫార్మసిస్ట్ లేదా డాక్టర్‌తో నిర్ధారించుకోండి.",
+    "problems": [],
+    "back": "This is not medical advice. Verify with your pharmacist or doctor.",
+    "chrf": 77.9
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "hi",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 0.63,
+  "wall_s": 0.63,
+  "error": null,
+  "batch_problems": [
+   "not written in Devanagari: 'Hello Test Patient 01. Take Pa'",
+   "not written in Devanagari: 'Hello Test Patient 02. Take Am'",
+   "not written in Devanagari: 'Hello Test Patient 02. Take Pa'",
+   "not written in Devanagari: 'Hello Test Patient 03. Take Me'",
+   "not written in Devanagari: 'Before this medicine runs out,'"
+  ],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "output": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "problems": [
+     "not written in Devanagari: 'Hello Test Patient 01. Take Pa'"
+    ],
+    "back": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "output": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "problems": [
+     "not written in Devanagari: 'Hello Test Patient 02. Take Am'"
+    ],
+    "back": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "output": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "problems": [
+     "not written in Devanagari: 'Hello Test Patient 02. Take Pa'"
+    ],
+    "back": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "output": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "problems": [
+     "not written in Devanagari: 'Hello Test Patient 03. Take Me'"
+    ],
+    "back": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "output": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "problems": [
+     "not written in Devanagari: 'Before this medicine runs out,'"
+    ],
+    "back": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "chrf": 100.0
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "hi",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 0.72,
+  "wall_s": 0.72,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "output": "हेलो टेस्ट पेशन्ट 04. एम्बोलिपीन 5 मि.ग्रा. एक बार दिन में लें। इसे सुबह पानी के साथ निगलें। 30 दिनों तक लें।",
+    "problems": [
+     "drug name lost: ['Amlodipine']"
+    ],
+    "back": "Hello test patient 04. Embolipeen 5 mg once daily. Take it in the morning with water. Take for 30 days.",
+    "chrf": 53.8
+   },
+   {
+    "source": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "output": "हेलो टेस्ट पेशन्ट 05. सिटिरिज़ीन 10 मि.ग्रा. लें। पानी के साथ निगलें। 5 दिनों तक लें।",
+    "problems": [
+     "drug name lost: ['Cetirizine']"
+    ],
+    "back": "Hello test patient 05. Citirizin 10 mg. Take with water. Take for 5 days.",
+    "chrf": 57.5
+   },
+   {
+    "source": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "output": "हेलो टेस्ट पेशन्ट 06. एज़िथ्रोमाइसिन 500 मि.ग्रा. एक बार दिन में लें। इसे भोजन से एक घंटे पहले पानी के साथ निगलें। 3 दिनों तक लें।",
+    "problems": [
+     "drug name lost: ['Azithromycin']"
+    ],
+    "back": "Hello test patient 06. Azithromycin 500 mg once daily. Take it one hour before meals with water. Take for 3 days.",
+    "chrf": 63.5
+   },
+   {
+    "source": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "output": "हेलो टेस्ट पेशन्ट 06. पैरासिटामोल 650 मि.ग्रा. केवल आवश्यकता पड़ने पर लें। बुखार के लिए पानी के साथ निगलें। 3 दिनों तक लें।",
+    "problems": [
+     "drug name lost: ['Paracetamol']"
+    ],
+    "back": "Hello test patient 06. Paracetamol 650 mg only take as needed. Take with water for fever. Take for 3 days.",
+    "chrf": 67.3
+   },
+   {
+    "source": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "output": "हेलो टेस्ट पेशन्ट 07. इबुप्रोफेन 400 मि.ग्रा. हर 8 घंटे में लें। इसे भोजन के बाद पानी के साथ निगलें। 3 दिनों तक लें।",
+    "problems": [
+     "drug name lost: ['Ibuprofen']"
+    ],
+    "back": "Hello test patient 07. Ibuprofen 400 mg every 8 hours. Take it after meals with water. Take for 3 days.",
+    "chrf": 64.0
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "hi",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 0.8,
+  "wall_s": 0.8,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "output": "हेलो टेस्ट पेशन्ट 08. एटोरवास्टेटिन 10 mg एक बार दिन में लें। पानी के साथ निगलें। 30 दिनों तक लें।",
+    "problems": [
+     "drug name lost: ['Atorvastatin']"
+    ],
+    "back": "Hello test patient 08. Atorvastatin 10 mg take once daily. Swallow with water. Take for 30 days.",
+    "chrf": 69.9
+   },
+   {
+    "source": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "output": "हेलो टेस्ट पेशन्ट 09. सल्बुटामोल 100 mcg, इनहेलर से साँस लें, सांस फूलने पर 2 पफ्स, केवल आवश्यकता होने पर, 30 दिनों तक।",
+    "problems": [
+     "drug name lost: ['Salbutamol']"
+    ],
+    "back": "Hello test patient 09. Salbutamol 100 mcg, inhale from inhaler, 2 puffs on breathlessness, only as needed, for 30 days.",
+    "chrf": 66.9
+   },
+   {
+    "source": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "output": "इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुँच से दूर।",
+    "problems": [],
+    "back": "Store this medication in a cool, dry place, away from children's reach.",
+    "chrf": 55.5
+   },
+   {
+    "source": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "output": "यह चिकित्सा सलाह नहीं है। अपने फ़ार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+    "problems": [],
+    "back": "This is not medical advice. Verify with your pharmacist or doctor.",
+    "chrf": 77.9
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "kn",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 0.78,
+  "wall_s": 0.78,
+  "error": null,
+  "batch_problems": [
+   "not written in Kannada: 'Hello Test Patient 01. Take Pa'",
+   "not written in Kannada: 'Hello Test Patient 02. Take Am'",
+   "not written in Kannada: 'Hello Test Patient 02. Take Pa'",
+   "not written in Kannada: 'Hello Test Patient 03. Take Me'",
+   "not written in Kannada: 'Before this medicine runs out,'"
+  ],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "output": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 01. Take Pa'"
+    ],
+    "back": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "output": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 02. Take Am'"
+    ],
+    "back": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "output": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 02. Take Pa'"
+    ],
+    "back": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "output": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 03. Take Me'"
+    ],
+    "back": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "output": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "problems": [
+     "not written in Kannada: 'Before this medicine runs out,'"
+    ],
+    "back": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "chrf": 100.0
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "kn",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 1.05,
+  "wall_s": 1.05,
+  "error": null,
+  "batch_problems": [
+   "not written in Kannada: 'Hello Test Patient 04. Take Am'",
+   "not written in Kannada: 'Hello Test Patient 05. Take Ce'",
+   "not written in Kannada: 'Hello Test Patient 06. Take Az'",
+   "not written in Kannada: 'Hello Test Patient 06. Take Pa'",
+   "not written in Kannada: 'Hello Test Patient 07. Take Ib'"
+  ],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "output": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 04. Take Am'"
+    ],
+    "back": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "output": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 05. Take Ce'"
+    ],
+    "back": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "output": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 06. Take Az'"
+    ],
+    "back": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "output": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 06. Take Pa'"
+    ],
+    "back": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "output": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 07. Take Ib'"
+    ],
+    "back": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "chrf": 100.0
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "kn",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 0.77,
+  "wall_s": 0.77,
+  "error": null,
+  "batch_problems": [
+   "not written in Kannada: 'Hello Test Patient 08. Take At'",
+   "not written in Kannada: 'Hello Test Patient 09. Take Sa'",
+   "not written in Kannada: 'Keep this medicine in a cool, '",
+   "not written in Kannada: 'Not medical advice. Confirm wi'"
+  ],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "output": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 08. Take At'"
+    ],
+    "back": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "output": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "problems": [
+     "not written in Kannada: 'Hello Test Patient 09. Take Sa'"
+    ],
+    "back": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "output": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "problems": [
+     "not written in Kannada: 'Keep this medicine in a cool, '"
+    ],
+    "back": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "output": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "problems": [
+     "not written in Kannada: 'Not medical advice. Confirm wi'"
+    ],
+    "back": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "chrf": 100.0
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "ta",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 0.83,
+  "wall_s": 0.83,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "output": "ஹலோ டெஸ்ட் பாட்டியன்ட் 01. Paracetamol 500 mg மூன்று முறை தினமும் எடுத்துக்கொள்ளவும். உணவுக்குப் பிறகு நீருடன் விழுங்கவும். 5 நாட்களுக்கு எடுத்துக்கொள்ளவும்.",
+    "problems": [],
+    "back": "Hello test patient 01. Paracetamol 500 mg take three times daily. Take with water after meals. Take for 5 days.",
+    "chrf": 60.6
+   },
+   {
+    "source": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "output": "ஹலோ டெஸ்ட் பாட்டியன்ட் 02. Amoxicillin 500 mg மூன்று முறை தினமும் எடுத்துக்கொள்ளவும். உணவுக்குப் பிறகு நீருடன் விழுங்கவும். 7 நாட்களுக்கு எடுத்துக்கொள்ளவும்.",
+    "problems": [],
+    "back": "Hello test patient 02. Amoxicillin 500 mg take three times daily. Take with water after meals. Take for 7 days.",
+    "chrf": 60.6
+   },
+   {
+    "source": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "output": "ஹலோ டெஸ்ட் பாட்டியன்ட் 02. Pantoprazole 40 mg ஒரு முறை தினமும் எடுத்துக்கொள்ளவும். காலை உணவுக்கு முன் நீருடன் விழுங்கவும். 7 நாட்களுக்கு எடுத்துக்கொள்ளவும்.",
+    "problems": [],
+    "back": "Hello test patient 02. Pantoprazole 40 mg take once daily. Take with water before breakfast. Take for 7 days.",
+    "chrf": 67.5
+   },
+   {
+    "source": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "output": "ஹலோ டெஸ்ட் பாட்டியன்ட் 03. Metformin 500 mg இரு முறை தினமும் எடுத்துக்கொள்ளவும். உணவுக்குப் பிறகு நீருடன் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக்கொள்ளவும்.",
+    "problems": [],
+    "back": "Hello test patient 03. Metformin 500 mg take twice daily. Take with water after meals. Take for 30 days.",
+    "chrf": 65.4
+   },
+   {
+    "source": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "output": "இந்த மருந்து முடிவதற்கு முன் உங்கள் சுகாதார மையத்திற்கு புதிய மருந்து பரிந்துரைக்க செல்லவும்.",
+    "problems": [],
+    "back": "Before this medication finishes, go to your health center for a new medication prescription.",
+    "chrf": 62.2
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "ta",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 0.84,
+  "wall_s": 0.84,
+  "error": null,
+  "batch_problems": [
+   "not written in Tamil: 'Hello Test Patient 04. Take Am'",
+   "not written in Tamil: 'Hello Test Patient 05. Take Ce'",
+   "not written in Tamil: 'Hello Test Patient 06. Take Az'",
+   "not written in Tamil: 'Hello Test Patient 06. Take Pa'",
+   "not written in Tamil: 'Hello Test Patient 07. Take Ib'"
+  ],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "output": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "problems": [
+     "not written in Tamil: 'Hello Test Patient 04. Take Am'"
+    ],
+    "back": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "output": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "problems": [
+     "not written in Tamil: 'Hello Test Patient 05. Take Ce'"
+    ],
+    "back": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "output": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "problems": [
+     "not written in Tamil: 'Hello Test Patient 06. Take Az'"
+    ],
+    "back": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "output": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "problems": [
+     "not written in Tamil: 'Hello Test Patient 06. Take Pa'"
+    ],
+    "back": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "output": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "problems": [
+     "not written in Tamil: 'Hello Test Patient 07. Take Ib'"
+    ],
+    "back": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "chrf": 100.0
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "ta",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 0.85,
+  "wall_s": 0.85,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "output": "ஹலோ டெஸ்ட் பாட்டியன்ட் 08. அட்டோர்வஸ்டாட்டின் 10 mg ஒரு நாள் ஒருமுறை எடுத்துக்கொள்ளவும். தண்ணீருடன் விழுங்கவும். 30 நாட்களுக்கு எடுத்துக்கொள்ளவும்.",
+    "problems": [
+     "drug name lost: ['Atorvastatin']"
+    ],
+    "back": "Hello test patient 08. Atorvastatin 10 mg take once daily. Swallow with water. Take for 30 days.",
+    "chrf": 69.9
+   },
+   {
+    "source": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "output": "ஹலோ டெஸ்ட் பாட்டியன்ட் 09. சால்புடமோல் 100 mcg, இன்பேலர் மூலம் சுவாசிக்கவும், மூச்சு திணறும்போது 2 பஃப்ஸ், தேவையானபோது மட்டுமே, 30 நாட்களுக்கு.",
+    "problems": [
+     "drug name lost: ['Salbutamol']"
+    ],
+    "back": "Hello test patient 09. Salbutamol 100 mcg, inhale via inhaler, 2 puffs when short of breath, only as needed, for 30 days.",
+    "chrf": 61.0
+   },
+   {
+    "source": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "output": "இந்த மருந்தை குளிர்ந்த, உலர்ந்த இடத்தில், குழந்தைகளின் அடையாத இடத்தில் வைத்திருக்கவும்.",
+    "problems": [],
+    "back": "Store this medication in a cool, dry place, out of reach of children.",
+    "chrf": 73.4
+   },
+   {
+    "source": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "output": "மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்தாளர் அல்லது மருத்துவரை உறுதிப்படுத்தவும்.",
+    "problems": [],
+    "back": "Not medical advice. Verify with your pharmacist or doctor.",
+    "chrf": 81.6
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "te",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 0.94,
+  "wall_s": 0.94,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 01. పారాసెటమాల్ 500 mg మూడు సార్లు రోజుకు తీసుకోండి. ఆహారానంతరం నీటితో మింగండి. 5 రోజుల పాటు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Paracetamol']"
+    ],
+    "back": "Hello test patient 01. Paracetamol 500 mg three times a day. Take with water after food. Take for 5 days.",
+    "chrf": 73.5
+   },
+   {
+    "source": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 02. అమీక్సిసిలిన్ 500 mg మూడు సార్లు రోజుకు తీసుకోండి. ఆహారానంతరం నీటితో మింగండి. 7 రోజుల పాటు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Amoxicillin']"
+    ],
+    "back": "Hello test patient 02. Amoxicillin 500 mg three times a day. Take with water after food. Take for 7 days.",
+    "chrf": 73.5
+   },
+   {
+    "source": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 02. పాంటోప్రాజోల్ 40 mg ఒకసారి రోజుకు తీసుకోండి. అల్పాహారానికి ముందు నీటితో మింగండి. 7 రోజుల పాటు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Pantoprazole']"
+    ],
+    "back": "Hello test patient 02. Pantoprazole 40 mg once a day. Take with water before a light meal. Take for 7 days.",
+    "chrf": 63.7
+   },
+   {
+    "source": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 03. మెట్ఫార్మిన్ 500 mg రెండు సార్లు రోజుకు తీసుకోండి. భోజనాల తర్వాత నీటితో మింగండి. 30 రోజుల పాటు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Metformin']"
+    ],
+    "back": "Hello test patient 03. Metformin 500 mg twice a day. Take with water after meals. Take for 30 days.",
+    "chrf": 71.9
+   },
+   {
+    "source": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "output": "ఈ ఔషధం ముగియకముందు కొత్త ప్రిస్క్రిప్షన్ కోసం మీ ఆరోగ్య కేంద్రాన్ని సందర్శించండి.",
+    "problems": [],
+    "back": "Visit your health center for a new prescription before this medication runs out.",
+    "chrf": 75.5
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "te",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 0.92,
+  "wall_s": 0.92,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 04. అంలోడి‌పైన్ 5 mg ఒకసారి రోజుకు తీసుకోండి. ఉదయం నీటితో మింగండి. 30 రోజుల పాటు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Amlodipine']"
+    ],
+    "back": "Hello test patient 04. Amnodi-pain 5 mg take once daily. Take in the morning with water. Take for 30 days.",
+    "chrf": 51.7
+   },
+   {
+    "source": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 05. సెటిరిజైన్ 10 mg తీసుకోండి. నీటితో మింగండి. 5 రోజుల పాటు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Cetirizine']"
+    ],
+    "back": "Hello test patient 05. Setirizine 10 mg take. Take with water. Take for 5 days.",
+    "chrf": 62.2
+   },
+   {
+    "source": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 06. అజిత్రోమైసిన్ 500 mg ఒకసారి రోజుకు తీసుకోండి. భోజనం ముందు ఒక గంట నీటితో మింగండి. 3 రోజుల పాటు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Azithromycin']"
+    ],
+    "back": "Hello test patient 06. Azithromycin 500 mg take once daily. Take one hour before meals with water. Take for 3 days.",
+    "chrf": 59.1
+   },
+   {
+    "source": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 06. పారాసిటమాల్ 650 mg అవసరమైనప్పుడు మాత్రమే తీసుకోండి. జ్వరం కోసం నీటితో మింగండి. 3 రోజుల పాటు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Paracetamol']"
+    ],
+    "back": "Hello test patient 06. Paracetamol 650 mg take only when needed. Take with water for fever. Take for 3 days.",
+    "chrf": 71.2
+   },
+   {
+    "source": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 07. ఐబుప్రోఫెన్ 400 mg ప్రతి 8 గంటలకు తీసుకోండి. భోజనం తర్వాత నీటితో మింగండి. 3 రోజుల పాటు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Ibuprofen']"
+    ],
+    "back": "Hello test patient 07. Ibuprofen 400 mg take every 8 hours. Take after meals with water. Take for 3 days.",
+    "chrf": 58.7
+   }
+  ]
+ },
+ {
+  "provider": "groq:openai/gpt-oss-20b",
+  "lang": "te",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 0.88,
+  "wall_s": 0.88,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 08. అటోర్వాస్టాటిన్ 10 mg ఒకసారి రోజుకు తీసుకోండి. నీటితో మింగండి. 30 రోజుల పాటు తీసుకోండి.",
+    "problems": [
+     "drug name lost: ['Atorvastatin']"
+    ],
+    "back": "Hello test patient 08. Atorvastatin 10 mg take once daily. Take with water. Take for 30 days.",
+    "chrf": 61.6
+   },
+   {
+    "source": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "output": "హలో టెస్ట్ పేషెంట్ 09. సల్బుటమోల్ 100 mcg, ఇన్హేలర్ నుండి శ్వాసించండి, శ్వాసలో ఇబ్బంది ఉన్నప్పుడు 2 పఫ్‌లు, అవసరమైనప్పుడు మాత్రమే, 30 రోజుల పాటు.",
+    "problems": [
+     "drug name lost: ['Salbutamol']"
+    ],
+    "back": "Hello test patient 09. Salbutamol 100 mcg, inhale from inhaler, 2 puffs when having breathing difficulty, only as needed, for 30 days.",
+    "chrf": 62.8
+   },
+   {
+    "source": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "output": "ఈ మందును చల్లని, పొడి ప్రదేశంలో ఉంచండి, పిల్లల చేరుకోలేని స్థలంలో.",
+    "problems": [],
+    "back": "Store this medication in a cool, dry place, out of reach of children.",
+    "chrf": 73.4
+   },
+   {
+    "source": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "output": "ఇది వైద్య సలహా కాదు. మీ ఫార్మసిస్ట్ లేదా డాక్టర్‌తో నిర్ధారించుకోండి.",
+    "problems": [],
+    "back": "This is not medical advice. Verify with your pharmacist or doctor.",
+    "chrf": 77.9
+   }
+  ]
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "hi",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 2.02,
+  "wall_s": 2.02,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "output": "नमस्ते Test Patient 01। Paracetamol 500 mg दिन में तीन बार लें। खाने के बाद पानी के साथ निगलें। इसे 5 दिन तक लें।",
+    "problems": [],
+    "back": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow with water after food. Take it for 5 days.",
+    "chrf": 95.6
+   },
+   {
+    "source": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "output": "नमस्ते Test Patient 02। Amoxicillin 500 mg दिन में तीन बार लें। खाने के बाद पानी के साथ निगलें। इसे 7 दिन तक लें।",
+    "problems": [],
+    "back": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow with water after food. Take it for 7 days.",
+    "chrf": 95.6
+   },
+   {
+    "source": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "output": "नमस्ते Test Patient 02। Pantoprazole 40 mg दिन में एक बार लें। नाश्ते से पहले पानी के साथ निगलें। इसे 7 दिन तक लें।",
+    "problems": [],
+    "back": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "output": "नमस्ते Test Patient 03। Metformin 500 mg दिन में दो बार लें। खाने के बाद पानी के साथ निगलें। इसे 30 दिन तक लें।",
+    "problems": [],
+    "back": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow with water after food. Take it for 30 days.",
+    "chrf": 87.1
+   },
+   {
+    "source": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "output": "इस दवा खत्म होने से पहले, नई पर्ची के लिए अपने स्वास्थ्य केंद्र पर जाएँ।",
+    "problems": [],
+    "back": "Before this medication runs out, go to your health center for a new prescription.",
+    "chrf": 73.9
+   }
+  ]
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "hi",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 34.09,
+  "wall_s": 34.09,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "output": "नमस्ते Test Patient 04। Amlodipine 5 mg एक बार प्रति दिन लें। सुबह पानी के साथ निगलें। इसे 30 दिनों तक लें।",
+    "problems": [],
+    "back": "Hello Test Patient 04. Take Amlodipine 5 mg once daily. Swallow with water in the morning. Take it for 30 days.",
+    "chrf": 89.7
+   },
+   {
+    "source": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "output": "नमस्ते Test Patient 05। Cetirizine 10 mg लें। पानी के साथ निगलें। इसे 5 दिनों तक लें।",
+    "problems": [],
+    "back": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "output": "नमस्ते Test Patient 06। Azithromycin 500 mg एक बार प्रति दिन लें। खाने से एक घंटा पहले पानी के साथ निगलें। इसे 3 दिनों तक लें।",
+    "problems": [],
+    "back": "Hello Test Patient 06. Take Azithromycin 500 mg once daily. Swallow with water one hour before meals. Take it for 3 days.",
+    "chrf": 84.0
+   },
+   {
+    "source": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "output": "नमस्ते Test Patient 06। Paracetamol 650 mg केवल आवश्यकता होने पर लें। बुखार के लिए पानी के साथ निगलें। इसे 3 दिनों तक लें।",
+    "problems": [],
+    "back": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "chrf": 100.0
+   },
+   {
+    "source": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "output": "नमस्ते Test Patient 07। Ibuprofen 400 mg हर 8 घंटे पर लें। खाने के बाद पानी के साथ निगलें। इसे 3 दिनों तक लें।",
+    "problems": [],
+    "back": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow with water after meals. Take it for 3 days.",
+    "chrf": 87.8
+   }
+  ]
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "hi",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 17.31,
+  "wall_s": 17.31,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "output": "नमस्ते Test Patient 08। Atorvastatin 10 mg एक बार प्रति दिन लें। पानी के साथ निगलें। इसे 30 दिनों तक लें।",
+    "problems": [],
+    "back": "Hello Test Patient 08. Take Atorvastatin 10 mg once daily. Swallow with water. Take it for 30 days.",
+    "chrf": 93.3
+   },
+   {
+    "source": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "output": "नमस्ते Test Patient 09। Salbutamol 100 mcg लें, इनहेलर से साँस लें, साँस फूलने पर 2 puffs, केवल ज़रूरत पड़ने पर, 30 दिनों तक।",
+    "problems": [],
+    "back": "Hello Test Patient 09. Take Salbutamol 100 mcg, inhale with inhaler, 2 puffs when breathing is difficult, only if needed, for 30 days.",
+    "chrf": 74.3
+   },
+   {
+    "source": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "output": "इस दवा को ठंडी, सूखी जगह पर रखें, बच्चों की पहुँच से दूर।",
+    "problems": [],
+    "back": "Store this medication in a cool, dry place, away from children's reach.",
+    "chrf": 55.5
+   },
+   {
+    "source": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "output": "यह चिकित्सा सलाह नहीं है। अपने फार्मासिस्ट या डॉक्टर से पुष्टि करें।",
+    "problems": [],
+    "back": "This is not medical advice. Verify with your pharmacist or doctor.",
+    "chrf": 77.9
+   }
+  ]
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "kn",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 57.75,
+  "wall_s": 57.75,
+  "error": "ValueError: model did not return a translations list",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "kn",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 49.11,
+  "wall_s": 49.11,
+  "error": "ValueError: model did not return a translations list",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "kn",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 50.16,
+  "wall_s": 50.16,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "output": "ನಮಸ್ಕಾರ ಟೆಸ್ಟ್ ರೋಗಿ 08. ಅಟೋರ್ವಾಸ್ಟಾಟಿನ್ 10 mg ದಿನಕ್ಕೆ ಒಮ್ಮೆ ತೆಗೆದುಕೊಳ್ಳಿ. ನೀರಿನೊಂದಿಗೆ ನುಂಗಿ. 30 ದಿನಗಳವರೆಗೆ ತೆಗೆದುಕೊಳ್ಳಿ.",
+    "problems": [
+     "drug name lost: ['Atorvastatin']"
+    ],
+    "back": "Hello test patient 08. Atorvastatin 10 mg once daily. Take with water. Continue for 30 days.",
+    "chrf": 59.7
+   },
+   {
+    "source": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "output": "ನಮಸ್ಕಾರ ಟೆಸ್ಟ್ ರೋಗಿ 09. ಸಾಲ್ಬುಟಾಮಾಲ್ 100 mcg, ಇನ್ಹೇಲರ್‌ನಿಂದ ಉಸಿರಾಡಿಕೊಳ್ಳಿ, ಉಸಿರು ತಿರುಗಿದಾಗ 2 ಪಫ್, ಅಗತ್ಯವಿದ್ದಾಗ ಮಾತ್ರ, 30 ದಿನಗಳವರೆಗೆ.",
+    "problems": [
+     "drug name lost: ['Salbutamol']"
+    ],
+    "back": "Hello test patient 09. Salbutamol 100 mcg, inhale from inhaler, 2 puffs when breathing is difficult, only as needed, for up to 30 days.",
+    "chrf": 63.0
+   },
+   {
+    "source": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "output": "ಈ ಔಷಧವನ್ನು ತಂಪಾದ, ಒಣ ಸ್ಥಳದಲ್ಲಿ, ಮಕ್ಕಳ ತಲುಪದಂತೆ ಇಡಿ.",
+    "problems": [],
+    "back": "Store this medication in a cool, dry place, out of reach of children.",
+    "chrf": 73.4
+   },
+   {
+    "source": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "output": "ಇದು ವೈದ್ಯಕೀಯ ಸಲಹೆ ಅಲ್ಲ. ನಿಮ್ಮ ಔಷಧಿ ವ್ಯಾಪಾರಿ ಅಥವಾ ವೈದ್ಯರನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+    "problems": [],
+    "back": "This is not medical advice. Contact your pharmacist or doctor.",
+    "chrf": 76.8
+   }
+  ]
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "ta",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 50.21,
+  "wall_s": 50.21,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 01. Take Paracetamol 500 mg three times a day. Swallow it with water after food. Take it for 5 days.",
+    "output": "வணக்கம் டெஸ்ட் பேஷண்ட் 01. பாராசிட்டமால் 500 mg ஒரு நாளைக்கு மூன்று முறை எடுக்கவும். உணவுக்கு பிறகு தண்ணீருடன் கழுவி விடவும். 5 நாட்களுக்கு எடுக்கவும்.",
+    "problems": [
+     "drug name lost: ['Paracetamol']"
+    ],
+    "back": "Hello test patient 01. Paracetamol 500 mg take three times a day. After food rinse with water. Take for 5 days.",
+    "chrf": 63.3
+   },
+   {
+    "source": "Hello Test Patient 02. Take Amoxicillin 500 mg three times a day. Swallow it with water after food. Take it for 7 days.",
+    "output": "வணக்கம் டெஸ்ட் பேஷண்ட் 02. அமோக்சிசில்லின் 500 mg ஒரு நாளைக்கு மூன்று முறை எடுக்கவும். உணவுக்கு பிறகு தண்ணீருடன் கழுவி விடவும். 7 நாட்களுக்கு எடுக்கவும்.",
+    "problems": [
+     "drug name lost: ['Amoxicillin']"
+    ],
+    "back": "Hello test patient 02. Amoxicillin 500 mg take three times a day. After food rinse with water. Take for 7 days.",
+    "chrf": 63.3
+   },
+   {
+    "source": "Hello Test Patient 02. Take Pantoprazole 40 mg once a day. Swallow with water before breakfast. Take it for 7 days.",
+    "output": "வணக்கம் டெஸ்ட் பேஷண்ட் 02. பாண்டோபிராசோல் 40 mg ஒரு நாளைக்கு ஒரு முறை எடுக்கவும். காலை உணவுக்கு முன் தண்ணீருடன் கழுவி விடவும். 7 நாட்களுக்கு எடுக்கவும்.",
+    "problems": [
+     "drug name lost: ['Pantoprazole']"
+    ],
+    "back": "Hello test patient 02. Pantoprazole 40 mg take once a day. Before breakfast rinse with water. Take for 7 days.",
+    "chrf": 63.3
+   },
+   {
+    "source": "Hello Test Patient 03. Take Metformin 500 mg twice a day. Swallow it with water after meals. Take it for 30 days.",
+    "output": "வணக்கம் டெஸ்ட் பேஷண்ட் 03. மெட்ஃபார்மின் 500 mg ஒரு நாளைக்கு இரண்டு முறை எடுக்கவும். உணவுக்கு பிறகு தண்ணீருடன் கழுவி விடவும். 30 நாட்களுக்கு எடுக்கவும்.",
+    "problems": [
+     "drug name lost: ['Metformin']"
+    ],
+    "back": "Hello test patient 03. Metformin 500 mg take two times a day. After food rinse with water. Take for 30 days.",
+    "chrf": 51.7
+   },
+   {
+    "source": "Before this medicine runs out, visit your health centre for a new prescription.",
+    "output": "இந்த மருந்து முடிவதற்கு முன், புதிய மருந்து பட்டைக்காக உங்கள் சுகாதார மையத்தை பார்வையிடவும்.",
+    "problems": [],
+    "back": "Before this medication finishes, visit your health center for a new prescription.",
+    "chrf": 75.5
+   }
+  ]
  }
 ]

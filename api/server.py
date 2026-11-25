@@ -1,25 +1,25 @@
-"""MedSaarthi AI: HTTP API and web app host (replaces the Streamlit front end).
+"""MedSaarthi AI: HTTP API and web app host.
 
     python -m uvicorn api.server:app --port 8000      # after: npm --prefix web run build
 
 The safety rules stay on the server. The browser sends what a person typed and that they
 confirmed it; it can never mark an item safe on its own, and a confirmed item must still
-have every required field and a dose with an amount. Cases live in memory only: prescription
-text is never written to disk (the LLM disk cache is used for the synthetic samples only).
+have every required field and a dose with an amount (api/rules.py). Cases live in memory only
+and belong to one browser; saving to an account is opt-in and encrypted (api/records.py).
+Prescription text is never written to disk (the LLM disk cache is used for synthetic samples only).
 
 Each browser gets its own session cookie: it can see and delete only its own cases and audit
 rows. Reads and guides are rate limited per address, because they spend the owner's Groq quota.
+State-changing requests that carry an Origin header must come from this site.
 """
 import io
 import json
-import os
 import re
 import threading
-import time
 import uuid
-from collections import defaultdict, deque
-from dataclasses import dataclass, field
+from contextlib import asynccontextmanager
 from pathlib import Path
+from urllib.parse import urlparse
 
 from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, Response
@@ -27,95 +27,68 @@ from fastapi.staticfiles import StaticFiles
 from PIL import Image, UnidentifiedImageError
 from pydantic import BaseModel
 
+from api import state
+from api.auth import router as auth_router
+from api.db import init_db
+from api.records import router as records_router
+from api.rules import ConfirmationError, apply_confirmation, clean_confirmation, stamp
+from api.views import REASON_TEXT, case_json
 from src import audit
 from src.config import ROOT, load_config
 from src.lang import available as lang_available
 from src.llm import LLM
-from src.pipeline import Stage1, Stage2, explain, read_and_extract
+from src.pipeline import explain, read_and_extract
 from src.render import Prefs, render_html, render_pdf
-from src.schedule import format_time, parse_frequency, period, plain_frequency
-from src.schema import ALL_FIELDS, REQUIRED_FIELDS, FieldValue, ItemStatus, ReasonCode
+from src.schedule import format_time, period
+from src.schema import Verification
 from src.translate import NOTE
-from src.validator import extract_quantities, gate_item
 
 CFG = load_config()
 SAMPLES = ROOT / "data" / "samples"
 DIST = ROOT / "web" / "dist"
 MAX_UPLOAD = 10 * 1024 * 1024
 MAX_TEXT = 5000
-MAX_CASES = 200
-PUBLIC = os.getenv("MEDSAARTHI_PUBLIC") == "1"
-LIMITS = {"read": int(os.getenv("READS_PER_HOUR", "30")), "guide": int(os.getenv("GUIDES_PER_HOUR", "60"))}
-COOKIE = "ms_session"
 CATEGORY_LABELS = {"clean": "Clean print", "degraded": "Degraded scan", "ambiguous": "Unclear or missing",
                    "injection": "Injected text"}
-REASON_TEXT = {
-    ReasonCode.ILLEGIBLE: "I couldn't read part of this clearly.",
-    ReasonCode.MISSING_NAME: "I can't find the medicine's name.",
-    ReasonCode.MISSING_DOSE: "I can't find how much to take.",
-    ReasonCode.MISSING_FREQUENCY: "I can't find how often to take it.",
-    ReasonCode.MISSING_DURATION: "I can't find how many days to take it for.",
-    ReasonCode.UNKNOWN_ABBREVIATION: "This short form is new to me, so I won't guess what it means.",
-    ReasonCode.LOW_OCR_CONFIDENCE: "The photo isn't sharp enough here for me to be sure.",
-    ReasonCode.CONFLICTING: "Two parts of the prescription seem to say different things.",
-}
 
-app = FastAPI(title="MedSaarthi AI", docs_url=None, redoc_url=None)
+
+@asynccontextmanager
+async def lifespan(_app):
+    init_db()
+    yield
+
+
+app = FastAPI(title="MedSaarthi AI", docs_url=None, redoc_url=None, lifespan=lifespan)
+app.include_router(auth_router)
+app.include_router(records_router)
 _translate_lock = threading.Lock()  # NLLB's tokenizer holds per-call state
 
 
-@dataclass
-class Case:
-    id: str
-    session: str
-    patient: str
-    stage1: Stage1
-    image: bytes | None = None
-    cacheable: bool = False  # True only for synthetic samples
-    guides: dict = field(default_factory=dict)
-    last_guide: Stage2 | None = None
-    last_prefs: dict = field(default_factory=dict)
-    last_payload: dict = field(default_factory=dict)
-
-
-CASES: dict[str, Case] = {}
-_consented: set[str] = set()
-_hits: dict[tuple[str, str], deque] = defaultdict(deque)
-_hits_lock = threading.Lock()
-
-
-def _session(request: Request) -> str:
-    """Runs inside each endpoint's thread, so audit rows land in this browser's log."""
-    sid = request.state.session
-    audit.use_session(sid)
-    return sid
+@app.middleware("http")
+async def same_origin(request: Request, call_next):
+    """Refuse a state-changing API call whose Origin is another site. SameSite cookies already
+    stop most of these; this covers the cases they don't (for example a framed app)."""
+    if request.method in ("POST", "PUT", "PATCH", "DELETE") and request.url.path.startswith("/api/"):
+        origin = request.headers.get("origin")
+        host = request.headers.get("x-forwarded-host") or request.headers.get("host", "")
+        if origin and urlparse(origin).netloc != host:
+            return JSONResponse({"detail": "That request came from another site, so it was refused."}, status_code=403)
+    return await call_next(request)
 
 
 @app.middleware("http")
 async def session_cookie(request: Request, call_next):
-    sid = request.cookies.get(COOKIE, "")
-    fresh = not re.fullmatch(r"[0-9a-f]{32}", sid)
+    sid = request.cookies.get(state.COOKIE, "")
+    fresh = not state.SESSION_RE.fullmatch(sid)
     if fresh:
         sid = uuid.uuid4().hex
     request.state.session = sid
     response = await call_next(request)
     if fresh and request.url.path.startswith("/api/"):
         # Spaces embeds the app in a frame on another site, which needs SameSite=None.
-        response.set_cookie(COOKIE, sid, httponly=True, max_age=86400, secure=PUBLIC, samesite="none" if PUBLIC else "lax")
+        response.set_cookie(state.COOKIE, sid, httponly=True, max_age=86400, secure=state.PUBLIC,
+                            samesite="none" if state.PUBLIC else "lax")
     return response
-
-
-def _rate_limit(request: Request, bucket: str) -> None:
-    forwarded = request.headers.get("x-forwarded-for", "")
-    who = forwarded.split(",")[0].strip() or (request.client.host if request.client else "unknown")
-    now = time.monotonic()
-    with _hits_lock:
-        hits = _hits[(who, bucket)]
-        while hits and now - hits[0] > 3600:
-            hits.popleft()
-        if len(hits) >= LIMITS[bucket]:
-            raise HTTPException(429, "That's a lot of requests for this demo. Please try again in a little while.")
-        hits.append(now)
 
 
 def _llm(model: str | None, cache: bool = False) -> LLM:
@@ -123,41 +96,6 @@ def _llm(model: str | None, cache: bool = False) -> LLM:
     if model and model not in allowed:
         raise HTTPException(422, "Unknown language model.")
     return LLM(model=model or None, use_cache=cache)
-
-
-def _case(case_id: str, request: Request) -> Case:
-    case = CASES.get(case_id)
-    if case is None or case.session != _session(request):
-        raise HTTPException(404, "This prescription is no longer in memory. Please add it again.")
-    return case
-
-
-def _item_json(index: int, item) -> dict:
-    return {
-        "index": index,
-        "status": item.status.value,
-        "usable": item.is_usable,
-        "reasons": [{"code": r.value, "text": REASON_TEXT[r]} for r in item.reasons],
-        "fields": {f: {"value": item.field(f).value, "confidence": item.field(f).confidence} for f in ALL_FIELDS},
-        "frequency_plain": plain_frequency(item.frequency.value),
-    }
-
-
-def _case_json(case: Case) -> dict:
-    s1, ex = case.stage1, case.stage1.extraction
-    return {
-        "id": case.id,
-        "patient": case.patient,
-        "source": ex.prescription.source,
-        "has_image": case.image is not None,
-        "ocr": {"engine": s1.ocr.engine, "mean_confidence": round(s1.ocr.mean_confidence, 3),
-                "lines": [{"text": l.text, "confidence": l.confidence} for l in s1.ocr.lines]},
-        "injection_hits": ex.injection_hits,
-        "model": ex.model_id,
-        "prompt": ex.prompt_id,
-        "threshold": CFG["safety"]["confidence_threshold"],
-        "items": [_item_json(i, it) for i, it in enumerate(ex.prescription.items)],
-    }
 
 
 def _run(fn):
@@ -224,7 +162,7 @@ def sample_image(sample_id: str):
 def read(request: Request, consent: bool = Form(False), text: str | None = Form(None), sample_id: str | None = Form(None),
          use_image: bool = Form(False), patient: str = Form(""), variant: str = Form("v2"),
          model: str | None = Form(None), ocr_mode: str = Form("auto"), file: UploadFile | None = File(None)):
-    sid = _session(request)
+    sid = state.session_id(request)
     if not consent:
         raise HTTPException(403, "Please agree to the notice before reading a prescription.")
     if variant not in ("v1", "v2", "v3"):
@@ -233,10 +171,10 @@ def read(request: Request, consent: bool = Form(False), text: str | None = Form(
         raise HTTPException(422, "Unknown OCR mode.")
     if text and len(text) > MAX_TEXT:
         raise HTTPException(413, "That's longer than a prescription. Please keep it under 5,000 characters.")
-    _rate_limit(request, "read")
-    if sid not in _consented:
+    state.rate_limit(request, "read")
+    if sid not in state.consented:
         audit.log_step("consent", None, "consent", agreed=True)
-        _consented.add(sid)
+        state.consented.add(sid)
 
     is_sample = bool(sample_id) and not (file is not None and file.filename)
     raw: bytes | None = None
@@ -262,16 +200,14 @@ def read(request: Request, consent: bool = Form(False), text: str | None = Form(
     extract_variant = "v1" if variant == "v1" else "v2"  # V3 only changes the explanation step
     stage1 = _run(lambda: read_and_extract(image=image, text=None if image is not None else text, ocr_mode=ocr_mode,
                                            variant=extract_variant, llm=_llm(model, cache=is_sample), patient_alias=patient))
-    case = Case(uuid.uuid4().hex, sid, patient.strip(), stage1, image=raw, cacheable=is_sample)
-    CASES[case.id] = case
-    while len(CASES) > MAX_CASES:
-        CASES.pop(next(iter(CASES)))
-    return _case_json(case)
+    case = state.Case(uuid.uuid4().hex, sid, patient.strip(), stage1, image=raw, cacheable=is_sample)
+    state.remember(case)
+    return case_json(case)
 
 
 @app.get("/api/cases/{case_id}/image")
 def case_image(case_id: str, request: Request):
-    case = _case(case_id, request)
+    case = state.get_case(case_id, request)
     if case.image is None:
         raise HTTPException(404, "This prescription was typed.")
     return Response(case.image, media_type="application/octet-stream")
@@ -285,29 +221,20 @@ class Confirmation(BaseModel):
 
 @app.post("/api/cases/{case_id}/items/{index}/confirm")
 def confirm(case_id: str, index: int, body: Confirmation, request: Request):
-    """A person checked this item with a pharmacist or doctor. Never fills a gap for them."""
-    case = _case(case_id, request)
+    """The patient says a pharmacist or doctor checked this item. Never fills a gap for them.
+    Recorded as self-attested; only a signed-in pharmacist's review is recorded as verified."""
+    case = state.get_case(case_id, request)
     items = case.stage1.extraction.prescription.items
     if not 0 <= index < len(items):
         raise HTTPException(404, "No such item.")
-    values = {f: (body.fields.get(f) or "").strip() or None for f in ALL_FIELDS}
-    missing = [f for f in REQUIRED_FIELDS if not values[f]]
-    if values["dose"] and not extract_quantities(values["dose"]):
-        missing.append("dose amount")
-    if missing:
-        return JSONResponse({"detail": "Still needed: " + ", ".join(missing) + ". Please ask your pharmacist rather than guessing.",
-                             "missing": missing}, status_code=422)
-    if parse_frequency(values["frequency"]) is None:
-        return JSONResponse({"detail": "I can't turn this into dose times. Write it the way your pharmacist "
-                                       "says it, like twice a day, 1-0-1 or every 8 hours.", "missing": ["frequency"]}, status_code=422)
-    item = items[index]
-    for f in ALL_FIELDS:
-        setattr(item, f, FieldValue(value=values[f], confidence=1.0))
-    item.reasons = []
-    item.status = ItemStatus.CONFIRMED
+    try:
+        values = clean_confirmation(body.fields)
+    except ConfirmationError as e:
+        return JSONResponse({"detail": e.detail, "missing": e.missing}, status_code=422)
+    apply_confirmation(items[index], values, Verification(kind="self", at=stamp()))
     case.guides.clear()
     audit.log_step("human_confirm", None, values["name"], item=index)
-    return _case_json(case)
+    return case_json(case)
 
 
 # ------------------------------------------------------------------ guide
@@ -344,6 +271,7 @@ def _medicine_payload(ex) -> dict:
         "blocked": ex.simplify.blocked,
         "model": ex.simplify.model_id,
         "prompt": ex.simplify.prompt_id,
+        "verification": ex.verification,
         "card": ex.card_en.as_dict() if ex.card_en else None,
         "translation": None,
     }
@@ -362,7 +290,7 @@ def _medicine_payload(ex) -> dict:
 
 @app.post("/api/cases/{case_id}/guide")
 def guide(case_id: str, body: GuideRequest, request: Request):
-    case = _case(case_id, request)
+    case = state.get_case(case_id, request)
     if body.lang not in {p["code"] for p in lang_available()}:
         raise HTTPException(422, "Unknown language.")
     if body.time_format not in ("12h", "24h"):
@@ -379,7 +307,7 @@ def guide(case_id: str, body: GuideRequest, request: Request):
     if key in case.guides:
         stage2, payload = case.guides[key]
     else:
-        _rate_limit(request, "guide")
+        state.rate_limit(request, "guide")
 
         def work():
             with _translate_lock:
@@ -404,7 +332,7 @@ def guide(case_id: str, body: GuideRequest, request: Request):
     return payload
 
 
-def _render_prefs(case: Case, large: bool, contrast: bool) -> Prefs:
+def _render_prefs(case: state.Case, large: bool, contrast: bool) -> Prefs:
     return Prefs(case.last_prefs.get("time_format", "12h"), large, contrast)
 
 
@@ -414,7 +342,7 @@ def _split(entries):
 
 @app.get("/api/cases/{case_id}/schedule.pdf")
 def schedule_pdf(case_id: str, request: Request, large: bool = False, contrast: bool = False, inline: bool = False):
-    case = _case(case_id, request)
+    case = state.get_case(case_id, request)
     if case.last_guide is None:
         raise HTTPException(409, "Write the guide first.")
     timed, prn = _split(case.last_guide.schedule)
@@ -425,7 +353,7 @@ def schedule_pdf(case_id: str, request: Request, large: bool = False, contrast: 
 
 @app.get("/api/cases/{case_id}/guide.html")
 def guide_html(case_id: str, request: Request, large: bool = False, contrast: bool = False, download: bool = True):
-    case = _case(case_id, request)
+    case = state.get_case(case_id, request)
     if case.last_guide is None:
         raise HTTPException(409, "Write the guide first.")
     timed, prn = _split(case.last_guide.schedule)
@@ -445,20 +373,20 @@ def guide_html(case_id: str, request: Request, large: bool = False, contrast: bo
 
 @app.get("/api/audit")
 def audit_log(request: Request):
-    sid = _session(request)
+    sid = state.session_id(request)
     return {"session": sid[:12], "rows": audit.read_session(sid)}
 
 
 @app.delete("/api/session")
 def delete_session(request: Request):
     """Forget this browser's cases and start it a new audit session. Others are untouched."""
-    sid = _session(request)
-    mine = [k for k, c in CASES.items() if c.session == sid]
+    sid = state.session_id(request)
+    mine = [k for k, c in state.CASES.items() if c.session == sid]
     for k in mine:
-        del CASES[k]
-    _consented.discard(sid)
+        del state.CASES[k]
+    state.consented.discard(sid)
     response = JSONResponse({"removed": len(mine)})
-    response.delete_cookie(COOKIE)
+    response.delete_cookie(state.COOKIE)
     return response
 
 

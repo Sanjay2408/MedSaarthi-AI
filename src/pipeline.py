@@ -36,6 +36,7 @@ class Explanation:
     card_en: Rendered | None = None
     local: Rendered | None = None
     mt: TranslationResult | None = None
+    verification: dict | None = None  # who vouched for this item: the patient, or a named pharmacist
 
     @property
     def translated_text(self) -> str | None:
@@ -80,7 +81,8 @@ def explain(items, variant: str = "v2", lang: str = "en", time_format: str = "24
             local = _card(item, entry.times, lang, time_format, patient) if has_pack(lang) else None
             if local is None:
                 mt = translate(s.final_text, lang, entry.times, time_format, keep=(item.name.value,))
-        out.explanations.append(Explanation(item.name.value, s, card_en, local, mt))
+        out.explanations.append(Explanation(item.name.value, s, card_en, local, mt,
+                                            item.verification.model_dump() if item.verification else None))
     return out
 
 
