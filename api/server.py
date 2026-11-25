@@ -433,6 +433,12 @@ if (DIST / "assets").exists():
 def web_app(path: str):
     if path.startswith("api/"):
         raise HTTPException(404, "No such endpoint.")
+    # Files in the build root (service worker, manifest, icons). Resolved and kept inside DIST.
+    if path and "/" not in path:
+        target = (DIST / path).resolve()
+        if target.parent == DIST.resolve() and target.is_file() and target.name != "index.html":
+            headers = {"Cache-Control": "no-cache"} if target.name == "sw.js" else None
+            return FileResponse(target, headers=headers)
     index = DIST / "index.html"
     if not index.exists():
         return HTMLResponse("<p>The web app is not built yet. Run <code>npm --prefix web install</code> and "

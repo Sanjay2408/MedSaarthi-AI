@@ -1,0 +1,16 @@
+{
+  "name": "MedSaarthi AI",
+  "short_name": "MedSaarthi",
+  "description": "Your prescription in plain words and your language, checked with your pharmacist.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f1f6f4",
+  "theme_color": "#0b6b5f",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

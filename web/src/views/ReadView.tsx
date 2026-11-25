@@ -1,5 +1,6 @@
 import { useEffect, useId, useMemo, useState } from "react";
 import { api, type Case, type Config, type Sample } from "../api";
+import { useAuth, voice } from "../auth";
 import { Says } from "../Saarthi";
 
 type Tab = "example" | "photo" | "typed";
@@ -33,6 +34,12 @@ export function ReadView({ config, consent, onConsent, onRead }: {
   const [busy, setBusy] = useState("");
   const [error, setError] = useState("");
   const fileHelp = useId();
+  const { user, profile } = useAuth();
+  const hello = voice(profile?.age_band, "hello", profile?.display_name.split(" ")[0] ?? "");
+
+  useEffect(() => {
+    if (profile && !patient) setPatient(profile.display_name);
+  }, [profile?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     api.samples().then(setSamples).catch((e: Error) => setError(e.message));
@@ -92,8 +99,8 @@ export function ReadView({ config, consent, onConsent, onRead }: {
           </>
         ) : (
           <>
-            <h1>Hello, I'm Saarthi.</h1>
-            <p>Let's make sense of your prescription, in plain words and in your language. If anything is unclear I won't guess. We'll check it with your pharmacist.</p>
+            <h1>{hello.title}</h1>
+            <p>{hello.line}</p>
           </>
         )}
       </Says>
@@ -177,13 +184,17 @@ export function ReadView({ config, consent, onConsent, onRead }: {
           <ul className="promise-list">
             <li><strong>I'm a helper, not a doctor.</strong> This is a student project, tested only on made-up prescriptions.</li>
             <li><strong>Please don't use a real prescription.</strong> The words I read are sent to an AI service (Groq) to be understood.</li>
-            <li><strong>I don't keep your prescription.</strong> You can see what's logged under "Your privacy".</li>
-            <li><strong>My translations are made by a computer</strong> and haven't been checked by a professional.</li>
+            <li><strong>I don't keep your prescription</strong> unless you choose to save a plan. Photos are never stored. You can see what's logged under "Your privacy".</li>
+            <li><strong>Wording in some languages is still a draft.</strong> Numbers and times are always written by code, but a native speaker hasn't checked every sentence yet.</li>
           </ul>
-          <label className="check">
-            <input type="checkbox" checked={consent} onChange={(e) => onConsent(e.target.checked)} />
-            <span>I understand and agree</span>
-          </label>
+          {user ? (
+            <p className="meta">You agreed to this when you made your account.</p>
+          ) : (
+            <label className="check">
+              <input type="checkbox" checked={consent} onChange={(e) => onConsent(e.target.checked)} />
+              <span>I understand and agree</span>
+            </label>
+          )}
 
           <div className="field">
             <label htmlFor="patient">What should I call you?</label>

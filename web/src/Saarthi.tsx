@@ -1,9 +1,13 @@
-import type { ReactNode } from "react";
+import { Component, lazy, Suspense, type ReactNode } from "react";
+import { useScenePrefs } from "./scene/prefs";
 
 // Saarthi means guide or charioteer: the companion who rides beside you. Its moods follow the
 // patient's situation. It is cheerful when things go well and quietly attentive when something
 // needs checking. It never jokes about a dose or a warning.
+// In 3D when the device and the person's settings allow it, otherwise the flat drawing below.
 export type Mood = "hello" | "thinking" | "careful" | "happy";
+
+const Saarthi3D = lazy(() => import("./scene/Saarthi3D"));
 
 export function Saarthi({ mood = "hello", size = 72 }: { mood?: Mood; size?: number }) {
   return (
@@ -51,10 +55,37 @@ export function Saarthi({ mood = "hello", size = 72 }: { mood?: Mood; size?: num
   );
 }
 
-export function Says({ mood, children, live }: { mood: Mood; children: ReactNode; live?: boolean }) {
+/** Falls back to the flat drawing if 3D cannot start (no WebGL, lost context, a script error). */
+export class SceneBoundary extends Component<{ fallback: ReactNode; children: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  componentDidCatch() {
+    /* the fallback is already showing; nothing else to do */
+  }
+  render() {
+    return this.state.failed ? this.props.fallback : this.props.children;
+  }
+}
+
+export function SaarthiAvatar({ mood = "hello", size = 72 }: { mood?: Mood; size?: number }) {
+  const scene = useScenePrefs();
+  const flat = <Saarthi mood={mood} size={size} />;
+  if (scene.mode !== "3d") return flat;
+  return (
+    <SceneBoundary fallback={flat}>
+      <Suspense fallback={flat}>
+        <Saarthi3D mood={mood} size={Math.round(size * 1.15)} speed={scene.speed} still={scene.still} />
+      </Suspense>
+    </SceneBoundary>
+  );
+}
+
+export function Says({ mood, children, live, size = 72 }: { mood: Mood; children: ReactNode; live?: boolean; size?: number }) {
   return (
     <div className={`says says-${mood}`} role={live ? "status" : undefined}>
-      <Saarthi mood={mood} />
+      <SaarthiAvatar mood={mood} size={size} />
       <div className="bubble">{children}</div>
     </div>
   );

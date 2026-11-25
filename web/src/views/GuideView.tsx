@@ -3,6 +3,8 @@ import { api, type Case, type Config, type Guide, type GuidePrefs } from "../api
 import { SPEECH_LANG, WORDS, type Words } from "../i18n";
 import { Says, type Mood } from "../Saarthi";
 import { DayPlan } from "./DayStrip";
+import { VerifyBadge } from "./PlansView";
+import { SavePanel } from "./SavePanel";
 
 const SHIFTS = [-120, -90, -60, -30, 0, 30, 60, 90, 120];
 const shiftLabel = (m: number) => {
@@ -52,30 +54,63 @@ function ListenButton({ text, lang, words }: { text: string; lang: string; words
   );
 }
 
+type Row = { key: string; label: string; text: string };
+
+function CardRows({ rows, greeting, footer, lang }: { rows: Row[]; greeting?: string; footer?: string[]; lang: string }) {
+  return (
+    <div className="card" lang={lang}>
+      {greeting && <p className="greeting">{greeting}</p>}
+      <dl className="card-rows">
+        {rows.map((r) => (
+          <div key={r.key} className={`card-row row-${r.key}`}>
+            <dt>{r.label}</dt>
+            <dd>{r.text}</dd>
+          </div>
+        ))}
+      </dl>
+      {footer && footer.length > 0 && <ul className="card-footer">{footer.map((f, i) => <li key={i}>{f}</li>)}</ul>}
+    </div>
+  );
+}
+
 function Medicine({ med, words, languageName }: { med: Guide["medicines"][number]; words: Words; languageName: string }) {
   const tr = med.translation;
+  const template = tr && tr.tier === "template" && !tr.blocked && tr.rows && tr.rows.length > 0 ? tr : null;
   const shown = tr && !tr.blocked ? tr.text : null;
-  const speech = shown ?? med.english;
+  const englishRows = med.card && med.card.rows.length > 0 ? med.card : null;
+  const spoken = template ? [template.greeting, ...template.rows!.map((r) => `${r.label}. ${r.text}`)].filter(Boolean).join(" ") : shown ?? med.english;
+  const spokenLang = template || shown ? tr!.lang : "en";
+  const draft = tr && !tr.reviewed && tr.lang !== "en";
+
   return (
     <article className="panel medicine" aria-label={med.name}>
       <header className="item-head">
         <h2>{med.name}</h2>
-        <ListenButton text={speech} lang={shown ? tr!.lang : "en"} words={words} />
+        <VerifyBadge v={med.verification} />
+        <ListenButton text={spoken} lang={spokenLang} words={words} />
       </header>
       {med.blocked && <p className="notice compact">I've kept this one exactly as your prescription says it, so nothing gets changed in the wording.</p>}
       {tr?.blocked && <p className="notice compact">I couldn't be sure the {languageName} kept every number right, so I'm showing English here. Please ask your pharmacist to explain it.</p>}
-      {shown
-        ? (
-          <div className="guide-text" lang={tr!.lang}>
-            {shown.split("\n").map((line, i) => (
-              <p key={i} className={line === tr!.when ? "when" : ""}>{line}</p>
-            ))}
-          </div>
-        )
-        : <div className="guide-text">{med.english.split("\n").map((line, i) => <p key={i}>{line}</p>)}</div>}
-      {shown && (
+      {template
+        ? <CardRows rows={template.rows!} greeting={template.greeting} footer={template.footer} lang={tr!.lang} />
+        : shown
+          ? (
+            <div className="guide-text" lang={tr!.lang}>
+              {shown.split("\n").map((line, i) => (
+                <p key={i} className={line === tr!.when ? "when" : ""}>{line}</p>
+              ))}
+            </div>
+          )
+          : englishRows
+            ? <CardRows rows={englishRows.rows} greeting={englishRows.greeting} footer={englishRows.footer} lang="en" />
+            : <div className="guide-text">{med.english.split("\n").map((line, i) => <p key={i}>{line}</p>)}</div>}
+      {tr && tr.lang !== "en" && shown !== null && (
         <>
-          <p className="meta">{tr!.note}</p>
+          <p className="meta">
+            {tr.tier === "template"
+              ? `Times, doses and days were written by code from your confirmed values, so they can't be mistranslated. ${draft ? "The surrounding words are a draft and have not been checked by a native speaker yet." : "A native speaker has reviewed this wording."}`
+              : `${tr.note} Translated by ${tr.provider}, then checked: every number matches.`}
+          </p>
           <details className="advanced">
             <summary>English</summary>
             <div className="guide-text small">{med.english.split("\n").map((line, i) => <p key={i}>{line}</p>)}</div>
@@ -86,7 +121,38 @@ function Medicine({ med, words, languageName }: { med: Guide["medicines"][number
   );
 }
 
-export function GuideView({ config, current, guide, prefs, large, contrast, onGuide, onPrefs }: {
+function scheduleText(guide: Guide): string {
+  const lines = guide.schedule
+    .filter((s) => !s.as_needed)
+    .flatMap((s) => s.times.map((t) => `${t.label}: ${s.medicine} ${s.dose}`));
+  return [`Medicine plan${guide.patient ? ` for ${guide.patient}` : ""}`, ...lines, "", guide.disclaimer].join("\n");
+}
+
+function ShareBar({ caseId, guide, canShare }: { caseId: string; guide: Guide; canShare: boolean }) {
+  const text = scheduleText(guide);
+  const share = async () => {
+    try {
+      await navigator.share({ title: "Medicine plan", text });
+    } catch {
+      /* the person closed the share sheet */
+    }
+  };
+  return (
+    <section className="panel share-bar" aria-labelledby="share-heading">
+      <h2 id="share-heading">Take it with you</h2>
+      <div className="share-actions">
+        <a className="secondary" href={`/api/cases/${caseId}/reminders.ics`} download>Add reminders to my calendar</a>
+        {canShare
+          ? <button className="secondary" onClick={share}>Share my plan</button>
+          : <a className="secondary" href={`https://wa.me/?text=${encodeURIComponent(text)}`} target="_blank" rel="noreferrer">Send on WhatsApp</a>}
+        <a className="text-button" href={`/api/cases/${caseId}/plan.fhir.json`} download>For my doctor's software (FHIR)</a>
+      </div>
+      <p className="meta">The calendar file works with Google, Apple and Outlook calendars. Sharing sends only the times and medicine names, when you tap the button.</p>
+    </section>
+  );
+}
+
+export function GuideView({ config, current, guide, prefs, large, contrast, onGuide, onPrefs, goLogin, goPlans }: {
   config: Config;
   current: Case;
   guide: Guide | null;
@@ -95,6 +161,8 @@ export function GuideView({ config, current, guide, prefs, large, contrast, onGu
   contrast: boolean;
   onGuide: (g: Guide) => void;
   onPrefs: (p: GuidePrefs) => void;
+  goLogin: () => void;
+  goPlans: () => void;
 }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -196,6 +264,8 @@ export function GuideView({ config, current, guide, prefs, large, contrast, onGu
               </ul>
             </section>
           )}
+          <ShareBar caseId={current.id} guide={guide} canShare={typeof navigator !== "undefined" && "share" in navigator} />
+          <SavePanel current={current} goLogin={goLogin} goPlans={goPlans} />
           <p className="disclaimer">{guide.disclaimer}</p>
         </div>
       ) : !error && (

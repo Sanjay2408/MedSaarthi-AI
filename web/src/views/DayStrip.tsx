@@ -1,6 +1,10 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import type { Guide } from "../api";
 import type { Words } from "../i18n";
+import { SceneBoundary } from "../Saarthi";
+import { useScenePrefs } from "../scene/prefs";
+
+const Organizer3D = lazy(() => import("../scene/Organizer3D"));
 
 // The signature element: the day as four tiles, from sunrise to night, each dose a thing to
 // tick off. Morning and night are different places with different pictures, so they cannot be
@@ -80,14 +84,38 @@ export function DayPlan({ caseId, schedule, words, onProgress }: {
 
   const toggle = (key: string) => setTicks((t) => (t.includes(key) ? t.filter((k) => k !== key) : [...t, key]));
 
+  const scene = useScenePrefs();
+  const [selected, setSelected] = useState<string | null>(null);
+  const names = [...new Set(doses.map((d) => d.medicine))];
+  const slots = PERIODS.map((p) => ({
+    period: p,
+    doses: doses.filter((d) => d.period === p).map((d) => ({ key: d.key, hue: names.indexOf(d.medicine), done: ticks.includes(d.key) })),
+  }));
+  const hour = new Date().getHours();
+  const now: (typeof PERIODS)[number] = hour < 11 ? "Morning" : hour < 16 ? "Afternoon" : hour < 20 ? "Evening" : "Night";
+  const pick = (period: string) => {
+    setSelected((s) => (s === period ? null : period));
+    document.getElementById(`tile-${period}`)?.scrollIntoView({ block: "nearest", behavior: scene.still ? "auto" : "smooth" });
+  };
+
   return (
     <section className="plan" aria-labelledby="today-heading">
       <h2 id="today-heading" className="sr-only">{words.today}</h2>
+      {scene.mode === "3d" && doses.length > 0 && (
+        <div className="organizer">
+          <SceneBoundary fallback={null}>
+            <Suspense fallback={<div className="organizer-wait" aria-hidden="true" />}>
+              <Organizer3D slots={slots} selected={selected} now={now} onSelect={pick} speed={scene.speed} bounce={scene.bounce} still={scene.still} height={200} />
+            </Suspense>
+          </SceneBoundary>
+          <p className="meta organizer-hint">Tap a lid to open it. The tiles below say the same in words.</p>
+        </div>
+      )}
       <div className="day">
         {PERIODS.map((p) => {
           const here = doses.filter((d) => d.period === p).sort((a, b) => a.at.localeCompare(b.at));
           return (
-            <div key={p} className={`tile tile-${p.toLowerCase()} ${here.length ? "" : "quiet"}`}>
+            <div key={p} id={`tile-${p}`} className={`tile tile-${p.toLowerCase()} ${here.length ? "" : "quiet"} ${selected === p ? "picked" : ""}`}>
               <PeriodArt period={p} />
               <h3>{words.periods[p]}</h3>
               {here.length === 0 && <p className="tile-empty">{words.nothing}</p>}

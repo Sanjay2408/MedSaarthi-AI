@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { api, type Case, type FieldName, type Item } from "../api";
 import { Says, type Mood } from "../Saarthi";
+import { SavePanel } from "./SavePanel";
+import { VerifyBadge } from "./PlansView";
 
 const FIELD_LABELS: [FieldName, string][] = [
   ["dose", "How much"],
@@ -63,7 +65,7 @@ function ItemPanel({ item, caseId, onChange }: {
     <article className={held ? "panel item held" : "panel item"} aria-label={item.fields.name.value ?? "Unknown medicine"}>
       <header className="item-head">
         <h2>{item.fields.name.value ?? "A medicine I can't name"}</h2>
-        {item.status === "CONFIRMED" && <span className="pill positive">Checked</span>}
+        {item.status === "CONFIRMED" && <VerifyBadge v={item.verification} />}
         {item.status === "CLEAR" && <span className="pill neutral">Looks clear</span>}
         {held && <span className="pill warning">Let's check this one</span>}
         {!editing && <button className="text-button push" onClick={() => setEditing(true)}>Change</button>}
@@ -103,11 +105,13 @@ function ItemPanel({ item, caseId, onChange }: {
   );
 }
 
-export function ConfirmView({ current, onChange, onContinue, onStartOver }: {
+export function ConfirmView({ current, onChange, onContinue, onStartOver, goLogin, goPlans }: {
   current: Case;
   onChange: (c: Case) => void;
   onContinue: () => void;
   onStartOver: () => void;
+  goLogin: () => void;
+  goPlans: () => void;
 }) {
   const { items, ocr, injection_hits: hits, threshold } = current;
   const ready = items.filter((i) => i.usable).length;
@@ -181,6 +185,7 @@ export function ConfirmView({ current, onChange, onContinue, onStartOver }: {
               <button className="secondary" onClick={onStartOver}>Try another prescription</button>
             </div>
           )}
+          {held > 0 && <SavePanel current={current} goLogin={goLogin} goPlans={goPlans} />}
           {items.length > 0 && (
             <div className="next-row">
               <button className="primary big" disabled={ready === 0} onClick={onContinue}>
