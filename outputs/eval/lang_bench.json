@@ -1617,5 +1617,201 @@
    "error"
   ],
   "per_line": []
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "te",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 45.98,
+  "wall_s": 45.98,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "output": "నమస్కారం టెస్ట్ పేషెంట్ 08. Atorvastatin 10 mg రోజుకు ఒకసారి తీసుకోండి. నీటితో కట్టించి తీసుకోండి. 30 రోజులు తీసుకోండి.",
+    "problems": [],
+    "back": "Hello test patient 08. Take Atorvastatin 10 mg once daily. Take with water. Take for 30 days.",
+    "chrf": 70.3
+   },
+   {
+    "source": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "output": "నమస్కారం టెస్ట్ పేషెంట్ 09. Salbutamol 100 mcg, ఇన్హేలర్‌లో నుండి శ్వాస తీసుకోండి, శ్వాస ఆగినప్పుడు 2 పఫ్స్, అవసరమైనప్పుడు మాత్రమే, 30 రోజులు.",
+    "problems": [],
+    "back": "Hello test patient 09. Salbutamol 100 mcg, inhale from the inhaler, 2 puffs when breathing stops, only as needed, for 30 days.",
+    "chrf": 66.5
+   },
+   {
+    "source": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "output": "ఈ మందును చల్లగా, ఎండలేని చోట, పిల్లల చేతులకు చేరని చోట ఉంచండి.",
+    "problems": [],
+    "back": "Store this medication in a cool, dry place, out of reach of children.",
+    "chrf": 73.4
+   },
+   {
+    "source": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "output": "ఇది వైద్య సలహా కాదు. మీ ఫార్మాసిస్ట్ లేదా డాక్టర్‌ను సంప్రదించండి.",
+    "problems": [],
+    "back": "This is not medical advice. Consult your pharmacist or doctor.",
+    "chrf": 76.8
+   }
+  ]
+ },
+ {
+  "provider": "nllb",
+  "lang": "hi",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 29.39,
+  "wall_s": 29.39,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "hi",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "hi",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "kn",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "kn",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "kn",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "ta",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "ta",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "ta",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "te",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "te",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "nllb",
+  "lang": "te",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 0.0,
+  "wall_s": 0.0,
+  "error": "OSError: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck you",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
  }
 ]
