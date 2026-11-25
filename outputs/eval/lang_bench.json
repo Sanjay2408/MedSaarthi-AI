@@ -1504,5 +1504,118 @@
     "chrf": 75.5
    }
   ]
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "ta",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 53.25,
+  "wall_s": 53.25,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 04. Take Amlodipine 5 mg once a day. Swallow it with water in the morning. Take it for 30 days.",
+    "output": "வணக்கம் Test Patient 04. Amlodipine 5 mg ஒரு நாளைக்கு ஒரு முறை எடுக்கவும். காலை நேரத்தில் தண்ணீருடன் விழுங்கவும். 30 நாட்களுக்கு எடுக்கவும்.",
+    "problems": [],
+    "back": "Hello Test Patient 04. Amlodipine 5 mg take once daily. Take with water in the morning. Take for 30 days.",
+    "chrf": 71.9
+   },
+   {
+    "source": "Hello Test Patient 05. Take Cetirizine 10 mg. Swallow with water. Take it for 5 days.",
+    "output": "வணக்கம் Test Patient 05. Cetirizine 10 mg எடுக்கவும். தண்ணீருடன் விழுங்கவும். 5 நாட்களுக்கு எடுக்கவும்.",
+    "problems": [],
+    "back": "Hello Test Patient 05. Cetirizine 10 mg take. Take with water. Take for 5 days.",
+    "chrf": 73.1
+   },
+   {
+    "source": "Hello Test Patient 06. Take Azithromycin 500 mg once a day. Swallow it with water one hour before food. Take it for 3 days.",
+    "output": "வணக்கம் Test Patient 06. Azithromycin 500 mg ஒரு நாளைக்கு ஒரு முறை எடுக்கவும். உணவுக்கு ஒரு மணி நேரம் முன் தண்ணீருடன் விழுங்கவும். 3 நாட்களுக்கு எடுக்கவும்.",
+    "problems": [],
+    "back": "Hello Test Patient 06. Azithromycin 500 mg take once daily. Take with water one hour before food. Take for 3 days.",
+    "chrf": 74.2
+   },
+   {
+    "source": "Hello Test Patient 06. Take Paracetamol 650 mg only when needed. Swallow with water for fever. Take it for 3 days.",
+    "output": "வணக்கம் Test Patient 06. Paracetamol 650 mg தேவைப்படும்போது மட்டுமே எடுக்கவும். காய்ச்சலுக்கு தண்ணீருடன் விழுங்கவும். 3 நாட்களுக்கு எடுக்கவும்.",
+    "problems": [],
+    "back": "Hello Test Patient 06. Paracetamol 650 mg take only when needed. Take with water for fever. Take for 3 days.",
+    "chrf": 78.4
+   },
+   {
+    "source": "Hello Test Patient 07. Take Ibuprofen 400 mg every 8 hours. Swallow it with water after food. Take it for 3 days.",
+    "output": "வணக்கம் Test Patient 07. Ibuprofen 400 mg ஒவ்வொரு 8 மணி நேரத்திற்கும் எடுக்கவும். உணவுக்கு பிறகு தண்ணீருடன் விழுங்கவும். 3 நாட்களுக்கு எடுக்கவும்.",
+    "problems": [],
+    "back": "Hello Test Patient 07. Ibuprofen 400 mg take every 8 hours. Take with water after food. Take for 3 days.",
+    "chrf": 76.0
+   }
+  ]
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "ta",
+  "batch": 2,
+  "lines": 4,
+  "latency_s": 54.09,
+  "wall_s": 54.09,
+  "error": null,
+  "batch_problems": [],
+  "per_line": [
+   {
+    "source": "Hello Test Patient 08. Take Atorvastatin 10 mg once a day. Swallow with water. Take it for 30 days.",
+    "output": "ஹேலோ டெஸ்ட் பேஷண்ட் 08. Atorvastatin 10 mg ஐ ஒரு நாளைக்கு ஒரு முறை எடுக்கவும். தண்ணீருடன் விழுங்கவும். 30 நாட்களுக்கு எடுக்கவும்.",
+    "problems": [],
+    "back": "Hello test patient 08. Take Atorvastatin 10 mg once daily. Swallow with water. Take for 30 days.",
+    "chrf": 80.0
+   },
+   {
+    "source": "Hello Test Patient 09. Take Salbutamol 100 mcg, breathe in from inhaler, 2 puffs when breathless, only when needed, for 30 days.",
+    "output": "ஹேலோ டெஸ்ட் பேஷண்ட் 09. Salbutamol 100 mcg, இன்ஹேலரிலிருந்து மூச்சிழுக்கவும், மூச்சுத் திணறல் இருந்தால் 2 பஃப்கள், தேவைப்படும்போது மட்டுமே, 30 நாட்களுக்கு.",
+    "problems": [],
+    "back": "Hello test patient 09. Inhale Salbutamol 100 mcg from inhaler, if wheezing 2 puffs, only as needed, for 30 days.",
+    "chrf": 57.1
+   },
+   {
+    "source": "Keep this medicine in a cool, dry place, out of the reach of children.",
+    "output": "இந்த மருந்தை குளிர்ந்த, உலர்ந்த இடத்தில், குழந்தைகள் எட்டியதற்கு அப்பால் வைக்கவும்.",
+    "problems": [],
+    "back": "Store this medication in a cool, dry place, out of reach of children.",
+    "chrf": 73.4
+   },
+   {
+    "source": "Not medical advice. Confirm with your pharmacist or doctor.",
+    "output": "இது மருத்துவ ஆலோசனை அல்ல. உங்கள் மருந்து விற்பனையாளரிடம் அல்லது மருத்துவரிடம் உறுதிப்படுத்தவும்.",
+    "problems": [],
+    "back": "This is not medical advice. Verify with your pharmacist or doctor.",
+    "chrf": 77.9
+   }
+  ]
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "te",
+  "batch": 0,
+  "lines": 5,
+  "latency_s": 46.54,
+  "wall_s": 46.54,
+  "error": "ValueError: model did not return a translations list",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
+ },
+ {
+  "provider": "groq:qwen/qwen3.8-27b",
+  "lang": "te",
+  "batch": 1,
+  "lines": 5,
+  "latency_s": 45.82,
+  "wall_s": 45.82,
+  "error": "ValueError: model did not return a translations list",
+  "batch_problems": [
+   "error"
+  ],
+  "per_line": []
  }
 ]

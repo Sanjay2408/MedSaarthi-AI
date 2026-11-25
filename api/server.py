@@ -34,7 +34,11 @@ from api.records import router as records_router
 from api.rules import ConfirmationError, apply_confirmation, clean_confirmation, stamp
 from api.views import REASON_TEXT, case_json
 from src import audit
+from datetime import date
+
 from src.config import ROOT, load_config
+from src.fhir import bundle as fhir_bundle
+from src.ics import build_ics, course_days
 from src.lang import available as lang_available
 from src.llm import LLM
 from src.pipeline import explain, read_and_extract
@@ -367,6 +371,35 @@ def guide_html(case_id: str, request: Request, large: bool = False, contrast: bo
     page = render_html(timed, _render_prefs(case, large, contrast), case.patient, medicines, prn, note)
     headers = {"Content-Disposition": 'attachment; filename="medicine-guide.html"'} if download else {}
     return HTMLResponse(page, headers=headers)
+
+
+@app.get("/api/cases/{case_id}/reminders.ics")
+def reminders(case_id: str, request: Request):
+    """A calendar file with an alarm at every dose time, for as many days as the course lasts."""
+    case = state.get_case(case_id, request)
+    if case.last_guide is None:
+        raise HTTPException(409, "Write the guide first.")
+    by_name = {it.name.value: it for it in case.stage1.extraction.prescription.items}
+    cards = {ex.name: ex.card_en for ex in case.last_guide.explanations}
+    entries = []
+    for e in case.last_guide.schedule:
+        if e.as_needed or not e.times:
+            continue
+        item, card = by_name.get(e.medication), cards.get(e.medication)
+        how = card.row("how_to_take") if card else None
+        entries.append({"medicine": e.medication, "dose": e.dose, "times": e.times,
+                        "days": course_days(item.duration.value) if item else None, "how": how.text if how else ""})
+    return Response(build_ics(entries, date.today()), media_type="text/calendar",
+                    headers={"Content-Disposition": 'attachment; filename="medicine-reminders.ics"'})
+
+
+@app.get("/api/cases/{case_id}/plan.fhir.json")
+def fhir_export(case_id: str, request: Request):
+    """The confirmed items as FHIR R4 MedicationRequests. Draft unless a pharmacist verified them."""
+    case = state.get_case(case_id, request)
+    data = fhir_bundle(case.stage1.extraction.prescription.items, case.patient)
+    return Response(json.dumps(data, ensure_ascii=False, indent=2), media_type="application/fhir+json",
+                    headers={"Content-Disposition": 'attachment; filename="medicine-plan.fhir.json"'})
 
 
 # ------------------------------------------------------------------ audit and deletion
