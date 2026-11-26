@@ -18,12 +18,9 @@ from docx.shared import Inches, Pt, RGBColor
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-NOISE = re.compile(r"downloaded|it/s\]|\bwarn", re.I)
-
-
 def clean(text: str, limit: int = 2600) -> str:
-    lines = [l for l in text.replace("\r", "\n").splitlines() if l.strip() and not NOISE.search(l)]
-    out = "\n".join(lines)
+    # the notebooks are already tidied by build_labs.py; this only shortens very long output
+    out = "\n".join(l for l in text.splitlines() if l.strip())
     return out if len(out) <= limit else out[:limit] + "\n... (output shortened; the notebook has the full text)"
 
 

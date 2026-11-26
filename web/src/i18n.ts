@@ -37,6 +37,47 @@ export const WORDS: Record<string, Words> = {
     allDone: "ఈ రోజు మందులన్నీ అయిపోయాయి.",
     periods: { Morning: "ఉదయం", Afternoon: "మధ్యాహ్నం", Evening: "సాయంత్రం", Night: "రాత్రి" },
   },
+  bn: {
+    plan: "আপনার ওষুধের পরিকল্পনা", today: "আজ", done: "খেয়েছি", markDone: "খেয়েছি বলে চিহ্নিত করুন", of: "এর মধ্যে", needed: "শুধু প্রয়োজন হলে",
+    noFixed: "কোনো নির্দিষ্ট সময় নেই", nothing: "কোনো ওষুধ নেই", howToTake: "কীভাবে নেবেন", listen: "শুনুন", stop: "থামান",
+    allDone: "আজকের সব ওষুধ শেষ।",
+    periods: { Morning: "সকাল", Afternoon: "দুপুর", Evening: "সন্ধ্যা", Night: "রাত" },
+  },
+  mr: {
+    plan: "तुमची औषध योजना", today: "आज", done: "घेतले", markDone: "घेतले म्हणून नोंद करा", of: "पैकी", needed: "फक्त गरज असेल तेव्हा",
+    noFixed: "ठरलेली वेळ नाही", nothing: "कोणतेही औषध नाही", howToTake: "कसे घ्यावे", listen: "ऐका", stop: "थांबवा",
+    allDone: "आजची सर्व औषधे घेऊन झाली.",
+    periods: { Morning: "सकाळ", Afternoon: "दुपार", Evening: "संध्याकाळ", Night: "रात्र" },
+  },
+  gu: {
+    plan: "તમારી દવાની યોજના", today: "આજે", done: "લીધી", markDone: "લીધી તરીકે નોંધો", of: "માંથી", needed: "જરૂર પડે ત્યારે જ",
+    noFixed: "કોઈ નક્કી સમય નથી", nothing: "કોઈ દવા નથી", howToTake: "કેવી રીતે લેવી", listen: "સાંભળો", stop: "બંધ કરો",
+    allDone: "આજની બધી દવાઓ લેવાઈ ગઈ.",
+    periods: { Morning: "સવાર", Afternoon: "બપોર", Evening: "સાંજ", Night: "રાત" },
+  },
+  ml: {
+    plan: "നിങ്ങളുടെ മരുന്ന് പദ്ധതി", today: "ഇന്ന്", done: "കഴിച്ചു", markDone: "കഴിച്ചതായി രേഖപ്പെടുത്തുക", of: "ൽ", needed: "ആവശ്യമുള്ളപ്പോൾ മാത്രം",
+    noFixed: "നിശ്ചിത സമയമില്ല", nothing: "മരുന്നൊന്നുമില്ല", howToTake: "എങ്ങനെ ഉപയോഗിക്കണം", listen: "കേൾക്കുക", stop: "നിർത്തുക",
+    allDone: "ഇന്നത്തെ എല്ലാ മരുന്നുകളും കഴിഞ്ഞു.",
+    periods: { Morning: "രാവിലെ", Afternoon: "ഉച്ച", Evening: "വൈകുന്നേരം", Night: "രാത്രി" },
+  },
+  pa: {
+    plan: "ਤੁਹਾਡੀ ਦਵਾਈ ਦੀ ਯੋਜਨਾ", today: "ਅੱਜ", done: "ਲੈ ਲਈ", markDone: "ਲੈ ਲਈ ਵਜੋਂ ਦਰਜ ਕਰੋ", of: "ਵਿੱਚੋਂ", needed: "ਸਿਰਫ਼ ਲੋੜ ਪੈਣ 'ਤੇ",
+    noFixed: "ਕੋਈ ਪੱਕਾ ਸਮਾਂ ਨਹੀਂ", nothing: "ਕੋਈ ਦਵਾਈ ਨਹੀਂ", howToTake: "ਕਿਵੇਂ ਲੈਣੀ ਹੈ", listen: "ਸੁਣੋ", stop: "ਰੋਕੋ",
+    allDone: "ਅੱਜ ਦੀਆਂ ਸਾਰੀਆਂ ਦਵਾਈਆਂ ਹੋ ਗਈਆਂ।",
+    periods: { Morning: "ਸਵੇਰ", Afternoon: "ਦੁਪਹਿਰ", Evening: "ਸ਼ਾਮ", Night: "ਰਾਤ" },
+  },
+  od: {
+    plan: "ଆପଣଙ୍କ ଔଷଧ ଯୋଜନା", today: "ଆଜି", done: "ନେଇଛି", markDone: "ନେଇଛି ବୋଲି ଚିହ୍ନଟ କରନ୍ତୁ", of: "ରୁ", needed: "କେବଳ ଆବଶ୍ୟକ ହେଲେ",
+    noFixed: "କୌଣସି ନିର୍ଦ୍ଦିଷ୍ଟ ସମୟ ନାହିଁ", nothing: "କୌଣସି ଔଷଧ ନାହିଁ", howToTake: "କିପରି ନେବେ", listen: "ଶୁଣନ୍ତୁ", stop: "ବନ୍ଦ କରନ୍ତୁ",
+    allDone: "ଆଜିର ସବୁ ଔଷଧ ସରିଗଲା।",
+    periods: { Morning: "ସକାଳ", Afternoon: "ଦିପହର", Evening: "ସନ୍ଧ୍ୟା", Night: "ରାତି" },
+  },
 };
 
-export const SPEECH_LANG: Record<string, string> = { en: "en-IN", hi: "hi-IN", kn: "kn-IN", ta: "ta-IN", te: "te-IN" };
+export const SPEECH_LANG: Record<string, string> = {
+  en: "en-IN", hi: "hi-IN", kn: "kn-IN", ta: "ta-IN", te: "te-IN", bn: "bn-IN", mr: "mr-IN", gu: "gu-IN", ml: "ml-IN", pa: "pa-IN", od: "or-IN",
+};
+
+/** The pack code for Odia is "od"; HTML and speech engines know the language as "or". */
+export const htmlLang = (code: string) => (code === "od" ? "or" : code);

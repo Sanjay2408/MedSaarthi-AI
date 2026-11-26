@@ -38,7 +38,42 @@ def sample_items():
 
 
 def test_expected_packs_exist():
-    assert {"en", "hi", "kn", "ta", "te"} <= set(CODES)
+    from src.mt import LANGS
+
+    assert set(CODES) == set(LANGS)  # every language the translation chain knows also has a pack
+
+
+@pytest.mark.parametrize("code", NON_EN)
+def test_pack_words_are_in_their_own_script(code):
+    from src.mt import lang_info, script_ratio
+
+    pack = load_pack(code)
+    words = " ".join([*pack.labels.values(), *pack.periods.values(), *pack.notes.values(), *pack.footer.values()])
+    words = words.replace("{n}", "").replace("{patient}", "")
+    assert script_ratio(words, lang_info(code)["script"]) > 0.95
+
+
+@pytest.mark.parametrize("native", ["੮", "୮", "৮", "൮"])
+def test_native_digits_are_read_as_digits(native):
+    from src.lang.digits import numbers
+
+    assert numbers(f"{native}:00") == ["8"]
+
+
+def test_review_sheet_and_sign(tmp_path):
+    from src.lang.review import sheet, sign
+
+    (tmp_path / "pa.json").write_text((PACK_DIR / "pa.json").read_text(encoding="utf-8"), encoding="utf-8")
+    text = sheet("pa", tmp_path)
+    assert "after food" in text.lower() and "labels.medicine" in text
+    review = sign("pa", "A Reviewer", tmp_path)
+    assert review["status"] == "reviewed" and review["by"] == "A Reviewer" and review["on"]
+    assert json.loads((tmp_path / "pa.json").read_text(encoding="utf-8"))["review"]["status"] == "reviewed"
+    assert json.loads((PACK_DIR / "pa.json").read_text(encoding="utf-8"))["review"]["status"] == "draft"  # real pack untouched
+    with pytest.raises(PackError):
+        sign("pa", " ", tmp_path)
+    with pytest.raises(PackError):
+        sign("en", "Someone", tmp_path)
 
 
 @pytest.mark.parametrize("code", CODES)

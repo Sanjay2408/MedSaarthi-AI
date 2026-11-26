@@ -182,24 +182,27 @@ The translations are machine-generated and **not professionally validated**.
 
 ## 11. Language realiser and translation providers (added after sections 1 to 10)
 
-**What changed.** Section 6 showed that machine translation can hide a dangerous error (AM and PM written the same). The patient card is now written by a **template realiser**: a JSON language pack per language holds the sentence frames and part-of-day words, and code writes every dose, time and day count. A digit contract compares the digits in the card with the digits in the confirmed fields. The pack loader rejects digits and unknown placeholders in pack strings. The 290-case test file `tests/test_lang.py` covers this. Machine translation (an ordered chain: Sarvam, Groq, NLLB) is only used for free-text notes or a language with no pack.
+**What changed.** Section 6 showed that machine translation can hide a dangerous error (AM and PM written the same). The patient card is now written by a **template realiser**: a JSON language pack per language holds the sentence frames and part-of-day words, and code writes every dose, time and day count. A digit contract compares the digits in the card with the digits in the confirmed fields. The pack loader rejects digits and unknown placeholders in pack strings. `tests/test_lang.py` renders every sample item in every pack and checks this. Machine translation (an ordered chain: Sarvam, Groq, NLLB) is only used for free-text notes or a language with no pack. Packs exist for English and ten Indian languages; all but English are unreviewed drafts written by an AI model.
 
-**Speed.** Rendering a card takes about 0.08 ms (measured in `tests`/`src/eval/lang_bench.py`), and the output is identical every run.
+**Speed.** Writing a card took a median of 0.07 to 0.15 ms (25 sample items per language, `python -m src.eval.lang_bench --summary`), and the output is identical every run.
 
-**Provider benchmark** (`python -m src.eval.lang_bench`, raw rows in `outputs/eval/lang_bench.json`). 14 sentences per language sent in batches; each line is checked for line count, script, digit equality and drug-name preservation. A "problem" is any failed check. Latency is per line (batch time divided by lines).
+**Provider benchmark** (`python -m src.eval.lang_bench`, raw rows in `outputs/eval/lang_bench.json`). 14 sentences per language, sent in batches of up to about five. Each line is checked for the same numbers, the right script, and the medicine name left in Latin letters as printed on the box. Time is the median for one batch.
 
-| Provider | Language | Lines with a failed check | Median seconds per line |
-|---|---|---|---|
-| gpt-oss-120b | Hindi | 6 of 14 | 0.41 |
-| gpt-oss-120b | Kannada | 6 of 14 | 0.45 |
-| gpt-oss-120b | Tamil | 6 of 14 | 1.40 |
-| gpt-oss-120b | Telugu | 11 of 14 | 1.21 |
-| gpt-oss-20b | Hindi, Kannada, Tamil, Telugu | 12, 14, 7, 11 of 14 | 0.14 to 0.19 |
-| qwen3.8-27b | Hindi / Tamil | 0 / 4 of 14 | 4.3 / 10.7 |
-| qwen3.8-27b | Kannada, Telugu | 2 of 3 batches errored | 11 to 13 |
+| Provider | Language | Lines passing all checks | Numbers right | Right script | Name left in Latin | Median seconds per batch |
+|---|---|---|---|---|---|---|
+| gpt-oss-120b | Hindi, Kannada | 57% | 100% | 100% | 57% | 2.0 |
+| gpt-oss-120b | Tamil | 57% | 100% | 100% | 57% | 7.0 |
+| gpt-oss-120b | Telugu | 21% | 100% | 100% | 21% | 6.1 |
+| gpt-oss-20b | Hindi | 14% | 100% | 64% | 50% | 0.7 |
+| gpt-oss-20b | Kannada | 0% | 100% | **0%** | 100% | 0.8 |
+| gpt-oss-20b | Tamil, Telugu | 50%, 21% | 100% | 64%, 100% | 86%, 21% | 0.8 to 0.9 |
+| qwen3.8-27b | Hindi, Tamil | 100%, 71% | 100% | 100% | 100%, 71% | 17 to 53 |
+| qwen3.8-27b | Kannada, Telugu (4 lines each; 2 of 3 batches errored) | 50%, 100% | 100% | 100% | 50%, 100% | 46 to 50 |
 
-- The best fast provider still failed a check on 6 to 11 of 14 lines, which is the reason structured cards are written by code and not by a model.
-- gpt-oss-20b failed all 14 Kannada lines. qwen was accurate on Hindi but too slow for a patient waiting.
+- **No provider changed a number** in these sentences. For gpt-oss-120b every failed line failed only the name check: the model rewrote the medicine name in the local script. That may read correctly, but the patient must match the name to the box, so the app rejects it.
+- gpt-oss-20b did not write Kannada script at all, so it is not used for translation.
+- qwen did well on the checks but took far too long for a patient who is waiting.
+- Structured cards are still written by code because a model's output varies between runs, takes seconds, and section 6 shows an error these checks would not catch (AM and PM written the same).
 - **NLLB rows are missing** from this file: the Hugging Face cache was cleared before the run. `python scripts/warm_models.py` downloads the models again, after which the benchmark can be rerun.
 - **Sarvam was not benchmarked** (no key). Its provider code is written and tested only against a fake.
 - 56 lines is a small sample, and a failed check is not a quality score. Translation quality needs a native speaker; the packs are drafts until one signs them (section 8).

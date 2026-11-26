@@ -1,102 +1,101 @@
 # MedSaarthi AI
 
-**A Generative AI system for prescription interpretation and multilingual medication guidance.**
+**Prescriptions in plain words and in the patient's own language, with a pharmacist in the loop.**
 CS4204 Generative Models and Prompt Engineering, mini project (CIE-3), RV University.
 
-> Student prototype tested on **synthetic data only**. It is not clinically validated and is not a medical device. Every output says: *Not medical advice. Confirm with your pharmacist or doctor.*
+> Student prototype tested on **synthetic data only**. It is not clinically validated, has not been tested with patients, and is not a medical device. Every output says: *Not medical advice. Confirm with your pharmacist or doctor.*
 
 ## What it does
-1. Reads a prescription from a photo (local OCR) or typed text.
-2. Extracts medication name, dose, route, frequency, duration and instructions as JSON, with a confidence score for every field.
-3. Flags ambiguous or missing items for a pharmacist or doctor to confirm. Flagged items are never explained or scheduled.
-4. Turns confirmed items into plain-language instructions. A code validator checks every number, unit and time against the confirmed data.
-5. Translates the instructions into Hindi, Kannada, Tamil or Telugu, with a number check and a back-translation spot check.
-6. Builds a daily schedule in code (never by the LLM) as a downloadable PDF or printable HTML, with large-text, high-contrast and 12/24 h options.
+1. Reads a prescription from a photo (local OCR) or typed text, and extracts each medicine's name, dose, route, frequency, duration and instructions with a confidence for every field.
+2. Holds anything missing, unclear or low-confidence out of the plan. Nothing is guessed. A patient can share a held item with a pharmacist, who edits it and signs it.
+3. Writes the plan in the patient's language from a **language pack**: code writes every dose, time and day count, so a number can never be mistranslated. English plus ten Indian languages (Hindi, Kannada, Tamil, Telugu, Bengali, Marathi, Gujarati, Malayalam, Punjabi, Odia). Every Indian-language pack is an **unreviewed draft** and the app says so.
+4. Gives a day plan to tick, a printable PDF and HTML guide that say who checked each medicine, calendar reminders (.ics) and a FHIR R4 export.
+5. Accounts for patients, caregivers (up to 10 family profiles) and invite-only pharmacists. Each profile has an age group (child, adult, senior), language, clock, text size, contrast and motion settings. The app installs on a phone and has a 3D pill organizer that falls back to flat tiles.
 
 ```
-image/text -> OCR (EasyOCR / TrOCR) -> extraction (LLM, RGC + few-shot) -> source grounding + safety gate
-           -> ambiguity (rules + LLM CoT) -> [human confirmation] -> schedule (Python)
-           -> simplification (persona; V3 adds leaflet RAG with BGE-M3) -> validator gate -> fixed safety lines
-           -> translation (NLLB-200) + number check -> PDF / HTML
+photo/text -> OCR -> extraction LLM (RGC + 4-shot, delimiters) -> grounding in the source -> safety gate
+           -> ambiguity rules + LLM chain of thought -> [patient or pharmacist confirms held items]
+           -> schedule (Python) -> template realiser in the patient's language -> digit contract
+           -> plan, PDF, HTML, .ics, FHIR
 ```
 
 ## Safety rules enforced in code
 | Rule | Where |
 |---|---|
-| Missing field or confidence < 0.80 sets status `NEEDS_CONFIRMATION`; such items are never simplified or scheduled | `src/validator.py::gate_item`, `src/schedule.py::build_schedule`, `src/simplify.py` |
-| A value not found in the source text (hallucination) gets low confidence and is flagged | `src/extract.py::_to_item` |
-| Every number, unit and time in the output must match the confirmed data, or the output is blocked | `src/validator.py::validate_output` |
-| Route wording (e.g. no "inhaler" for eye drops) and "as needed" wording must match the prescription | `src/validator.py::check_semantics` |
-| Dose times come from Python, not the LLM | `src/schedule.py` |
-| Prescription text is untrusted data: wrapped in delimiters, injection patterns detected, injected lines never count as evidence | `src/validator.py`, `src/extract.py` |
-| Disclaimer, storage line and refill line are appended by code | `src/simplify.py::append_fixed_lines` |
+| A missing field or confidence below 0.80 holds the item; held items are never explained or scheduled | `src/validator.py::gate_item`, `src/schedule.py` |
+| A value not found in the source text gets low confidence and is held | `src/extract.py::_to_item` |
+| Prescription text is data: delimiters, injection detector, injected lines never count as evidence | `src/validator.py`, `src/extract.py` |
+| Dose times come from Python, never from a model | `src/schedule.py` |
+| Patient wording is written from a language pack; the digits out must equal the digits in, on every render | `src/lang/realiser.py` |
+| A pack string with a digit or an unknown placeholder is rejected; a pack marked reviewed must name its reviewer | `src/lang/pack.py` |
+| Machine translation is used only for free text, through an ordered chain, and every answer is checked | `src/mt.py` |
+| Passwords hashed with Argon2id; saved plans encrypted at rest; photos never stored; one-click account deletion | `api/security.py`, `api/models.py`, `api/auth.py` |
+| Pharmacist accounts need an invite code; nobody can review their own prescription | `api/auth.py`, `api/records.py` |
 | The audit log stores a SHA-256 of each input, never raw text | `src/audit.py` |
-| Clock times never pass through the translator; code writes them with morning/night words | `src/translate.py::when_line` |
-| Each browser sees only its own cases and log; typed prescriptions never reach the disk cache; requests are rate limited | `api/server.py` |
-
-## See it
-A recording of the whole flow is in [docs/demo.mp4](docs/demo.mp4), with stills in [docs/screenshots/](docs/screenshots/). Run the app and open http://127.0.0.1:8000.
 
 ## Setup (Windows, Python 3.12, Node 22+, CPU only)
 ```bash
 python -m venv .venv
 .venv/Scripts/python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 .venv/Scripts/python -m pip install -r requirements.txt
+npm --prefix web install
+npm --prefix web run build
 ```
-Create a `.env` file in the project root (it is git-ignored) containing:
+Create `.env` in the project root (it is git-ignored):
 ```
 GROQ_API_KEY=<your key from console.groq.com>
+PHARMACIST_INVITE_CODE=<any secret you choose; give it only to pharmacists>
+# optional: SARVAM_API_KEY, COHERE_API_KEY (lab programs), MEDSAARTHI_DATA_KEY (otherwise a local dev key is created)
 ```
-Node 22 or newer is needed to build the web app. The first run downloads about 6 GB of models (EasyOCR, TrOCR, NLLB-200, BGE-M3).
+Optional, to avoid waiting on the first run (about 6 GB): `.venv/Scripts/python scripts/warm_models.py`.
 
 ## Run
 ```bash
-.venv/Scripts/python data/generate_samples.py
+.venv/Scripts/python -m uvicorn api.server:app --host 127.0.0.1 --port 8000
 ```
+Open http://127.0.0.1:8000. For the two-screen demo, `python scripts/seed_demo.py` creates three local demo accounts (patient, caregiver, pharmacist); see `docs/VIVA.md`.
+
+## Tests
 ```bash
 .venv/Scripts/python -m pytest -q
 ```
+End-to-end in a real browser (start a server first; the pharmacist round trip needs the same invite code in both places):
 ```bash
-npm --prefix web install
+.venv/Scripts/python tests/e2e_web.py outputs/screens_new
 ```
-```bash
-npm --prefix web run build
-```
-```bash
-.venv/Scripts/python -m uvicorn api.server:app --host 127.0.0.1 --port 8000
-```
-```bash
-.venv/Scripts/python -m src.eval.run_eval
-```
+
+## Training and evaluation
+| Command | What it does |
+|---|---|
+| `python -m src.eval.run_eval` | Extraction, OCR, ambiguity, injection, simplification and translation evaluation on the 25 reference prescriptions |
+| `python -m src.eval.lang_bench` | Translation providers: checks, latency, back-translation |
+| `python -m src.tagger.train` | Trains the T1 HMM and BiLSTM taggers on 100,000 synthetic lines (about 20 minutes on CPU) |
+| `python scripts/make_lora_data.py` | Writes the T2 fine-tuning data (20,000 synthetic prescriptions) |
+| `notebooks/t2_lora_qwen.ipynb`, `notebooks/t3_trocr_rxhandbd.ipynb` | LoRA and TrOCR fine-tuning for a free Kaggle or Colab GPU (written, not yet run) |
+| `python -m src.lang.review <code>` | Prints a pack beside the English for a native speaker; `--sign "Name"` records their review |
+
+Results and their limits are in [docs/EVAL.md](docs/EVAL.md).
+
+## Course deliverables
+| Deliverable | How to build it |
+|---|---|
+| Lab manual (15 programs, run with outputs) | `python labs/build_labs.py`, then `python labs/build_manual.py --name "..." --usn "..."` |
+| Project report in the course template | `python scripts/build_report_docx.py --name "..." --usn "..."` (text in `docs/report_sections.md`) |
+| Jury deck | `python scripts/build_deck.py` writes `docs/MedSaarthi_Jury_Deck.pptx` |
+| Report figures | `python scripts/make_figures.py` |
+| Viva bank and demo script | [docs/VIVA.md](docs/VIVA.md) |
 
 ## Repository map
 | Path | Contents |
 |---|---|
-| `src/schema.py` | Pydantic v2 data model with per-field confidence and reason codes |
-| `src/validator.py` | Safety gate, number/unit/time validator, injection detector |
-| `src/schedule.py` | Frequency parser and default dose times |
-| `src/ocr.py` | EasyOCR (printed) and TrOCR (handwriting) with per-line confidence |
-| `src/extract.py` | LLM extraction, JSON repair, source grounding |
-| `src/ambiguity.py` | Rule-based flags plus LLM chain-of-thought verdict |
-| `src/rag.py` | Leaflet retrieval (2900/2100 chunks, BGE-M3, top-2) and the "Extract and summarize dosage" step |
-| `src/simplify.py` | Plain-language V1/V2/V3 with the validator gate |
-| `src/translate.py` | NLLB-200 translation with number check and back-translation |
-| `src/render.py` | PDF and HTML schedule |
-| `src/prompts/*.prompt` | Versioned prompts; each header names the technique and the reason for it |
-| `api/server.py` | FastAPI: read, confirm, guide, downloads, audit. Safety rules are enforced here, not in the browser |
-| `web/` | React + TypeScript web app for patients: add, check together, your plan, your privacy |
+| `src/` | Pipeline: schema, OCR, extraction, ambiguity, schedule, simplification, RAG, rendering, audit |
+| `src/lang/` | Language packs (`packs/*.json`), the template realiser, digit handling, review tool |
+| `src/mt.py`, `src/translate.py` | Translation provider chain and answer checks |
+| `src/tagger/` | T1: synthetic line generator, HMM and BiLSTM taggers, training, weights |
+| `api/` | FastAPI server, accounts, database models, plans and pharmacist review |
+| `web/` | React + TypeScript app with Three.js scenes; installable |
+| `labs/` | The 15 lab programs as notebooks, and their builders |
+| `notebooks/` | Evaluation tables; T2 and T3 GPU notebooks |
+| `data/` | 25 synthetic reference prescriptions and their generator; synthetic leaflets |
+| `docs/` | Report, evaluation, prompts, design, model choices, viva bank, deck, figures |
 | `Dockerfile`, `scripts/deploy_space.py` | Hosting on Hugging Face Spaces |
-| `tests/e2e_web.py` | Real-browser test of the full flow, measuring text contrast on every screen in both modes |
-| `scripts/record_demo.py` | Records `docs/demo.mp4` and `docs/screenshots/` from a real Chrome window |
-| `src/eval/run_eval.py` | Evaluation; writes `outputs/eval/` |
-| `notebooks/eval.ipynb` | Results tables built from `outputs/eval/results.json` |
-| `data/` | Synthetic sample generator, 25 samples, 11 synthetic leaflets |
-| `docs/` | Report, evaluation, prompts, model choices, viva prep |
-
-## Documents
-- [docs/REPORT.md](docs/REPORT.md): full project report
-- [docs/EVAL.md](docs/EVAL.md): evaluation results and human-rating placeholders
-- [docs/PROMPTS.md](docs/PROMPTS.md): prompt catalogue with example outputs
-- [docs/DESIGN.md](docs/DESIGN.md): designing for an anxious patient, and what was left out on purpose
-- [docs/MODEL_CHOICES.md](docs/MODEL_CHOICES.md): models, licences, hardware fit
-- [docs/VIVA.md](docs/VIVA.md): likely viva questions and a 5-minute demo script

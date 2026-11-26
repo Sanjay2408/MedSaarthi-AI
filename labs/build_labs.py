@@ -7,6 +7,7 @@ Programs use the MedSaarthi domain (medicines, leaflets, prescriptions) where th
 Programs 5, 6, 8, 12, 13, 14 and 15 call an LLM. The course manual names Cohere; no Cohere key was
 available, so they use Groq unless COHERE_API_KEY is set, and each notebook prints which one ran.
 """
+import re
 import sys
 from pathlib import Path
 
@@ -95,15 +96,16 @@ LABS = [
             "import json, re, numpy as np\nimport gensim.downloader as api\nwv = api.load('glove-wiki-gigaword-100')\nllm, label = get_llm()\nprint('model:', label)\nP = json.loads((OUT / 'lab05_prompts.json').read_text(encoding='utf-8'))\nr_orig = ask(llm, P['original'] + ' Answer in under 200 words.')\nr_enr = ask(llm, P['enriched'] + ' Answer in under 200 words.')\nprint('--- ORIGINAL ---\\n', r_orig, '\\n--- ENRICHED ---\\n', r_enr)",
             "CHECK = {'dose': ['dose', 'dosage', 'amount'], 'timing': ['time', 'daily', 'morning', 'hours'], 'food': ['food', 'meal', 'empty stomach'],\n         'side effects': ['side effect', 'reaction'], 'pharmacist or doctor': ['pharmacist', 'doctor'], 'storage': ['store', 'storage', 'cool', 'dry'],\n         'missed dose': ['missed', 'forget'], 'allergy': ['allerg']}\ndef coverage(t): return [k for k, ws in CHECK.items() if any(w in t.lower() for w in ws)]\ndef avgvec(t):\n    v = [wv[w] for w in re.findall(r'[a-z]+', t.lower()) if w in wv]\n    return np.mean(v, axis=0)\nref = 'take the dose at the right time with food, watch for side effects, ask the pharmacist or doctor, store in a cool dry place, do not double a missed dose, tell about allergy'\ncos = lambda a, b: float(a @ b / (np.linalg.norm(a) * np.linalg.norm(b)))\nfor name, r in (('original', r_orig), ('enriched', r_enr)):\n    cv = coverage(r)\n    print(f'{name:9s} words {len(r.split()):4d}  checklist {len(cv)}/{len(CHECK)}  cosine to reference {cos(avgvec(r), avgvec(ref)):.3f}  missing: {[k for k in CHECK if k not in cv]}')",
         ],
-        "The table above is one run. A difference of a few words or one checklist item is within what a different sample could change, so it is evidence "
-        "for the method only if it repeats across many prompts. The honest reading is: enrichment can widen coverage, and must be measured, not assumed."),
+        "In this run the enriched prompt covered fewer checklist topics than the plain one (see the table). The retrieved words (veterinary, dentist, internist) "
+        "pulled the answer towards other professions instead of how to take a medicine. Nearest neighbours in embedding space are related words, not "
+        "necessarily useful ones, so enrichment needs a relevance filter and has to be measured over many prompts, not assumed to help. This is one sample at temperature 0."),
 
     lab(7, "Creative sentences from similar words",
         "Use embeddings to retrieve similar words for a seed word and build meaningful sentences.",
         "Similar words are slotted into sentence templates so the output stays grammatical, and an LLM is asked for a freer version for comparison.",
         [
             "import random\nimport gensim.downloader as api\nwv = api.load('glove-wiki-gigaword-100')\nllm, label = get_llm(0.7)\nprint('model:', label)\nseed = 'healing'\nwords = [w for w, _ in wv.most_similar(seed, topn=12) if w.isalpha()][:5]\nprint('seed:', seed, '-> similar:', words)",
-            "templates = ['The word {w} reminds me of {seed}.', 'A quiet room, a kind nurse and {w} made the morning easier.',\n             'She wrote {w} on the card beside the word {seed}.', 'Every {w} begins with one small step towards {seed}.']\nrandom.seed(4)\nfor w in words:\n    print('-', random.choice(templates).format(w=w, seed=seed))",
+            "# the similar words can be nouns, verbs or adjectives, so each template quotes them as words\ntemplates = ['The word \"{w}\" always reminds me of {seed}.', 'On the ward wall, someone had painted \"{w}\" next to \"{seed}\".',\n             'She wrote \"{w}\" on the card that said \"{seed}\".', 'When we talk about {seed}, the idea of \"{w}\" is never far away.',\n             'His diary joined \"{seed}\" and \"{w}\" in a single line.']\nfor w, template in zip(words, random.Random(4).sample(templates, len(words))):\n    print('-', template.format(w=w, seed=seed))",
             "print('LLM:', ask(llm, f'Write one warm, meaningful sentence that uses all of these words: {seed}, ' + ', '.join(words) + '.'))",
         ],
         "Templates guarantee a sentence but sound repetitive; the LLM sentence is richer. Neither is checked for meaning by the program, only by reading."),
@@ -143,10 +145,12 @@ LABS = [
     lab(11, "Summarising long text with a pre-trained model",
         "Summarise a long passage with a Hugging Face summarisation pipeline, and check what the summary lost.",
         "Abstractive summarisation (BART/DistilBART) generates new sentences conditioned on the input. Because it can drop or alter details, "
-        "the program checks that the numbers and the medicine name survive. This is the same worry as in MedSaarthi's simplification step.",
+        "the program checks that the numbers and the medicine name survive. This is the same worry as in MedSaarthi's simplification step. "
+        "Transformers 5 removed the 'summarization' pipeline named in the manual, so the program loads the same model with its tokenizer "
+        "and calls generate(), which is what the pipeline did internally.",
         [
-            "from transformers import pipeline\nsummariser = pipeline('summarization', model='sshleifer/distilbart-cnn-12-6')\npassage = (ROOT / 'data' / 'leaflets' / 'amoxicillin.md').read_text(encoding='utf-8')\npassage = passage.split('\\n', 3)[3]   # drop the title and the synthetic notice\nprint(len(passage.split()), 'words in the passage')",
-            "out = summariser(passage[:3500], max_length=120, min_length=40, do_sample=False, truncation=True)[0]['summary_text']\nprint(out)\nprint('\\ncompression:', len(out.split()), 'of', len(passage[:3500].split()), 'words')",
+            "import torch\nfrom transformers import AutoModelForSeq2SeqLM, AutoTokenizer\nNAME = 'sshleifer/distilbart-cnn-12-6'\ntok = AutoTokenizer.from_pretrained(NAME)\nmodel = AutoModelForSeq2SeqLM.from_pretrained(NAME).eval()\nprint(type(model).__name__, model.num_parameters() // 1_000_000, 'M parameters')\n\ndef summarise(text, max_new=120, min_new=40):\n    batch = tok(text, return_tensors='pt', truncation=True, max_length=1024)\n    with torch.no_grad():\n        ids = model.generate(**batch, num_beams=4, max_new_tokens=max_new, min_new_tokens=min_new, do_sample=False)\n    return tok.decode(ids[0], skip_special_tokens=True).strip()\npassage = (ROOT / 'data' / 'leaflets' / 'amoxicillin.md').read_text(encoding='utf-8')\npassage = passage.split('\\n', 3)[3]   # drop the title and the synthetic notice\nprint(len(passage.split()), 'words in the passage')",
+            "out = summarise(passage[:3500])\nprint(out)\nprint('\\ncompression:', len(out.split()), 'of', len(passage[:3500].split()), 'words')",
             "import re\nnums_src, nums_out = set(re.findall(r'\\d+', passage[:3500])), set(re.findall(r'\\d+', out))\nprint('numbers only in the summary (possible invention):', sorted(nums_out - nums_src) or 'none')\nprint('numbers in the source that the summary dropped:', sorted(nums_src - nums_out)[:10])\nprint('medicine name kept:', 'amoxicillin' in out.lower())",
         ],
         "The summary is shorter and readable, but the check shows what it dropped. For dosing text MedSaarthi does not summarise: doses, times and "
@@ -208,22 +212,23 @@ def build(entry):
     return nb
 
 
-def tidy(nb):
-    """Drop download progress bars and library warnings from saved outputs (they run to megabytes)."""
-    import re
+PROGRESS = re.compile(r"MB downloaded|it/s\]|s/it\]|^(Loading weights|Downloading|Fetching \d+ files)")
 
-    noisy = re.compile(r"downloaded|it/s\]|Warning|warn|\bWARNING\b|Loading weights|^\s*$", re.I)
+
+def tidy(nb):
+    """Drop library chatter from saved outputs: all of stderr (warnings, progress) and progress-bar
+    lines in stdout. What a program prints is kept exactly, including words such as WARNINGS."""
     for cell in nb.cells:
         if cell.cell_type != "code":
             continue
         keep = []
         for o in cell.get("outputs", []):
             if o.output_type == "stream":
-                lines = [l for l in o.text.replace("\r", "\n").splitlines() if not noisy.search(l)]
-                if o.name == "stderr" and not lines:
+                if o.name == "stderr":
                     continue
-                o.text = "\n".join(lines) + ("\n" if lines else "")
-                if not lines:
+                lines = [l for l in o.text.replace("\r\n", "\n").split("\n") if not PROGRESS.search(l)]
+                o.text = "\n".join(lines).strip("\n") + "\n"
+                if not o.text.strip():
                     continue
             keep.append(o)
         cell.outputs = keep

@@ -113,7 +113,7 @@ Fallbacks: turn 3D off in Settings if the phone struggles; run `python scripts/s
 The model's job is to understand the prescription. The wording a patient reads is built from verified fields: a language pack gives the sentence frames and a template realiser writes doses, times and days itself, then a digit check proves every number in the output also exists in the input. Machine translation is used only for free-text notes or a language with no pack.
 
 **22. Why not just translate with a large model?**
-I measured it. Models were slow (about 2 s for Hindi and Kannada, 6 to 7 s for Tamil and Telugu with gpt-oss-120b), and in an earlier version a translation turned "8 AM and 8 PM" into the same word. A rule-based realiser takes under 0.1 ms, and its output is the same every time.
+I measured it. Models kept every number but were slow (about 2 s per batch of sentences for Hindi and Kannada, 6 to 7 s for Tamil and Telugu with gpt-oss-120b), often rewrote the medicine name in the local script, and in an earlier version a translation turned "8 AM and 8 PM" into the same word. A rule-based realiser takes about 0.1 ms, and its output is the same every time.
 
 **23. How would you add a new language?**
 Write one JSON pack (sentence frames, period words, unit words). The loader rejects digits and unknown placeholders in the strings, and a pack marked reviewed must name the reviewer. A pack starts as a draft, and the app labels it "draft wording" until a native speaker signs it.

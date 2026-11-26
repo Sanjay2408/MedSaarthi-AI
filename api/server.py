@@ -350,7 +350,8 @@ def schedule_pdf(case_id: str, request: Request, large: bool = False, contrast: 
     if case.last_guide is None:
         raise HTTPException(409, "Write the guide first.")
     timed, prn = _split(case.last_guide.schedule)
-    pdf = render_pdf(timed, _render_prefs(case, large, contrast), case.patient, prn)
+    checks = [(ex.name, ex.verification) for ex in case.last_guide.explanations]
+    pdf = render_pdf(timed, _render_prefs(case, large, contrast), case.patient, prn, checks)
     return Response(pdf, media_type="application/pdf",
                     headers={"Content-Disposition": f'{"inline" if inline else "attachment"}; filename="medicine-schedule.pdf"'})
 
@@ -368,7 +369,8 @@ def guide_html(case_id: str, request: Request, large: bool = False, contrast: bo
         note = NOTE
     elif any(ex.local for ex in exps):
         note = " ".join(sorted({_template_note(ex.local) for ex in exps if ex.local}))
-    page = render_html(timed, _render_prefs(case, large, contrast), case.patient, medicines, prn, note)
+    page = render_html(timed, _render_prefs(case, large, contrast), case.patient, medicines, prn, note,
+                       checks=[(ex.name, ex.verification) for ex in exps])
     headers = {"Content-Disposition": 'attachment; filename="medicine-guide.html"'} if download else {}
     return HTMLResponse(page, headers=headers)
 

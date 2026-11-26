@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { api, type Case, type Config, type Guide, type GuidePrefs } from "../api";
-import { SPEECH_LANG, WORDS, type Words } from "../i18n";
+import { htmlLang, SPEECH_LANG, WORDS, type Words } from "../i18n";
 import { Says, type Mood } from "../Saarthi";
 import { DayPlan } from "./DayStrip";
 import { VerifyBadge } from "./PlansView";
@@ -58,7 +58,7 @@ type Row = { key: string; label: string; text: string };
 
 function CardRows({ rows, greeting, footer, lang }: { rows: Row[]; greeting?: string; footer?: string[]; lang: string }) {
   return (
-    <div className="card" lang={lang}>
+    <div className="card" lang={htmlLang(lang)}>
       {greeting && <p className="greeting">{greeting}</p>}
       <dl className="card-rows">
         {rows.map((r) => (
@@ -92,10 +92,10 @@ function Medicine({ med, words, languageName }: { med: Guide["medicines"][number
       {med.blocked && <p className="notice compact">I've kept this one exactly as your prescription says it, so nothing gets changed in the wording.</p>}
       {tr?.blocked && <p className="notice compact">I couldn't be sure the {languageName} kept every number right, so I'm showing English here. Please ask your pharmacist to explain it.</p>}
       {template
-        ? <CardRows rows={template.rows!} greeting={template.greeting} footer={template.footer} lang={tr!.lang} />
+        ? <CardRows rows={template.rows!} greeting={template.greeting} footer={template.footer} lang={htmlLang(tr!.lang)} />
         : shown
           ? (
-            <div className="guide-text" lang={tr!.lang}>
+            <div className="guide-text" lang={htmlLang(tr!.lang)}>
               {shown.split("\n").map((line, i) => (
                 <p key={i} className={line === tr!.when ? "when" : ""}>{line}</p>
               ))}
@@ -204,8 +204,8 @@ export function GuideView({ config, current, guide, prefs, large, contrast, onGu
   return (
     <>
       <Says mood={mood} live>
-        <h1 lang={lang}>{heading}</h1>
-        <p lang={lang}>{sub}</p>
+        <h1 lang={htmlLang(lang)}>{heading}</h1>
+        <p lang={htmlLang(lang)}>{sub}</p>
       </Says>
 
       <div className="controls" role="group" aria-label="Plan settings">
@@ -251,7 +251,7 @@ export function GuideView({ config, current, guide, prefs, large, contrast, onGu
       {guide ? (
         <div className={busy ? "guide stale" : "guide"}>
           <DayPlan caseId={current.id} schedule={guide.schedule} words={words} onProgress={onProgress} />
-          <h2 className="section-title" lang={lang}>{words.howToTake}</h2>
+          <h2 className="section-title" lang={htmlLang(lang)}>{words.howToTake}</h2>
           <div className="medicines">
             {guide.medicines.map((m) => <Medicine key={m.name} med={m} words={words} languageName={language.name} />)}
           </div>

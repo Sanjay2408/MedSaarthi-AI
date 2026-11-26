@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "code": "mr",
+  "name": "Marathi",
+  "native": "मराठी",
+  "bcp47": "mr-IN",
+  "script": "Devanagari",
+  "mt": {
+    "nllb": "mar_Deva",
+    "sarvam": "mr-IN"
+  },
+  "review": {
+    "status": "draft",
+    "by": null,
+    "on": null,
+    "drafted_by": "AI model (Claude), 2026-11-26"
+  },
+  "period_words": true,
+  "joiner": ", ",
+  "labels": {
+    "medicine": "औषध",
+    "how_often": "किती वेळा",
+    "when": "औषध घेण्याची वेळ",
+    "how_long": "किती दिवस",
+    "how_to_take": "कसे घ्यावे",
+    "note": "लक्षात ठेवा"
+  },
+  "greeting": {
+    "named": "नमस्कार {patient}.",
+    "plain": "नमस्कार."
+  },
+  "periods": {
+    "Morning": "सकाळी",
+    "Afternoon": "दुपारी",
+    "Evening": "संध्याकाळी",
+    "Night": "रात्री"
+  },
+  "freq": {
+    "once": "दिवसातून एकदा",
+    "twice": "दिवसातून दोनदा",
+    "thrice": "दिवसातून तीन वेळा",
+    "n_times": "दिवसातून {n} वेळा",
+    "every_hours": {
+      "one": "दर तासाला",
+      "other": "दर {n} तासांनी"
+    },
+    "bedtime": "झोपण्यापूर्वी",
+    "as_needed": "फक्त गरज असेल तेव्हा",
+    "slots": {
+      "morning": "सकाळी",
+      "afternoon": "दुपारी",
+      "night": "रात्री"
+    },
+    "and": "आणि",
+    "ask_pharmacist": "प्रत्येक वेळी किती घ्यायचे ते तुमच्या फार्मासिस्टला विचारा"
+  },
+  "route": {
+    "oral": "पाण्यासोबत गिळा",
+    "eye": "डोळ्यात टाका",
+    "inhalation": "इनहेलरने श्वासासोबत आत घ्या",
+    "topical": "त्वचेवर लावा"
+  },
+  "notes": {
+    "after_food": "जेवणानंतर",
+    "before_food": "जेवणापूर्वी",
+    "with_food": "जेवणासोबत",
+    "before_breakfast": "नाश्त्यापूर्वी",
+    "hour_before_food": "जेवणाच्या एक तास आधी",
+    "in_morning": "सकाळी",
+    "both_eyes": "दोन्ही डोळ्यांत टाका",
+    "left_eye": "डाव्या डोळ्यात टाका",
+    "right_eye": "उजव्या डोळ्यात टाका",
+    "for_fever": "ताप आल्यास",
+    "for_pain": "वेदना होत असल्यास",
+    "with_milk": "दुधासोबत",
+    "with_water": "पाण्यासोबत",
+    "puffs": "प्रत्येक वेळी {n} पफ",
+    "puffs_breathless": "धाप लागल्यास {n} पफ"
+  },
+  "units": {
+    "tablet": "गोळी",
+    "capsule": "कॅप्सूल",
+    "drop": "थेंब",
+    "puff": "पफ"
+  },
+  "duration": {
+    "day": {
+      "one": "{n} दिवस",
+      "other": "{n} दिवस"
+    },
+    "week": {
+      "one": "{n} आठवडा",
+      "other": "{n} आठवडे"
+    },
+    "month": {
+      "one": "{n} महिना",
+      "other": "{n} महिने"
+    }
+  },
+  "footer": {
+    "storage": "हे औषध थंड, कोरड्या जागी, मुलांच्या हाताला लागणार नाही असे ठेवा.",
+    "refill": "औषध संपण्यापूर्वी नवीन प्रिस्क्रिप्शनसाठी आरोग्य केंद्रात जा.",
+    "disclaimer": "हा वैद्यकीय सल्ला नाही. तुमच्या फार्मासिस्ट किंवा डॉक्टरांकडून खात्री करा."
+  }
+}

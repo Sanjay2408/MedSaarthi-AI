@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "code": "od",
+  "name": "Odia",
+  "native": "ଓଡ଼ିଆ",
+  "bcp47": "or-IN",
+  "script": "Odia",
+  "mt": {
+    "nllb": "ory_Orya",
+    "sarvam": "od-IN"
+  },
+  "review": {
+    "status": "draft",
+    "by": null,
+    "on": null,
+    "drafted_by": "AI model (Claude), 2026-11-26"
+  },
+  "period_words": true,
+  "joiner": ", ",
+  "labels": {
+    "medicine": "ଔଷଧ",
+    "how_often": "କେତେ ଥର",
+    "when": "ଔଷଧ ଖାଇବା ସମୟ",
+    "how_long": "କେତେ ଦିନ",
+    "how_to_take": "କିପରି ନେବେ",
+    "note": "ଧ୍ୟାନ ଦିଅନ୍ତୁ"
+  },
+  "greeting": {
+    "named": "ନମସ୍କାର {patient}।",
+    "plain": "ନମସ୍କାର।"
+  },
+  "periods": {
+    "Morning": "ସକାଳ",
+    "Afternoon": "ଦିପହର",
+    "Evening": "ସନ୍ଧ୍ୟା",
+    "Night": "ରାତି"
+  },
+  "freq": {
+    "once": "ଦିନକୁ ଥରେ",
+    "twice": "ଦିନକୁ ଦୁଇ ଥର",
+    "thrice": "ଦିନକୁ ତିନି ଥର",
+    "n_times": "ଦିନକୁ {n} ଥର",
+    "every_hours": {
+      "one": "ପ୍ରତି ଘଣ୍ଟାରେ",
+      "other": "ପ୍ରତି {n} ଘଣ୍ଟାରେ"
+    },
+    "bedtime": "ଶୋଇବା ପୂର୍ବରୁ",
+    "as_needed": "କେବଳ ଆବଶ୍ୟକ ହେଲେ",
+    "slots": {
+      "morning": "ସକାଳେ",
+      "afternoon": "ଦିପହରେ",
+      "night": "ରାତିରେ"
+    },
+    "and": "ଏବଂ",
+    "ask_pharmacist": "ପ୍ରତି ଥର କେତେ ନେବେ, ଆପଣଙ୍କ ଫାର୍ମାସିଷ୍ଟଙ୍କୁ ପଚାରନ୍ତୁ"
+  },
+  "route": {
+    "oral": "ପାଣି ସହିତ ଗିଳି ଦିଅନ୍ତୁ",
+    "eye": "ଆଖିରେ ପକାନ୍ତୁ",
+    "inhalation": "ଇନହେଲର ସାହାଯ୍ୟରେ ଶ୍ୱାସ ସହିତ ଭିତରକୁ ନିଅନ୍ତୁ",
+    "topical": "ଚର୍ମରେ ଲଗାନ୍ତୁ"
+  },
+  "notes": {
+    "after_food": "ଖାଇବା ପରେ",
+    "before_food": "ଖାଇବା ପୂର୍ବରୁ",
+    "with_food": "ଖାଦ୍ୟ ସହିତ",
+    "before_breakfast": "ଜଳଖିଆ ପୂର୍ବରୁ",
+    "hour_before_food": "ଖାଇବାର ଏକ ଘଣ୍ଟା ପୂର୍ବରୁ",
+    "in_morning": "ସକାଳେ",
+    "both_eyes": "ଦୁଇ ଆଖିରେ ପକାନ୍ତୁ",
+    "left_eye": "ବାମ ଆଖିରେ ପକାନ୍ତୁ",
+    "right_eye": "ଡାହାଣ ଆଖିରେ ପକାନ୍ତୁ",
+    "for_fever": "ଜ୍ୱର ହେଲେ",
+    "for_pain": "ଯନ୍ତ୍ରଣା ହେଲେ",
+    "with_milk": "କ୍ଷୀର ସହିତ",
+    "with_water": "ପାଣି ସହିତ",
+    "puffs": "ପ୍ରତି ଥର {n} ପଫ୍",
+    "puffs_breathless": "ନିଃଶ୍ୱାସ ନେବାରେ କଷ୍ଟ ହେଲେ {n} ପଫ୍"
+  },
+  "units": {
+    "tablet": "ବଟିକା",
+    "capsule": "କ୍ୟାପସୁଲ୍",
+    "drop": "ବୁନ୍ଦା",
+    "puff": "ପଫ୍"
+  },
+  "duration": {
+    "day": {
+      "one": "{n} ଦିନ",
+      "other": "{n} ଦିନ"
+    },
+    "week": {
+      "one": "{n} ସପ୍ତାହ",
+      "other": "{n} ସପ୍ତାହ"
+    },
+    "month": {
+      "one": "{n} ମାସ",
+      "other": "{n} ମାସ"
+    }
+  },
+  "footer": {
+    "storage": "ଏହି ଔଷଧକୁ ଥଣ୍ଡା, ଶୁଖିଲା ସ୍ଥାନରେ ପିଲାଙ୍କ ପହଞ୍ଚରୁ ଦୂରରେ ରଖନ୍ତୁ।",
+    "refill": "ଔଷଧ ସରିବା ପୂର୍ବରୁ ନୂଆ ପ୍ରେସକ୍ରିପସନ୍ ପାଇଁ ସ୍ୱାସ୍ଥ୍ୟ କେନ୍ଦ୍ରକୁ ଯାଆନ୍ତୁ।",
+    "disclaimer": "ଏହା ଡାକ୍ତରୀ ପରାମର୍ଶ ନୁହେଁ। ଆପଣଙ୍କ ଫାର୍ମାସିଷ୍ଟ କିମ୍ବା ଡାକ୍ତରଙ୍କଠାରୁ ନିଶ୍ଚିତ କରନ୍ତୁ।"
+  }
+}

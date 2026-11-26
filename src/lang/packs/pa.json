@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "code": "pa",
+  "name": "Punjabi",
+  "native": "ਪੰਜਾਬੀ",
+  "bcp47": "pa-IN",
+  "script": "Gurmukhi",
+  "mt": {
+    "nllb": "pan_Guru",
+    "sarvam": "pa-IN"
+  },
+  "review": {
+    "status": "draft",
+    "by": null,
+    "on": null,
+    "drafted_by": "AI model (Claude), 2026-11-26"
+  },
+  "period_words": true,
+  "joiner": ", ",
+  "labels": {
+    "medicine": "ਦਵਾਈ",
+    "how_often": "ਕਿੰਨੀ ਵਾਰ",
+    "when": "ਦਵਾਈ ਲੈਣ ਦਾ ਸਮਾਂ",
+    "how_long": "ਕਿੰਨੇ ਦਿਨ",
+    "how_to_take": "ਕਿਵੇਂ ਲੈਣੀ ਹੈ",
+    "note": "ਧਿਆਨ ਦਿਓ"
+  },
+  "greeting": {
+    "named": "ਨਮਸਕਾਰ {patient}।",
+    "plain": "ਨਮਸਕਾਰ।"
+  },
+  "periods": {
+    "Morning": "ਸਵੇਰੇ",
+    "Afternoon": "ਦੁਪਹਿਰੇ",
+    "Evening": "ਸ਼ਾਮ",
+    "Night": "ਰਾਤ"
+  },
+  "freq": {
+    "once": "ਦਿਨ ਵਿੱਚ ਇੱਕ ਵਾਰ",
+    "twice": "ਦਿਨ ਵਿੱਚ ਦੋ ਵਾਰ",
+    "thrice": "ਦਿਨ ਵਿੱਚ ਤਿੰਨ ਵਾਰ",
+    "n_times": "ਦਿਨ ਵਿੱਚ {n} ਵਾਰ",
+    "every_hours": {
+      "one": "ਹਰ ਘੰਟੇ",
+      "other": "ਹਰ {n} ਘੰਟਿਆਂ ਬਾਅਦ"
+    },
+    "bedtime": "ਸੌਣ ਤੋਂ ਪਹਿਲਾਂ",
+    "as_needed": "ਸਿਰਫ਼ ਲੋੜ ਪੈਣ 'ਤੇ",
+    "slots": {
+      "morning": "ਸਵੇਰੇ",
+      "afternoon": "ਦੁਪਹਿਰੇ",
+      "night": "ਰਾਤ ਨੂੰ"
+    },
+    "and": "ਅਤੇ",
+    "ask_pharmacist": "ਹਰ ਵਾਰ ਕਿੰਨੀ ਲੈਣੀ ਹੈ, ਆਪਣੇ ਫਾਰਮਾਸਿਸਟ ਨੂੰ ਪੁੱਛੋ"
+  },
+  "route": {
+    "oral": "ਪਾਣੀ ਨਾਲ ਨਿਗਲ ਲਓ",
+    "eye": "ਅੱਖ ਵਿੱਚ ਪਾਓ",
+    "inhalation": "ਇਨਹੇਲਰ ਨਾਲ ਸਾਹ ਰਾਹੀਂ ਅੰਦਰ ਲਓ",
+    "topical": "ਚਮੜੀ 'ਤੇ ਲਗਾਓ"
+  },
+  "notes": {
+    "after_food": "ਖਾਣੇ ਤੋਂ ਬਾਅਦ",
+    "before_food": "ਖਾਣੇ ਤੋਂ ਪਹਿਲਾਂ",
+    "with_food": "ਖਾਣੇ ਨਾਲ",
+    "before_breakfast": "ਨਾਸ਼ਤੇ ਤੋਂ ਪਹਿਲਾਂ",
+    "hour_before_food": "ਖਾਣੇ ਤੋਂ ਇੱਕ ਘੰਟਾ ਪਹਿਲਾਂ",
+    "in_morning": "ਸਵੇਰੇ",
+    "both_eyes": "ਦੋਵੇਂ ਅੱਖਾਂ ਵਿੱਚ ਪਾਓ",
+    "left_eye": "ਖੱਬੀ ਅੱਖ ਵਿੱਚ ਪਾਓ",
+    "right_eye": "ਸੱਜੀ ਅੱਖ ਵਿੱਚ ਪਾਓ",
+    "for_fever": "ਬੁਖਾਰ ਹੋਣ 'ਤੇ",
+    "for_pain": "ਦਰਦ ਹੋਣ 'ਤੇ",
+    "with_milk": "ਦੁੱਧ ਨਾਲ",
+    "with_water": "ਪਾਣੀ ਨਾਲ",
+    "puffs": "ਹਰ ਵਾਰ {n} ਪਫ਼",
+    "puffs_breathless": "ਸਾਹ ਚੜ੍ਹਨ 'ਤੇ {n} ਪਫ਼"
+  },
+  "units": {
+    "tablet": "ਗੋਲੀ",
+    "capsule": "ਕੈਪਸੂਲ",
+    "drop": "ਬੂੰਦ",
+    "puff": "ਪਫ਼"
+  },
+  "duration": {
+    "day": {
+      "one": "{n} ਦਿਨ",
+      "other": "{n} ਦਿਨ"
+    },
+    "week": {
+      "one": "{n} ਹਫ਼ਤਾ",
+      "other": "{n} ਹਫ਼ਤੇ"
+    },
+    "month": {
+      "one": "{n} ਮਹੀਨਾ",
+      "other": "{n} ਮਹੀਨੇ"
+    }
+  },
+  "footer": {
+    "storage": "ਇਸ ਦਵਾਈ ਨੂੰ ਠੰਢੀ, ਸੁੱਕੀ ਥਾਂ 'ਤੇ ਬੱਚਿਆਂ ਦੀ ਪਹੁੰਚ ਤੋਂ ਦੂਰ ਰੱਖੋ।",
+    "refill": "ਦਵਾਈ ਖਤਮ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਨਵੀਂ ਪਰਚੀ ਲਈ ਸਿਹਤ ਕੇਂਦਰ ਜਾਓ।",
+    "disclaimer": "ਇਹ ਡਾਕਟਰੀ ਸਲਾਹ ਨਹੀਂ ਹੈ। ਆਪਣੇ ਫਾਰਮਾਸਿਸਟ ਜਾਂ ਡਾਕਟਰ ਤੋਂ ਪੁਸ਼ਟੀ ਕਰੋ।"
+  }
+}

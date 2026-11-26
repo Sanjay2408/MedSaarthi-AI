@@ -155,6 +155,19 @@ def test_number_check_normalises_native_digits():
     assert numbers("08: 00 और 20: 00") == numbers("08:00 and 20:00") == numbers("8.00 and 20.00")
 
 
+def test_printed_plan_says_who_checked_each_medicine():
+    from src.render import check_line
+
+    signed = {"kind": "pharmacist", "by": "Ravi <b>", "at": "2026-11-26T10:00:00+00:00"}
+    assert check_line("Metformin", signed) == "Metformin: verified by pharmacist Ravi <b> on 2026-11-26"
+    assert "not by a pharmacist" in check_line("Metformin", {"kind": "self"})
+    assert check_line("Metformin", None) == "Metformin: not yet checked by a pharmacist"
+    page = render_html([], Prefs("12h"), checks=[("Metformin", signed), ("Amlodipine", None)])
+    assert "Who checked this" in page and "Ravi &lt;b&gt;" in page and "Ravi <b>" not in page  # escaped
+    long_name = {"kind": "pharmacist", "by": "A very long pharmacist name " * 3 + "रवि", "at": None}
+    assert render_pdf([], Prefs(large_text=True), checks=[("Metformin", long_name)]).startswith(b"%PDF")
+
+
 def test_render_pdf_and_html_modes():
     entries = [ScheduleEntry("Paracetamol", "500 mg", ["08:00", "14:00", "20:00"])]
     for prefs in (Prefs(), Prefs("12h", True, True)):

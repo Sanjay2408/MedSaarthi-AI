@@ -13,6 +13,7 @@ from dataclasses import dataclass
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import mm
+from reportlab.lib.utils import simpleSplit
 from reportlab.pdfgen import canvas
 
 from src.config import load_config
@@ -38,6 +39,16 @@ def timeline(entries: list[ScheduleEntry]) -> list[tuple[str, list[ScheduleEntry
     return sorted(slots.items())
 
 
+def check_line(medicine: str, verification: dict | None) -> str:
+    """Who vouched for one medicine. A printed plan must say this as clearly as the screen does."""
+    if verification and verification.get("kind") == "pharmacist":
+        on = f" on {verification['at'][:10]}" if verification.get("at") else ""
+        return f"{medicine}: verified by pharmacist {verification.get('by') or '(name not recorded)'}{on}"
+    if verification and verification.get("kind") == "self":
+        return f"{medicine}: checked by you, not by a pharmacist"
+    return f"{medicine}: not yet checked by a pharmacist"
+
+
 def _colours(prefs: Prefs):
     if prefs.high_contrast:
         return {"bg": "#000000", "fg": "#FFFFFF", "accent": "#FFD400", "muted": "#FFFFFF", "rule": "#FFFFFF"}
@@ -47,7 +58,8 @@ def _colours(prefs: Prefs):
 # ---------------------------------------------------------------- PDF
 
 def render_pdf(entries: list[ScheduleEntry], prefs: Prefs, patient: str = "",
-               as_needed: list[ScheduleEntry] | None = None) -> bytes:
+               as_needed: list[ScheduleEntry] | None = None,
+               checks: list[tuple[str, dict | None]] | None = None) -> bytes:
     c_ = _colours(prefs)
     base = 16 if prefs.large_text else 11
     buf = io.BytesIO()
@@ -111,6 +123,22 @@ def render_pdf(entries: list[ScheduleEntry], prefs: Prefs, patient: str = "",
             pdf.drawString(24 * mm, y, f"{e.medication}  {e.dose}")
             y -= (base + 1) * 1.6
 
+    if checks:
+        need(base * 3)
+        pdf.setFillColor(colors.HexColor(c_["fg"]))
+        pdf.setFont(bold, base + 1)
+        pdf.drawString(20 * mm, y, "Who checked this")
+        y -= (base + 1) * 1.5
+        for medicine, verification in checks:
+            # Helvetica covers Latin-1 only; anything else becomes "?" rather than a black box
+            line = check_line(medicine, verification).encode("latin-1", "replace").decode("latin-1")
+            for part in simpleSplit(line, font, base, width - 40 * mm):
+                need(base * 1.5)
+                pdf.setFillColor(colors.HexColor(c_["fg"]))
+                pdf.setFont(font, base)
+                pdf.drawString(20 * mm, y, part)
+                y -= base * 1.4
+
     need(base * 4)
     y -= base
     pdf.setFillColor(colors.HexColor(c_["fg"]))
@@ -152,7 +180,8 @@ _SVG = {
 
 def render_html(entries: list[ScheduleEntry], prefs: Prefs, patient: str = "",
                 explanations: list[tuple[str, str, str | None]] | None = None,
-                as_needed: list[ScheduleEntry] | None = None, lang_note: str | None = None) -> str:
+                as_needed: list[ScheduleEntry] | None = None, lang_note: str | None = None,
+                checks: list[tuple[str, dict | None]] | None = None) -> str:
     """explanations: (medicine, English text, translated text or None)."""
     c_ = _colours(prefs)
     size = "22px" if prefs.large_text else "16px"
@@ -172,6 +201,7 @@ def render_html(entries: list[ScheduleEntry], prefs: Prefs, patient: str = "",
         tr_html = f'<p class="tr">{esc(tr).replace(chr(10), "<br>")}</p>' if tr else ""
         expl += f'<article><h3>{esc(name)}</h3>{tr_html}<p>{esc(en).replace(chr(10), "<br>")}</p></article>'
     note = f'<p class="note">{esc(lang_note)}</p>' if lang_note else ""
+    checked = ("<h2>Who checked this</h2><ul>" + "".join(f"<li>{esc(check_line(m, v))}</li>" for m, v in checks) + "</ul>") if checks else ""
     disclaimer = esc(load_config()["safety"]["disclaimer"])
     return f"""<!doctype html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -189,6 +219,7 @@ article{{border:1px solid {c_['rule']};border-radius:8px;padding:.6em 1em;margin
 {''.join(rows)}
 {'<h2>How to take your medicines</h2>' + expl if expl else ''}
 {note}
+{checked}
 <p class="disc">{disclaimer}</p>
 <p class="note">Default times can be moved to fit your day. Ask your pharmacist first.</p>
 </body></html>"""

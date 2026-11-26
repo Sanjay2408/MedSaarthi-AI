@@ -106,7 +106,7 @@ All numbers come from the evaluation scripts in the repository; raw outputs are 
 
 ### Translation
 
-Machine translation with NLLB gave no changed numbers in 52 translations, but digits were written as words in some Kannada, Tamil and Telugu outputs, and an early version made "8 AM" and "8 PM" read the same in Hindi. That motivated the template realiser: its output is deterministic, takes under 0.1 ms, and the hand-written words for part of the day keep morning and night apart. A native-speaker review of the pack wording has not been done and every pack except English is labelled as a draft in the app.
+Machine translation with NLLB gave no changed numbers in 52 translations, but digits were written as words in some Kannada, Tamil and Telugu outputs, and an early version made "8 AM" and "8 PM" read the same in Hindi. That motivated the template realiser: its output is deterministic, takes about 0.1 ms, and the hand-written words for part of the day keep morning and night apart. A native-speaker review of the pack wording has not been done and every pack except English is labelled as a draft in the app.
 
 ### T1: taggers trained here
 
@@ -141,7 +141,7 @@ Synthetic data only; the 25-prescription reference set was written by the author
 
 - **Over-reliance.** A fluent plan can look authoritative. Every plan carries a disclaimer, shows whether a pharmacist verified it, and holds unclear items out of the plan rather than guessing.
 - **Privacy.** Only synthetic prescriptions were used. Photos are never stored, plans are encrypted at rest, the audit log keeps hashes only, saving is opt-in, and deleting an account removes everything. Words read from a prescription are sent to a cloud language model (Groq), and the app says so before the user starts. Real use would require a local model or a data-processing agreement and compliance with India's Digital Personal Data Protection Act 2023.
-- **Fairness across languages.** Quality differs between languages. Hindi, Kannada, Tamil and Telugu packs are labelled as drafts until a native speaker signs them. Embeddings and language models carry the biases of their training text; Lab 1 shows a gender association in word vectors.
+- **Fairness across languages.** Quality differs between languages. The ten Indian-language packs are labelled as drafts until a native speaker signs them. Embeddings and language models carry the biases of their training text; Lab 1 shows a gender association in word vectors.
 - **Prompt injection and misuse.** Text in a prescription is treated as data. Pharmacist accounts need an invite code and cannot review their own prescriptions.
 - **Design for an anxious reader.** Problems are described as the tool's, not the patient's. There are no streaks or points, because a missed dose must never feel like a lost game and nothing should reward taking more.
 
@@ -149,7 +149,7 @@ Synthetic data only; the 25-prescription reference set was written by the author
 
 1. Test with real, ethically approved, anonymised prescriptions and a pharmacist-in-the-loop study with the rubric from the reference papers.
 2. Run T2 and T3 on a GPU and wire the best small model into the pipeline so extraction works offline in a hospital.
-3. Native-speaker review of every language pack, then more languages (Bengali, Marathi, Gujarati, Malayalam, Punjabi and Odia are the planned next group; adding one means writing one JSON pack).
+3. Native-speaker review of every language pack (`python -m src.lang.review <code>` prints each phrase beside the English and records the reviewer's name), then more languages; adding one means writing one JSON pack.
 4. Compare translation providers designed for Indian languages (Sarvam, IndicTrans2) with a human-scored test set.
 5. Voice input and read-out for readers with low literacy, and a vision-language model for photos.
 6. Drug interactions and dose-range checks against a licensed formulary, with the pharmacist always the final check.

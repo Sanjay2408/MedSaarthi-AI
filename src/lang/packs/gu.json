@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "code": "gu",
+  "name": "Gujarati",
+  "native": "ગુજરાતી",
+  "bcp47": "gu-IN",
+  "script": "Gujarati",
+  "mt": {
+    "nllb": "guj_Gujr",
+    "sarvam": "gu-IN"
+  },
+  "review": {
+    "status": "draft",
+    "by": null,
+    "on": null,
+    "drafted_by": "AI model (Claude), 2026-11-26"
+  },
+  "period_words": true,
+  "joiner": ", ",
+  "labels": {
+    "medicine": "દવા",
+    "how_often": "કેટલી વાર",
+    "when": "દવા લેવાનો સમય",
+    "how_long": "કેટલા દિવસ",
+    "how_to_take": "કેવી રીતે લેવી",
+    "note": "ધ્યાન રાખો"
+  },
+  "greeting": {
+    "named": "નમસ્તે {patient}.",
+    "plain": "નમસ્તે."
+  },
+  "periods": {
+    "Morning": "સવારે",
+    "Afternoon": "બપોરે",
+    "Evening": "સાંજે",
+    "Night": "રાત્રે"
+  },
+  "freq": {
+    "once": "દિવસમાં એક વાર",
+    "twice": "દિવસમાં બે વાર",
+    "thrice": "દિવસમાં ત્રણ વાર",
+    "n_times": "દિવસમાં {n} વાર",
+    "every_hours": {
+      "one": "દર કલાકે",
+      "other": "દર {n} કલાકે"
+    },
+    "bedtime": "સૂતા પહેલાં",
+    "as_needed": "જરૂર પડે ત્યારે જ",
+    "slots": {
+      "morning": "સવારે",
+      "afternoon": "બપોરે",
+      "night": "રાત્રે"
+    },
+    "and": "અને",
+    "ask_pharmacist": "દરેક વખતે કેટલી લેવી તે તમારા ફાર્માસિસ્ટને પૂછો"
+  },
+  "route": {
+    "oral": "પાણી સાથે ગળી જાઓ",
+    "eye": "આંખમાં નાખો",
+    "inhalation": "ઇન્હેલરથી શ્વાસ સાથે અંદર લો",
+    "topical": "ચામડી પર લગાવો"
+  },
+  "notes": {
+    "after_food": "જમ્યા પછી",
+    "before_food": "જમતા પહેલાં",
+    "with_food": "જમવા સાથે",
+    "before_breakfast": "નાસ્તા પહેલાં",
+    "hour_before_food": "જમવાના એક કલાક પહેલાં",
+    "in_morning": "સવારે",
+    "both_eyes": "બંને આંખમાં નાખો",
+    "left_eye": "ડાબી આંખમાં નાખો",
+    "right_eye": "જમણી આંખમાં નાખો",
+    "for_fever": "તાવ હોય ત્યારે",
+    "for_pain": "દુખાવો હોય ત્યારે",
+    "with_milk": "દૂધ સાથે",
+    "with_water": "પાણી સાથે",
+    "puffs": "દરેક વખતે {n} પફ",
+    "puffs_breathless": "શ્વાસ ચઢે ત્યારે {n} પફ"
+  },
+  "units": {
+    "tablet": "ગોળી",
+    "capsule": "કેપ્સ્યુલ",
+    "drop": "ટીપું",
+    "puff": "પફ"
+  },
+  "duration": {
+    "day": {
+      "one": "{n} દિવસ",
+      "other": "{n} દિવસ"
+    },
+    "week": {
+      "one": "{n} અઠવાડિયું",
+      "other": "{n} અઠવાડિયાં"
+    },
+    "month": {
+      "one": "{n} મહિનો",
+      "other": "{n} મહિના"
+    }
+  },
+  "footer": {
+    "storage": "આ દવાને ઠંડી, સૂકી જગ્યાએ, બાળકોની પહોંચથી દૂર રાખો.",
+    "refill": "દવા પૂરી થાય તે પહેલાં નવા પ્રિસ્ક્રિપ્શન માટે આરોગ્ય કેન્દ્ર પર જાઓ.",
+    "disclaimer": "આ તબીબી સલાહ નથી. તમારા ફાર્માસિસ્ટ અથવા ડૉક્ટર પાસે ખાતરી કરો."
+  }
+}

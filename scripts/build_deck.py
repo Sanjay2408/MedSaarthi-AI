@@ -109,7 +109,7 @@ def build(out: Path):
     notes(s, "22.7% is from Paper A. The 4-in-5 figure is V1 at 81.7% (147 of 180 fields) against V2 at 100%. All data are synthetic, written by me.")
 
     # 3 principle
-    s = base(prs, "One rule: the model writes language, code writes numbers")
+    s = base(prs, "The model writes words; code writes numbers")
     box(s, Inches(0.7), Inches(1.8), Inches(5.8), Inches(4.6), WHITE, name="llm card")
     text(s, Inches(1.0), Inches(2.0), Inches(5.2), Inches(0.5), "The language model", 24, True, TEAL, "Cambria")
     text(s, Inches(1.0), Inches(2.7), Inches(5.2), Inches(3.5),
@@ -123,7 +123,7 @@ def build(out: Path):
     # 4 pipeline
     s = base(prs, "From photo to plan, with a person in the middle")
     steps = ["Photo or text", "OCR + extraction", "Ground in source", "Safety gate", "Pharmacist or patient confirms", "Schedule by code", "Plan in your language"]
-    x0, w, g = 0.55, 1.62, 0.2
+    x0, w, g = 0.7, 1.55, 0.17
     for i, label in enumerate(steps):
         hot = i == 4
         b = box(s, Inches(x0 + i * (w + g)), Inches(2.5), Inches(w), Inches(1.9), AMBER if hot else WHITE, name=f"step {i + 1}")
@@ -137,7 +137,7 @@ def build(out: Path):
     s = base(prs, "Structured first, language last")
     cd = CategoryChartData()
     cd.categories = ["Template realiser", "gpt-oss-120b (Hindi, Kannada)", "gpt-oss-120b (Tamil, Telugu)"]
-    cd.add_series("Seconds per card", (0.0001, 2, 6.5))
+    cd.add_series("Seconds", (0.0001, 2, 6.5))
     ch = s.shapes.add_chart(XL_CHART_TYPE.BAR_CLUSTERED, Inches(0.7), Inches(1.7), Inches(6.2), Inches(4.3), cd).chart
     ch.has_legend = False
     ch.plots[0].has_data_labels = True
@@ -150,7 +150,7 @@ def build(out: Path):
     ch.value_axis.tick_labels.font.size = Pt(12)
     ch.value_axis.has_major_gridlines = False
     ch.has_title = True
-    ch.chart_title.text_frame.text = "Time to write one patient card"
+    ch.chart_title.text_frame.text = "Seconds to produce the patient wording"
     ch.chart_title.text_frame.paragraphs[0].runs[0].font.size = Pt(16)
     text(s, Inches(7.4), Inches(1.8), Inches(5.3), Inches(4.8),
          ["A JSON language pack holds the sentence frames for each language.",
@@ -158,7 +158,7 @@ def build(out: Path):
           "A digit contract checks every card: digits out must equal digits in.",
           "Machine translation is only for free-text notes, through an ordered chain with answer checks.",
           "Packs are drafts until a native speaker signs them, and the app says so."], 17)
-    notes(s, "Seconds are measured medians from docs/EVAL.md and the language benchmark; the realiser figure is about 0.08 ms. An earlier translation turned 8 AM and 8 PM into the same word, which is why this exists.")
+    notes(s, "Medians from docs/EVAL.md section 11: one batch of about five sentences for the model, one whole card for the realiser (about 0.1 ms). The models kept every number; their failures were mostly medicine names rewritten in the local script. An earlier translation turned 8 AM and 8 PM into the same word, which is why this exists.")
 
     # 6 results
     s = base(prs, "Prompt engineering, measured")
@@ -280,7 +280,7 @@ def build(out: Path):
     # 11 ethics
     s = base(prs, "What this is not")
     items = ["Not a medical device, and not tested with patients.", "Synthetic data only; no real prescription was used.",
-             "Wording in Hindi, Kannada, Tamil and Telugu is a draft until a native speaker signs it.", "Photos are never stored; saved plans are encrypted; deleting an account removes everything.",
+             "Wording in all ten Indian languages is a draft until a native speaker signs it.", "Photos are never stored; saved plans are encrypted; deleting an account removes everything.",
              "No streaks or points: a missed dose must never feel like a lost game."]
     text(s, Inches(0.7), Inches(1.7), Inches(11.9), Inches(4.8), items, 22)
     notes(s, "Say the limits before the jury asks. They are in the report too.")

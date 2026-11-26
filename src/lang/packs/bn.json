@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "code": "bn",
+  "name": "Bengali",
+  "native": "বাংলা",
+  "bcp47": "bn-IN",
+  "script": "Bengali",
+  "mt": {
+    "nllb": "ben_Beng",
+    "sarvam": "bn-IN"
+  },
+  "review": {
+    "status": "draft",
+    "by": null,
+    "on": null,
+    "drafted_by": "AI model (Claude), 2026-11-26"
+  },
+  "period_words": true,
+  "joiner": ", ",
+  "labels": {
+    "medicine": "ওষুধ",
+    "how_often": "কতবার",
+    "when": "ওষুধ খাওয়ার সময়",
+    "how_long": "কতদিন",
+    "how_to_take": "কীভাবে নেবেন",
+    "note": "মনে রাখবেন"
+  },
+  "greeting": {
+    "named": "নমস্কার {patient}।",
+    "plain": "নমস্কার।"
+  },
+  "periods": {
+    "Morning": "সকাল",
+    "Afternoon": "দুপুর",
+    "Evening": "সন্ধ্যা",
+    "Night": "রাত"
+  },
+  "freq": {
+    "once": "দিনে একবার",
+    "twice": "দিনে দুবার",
+    "thrice": "দিনে তিনবার",
+    "n_times": "দিনে {n} বার",
+    "every_hours": {
+      "one": "প্রতি ঘণ্টায়",
+      "other": "প্রতি {n} ঘণ্টা অন্তর"
+    },
+    "bedtime": "ঘুমানোর আগে",
+    "as_needed": "শুধু প্রয়োজন হলে",
+    "slots": {
+      "morning": "সকালে",
+      "afternoon": "দুপুরে",
+      "night": "রাতে"
+    },
+    "and": "এবং",
+    "ask_pharmacist": "প্রতিবার কতটা নিতে হবে, আপনার ফার্মাসিস্টকে জিজ্ঞাসা করুন"
+  },
+  "route": {
+    "oral": "জল দিয়ে গিলে খান",
+    "eye": "চোখে দিন",
+    "inhalation": "ইনহেলার দিয়ে শ্বাসের সঙ্গে টেনে নিন",
+    "topical": "ত্বকে লাগান"
+  },
+  "notes": {
+    "after_food": "খাওয়ার পরে",
+    "before_food": "খাওয়ার আগে",
+    "with_food": "খাবারের সঙ্গে",
+    "before_breakfast": "সকালের জলখাবারের আগে",
+    "hour_before_food": "খাওয়ার এক ঘণ্টা আগে",
+    "in_morning": "সকালে",
+    "both_eyes": "দুই চোখে দিন",
+    "left_eye": "বাঁ চোখে দিন",
+    "right_eye": "ডান চোখে দিন",
+    "for_fever": "জ্বর হলে",
+    "for_pain": "ব্যথা হলে",
+    "with_milk": "দুধের সঙ্গে",
+    "with_water": "জল দিয়ে",
+    "puffs": "প্রতিবার {n} পাফ",
+    "puffs_breathless": "শ্বাসকষ্ট হলে {n} পাফ"
+  },
+  "units": {
+    "tablet": "ট্যাবলেট",
+    "capsule": "ক্যাপসুল",
+    "drop": "ফোঁটা",
+    "puff": "পাফ"
+  },
+  "duration": {
+    "day": {
+      "one": "{n} দিন",
+      "other": "{n} দিন"
+    },
+    "week": {
+      "one": "{n} সপ্তাহ",
+      "other": "{n} সপ্তাহ"
+    },
+    "month": {
+      "one": "{n} মাস",
+      "other": "{n} মাস"
+    }
+  },
+  "footer": {
+    "storage": "ওষুধটি ঠান্ডা, শুকনো জায়গায় শিশুদের নাগালের বাইরে রাখুন।",
+    "refill": "ওষুধ শেষ হওয়ার আগে নতুন প্রেসক্রিপশনের জন্য স্বাস্থ্যকেন্দ্রে যান।",
+    "disclaimer": "এটি চিকিৎসা পরামর্শ নয়। আপনার ফার্মাসিস্ট বা ডাক্তারের কাছে নিশ্চিত করুন।"
+  }
+}
