@@ -26,3 +26,7 @@ outputs/lang_bench.log
 data/synth/
 labs/data/
 labs/out/*.json
+
+# per-student report and lab manual: kept on this computer only
+docs/submission/
+docs/*.docx
