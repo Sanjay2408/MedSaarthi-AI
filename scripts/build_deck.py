@@ -94,7 +94,7 @@ def build(out: Path):
     text(s, Inches(0.9), Inches(3.5), Inches(10.5), Inches(1.2),
          "A guide beside every patient: prescriptions in plain words and in their language, checked by a person before they reach the plan.", 24, False, SAGE)
     text(s, Inches(0.9), Inches(6.2), Inches(11), Inches(0.8),
-         ["CS4204 Generative Models and Prompt Engineering  |  B.Sc (Hons) VII Semester  |  RV University", "Team: Sanjay S G, [member 2], [member 3]"], 14, False, SAGE)
+         ["CS4204 Generative Models and Prompt Engineering  |  B.Sc (Hons) VII Semester  |  RV University", "Team: Sanjay S G, Sachin S, Prajan K"], 14, False, SAGE)
     notes(s, "Open with the problem in one sentence, then the rule that runs through the whole project: the language model handles language, code handles anything that must be exact.")
 
     # 2 problem
